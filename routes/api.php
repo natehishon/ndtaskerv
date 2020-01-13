@@ -16,12 +16,18 @@ use App\Task;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function(){
+    Route::post('signin', 'SignInController');
+    Route::post('signout', 'SignInController');
+    Route::get('me', 'MeController');
 });
 
 
-//Route::get('tasks', 'Api\TaskController@index');
-//Route::get('tasks/{id}', 'Api\TaskController@show');
+Route::get('tasks', 'Api\TaskController@index');
+Route::get('tasks/{id}', 'Api\TaskController@show');
 
 Route::apiResource('tasks', 'Api\TaskController')->only(['index', 'show']);
