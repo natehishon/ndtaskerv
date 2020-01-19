@@ -11356,3 +11356,14 @@ a.text-dark:focus {
   }
 }
 
+.slide-show-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
