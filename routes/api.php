@@ -22,12 +22,14 @@ use App\Task;
 
 Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function(){
     Route::post('signin', 'SignInController');
-    Route::post('signout', 'SignInController');
+    Route::post('signout', 'SignOutController');
     Route::get('me', 'MeController');
 });
 
 
 Route::get('tasks', 'Api\TaskController@index');
 Route::get('tasks/{id}', 'Api\TaskController@show');
+
+Route::get('trackings', 'Api\TaskTrackingController@index');
 
 Route::apiResource('tasks', 'Api\TaskController')->only(['index', 'show']);

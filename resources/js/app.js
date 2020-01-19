@@ -10,22 +10,25 @@ import store from "./store";
 
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://127.0.0.1:8000/api/'
+require('./store/subscriber');
 
+axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
 
 
 window.Vue = require("vue");
 Vue.use(VueRouter);
 
+store.dispatch('auth/attempt', localStorage.getItem('token')).then(() => {
+    const app = new Vue({
+        el: "#app",
+        router,
+        store,
+        components: {
+            index: Index
+        },
 
-
-
-
-const app = new Vue({
-    el: "#app",
-    router,
-    components: {
-        index: Index
-    },
-
+    });
 });
+
+
+

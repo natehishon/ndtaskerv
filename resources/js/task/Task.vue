@@ -6,6 +6,14 @@
                     <h2>{{task.title}}</h2>
                     <article>{{task.content}}</article>
                 </div>
+                <div>
+                    <ul id="example-1">
+                        <li v-for="sub in subTasks">
+                            {{ sub.title }}<br>
+                            {{ sub.content }}
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="col-md-4 pb-4">
@@ -26,12 +34,14 @@
         data() {
             //return an object
             return {
-                task: null
+                task: null,
+                subTasks: null
             };
         },
         created() {
-            axios.get(`/api/tasks/${this.$route.params.id}`).then(response => {
+            axios.get(`tasks/${this.$route.params.id}`).then(response => {
                 this.task = response.data.data;
+                this.subTasks = response.data.data.sub_task;
             });
         }
     }

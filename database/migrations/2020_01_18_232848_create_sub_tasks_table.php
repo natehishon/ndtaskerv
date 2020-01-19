@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTaskTrackingsTable extends Migration
+class CreateSubTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateTaskTrackingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('task_trackings', function (Blueprint $table) {
+        Schema::create('sub_tasks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
             $table->unsignedBigInteger('task_id')->index();
-//            $table->foreign('task_id')->references('id')->on('tasks');
-            $table->unsignedBigInteger('user_id')->index();
-//            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('title');
+            $table->text('content');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +29,6 @@ class CreateTaskTrackingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('task_trackings');
+        Schema::dropIfExists('sub_tasks');
     }
 }

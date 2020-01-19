@@ -6,7 +6,7 @@
                 <div class="col d-flex align-items-stretch" v-for="(task, column) in tasksInRow(row)"
                      :key="'row' + row + column">
                     <task-list-item
-                            v-bind="task"
+                            v-bind="task.tasks"
                     ></task-list-item>
                 </div>
                 <div class="col" v-for="p in placeholderInRow(row)" :key="'placeholder' + row + p"></div>
@@ -18,7 +18,7 @@
 
 <script>
 
-    import TaskListItem from './TaskListItem';
+    import TaskListItem from './TaskTrackingListItem';
     import axios from 'axios';
 
     export default {
@@ -47,22 +47,10 @@
         },
         created() {
             this.loading = true;
-            // setTimeout(() => {
-            //     this.tasks = [
-            //         {
-            //             id: 1,
-            //             title: "task 1",
-            //             content: "the first task"
-            //         },
-            //         {
-            //             id: 2,
-            //             title: "task 2",
-            //             content: "the second task"
-            //         }
-            //     ],
-            //         this.loading = false;
-            // }, 2000);
-            const request = axios.get("tasks").then(response => {
+
+            const request = axios.get("trackings").then(response => {
+                console.log("data yo");
+                console.log(response.data.data);
                 this.tasks = response.data.data;
                 console.log(this.tasks);
                 this.loading = false;

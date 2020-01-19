@@ -60,6 +60,13 @@ class User extends Authenticatable implements JWTSubject
 
     public function taskTrackings()
     {
-        return $this->hasMany(TaskTracking::class);
+        return $this->hasMany(TaskTracking::class, 'user_id');
     }
+
+    public function subTaskTrackings()
+    {
+        return $this->hasMany(SubTaskTracking::class, 'user_id');
+    }
+
+
 }

@@ -8,6 +8,10 @@ class Task extends Model
 {
     public function taskTrackings()
     {
-        return $this->hasMany(TaskTracking::class);
+        return $this->hasMany(TaskTracking::class, 'task_id');
+    }
+
+    public function subTask() {
+        return $this->hasMany(SubTask::class, 'task_id');
     }
 }

@@ -1,7 +1,6 @@
 <template>
 
     <form @submit.prevent="submit">
-        {{form}}
         <div>
             <label for="email"></label>
             <input type="text" name="email" id="email" v-model="form.email">
@@ -23,7 +22,8 @@
 
 <script>
 
-    import axios from 'axios';
+    import { mapActions } from 'vuex';
+
     export default {
         name: 'signin',
         data() {
@@ -39,11 +39,17 @@
 
         },
         methods: {
-            async submit(){
-                console.log("calling");
-                let response = axios.post('auth/signin', this.form)
-
-                console.log(response);
+            ...mapActions({
+                signIn: 'auth/signIn'
+            }),
+            submit(){
+                this.signIn(this.form).then(() => {
+                    this.$router.replace({
+                        name: 'home'
+                    })
+                }).catch(err => {
+                    console.log(err);
+                });
             }
         }
     }
