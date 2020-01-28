@@ -5,6 +5,8 @@ import Task from "./task/Task"
 import SignIn from "./auth/SignIn"
 import store from "./store/index"
 import TaskTrackings from "./taskTrackings/TaskTrackings";
+import TaskTracking from "./taskTracking/TaskTracking";
+import CreateTask from "./admin/CreateTask";
 
 const routes = [
     {
@@ -37,6 +39,32 @@ const routes = [
         path: "/task/:id",
         component: Task,
         name: "task",
+        beforeEnter: (to, from, next) => {
+            if(!store.getters['auth/authenticated']){
+                return next({
+                    name: 'signin'
+                })
+            }
+            next()
+        }
+    },
+    {
+        path: "/mytask/:id",
+        component: TaskTracking,
+        name: "mytask",
+        beforeEnter: (to, from, next) => {
+            if(!store.getters['auth/authenticated']){
+                return next({
+                    name: 'signin'
+                })
+            }
+            next()
+        }
+    },
+    {
+        path: "/new-task",
+        component: CreateTask,
+        name: "newTask",
         beforeEnter: (to, from, next) => {
             if(!store.getters['auth/authenticated']){
                 return next({

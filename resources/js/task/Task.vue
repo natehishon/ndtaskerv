@@ -5,6 +5,8 @@
                 <div class="card-body">
                     <h2>{{task.title}}</h2>
                     <article>{{task.content}}</article>
+
+                    <img v-bind:src="task.imagePath + task.imageUrl"/>
                 </div>
                 <div class="slide-show-container">
 

@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
+
+    protected $appends = [
+        'imagePath'
+    ];
+
     public function taskTrackings()
     {
         return $this->hasMany(TaskTracking::class, 'task_id');
@@ -14,4 +19,10 @@ class Task extends Model
     public function subTask() {
         return $this->hasMany(SubTask::class, 'task_id');
     }
+
+    public function getImagePathAttribute(){
+        return 'https://ndtask.s3.us-east-2.amazonaws.com/taskImage/'.$this->id .'/';
+    }
+
+
 }

@@ -29,7 +29,9 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function(){
 
 Route::get('tasks', 'Api\TaskController@index');
 Route::get('tasks/{id}', 'Api\TaskController@show');
+Route::post('tasks', 'Api\TaskController@uploadImage');
 
 Route::get('trackings', 'Api\TaskTrackingController@index');
+Route::get('trackings/{id}', 'Api\TaskTrackingController@show');
 
 Route::apiResource('tasks', 'Api\TaskController')->only(['index', 'show']);

@@ -8,10 +8,18 @@ use App\Http\Resources\TaskShowResource;
 use App\Task;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class TaskController extends Controller
 {
+
+
+    protected $updatable = [
+        '',
+        ''
+    ];
+
     public function index()
     {
 
@@ -33,7 +41,40 @@ class TaskController extends Controller
             "user" => $user,
             "userModel" => $userModel
         ];
-//        return new TaskShowResource(Task::findOrFail($id)->with('subTask'));
+
+    }
+
+    public function store(){
+
+
+
+    }
+
+    public function uploadImage(){
+
+        //validator
+
+        $task = new Task();
+
+        $task->title = request()->input('title');
+        $task->content = request()->input('title');
+
+        $task->save();
+
+        $file = request()->file('image');
+
+        $path = Storage::disk('s3')->put('taskImage/'.$task->id, $file);
+        $storageName = basename($path);
+
+        $task->imageUrl = $storageName;
+        $task->save();
+
+//        Storage::putFileAs(
+//            'taskImage/'.$task->id, request()->file('image'), request()->file('image')->getClientOriginalName()
+//        );
+        return [
+            'data' => $task
+        ];
 
     }
 }

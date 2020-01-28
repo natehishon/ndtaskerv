@@ -47,21 +47,7 @@
         },
         created() {
             this.loading = true;
-            // setTimeout(() => {
-            //     this.tasks = [
-            //         {
-            //             id: 1,
-            //             title: "task 1",
-            //             content: "the first task"
-            //         },
-            //         {
-            //             id: 2,
-            //             title: "task 2",
-            //             content: "the second task"
-            //         }
-            //     ],
-            //         this.loading = false;
-            // }, 2000);
+
             const request = axios.get("tasks").then(response => {
                 this.tasks = response.data.data;
                 console.log(this.tasks);

@@ -14,9 +14,12 @@ require('./store/subscriber');
 
 axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
 
+import CKEditor from '@ckeditor/ckeditor5-vue/dist/ckeditor';
+
 
 window.Vue = require("vue");
 Vue.use(VueRouter);
+Vue.use( CKEditor );
 
 store.dispatch('auth/attempt', localStorage.getItem('token')).then(() => {
     const app = new Vue({

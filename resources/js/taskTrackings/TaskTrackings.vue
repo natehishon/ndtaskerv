@@ -6,7 +6,7 @@
                 <div class="col d-flex align-items-stretch" v-for="(task, column) in tasksInRow(row)"
                      :key="'row' + row + column">
                     <task-list-item
-                            v-bind="task.tasks"
+                            v-bind="task"
                     ></task-list-item>
                 </div>
                 <div class="col" v-for="p in placeholderInRow(row)" :key="'placeholder' + row + p"></div>

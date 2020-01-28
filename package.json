@@ -10,6 +10,11 @@
     "watch-poll": "npm run watch -- --watch-poll"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^16.0.0",
+    "@ckeditor/ckeditor5-easy-image": "^16.0.0",
+    "@ckeditor/ckeditor5-upload": "^16.0.0",
+    "@ckeditor/ckeditor5-vue": "^1.0.1",
+    "@fortawesome/fontawesome-free": "^5.12.0",
     "@vue/cli-service-global": "^4.1.2",
     "register-service-worker": "^1.6.2",
     "vue-coverflow": "^2.2.0",
