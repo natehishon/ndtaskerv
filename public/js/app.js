@@ -99586,7 +99586,7 @@ __webpack_require__(/*! vue2-admin-lte/src/lib/script */ "./node_modules/vue2-ad
 
 __webpack_require__(/*! ./store/subscriber */ "./resources/js/store/subscriber.js");
 
-axios__WEBPACK_IMPORTED_MODULE_4___default.a.defaults.baseURL = 'http://127.0.0.1:8000/api/';
+axios__WEBPACK_IMPORTED_MODULE_4___default.a.defaults.baseURL = 'https://evening-forest-04369.herokuapp.com/api/';
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
