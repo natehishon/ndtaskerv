@@ -9,7 +9,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ secure_asset('js/app.js') }}" defer></script>
 
 
     </head>
