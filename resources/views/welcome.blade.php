@@ -7,8 +7,8 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link href="{{secure_asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap")'}}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
         <script src="{{ secure_asset('js/app.js') }}" defer></script>
 
 
