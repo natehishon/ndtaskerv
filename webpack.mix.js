@@ -27,7 +27,7 @@ mix.webpackConfig({
             handleFetch: true,
             dynamicUrlToDependencies: { //you should add the path to your blade files here so they can be cached
                 //and have full support for offline first (example below)
-                '/': ['resources/views/.blade.php'],
+                '/': ['resources/views/welcome.blade.php'],
                 // '/posts': ['resources/views/posts.blade.php']
             },
             staticFileGlobsIgnorePatterns: [/\.map$/, /mix-manifest\.json$/, /manifest\.json$/, /service-worker\.js$/],
