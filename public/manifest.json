@@ -1,17 +1,15 @@
 {
-  "dir" : "ltr",
-  "lang" : "en",
-  "name" : "Laravel",
-  "scope" : "/",
-  "display" : "browser",
-  "start_url" : "https://evening-forest-04369.herokuapp.com/",
-  "short_name" : "Laravel",
-  "theme_color" : "transparent",
-  "description" : "",
-  "orientation" : "any",
-  "background_color" : "transparent",
-  "related_applications" : "",
-  "prefer_related_applications" : "false",
-  "icons" : [],
-  "generated" : "true"
+  "short_name": "pathfinder",
+  "name": "pathfinder",
+  "icons": [
+    {
+      "src": "",
+      "sizes": "",
+      "type": ""
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }
