@@ -1,36 +1,58 @@
 <template>
 
 
-    <div v-if="authenticated">
-        <div>
+    <div v-if="authenticated" class="side-bar">
 
-            <p class="side-bar-title">Things</p>
 
-            <ul class="side-bar-menu">
+        <div class="mt-3">
 
-                <li v-for="link in sideBarLinks">
-                    <i v-bind:class="link.icon"></i>
-                    <router-link class="nav-brand mr-auto router-link" :to="{name: link.route}">{{link.title}}
-                    </router-link>
-                </li>
+            <div class="side-bar-title">
+                <span >things</span>
+            </div>
 
-            </ul>
+            <b-nav vertical class="bd-sidenav">
+                <b-nav-item>
+                    <router-link class="router-link" :to="{name: 'home'}">profile</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                    <router-link class="router-link" :to="{name: 'home'}">tasks</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                    <router-link class="router-link" :to="{name: 'home'}">my tasks</router-link>
+                </b-nav-item>
 
+            </b-nav>
         </div>
 
-        <div class="mt-2" v-if="user.isAdmin">
 
-            <p class="side-bar-title">Admin Things</p>
+        <div v-if="user.isAdmin">
 
-            <ul class="side-bar-menu">
+            <div class="side-bar-title">
+                <span >admin things</span>
+            </div>
 
-                <li v-for="link in adminSideBarLinks">
-                    <i v-bind:class="link.icon"></i>
-                    <router-link class="nav-brand mr-auto router-link" :to="{name: link.route}">{{link.title}}
-                    </router-link>
-                </li>
+            <b-nav vertical class="">
+                <b-nav-item>
+                    <router-link class="router-link" :to="{name: 'newTask'}">New Task</router-link>
+                </b-nav-item>
+<!--                <b-nav-item>-->
+<!--                    <router-link :to="{name: 'home'}">Tasks</router-link>-->
+<!--                </b-nav-item>-->
+                <!--                <b-nav-item>Link</b-nav-item>-->
+                <!--                <b-nav-item>Another Link</b-nav-item>-->
+                <!--                <b-nav-item disabled>Disabled</b-nav-item>-->
+            </b-nav>
 
-            </ul>
+<!--            <ul class="side-bar-menu">-->
+
+
+<!--                <li v-for="link in adminSideBarLinks">-->
+<!--                    <i v-bind:class="link.icon"></i>-->
+<!--                    <router-link class="nav-brand mr-auto router-link" :to="{name: link.route}">{{link.title}}-->
+<!--                    </router-link>-->
+<!--                </li>-->
+
+<!--            </ul>-->
 
         </div>
     </div>
@@ -81,3 +103,40 @@
     };
 
 </script>
+
+<style>
+
+    .side-bar{
+        /*border-right: 1px solid rgba(0,0,0,.1);*/
+        height: 100%
+    }
+
+    .side-bar-title{
+        text-align: left;
+        width: 100%;
+        margin: 10px 0 0;
+        font-weight: 900;
+        font-size: 16px;
+        padding: .25rem 0.5rem;
+    }
+
+    .nav-link{
+        padding: .25rem 0.5rem;
+    }
+
+    .router-link {
+        display: block;
+        /*padding: .25rem 1.5rem;*/
+        font-size: 90%;
+        color: rgba(0, 0, 0, .65);
+    }
+
+    .router-link:hover{
+        text-decoration: none;
+        font-weight: 900;
+        color: black;
+    }
+
+
+
+</style>

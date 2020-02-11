@@ -23,9 +23,13 @@ class TaskController extends Controller
     public function index()
     {
 
-        return TaskIndexResource::collection(
-            Task::all()
-        );
+
+        return [
+            "data" => Task::query()->with('subTask')->get(),
+        ];
+//        return TaskIndexResource::collection(
+//            Task::all()
+//        );
 
     }
 
@@ -57,7 +61,7 @@ class TaskController extends Controller
         $task = new Task();
 
         $task->title = request()->input('title');
-        $task->content = request()->input('title');
+        $task->content = request()->input('content');
 
         $task->save();
 

@@ -35,19 +35,19 @@ const routes = [
             next()
         }
     },
-    {
-        path: "/task/:id",
-        component: Task,
-        name: "task",
-        beforeEnter: (to, from, next) => {
-            if(!store.getters['auth/authenticated']){
-                return next({
-                    name: 'signin'
-                })
-            }
-            next()
-        }
-    },
+    // {
+    //     path: "/task/:id",
+    //     component: Task,
+    //     name: "task",
+    //     beforeEnter: (to, from, next) => {
+    //         if(!store.getters['auth/authenticated']){
+    //             return next({
+    //                 name: 'signin'
+    //             })
+    //         }
+    //         next()
+    //     }
+    // },
     {
         path: "/mytask/:id",
         component: TaskTracking,
@@ -84,6 +84,7 @@ const routes = [
 const router = new VueRouter({
     routes,
     mode: "history",
+    linkExactActiveClass: 'is-active',
 });
 
 export default router;

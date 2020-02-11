@@ -1,6 +1,8 @@
 <template>
 
     <div class="container-fluid">
+
+
         <form enctype="multipart/form-data">
             <div class="row">
                 <div class="col-xs-12">
@@ -11,6 +13,7 @@
                         <input type="text" class="form-control"
                         v-model="newTask.title">
                     </div>
+
 
                     <div class="form-group">
                         <label>Content</label>
@@ -23,6 +26,11 @@
                     </div>
 
                     <button class="btn btn-secondary btn-block" @click="check($event)">Save</button>
+
+                    <div class="form-group">
+                        <label>edit sub tasks</label>
+                    </div>
+
                 </div>
             </div>
         </form>
@@ -35,10 +43,18 @@
 
     import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
     import axios from 'axios';
+    // import VAButton from 'vue2-admin-lte/src/components/VAButton.vue'
+    // import Modal from 'vue2-admin-lte/src/components/Modal';
     // import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 
 
     export default {
+
+        components: {
+            // 'va-button': VAButton,
+            // 'va-modal': Modal
+        },
+
         data() {
             return {
                 // file: "",
@@ -48,11 +64,13 @@
                     content: '<p>Content of the editor.</p>',
                 },
                 file: "",
+                yo: "yo",
                 editor: ClassicEditor,
 
                 editorConfig: {
                     // plugins: [ EasyImage ]
-                }
+                },
+                showLargeModal: false,
             }
         },
         methods: {
@@ -86,6 +104,7 @@
 
             }
         }
+
 
     }
 
