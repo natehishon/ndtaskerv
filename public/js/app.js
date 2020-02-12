@@ -100233,6 +100233,15 @@ Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_7__["IconsPlugin"]);
 Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_7__["ModalPlugin"]);
 Vue.use(vueperslides__WEBPACK_IMPORTED_MODULE_4__["VueperSlides"]);
 Vue.use(vueperslides__WEBPACK_IMPORTED_MODULE_4__["VueperSlide"]);
+var prod = "development" === 'production';
+var shouldSW = 'serviceWorker' in navigator && prod;
+
+if (shouldSW) {
+  navigator.serviceWorker.register('/service-worker.js').then(function () {
+    console.log("Service Worker Registered!");
+  });
+}
+
 _store__WEBPACK_IMPORTED_MODULE_3__["default"].dispatch('auth/attempt', localStorage.getItem('token')).then(function () {
   var app = new Vue({
     el: "#app",
