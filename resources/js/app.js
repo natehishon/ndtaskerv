@@ -35,6 +35,14 @@ Vue.use(ModalPlugin);
 Vue.use(VueperSlides);
 Vue.use(VueperSlide);
 
+const prod = process.env.NODE_ENV === 'production'
+const shouldSW = 'serviceWorker' in navigator && prod
+if (shouldSW) {
+    navigator.serviceWorker.register('/service-worker.js').then(() => {
+        console.log("Service Worker Registered!")
+    })
+}
+
 store.dispatch('auth/attempt', localStorage.getItem('token')).then(() => {
     const app = new Vue({
         el: "#app",

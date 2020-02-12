@@ -14,6 +14,8 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
 
+const SWPrecache = require('sw-precache-webpack-plugin')
+
 
 var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 mix.webpackConfig({
@@ -43,6 +45,16 @@ mix.webpackConfig({
                 }
             ],
             // importScripts: ['./js/push_message.js']
+        }),
+        new SWPrecache({
+            cacheId: 'dc-covers',
+            filepath: 'service-worker.js',
+            staticFileGlobs: [
+                'index.html',
+                'manifest.json',
+                'dist/*.{js,css}'
+            ],
+            stripPrefix: '/'
         })
     ]
 });
