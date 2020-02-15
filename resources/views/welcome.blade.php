@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ s('css/app.css') }}">
         <script src="{{ ('js/app.js') }}" defer></script>
         <link rel="manifest" href="./manifest.json"/>
 
