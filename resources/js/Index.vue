@@ -16,12 +16,9 @@
 <!--            </div>-->
 <!--        </div>-->
 
-        <b-container fluid v-if="authenticated" style="height: 100%;">
+        <b-container fluid v-if="authenticated">
             <b-row>
-                <b-col cols="2" style="border-right: 1px solid rgba(0,0,0,.1); height: 100vh;">
-                    <Sidebar class="sidebar"></Sidebar>
-                </b-col>
-                <b-col cols="10">
+                <b-col cols="12" class="router-view" >
                     <router-view></router-view>
                 </b-col>
             </b-row>

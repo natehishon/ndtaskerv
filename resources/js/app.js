@@ -15,11 +15,16 @@ import axios from "axios";
 
 require('./store/subscriber');
 
-axios.defaults.baseURL = 'https://evening-forest-04369.herokuapp.com/api/';
+// axios.defaults.baseURL = 'https://evening-forest-04369.herokuapp.com/api/';
+axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
 
 import CKEditor from '@ckeditor/ckeditor5-vue/dist/ckeditor';
 
 import { BootstrapVue, IconsPlugin, ModalPlugin } from 'bootstrap-vue'
+
+// import vClickOutside from 'v-click-outside'
+import Editor from 'ckeditor';
+
 
 // Install BootstrapVue
 
@@ -34,6 +39,7 @@ Vue.use(IconsPlugin);
 Vue.use(ModalPlugin);
 Vue.use(VueperSlides);
 Vue.use(VueperSlide);
+Vue.use(Editor);
 
 const prod = process.env.NODE_ENV === 'production'
 const shouldSW = 'serviceWorker' in navigator && prod

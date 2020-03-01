@@ -1,12 +1,69 @@
 <template>
     <!--    <div class="row">-->
     <!--        <div class="col-xs-12">-->
+
+<!--    <b-container fluid v-if="authenticated" no-gutters="true" style="height: 100%;">
+            <b-row no-gutters="true">
+                <b-col cols="12" sm="2" lg="2"  class="side-bar-column">
+                    <Sidebar class="sidebar"></Sidebar>
+                </b-col>
+                <b-col cols="12" sm="10"  lg="10" class="router-view" >
+                    <router-view></router-view>
+                </b-col>
+            </b-row>
+        </b-container>-->
     <div class="card">
         <div class="card-body">
-            <h2>{{task.title}}</h2>
-            <article v-html="task.content"></article>
+            <b-row>
+                <b-col cols="12">
+                    <h2>{{task.title}}</h2>
+                    <article v-html="task.content"></article>
 
-            <img v-bind:src="task.imagePath + task.imageUrl" style="width: 200px;"/>
+
+
+                    <div v-for="(tag, index) in task.task_tag">
+
+                        <b-button variant="light" v-b-popover.hover.click.blur.top="tag.content"
+                                  title="Helper Tag">
+                            {{tag.title}}
+                        </b-button>
+                        <!--                {{tag.title}}-->
+                        <!--                {{tag.content}}-->
+                        <!--                {{index}}-->
+                    </div>
+                </b-col>
+                <b-col cols="6">
+                </b-col>
+            </b-row>
+
+            <b-row>
+                <b-col cols="12">
+                    <div class="slides-container">
+                        <vueper-slides :transitionSpeed="1" :infinite="false" :touchable="false" fractions progress
+                                       ref="myVueperSlides">
+                            <vueper-slide v-for="(slide, i) in subTasks" :key="i" :title="slide.title">
+                                <template v-slot:content>
+                                    <div class="vueperslide__content-wrapper">
+                                        <strong>{{ slide.title }}</strong>
+                                        <img v-bind:src="slide.cover"  style="width: 100px; height: 100px;" alt=""><br>
+                                        <p>{{slide.description}}</p>
+                                    </div>
+                                </template>
+                                <!--                            <template v-slot:bullet="{ active, slideIndex, index }">-->
+                                <!--                                <i class="icon">{{ active ? 'check_circle' : 'radio_button_unchecked' }}</i>-->
+                                <!--                            </template>-->
+                            </vueper-slide>
+                            <template v-slot:bullet="{ active, slideIndex, index }" v-bind:class="{ active: isActive }">
+                                <i class="icon" v-bind:class="{ 'bullet-active': active }">{{index}}</i class="icon">
+                                <!--                    <span>{{index}}</span>-->
+                            </template>
+                        </vueper-slides>
+                    </div>
+                </b-col>
+            </b-row>
+
+
+<!--            <img v-bind:src="task.imagePath + task.imageUrl" style="width: 200px;"/>-->
         </div>
 
 
@@ -17,27 +74,8 @@
 
 
         <!--                <button @click="$refs.myVueperSlides.goToSlide(4, { animation: false })">Next</button>-->
-        <div class="slides-container">
-            <vueper-slides :transitionSpeed="1" :infinite="false" :touchable="false" fractions progress
-                           ref="myVueperSlides">
-                <vueper-slide v-for="(slide, i) in subTasks" :key="i" :title="slide.title">
-                    <template v-slot:content>
-                        <div class="vueperslide__content-wrapper">
-                            <strong>{{ slide.title }}</strong>
-                            <img v-bind:src="slide.cover"  style="width: 100px; height: 100px;" alt=""><br>
-                            <p>{{slide.description}}</p>
-                        </div>
-                    </template>
-                    <!--                            <template v-slot:bullet="{ active, slideIndex, index }">-->
-                    <!--                                <i class="icon">{{ active ? 'check_circle' : 'radio_button_unchecked' }}</i>-->
-                    <!--                            </template>-->
-                </vueper-slide>
-                <template v-slot:bullet="{ active, slideIndex, index }" v-bind:class="{ active: isActive }">
-                    <i class="icon" v-bind:class="{ 'bullet-active': active }">{{index}}</i class="icon">
-<!--                    <span>{{index}}</span>-->
-                </template>
-            </vueper-slides>
-        </div>
+
+
 
 
     </div>

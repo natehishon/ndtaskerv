@@ -16,27 +16,20 @@ class TaskController extends Controller
 
 
     protected $updatable = [
-        '',
-        ''
     ];
 
     public function index()
     {
-
-
         return [
-            "data" => Task::query()->with('subTask')->get(),
+            "data" => Task::query()->with('subTask')->with('TaskTag')->get(),
         ];
-//        return TaskIndexResource::collection(
-//            Task::all()
-//        );
 
     }
 
     public function show($id)
     {
 
-        $task = Task::query()->with('subTask')->findOrFail($id);
+        $task = Task::query()->with('subTask')->with('TaskTag')->findOrFail($id);
         $user = JWTAuth::user();
         $userModel = User::query()->with('taskTrackings.tasks')->findOrFail($user->id);
 

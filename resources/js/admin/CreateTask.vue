@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container-fluid">
+<!--    <div class="container-fluid">-->
 
 
         <form enctype="multipart/form-data">
@@ -17,6 +17,7 @@
 
                     <div class="form-group">
                         <label>Content</label>
+
                         <ckeditor :editor="editor" v-model="newTask.content" :config="editorConfig"></ckeditor>
                     </div>
 
@@ -34,7 +35,7 @@
                 </div>
             </div>
         </form>
-    </div>
+<!--    </div>-->
 
 
 </template>

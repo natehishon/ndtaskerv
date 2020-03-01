@@ -4,7 +4,7 @@
 
 
             <b-card class="mt-5"
-                    header="way finder log in"
+                    header="wayfinder log in"
                     header-tag="header"
             >
 

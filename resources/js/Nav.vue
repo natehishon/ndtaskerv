@@ -3,7 +3,7 @@
         <template v-if="authenticated">
 
             <span class="nav-brand mr-auto">{{user.name}}</span>
-            <a class="btn nav-button" @click="signOut">sign Out</a>
+            <a class="btn nav-button" @click="signOut">sign out</a>
         </template>
         <template v-else>
             <router-link class="nav-brand mr-auto" :to="{name: 'signin'}">sign In</router-link>

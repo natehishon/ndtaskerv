@@ -1,21 +1,36 @@
 <template>
-    <div class="m-3 tasks">
+    <div class="tasks">
         <div v-if="loading">loading..</div>
         <div v-else>
-            <div class="row mr-3 ml-3 mb-3">
-                <h2>wayfinder board</h2>
-            </div>
-            <div class="row mt-4 mb-4" v-for="row in rows" :key="row">
-                <div class="col d-flex align-items-stretch" v-for="(task, column) in tasksInRow(row)"
-                     :key="'row' + row + column" @click="$bvModal.show(task.id)">
-                    <task-list-item class="task-list-item"
-                            v-bind="task"
-                    ></task-list-item>
-                    <b-modal v-bind:id="task.id" size="xl" hide-footer>
-                    <Task :task="task"></Task>
-                    </b-modal>
-                </div>
-                <div class="col" v-for="p in placeholderInRow(row)" :key="'placeholder' + row + p"></div>
+
+            <b-row >
+                <b-col cols="12">
+                    <h2>wayfinder board</h2>
+                </b-col>
+            </b-row>
+
+            <b-row class="task-type-container">
+                <b-col cols="3" class="" v-for="sort in sorters">
+
+                    <span>{{sort.title}}</span>
+<!--                    <div >-->
+<!--                        <h2>{{sort.title}}</h2>-->
+<!--                    </div>-->
+
+
+                </b-col>
+            </b-row>
+
+<!--                <div class="col d-flex align-items-stretch" v-for="(task, column) in tasksInRow(row)"-->
+<!--                     :key="'row' + row + column" @click="$bvModal.show(task.id)">-->
+<!--                    <task-list-item class="task-list-item"-->
+<!--                            v-bind="task" :task="task"-->
+<!--                    ></task-list-item>-->
+<!--                    <b-modal v-bind:id="task.id" size="xl" hide-footer>-->
+<!--                    <Task :task="task"></Task>-->
+<!--                    </b-modal>-->
+<!--                </div>-->
+<!--                <div class="col" v-for="p in placeholderInRow(row)" :key="'placeholder' + row + p"></div>-->
             </div>
         </div>
 
@@ -37,7 +52,25 @@
             return {
                 tasks: null,
                 loading: null,
-                columns: 3
+                columns: 3,
+                sorters: [
+                    {
+                        title: "today's things",
+                        value: "today"
+                    },
+                    {
+                        title: "future things to look at",
+                        value: "future"
+                    },
+                    {
+                        title: "completed things ",
+                        value: "past"
+                    },
+                    {
+                        title: "other things ",
+                        value: "other"
+                    },
+                ]
             }
         },
         computed: {
@@ -68,9 +101,19 @@
 
 <style>
 
+    .tasks{
+        margin: 1rem 0;
+    }
 
     .task-list-item:hover{
         cursor: move;
+    }
+
+    .task-type-container{
+        max-width: 80%;
+        margin: 0 auto;
+        display: flex;
+        /*flex*/
     }
 
 </style>
