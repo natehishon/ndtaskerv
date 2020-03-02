@@ -13,7 +13,7 @@ class CreateTaskTagTask extends Migration
      */
     public function up()
     {
-        Schema::create('ndtask.task_tag_task', function (Blueprint $table) {
+        Schema::create('task_tag_task', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('taskID')->index();
             $table->unsignedInteger('taskTagID')->index();
