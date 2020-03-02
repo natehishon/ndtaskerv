@@ -9,8 +9,8 @@
                 </b-col>
             </b-row>
 
-            <b-row class="task-type-container">
-                <b-col cols="3" class="" v-for="sort in sorters">
+            <div class="task-type-container">
+                <div class="type-column" v-for="sort in sorters">
 
                     <span>{{sort.title}}</span>
 <!--                    <div >-->
@@ -18,8 +18,8 @@
 <!--                    </div>-->
 
 
-                </b-col>
-            </b-row>
+                </div>
+            </div>
 
 <!--                <div class="col d-flex align-items-stretch" v-for="(task, column) in tasksInRow(row)"-->
 <!--                     :key="'row' + row + column" @click="$bvModal.show(task.id)">-->
@@ -99,7 +99,7 @@
 
 </script>
 
-<style>
+<style lang="scss">
 
     .tasks{
         margin: 1rem 0;
@@ -110,10 +110,38 @@
     }
 
     .task-type-container{
-        max-width: 80%;
-        margin: 0 auto;
-        display: flex;
-        /*flex*/
+        margin-top: 30px;
+        /*max-width: 90%;*/
+        /*margin: 0 auto;*/
+        display: -webkit-box;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        /*justify-content: space-evenly;*/
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+
+
+        .type-column{
+            background-color: blue;
+            width: 200px;
+            /*width: 20%;*/
+            /*flex-grow: 1;*/
+            margin: 0 5px;
+        }
     }
+
+
+
+    @media only screen and (min-width: 720px) {
+        .task-type-container{
+
+            display: flex;
+
+            .type-column{
+                background-color: red;
+            }
+        }
+    }
+
 
 </style>
