@@ -119,6 +119,7 @@
         /*justify-content: space-evenly;*/
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
 
 
         .type-column{
@@ -127,6 +128,7 @@
             /*width: 20%;*/
             /*flex-grow: 1;*/
             margin: 0 5px;
+            scroll-snap-align: start;
         }
     }
 
