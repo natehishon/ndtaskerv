@@ -34,4 +34,6 @@ Route::post('tasks', 'Api\TaskController@uploadImage');
 Route::get('trackings', 'Api\TaskTrackingController@index');
 Route::get('trackings/{id}', 'Api\TaskTrackingController@show');
 
+Route::get('jargons/{title}', 'Api\JargonController@getByTitle');
+
 Route::apiResource('tasks', 'Api\TaskController')->only(['index', 'show']);
