@@ -36,4 +36,10 @@ Route::get('trackings/{id}', 'Api\TaskTrackingController@show');
 
 Route::get('jargons/{title}', 'Api\JargonController@getByTitle');
 
+Route::group(['prefix' => 'search'], function(){
+    Route::post('user-search', 'Api\SearchController@userSearch');
+    Route::post('user-choice', 'Api\SearchController@userChoice');
+    Route::post('history-choice', 'Api\SearchController@historyChoice');
+});
+
 Route::apiResource('tasks', 'Api\TaskController')->only(['index', 'show']);

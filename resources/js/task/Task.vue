@@ -1,104 +1,61 @@
 <template>
-    <!--    <div class="row">-->
-    <!--        <div class="col-xs-12">-->
 
-<!--    <b-container fluid v-if="authenticated" no-gutters="true" style="height: 100%;">
-            <b-row no-gutters="true">
-                <b-col cols="12" sm="2" lg="2"  class="side-bar-column">
-                    <Sidebar class="sidebar"></Sidebar>
-                </b-col>
-                <b-col cols="12" sm="10"  lg="10" class="router-view" >
-                    <router-view></router-view>
-                </b-col>
-            </b-row>
-        </b-container>-->
     <div class="card">
         <div class="card-body">
             <b-row>
                 <b-col cols="12">
                     <h2>{{task.title}}</h2>
-                    <article v-html="task.content"></article>
-
-
-
-                    <div v-for="(tag, index) in task.task_tag">
-
-                        <b-button variant="light" v-b-popover.hover.click.blur.top="tag.content"
-                                  title="Helper Tag">
-                            {{tag.title}}
-                        </b-button>
-                        <!--                {{tag.title}}-->
-                        <!--                {{tag.content}}-->
-                        <!--                {{index}}-->
-                    </div>
-                </b-col>
-                <b-col cols="6">
+                    <v-runtime-template :template="'<div>' + task.content + '</div>'"/>
                 </b-col>
             </b-row>
 
             <b-row>
                 <b-col cols="12">
                     <div class="slides-container">
-                        <vueper-slides :transitionSpeed="1" :infinite="false" :touchable="false" fractions progress
-                                       ref="myVueperSlides">
-                            <vueper-slide v-for="(slide, i) in subTasks" :key="i" :title="slide.title">
-                                <template v-slot:content>
-                                    <div class="vueperslide__content-wrapper">
-                                        <strong>{{ slide.title }}</strong>
-                                        <img v-bind:src="slide.cover"  style="width: 100px; height: 100px;" alt=""><br>
-                                        <p>{{slide.description}}</p>
-                                    </div>
-                                </template>
-                                <!--                            <template v-slot:bullet="{ active, slideIndex, index }">-->
-                                <!--                                <i class="icon">{{ active ? 'check_circle' : 'radio_button_unchecked' }}</i>-->
-                                <!--                            </template>-->
-                            </vueper-slide>
-                            <template v-slot:bullet="{ active, slideIndex, index }" v-bind:class="{ active: isActive }">
-                                <i class="icon" v-bind:class="{ 'bullet-active': active }">{{index}}</i class="icon">
-                                <!--                    <span>{{index}}</span>-->
-                            </template>
-                        </vueper-slides>
+
+                    <subTaskSlideShow v-bind:sub-tasks="subTasks"></subTaskSlideShow>
+
+
+<!--                        <vueper-slides class="no-shadow" :transitionSpeed="1" :infinite="false" :touchable="false"-->
+<!--                                       fractions progress-->
+<!--                                       ref="myVueperSlides">-->
+<!--                            <vueper-slide v-for="(slide, i) in subTasks" :key="i">-->
+<!--                                <template v-slot:content>-->
+<!--                                    <div class="vueperslide__content-wrapper">-->
+<!--                                        <img v-bind:src="slide.cover" style="width: 100px; height: 100px;" alt=""><br>-->
+<!--                                        <v-runtime-template :template="'<div>' + slide.description + '</div>'"/>-->
+<!--                                    </div>-->
+<!--                                </template>-->
+<!--                            </vueper-slide>-->
+<!--                            <template v-slot:bullet="{ active, slideIndex, index }">-->
+<!--                                <i class="icon" :class="{ 'bullet-active': active}">{{ slideIndex + 1 }}</i>&nbsp;-->
+<!--                                <strong :class="{ 'bullet-active': active}">{{subTasks[slideIndex].title}}</strong>-->
+<!--                            </template>-->
+<!--                        </vueper-slides>-->
                     </div>
                 </b-col>
             </b-row>
 
-
-<!--            <img v-bind:src="task.imagePath + task.imageUrl" style="width: 200px;"/>-->
         </div>
 
-
-        <!--                <div class="sub-task">-->
-        <!--                    {{subTasks[currentIndex].name}}-->
-        <!--                    {{subTasks[currentIndex].description}}-->
-        <!--                </div>-->
-
-
-        <!--                <button @click="$refs.myVueperSlides.goToSlide(4, { animation: false })">Next</button>-->
-
-
-
-
     </div>
-    <!--        </div>-->
-    <!--        &lt;!&ndash;        <div class="col-md-4 pb-4">&ndash;&gt;-->
-    <!--        &lt;!&ndash;            <Availability></Availability>&ndash;&gt;-->
-    <!--        &lt;!&ndash;        </div>&ndash;&gt;-->
 
-    <!--    </div>-->
 </template>
 
 <script>
 
-    import Availability from "./Availability";
+    // import Availability from "./Availability";
     import coverflow from 'vue-coverflow'
-    import {VueperSlides, VueperSlide} from 'vueperslides'
+    // import {VueperSlides, VueperSlide} from 'vueperslides'
+    import Jargon from '../jargons/Jargon';
+    import SubTaskSlideShow from '../subTask/SubTaskSlideShow'
+    import VRuntimeTemplate from "v-runtime-template";
 
     export default {
         components: {
-            Availability,
-            coverflow,
-            VueperSlide,
-            VueperSlides
+            SubTaskSlideShow,
+            Jargon,
+            VRuntimeTemplate
 
         },
         props: ['task'],
@@ -109,9 +66,9 @@
                 subTasks: [
                     {
                         cover: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png',
-                        title: 'Pikachu',
+                        title: 'Step One',
                         content: 'Subtask one',
-                        description: 'Whenever Pikachu comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it\'s evidence that this Pokémon mistook the intensity of its charge.',
+                        description: '<p>Whenever Pikachu comes across something new, it blasts it with a jolt of <jargon>first jargon</jargon>. If you come across a blackened berry, it\'s evidence that this <jargon>second jargon</jargon> mistook the intensity of its charge.</p>',
                         url: "/"
                     },
                     {
@@ -181,15 +138,23 @@
             increase() {
                 this.number += 100
             }
-        }
+        },
+        computed: {
+            // a computed getter
+            taskTemplate: function () {
+                // `this` points to the vm instance
+                return '<div>' + this.task.content + '</div>'
+            }
+        },
     }
 </script>
 
 <style>
 
-    button:focus{
-        outline:none!important;
+    button:focus {
+        outline: none !important;
     }
+
     .vueperslides__progress {
         background: rgba(0, 0, 0, 0.25);
         color: #D7FCF9;
@@ -220,13 +185,17 @@
         font-size: 10px;
         opacity: 0.8;
     }
-    .vueperslides__arrow {color: gray}
 
-    .icon{
-        font-style:normal;
+    .vueperslides__arrow {
+        color: gray
     }
 
-    .bullet-active{
+    .icon {
+        font-style: normal;
+    }
+
+    .bullet-active {
         font-weight: 900;
+        color: blue;
     }
 </style>

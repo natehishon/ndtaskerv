@@ -68,5 +68,10 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(SubTaskTracking::class, 'user_id');
     }
 
+    public function searchHistory()
+    {
+        return $this->hasMany(SearchHistory::class, 'user_id');
+    }
+
 
 }

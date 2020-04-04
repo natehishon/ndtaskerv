@@ -43,7 +43,7 @@
 
     import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
     import axios from 'axios';
-    import jargon from '../jargons/jargon';
+    import Jargon from '../jargons/Jargon';
     import VRuntimeTemplate from "v-runtime-template";
     // import VAButton from 'vue2-admin-lte/src/components/VAButton.vue'
     // import Modal from 'vue2-admin-lte/src/components/Modal';
@@ -56,7 +56,7 @@
         components: {
             // 'va-button': VAButton,
             // 'va-modal': Modal
-            jargon,
+            Jargon,
             VRuntimeTemplate
         },
 
@@ -66,7 +66,7 @@
                 newTask: {
                     title: "title",
                     // content: "",
-                    content: '<p>Content of the editor <jargon>jargon</jargon> more more <jargon>invoicing</jargon> </p>',
+                    content: '<p>Example task content <jargon>test jargon</jargon> example end. </p>',
                 },
                 file: "",
                 yo: "yo",

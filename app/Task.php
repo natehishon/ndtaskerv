@@ -8,7 +8,8 @@ class Task extends Model
 {
 
     protected $appends = [
-        'imagePath'
+        'imagePath',
+        'searchType'
     ];
 
     public function taskTrackings()
@@ -26,8 +27,17 @@ class Task extends Model
             'taskID', 'taskTagID');
     }
 
+    public function searchHistories()
+    {
+        return $this->morphMany('App\SearchHistory', 'searchable');
+    }
+
     public function getImagePathAttribute(){
         return 'https://ndtask.s3.us-east-2.amazonaws.com/taskImage/'.$this->id .'/';
+    }
+
+    public function getSearchTypeAttribute(){
+        return 'App\Task';
     }
 
 

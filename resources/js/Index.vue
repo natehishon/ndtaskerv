@@ -2,7 +2,7 @@
 
     <div class="index">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-        <Nav></Nav>
+        <Nav @created="handleCreate" ></Nav>
 
         <!--        <div class="container-fluid index-container">-->
         <!--            <div class="row" style="width: inherit">-->
@@ -17,13 +17,13 @@
         <!--        </div>-->
 
         <b-container fluid v-if="authenticated">
-            <router-view></router-view>
+            <router-view :key="$route.fullPath"></router-view>
         </b-container>
 
         <b-container fluid v-if="!authenticated">
             <b-row>
                 <b-col cols="12">
-                    <router-view></router-view>
+                    <router-view :key="$route.fullPath"></router-view>
                 </b-col>
             </b-row>
         </b-container>
@@ -55,6 +55,19 @@
             Sidebar,
             'va-button': VAButton
         },
+
+        data() {
+            return {
+                route: 0
+            }
+        },
+
+        methods: {
+            handleCreate() {
+                console.log('Child has been created.');
+                this.route += 1;
+            }
+        }
     }
 
 </script>

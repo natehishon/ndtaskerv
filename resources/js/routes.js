@@ -1,5 +1,6 @@
 import VueRouter from "vue-router";
 
+
 import Tasks from "./tasks/Tasks"
 import Task from "./task/Task"
 import SignIn from "./auth/SignIn"
@@ -7,6 +8,8 @@ import store from "./store/index"
 import TaskTrackings from "./taskTrackings/TaskTrackings";
 import TaskTracking from "./taskTracking/TaskTracking";
 import CreateTask from "./admin/CreateTask";
+import Profile from "./profile/Profile";
+import Search from "./search/Search";
 
 const routes = [
     {
@@ -14,7 +17,7 @@ const routes = [
         component: Tasks,
         name: "home",
         beforeEnter: (to, from, next) => {
-            if(!store.getters['auth/authenticated']){
+            if (!store.getters['auth/authenticated']) {
                 return next({
                     name: 'signin'
                 })
@@ -27,7 +30,7 @@ const routes = [
         component: TaskTrackings,
         name: "mytasks",
         beforeEnter: (to, from, next) => {
-            if(!store.getters['auth/authenticated']){
+            if (!store.getters['auth/authenticated']) {
                 return next({
                     name: 'signin'
                 })
@@ -53,7 +56,7 @@ const routes = [
         component: TaskTracking,
         name: "mytask",
         beforeEnter: (to, from, next) => {
-            if(!store.getters['auth/authenticated']){
+            if (!store.getters['auth/authenticated']) {
                 return next({
                     name: 'signin'
                 })
@@ -66,7 +69,35 @@ const routes = [
         component: CreateTask,
         name: "newTask",
         beforeEnter: (to, from, next) => {
-            if(!store.getters['auth/authenticated']){
+            if (!store.getters['auth/authenticated']) {
+                return next({
+                    name: 'signin'
+                })
+            }
+            next()
+        }
+    },
+    {
+        path: "/profile",
+        component: Profile,
+        name: "profile",
+        beforeEnter: (to, from, next) => {
+            if (!store.getters['auth/authenticated']) {
+                return next({
+                    name: 'signin'
+                })
+            }
+            next()
+        }
+    },
+
+    {
+        path: '/search',
+        component: Search,
+        props: (route) => ({ search: route.query.q }),
+        name: "search",
+        beforeEnter: (to, from, next) => {
+            if (!store.getters['auth/authenticated']) {
                 return next({
                     name: 'signin'
                 })

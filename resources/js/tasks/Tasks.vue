@@ -3,9 +3,10 @@
         <div v-if="loading">loading..</div>
         <div v-else>
 
-            <b-row >
+            <b-row>
                 <b-col cols="12">
-                    <h2>wayfinder board</h2>
+
+                    <!--                    <h2>task board</h2>-->
                 </b-col>
             </b-row>
 
@@ -13,28 +14,40 @@
                 <div class="type-column" v-for="sort in sorters">
 
                     <span>{{sort.title}}</span>
-<!--                    <div >-->
-<!--                        <h2>{{sort.title}}</h2>-->
-<!--                    </div>-->
+                    <!--                    <div >-->
+                    <!--                        <h2>{{sort.title}}</h2>-->
+                    <!--                    </div>-->
 
 
                 </div>
             </div>
-
-<!--                <div class="col d-flex align-items-stretch" v-for="(task, column) in tasksInRow(row)"-->
-<!--                     :key="'row' + row + column" @click="$bvModal.show(task.id)">-->
-<!--                    <task-list-item class="task-list-item"-->
-<!--                            v-bind="task" :task="task"-->
-<!--                    ></task-list-item>-->
-<!--                    <b-modal v-bind:id="task.id" size="xl" hide-footer>-->
-<!--                    <Task :task="task"></Task>-->
-<!--                    </b-modal>-->
-<!--                </div>-->
-<!--                <div class="col" v-for="p in placeholderInRow(row)" :key="'placeholder' + row + p"></div>-->
+            <div class="row mt-4 mb-4" v-for="row in rows" :key="row">
+                <div class="col d-flex align-items-stretch" v-for="(task, column) in tasksInRow(row)"
+                     :key="'row' + row + column" @click="$bvModal.show(task.id)">
+                    <task-list-item class="task-list-item"
+                                    v-bind:task="task"
+                    ></task-list-item>
+                    <b-modal v-bind:id="task.id" size="xl" hide-footer>
+                        <Task :task="task"></Task>
+                    </b-modal>
+                </div>
+                <div class="col" v-for="p in placeholderInRow(row)" :key="'placeholder' + row + p"></div>
             </div>
-        </div>
 
+<!--            <div class="col d-flex align-items-stretch" v-for="(task, column) in tasksInRow(row)"-->
+<!--                 :key="'row' + row + column" @click="$bvModal.show(task.id)">-->
+<!--                <task-list-item class="task-list-item"-->
+<!--                                v-bind="task" :task="task"-->
+<!--                ></task-list-item>-->
+<!--                <b-modal v-bind:id="task.id" size="xl" hide-footer>-->
+<!--                    <Task :task="task"></Task>-->
+<!--                </b-modal>-->
+<!--            </div>-->
+<!--            <div class="col" v-for="p in placeholderInRow(row)" :key="'placeholder' + row + p"></div>-->
+        </div>
     </div>
+
+
 </template>
 
 <script>
@@ -101,15 +114,15 @@
 
 <style lang="scss">
 
-    .tasks{
+    .tasks {
         margin: 1rem 0;
     }
 
-    .task-list-item:hover{
+    .task-list-item:hover {
         cursor: move;
     }
 
-    .task-type-container{
+    .task-type-container {
         margin-top: 30px;
         /*max-width: 90%;*/
         /*margin: 0 auto;*/
@@ -122,8 +135,8 @@
         scroll-snap-type: x mandatory;
 
 
-        .type-column{
-            background-color: blue;
+        .type-column {
+            /*background-color: blue;*/
             width: 200px;
             /*width: 20%;*/
             /*flex-grow: 1;*/
@@ -133,14 +146,13 @@
     }
 
 
-
     @media only screen and (min-width: 720px) {
-        .task-type-container{
+        .task-type-container {
 
             display: flex;
 
-            .type-column{
-                background-color: red;
+            .type-column {
+                /*background-color: red;*/
             }
         }
     }

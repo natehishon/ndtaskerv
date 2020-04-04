@@ -9,7 +9,7 @@
 
 
             <!--            </router-link>-->
-            <p class="card-text">{{task.content}}</p>
+<!--            <p class="card-text">{{task.content}}</p>-->
         </div>
 
     </div>
@@ -19,11 +19,11 @@
     export default {
         props: ['task'],
         created() {
-            $('[data-toggle="popover"]').popover()
-            Vue.nextTick(function () {
-
-
-            })
+            // $('[data-toggle="popover"]').popover()
+            // Vue.nextTick(function () {
+            //
+            //
+            // })
         },
         methods:{
             onClick(event) {
