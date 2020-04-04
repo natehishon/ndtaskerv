@@ -2,30 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Helpers/SearchHelper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SearchController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/SearchHistory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/search/Search.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/subTask/SubTaskSlide.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/subTask/SubTaskSlideShow.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/BottomNotch.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jargon.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jargon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Task.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Nav.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/CreateTask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/CreateTask.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/jargons/jargon.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jargons/Jargon.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/profile/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/profile/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/task/Task.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/task/Task.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/tasks/TaskListItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/tasks/TaskListItem.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/tasks/Tasks.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/tasks/Tasks.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/app/TaskTracking.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -112,14 +92,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/admin/CreateTask.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-76">
-              <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+            <state relative-caret-position="-526">
+              <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
               <folding>
                 <element signature="e#1117#1179#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/BottomNotch.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/Index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="47" column="22" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -137,11 +135,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+            <state relative-caret-position="160">
+              <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
               <folding>
                 <element signature="e#412#454#0" expanded="true" />
               </folding>
@@ -160,7 +158,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>v-for</find>
       <find>snake</find>
       <find>camel</find>
       <find>snak</find>
@@ -190,6 +187,7 @@
       <find>button</find>
       <find>axios</find>
       <find>jargon</find>
+      <find>n</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/resources</dir>
@@ -209,7 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/manifest.webmanifest" />
@@ -227,7 +224,6 @@
         <option value="$PROJECT_DIR$/resources/js/auth/SignIn.vue" />
         <option value="$PROJECT_DIR$/resources/sass/app.scss" />
         <option value="$PROJECT_DIR$/database/migrations/2020_02_18_233325_create_task_tag_task.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/vue.config.js" />
         <option value="$PROJECT_DIR$/database/migrations/2019_12_28_185931_create_tasks_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_03_04_023611_create_jargons_table.php" />
@@ -235,10 +231,8 @@
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/database/factories/JargonFactory.php" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
-        <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/profile/Profile.vue" />
         <option value="$PROJECT_DIR$/resources/js/routes.js" />
-        <option value="$PROJECT_DIR$/resources/js/Index.vue" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/TaskTag.php" />
         <option value="$PROJECT_DIR$/app/SearchHistory.php" />
@@ -255,11 +249,15 @@
         <option value="$PROJECT_DIR$/resources/js/tasks/TaskListItem.vue" />
         <option value="$PROJECT_DIR$/resources/js/subTask/SubTaskSlideShow.js" />
         <option value="$PROJECT_DIR$/resources/js/subTask/SubTaskSlide.vue" />
-        <option value="$PROJECT_DIR$/resources/js/admin/CreateTask.vue" />
         <option value="$PROJECT_DIR$/resources/js/jargons/Jargon.vue" />
         <option value="$PROJECT_DIR$/resources/js/task/Task.vue" />
         <option value="$PROJECT_DIR$/resources/js/subTask/SubTaskSlideShow.vue" />
         <option value="$PROJECT_DIR$/app/TaskTracking.php" />
+        <option value="$PROJECT_DIR$/resources/js/admin/CreateTask.vue" />
+        <option value="$PROJECT_DIR$/resources/js/Index.vue" />
+        <option value="$PROJECT_DIR$/resources/js/BottomNotch.vue" />
+        <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
       </list>
     </option>
   </component>
@@ -452,34 +450,6 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ndtaskerv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ndtaskerv" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ndtaskerv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ndtaskerv" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="jargons" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ndtaskerv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ndtaskerv" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="task" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ndtaskerv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ndtaskerv" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="tasks" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -551,16 +521,15 @@
       <workItem from="1583253441263" duration="33293000" />
       <workItem from="1583868842991" duration="30399000" />
       <workItem from="1585013390163" duration="22934000" />
-      <workItem from="1585411677650" duration="3457000" />
+      <workItem from="1585411677650" duration="4337000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="264736000" />
+    <option name="totallyTimeSpent" value="265616000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49891067" visible="true" weight="0.2907916" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -602,16 +571,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/welcome.blade.php</url>
-          <line>17</line>
+          <line>18</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_18_232900_create_sub_task_trackings_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -743,13 +709,6 @@
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="67" column="32" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -947,16 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
-          <folding>
-            <element signature="e#412#454#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/task/Task.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="86">
@@ -970,7 +919,7 @@
     <entry file="file://$PROJECT_DIR$/app/TaskTracking.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
@@ -983,10 +932,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/admin/CreateTask.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+        <state relative-caret-position="-526">
+          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
           <folding>
             <element signature="e#1117#1179#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/BottomNotch.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/Index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="47" column="22" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+          <folding>
+            <element signature="e#412#454#0" expanded="true" />
           </folding>
         </state>
       </provider>
