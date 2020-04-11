@@ -5,12 +5,10 @@
 
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-            <b-collapse id="nav-collapse" is-nav>
-
-
+            <b-collapse id="nav-collapse" is-nav v-if="authenticated">
 
                 <!-- Right aligned nav items -->
-                <b-navbar-nav class="ml-auto">
+                <b-navbar-nav class="ml-auto" >
                     <b-nav-form class="ml-2" @submit.stop.prevent="searchSubmit()">
                         <b-form-input v-model="search" class="mr-sm-2" placeholder="search"></b-form-input>
                         <b-button variant="outline-dark" class="my-2 my-sm-0" type="submit">Search</b-button>
@@ -36,7 +34,7 @@
                             <span>me</span>
                         </template>
                         <b-dropdown-item :to="'profile'">edit profile</b-dropdown-item>
-                        <b-dropdown-item href="#">sign Out</b-dropdown-item>
+                        <b-dropdown-item href="#" @click="signOut">sign out</b-dropdown-item>
                     </b-nav-item-dropdown>
                 </b-navbar-nav>
             </b-collapse>

@@ -2,19 +2,7 @@
 
     <div class="index">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-        <Nav @created="handleCreate" ></Nav>
-
-        <!--        <div class="container-fluid index-container">-->
-        <!--            <div class="row" style="width: inherit">-->
-
-        <!--                <div class="col-xs-2">-->
-        <!--                    <Sidebar class="sidebar"></Sidebar>-->
-        <!--                </div>-->
-        <!--                <div class="router-view col-xs-10">-->
-        <!--                    <router-view></router-view>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
+        <Nav @created="handleCreate"></Nav>
 
         <b-container fluid v-if="authenticated">
             <router-view :key="$route.fullPath"></router-view>
@@ -53,7 +41,7 @@
         components: {
             Nav,
             Sidebar,
-            'va-button': VAButton
+            'va-button': VAButton,
         },
 
         data() {

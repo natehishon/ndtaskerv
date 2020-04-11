@@ -32,6 +32,12 @@
 
                 <v-runtime-template :template="taskTemplate"/>
 
+                <ul class="list-group" v-sortable>
+                    <li class="list-group-item">Foo</li>
+                    <li class="list-group-item">Bar</li>
+                    <li class="list-group-item">Baz</li>
+                </ul>
+
             </form>
         </b-col>
     </b-row>

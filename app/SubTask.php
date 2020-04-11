@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class SubTask extends Model
 {
 
-    protected $appends = ['cover'];
+    protected $appends = [
+        'searchType',
+        'modelName'
+    ];
 
     public function getCoverAttribute() {
         return $this->imageUrl;
@@ -15,6 +18,14 @@ class SubTask extends Model
 
     public function task() {
         return $this->belongsTo(Task::class, 'task_id');
+    }
+
+    public function getSearchTypeAttribute(){
+        return 'App\SubTask';
+    }
+
+    public function getModelNameAttribute(){
+        return 'subtask';
     }
 
 

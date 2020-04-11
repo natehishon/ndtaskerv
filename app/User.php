@@ -63,6 +63,16 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(TaskTracking::class, 'user_id');
     }
 
+    public function folders()
+    {
+        return $this->hasMany(Folder::class, 'user_id');
+    }
+
+    public function topLevelFolders()
+    {
+        return $this->hasMany(Folder::class, 'user_id')->where('topLevel', '=', true);
+    }
+
     public function subTaskTrackings()
     {
         return $this->hasMany(SubTaskTracking::class, 'user_id');

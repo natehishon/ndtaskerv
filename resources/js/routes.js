@@ -10,6 +10,8 @@ import TaskTracking from "./taskTracking/TaskTracking";
 import CreateTask from "./admin/CreateTask";
 import Profile from "./profile/Profile";
 import Search from "./search/Search";
+import Folders from "./folders/Folders";
+
 
 const routes = [
     {
@@ -109,7 +111,21 @@ const routes = [
         path: "/signin",
         component: SignIn,
         name: "signin"
-    }
+    },
+    {
+        path: '/folders*',
+        component: Folders,
+        props: (route) => ({ name: route.query.q }),
+        name: "folders",
+        beforeEnter: (to, from, next) => {
+            if (!store.getters['auth/authenticated']) {
+                return next({
+                    name: 'signin'
+                })
+            }
+            next()
+        }
+    },
 ];
 
 const router = new VueRouter({

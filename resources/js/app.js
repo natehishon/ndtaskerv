@@ -1,4 +1,4 @@
-require("./bootstrap");
+// require("./bootstrap");
 
 // require("vue2-admin-lte/src/lib/css");
 // require("vue2-admin-lte/src/lib/script");
@@ -17,6 +17,7 @@ import Index from "./Index";
 import router from "./routes";
 import store from "./store";
 
+
 import { VueperSlides, VueperSlide } from 'vueperslides'
 
 import VueFroala from 'vue-froala-wysiwyg'
@@ -25,8 +26,8 @@ import axios from "axios";
 
 require('./store/subscriber');
 
-axios.defaults.baseURL = 'https://evening-forest-04369.herokuapp.com/api/';
-// axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
+// axios.defaults.baseURL = 'https://evening-forest-04369.herokuapp.com/api/';
+axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
 
 import CKEditor from '@ckeditor/ckeditor5-vue/dist/ckeditor';
 
@@ -34,6 +35,7 @@ import { BootstrapVue, IconsPlugin, ModalPlugin } from 'bootstrap-vue'
 
 // import vClickOutside from 'v-click-outside'
 import Editor from 'ckeditor';
+import Sortable from 'vue-sortable'
 
 
 // Install BootstrapVue
@@ -51,6 +53,7 @@ Vue.use(VueperSlides);
 Vue.use(VueperSlide);
 Vue.use(Editor);
 Vue.use(VueFroala)
+Vue.use(Sortable)
 
 const prod = process.env.NODE_ENV === 'production'
 const shouldSW = 'serviceWorker' in navigator && prod

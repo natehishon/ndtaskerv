@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div v-if="sub_task">
         <!--        <div v-for="(slide, i) in subTasks">-->
         <!--            <span>{{slide.title}}</span>-->
         <!--        </div>-->
-        {{subTask.title}}
+        {{sub_task.title}}
 
-        <v-runtime-template :template="'<div>' + subTask.description + '</div>'"/>
+        <v-runtime-template :template="'<div>' + sub_task.content + '</div>'"/>
     </div>
 </template>
 
@@ -19,12 +19,16 @@
             VRuntimeTemplate,
             Jargon
         },
-        props: ['subTask'],
+        props: ['sub_task'],
         data() {
             //return an object
             return {
 
             }
+        },
+        created(){
+            console.log('yo');
+            console.log(this.sub_task);
         }
 
     }

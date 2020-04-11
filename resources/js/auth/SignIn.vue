@@ -31,7 +31,7 @@
                         </b-form>
 
 
-                            <b-button class="mt-2" type="submit" variant="secondary">Submit</b-button>
+                            <b-button class="mt-3" type="submit" variant="secondary">log in</b-button>
 
                         </b-form>
 

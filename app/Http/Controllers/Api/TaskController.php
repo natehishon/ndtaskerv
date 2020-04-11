@@ -21,7 +21,7 @@ class TaskController extends Controller
     public function index()
     {
         return [
-            "data" => Task::query()->with('subTask')->with('TaskTag')->get(),
+            "data" => Task::query()->with('subTask')->get(),
         ];
 
     }
@@ -66,9 +66,7 @@ class TaskController extends Controller
         $task->imageUrl = $storageName;
         $task->save();
 
-//        Storage::putFileAs(
-//            'taskImage/'.$task->id, request()->file('image'), request()->file('image')->getClientOriginalName()
-//        );
+
         return [
             'data' => $task
         ];

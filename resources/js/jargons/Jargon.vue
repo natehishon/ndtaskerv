@@ -1,7 +1,7 @@
 <template>
 
 
-    <div  style="display:inline-block">
+    <div class="jargon">
 
 
         <b-button :id="time" size="sm" v-bind:variant="jargon.color">
@@ -17,9 +17,7 @@
         </b-popover>
 
 
-
     </div>
-
 
 
 </template>
@@ -59,3 +57,16 @@
     }
 
 </script>
+
+<style lang="scss">
+
+    .jargon {
+        display: inline-block;
+
+    .slot-wrapper {
+        font-weight: 700;
+    }
+
+    }
+
+</style>

@@ -27,23 +27,30 @@
                     <task-list-item class="task-list-item"
                                     v-bind:task="task"
                     ></task-list-item>
-                    <b-modal v-bind:id="task.id" size="xl" hide-footer>
-                        <Task :task="task"></Task>
+                    <b-modal footer-bg-variant="dark"
+                             footer-text-variant="light"
+                             v-bind:id="task.id" size="xl"
+                    >
+                        <Task v-on:task-slide="changeSlide" :task="task"></Task>
+                        <template v-slot:modal-footer>
+                            <BottomNotch v-if="task" :current-slide="task.sub_task[currentSlide]"></BottomNotch>
+                        </template>
                     </b-modal>
+
                 </div>
                 <div class="col" v-for="p in placeholderInRow(row)" :key="'placeholder' + row + p"></div>
             </div>
 
-<!--            <div class="col d-flex align-items-stretch" v-for="(task, column) in tasksInRow(row)"-->
-<!--                 :key="'row' + row + column" @click="$bvModal.show(task.id)">-->
-<!--                <task-list-item class="task-list-item"-->
-<!--                                v-bind="task" :task="task"-->
-<!--                ></task-list-item>-->
-<!--                <b-modal v-bind:id="task.id" size="xl" hide-footer>-->
-<!--                    <Task :task="task"></Task>-->
-<!--                </b-modal>-->
-<!--            </div>-->
-<!--            <div class="col" v-for="p in placeholderInRow(row)" :key="'placeholder' + row + p"></div>-->
+            <!--            <div class="col d-flex align-items-stretch" v-for="(task, column) in tasksInRow(row)"-->
+            <!--                 :key="'row' + row + column" @click="$bvModal.show(task.id)">-->
+            <!--                <task-list-item class="task-list-item"-->
+            <!--                                v-bind="task" :task="task"-->
+            <!--                ></task-list-item>-->
+            <!--                <b-modal v-bind:id="task.id" size="xl" hide-footer>-->
+            <!--                    <Task :task="task"></Task>-->
+            <!--                </b-modal>-->
+            <!--            </div>-->
+            <!--            <div class="col" v-for="p in placeholderInRow(row)" :key="'placeholder' + row + p"></div>-->
         </div>
     </div>
 
@@ -55,16 +62,19 @@
     import TaskListItem from './TaskListItem';
     import Task from '../task/Task'
     import axios from 'axios';
+    import BottomNotch from '../jots/BottomNotch'
 
     export default {
         components: {
             TaskListItem,
-            Task
+            Task,
+            BottomNotch
         },
         data() {
             return {
                 tasks: null,
                 loading: null,
+                currentSlide: 0,
                 columns: 3,
                 sorters: [
                     {
@@ -97,7 +107,11 @@
             },
             placeholderInRow(row) {
                 return this.columns - this.tasksInRow(row).length;
+            },
+            changeSlide(event){
+                this.currentSlide = event
             }
+
         },
         created() {
             this.loading = true;
