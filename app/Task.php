@@ -9,7 +9,8 @@ class Task extends Model
 
     protected $appends = [
         'imagePath',
-        'searchType'
+        'searchType',
+        'type'
     ];
 
     public function taskTrackings()
@@ -38,6 +39,10 @@ class Task extends Model
 
     public function getSearchTypeAttribute(){
         return 'App\Task';
+    }
+
+    public function getTypeAttribute(){
+        return 'Task';
     }
 
 

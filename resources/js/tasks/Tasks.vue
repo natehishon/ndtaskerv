@@ -13,7 +13,7 @@
             <div class="task-type-container">
                 <div class="type-column" v-for="sort in sorters">
 
-                    <span>{{sort.title}}</span>
+<!--                    <span>{{sort.title}}</span>-->
                     <!--                    <div >-->
                     <!--                        <h2>{{sort.title}}</h2>-->
                     <!--                    </div>-->
@@ -30,6 +30,7 @@
                     <b-modal footer-bg-variant="dark"
                              footer-text-variant="light"
                              v-bind:id="task.id" size="xl"
+                             :title="task.title"
                     >
                         <Task v-on:task-slide="changeSlide" :task="task"></Task>
                         <template v-slot:modal-footer>
@@ -108,7 +109,7 @@
             placeholderInRow(row) {
                 return this.columns - this.tasksInRow(row).length;
             },
-            changeSlide(event){
+            changeSlide(event) {
                 this.currentSlide = event
             }
 

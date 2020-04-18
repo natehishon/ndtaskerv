@@ -1,27 +1,13 @@
 <template>
 
 
-    <div class="card">
-        <div class="card-body">
-            <b-row>
-                <b-col cols="12">
-                    <h2>{{task.title}}</h2>
-                    <v-runtime-template :template="'<div>' + task.content + '</div>'"/>
-                </b-col>
-            </b-row>
+    <div class="task-container">
 
-            <b-row>
-                <b-col cols="12">
-                    <div class="slides-container">
+        <v-runtime-template :template="'<div>' + task.content + '</div>'"/>
 
-                        <subTaskSlideShow v-on:slide-change="slideChange"
-                                          v-bind:sub_tasks="task.sub_task"></subTaskSlideShow>
 
-                    </div>
-                </b-col>
-            </b-row>
-
-        </div>
+        <subTaskSlideShow v-on:slide-change="slideChange" v-if="task.sub_task.length > 0"
+                          v-bind:sub_tasks="task.sub_task"></subTaskSlideShow>
 
     </div>
 

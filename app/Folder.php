@@ -12,22 +12,28 @@ class Folder extends Model
 
     protected $appends = [
         'searchType',
-        'modelName'
+        'modelName',
+        'type'
     ];
 
     public function parent()
     {
-        return $this->belongsTo('Folder', 'parent_id');
+        return $this->belongsTo('App\Folder', 'parent_id');
     }
 
     public function children()
     {
-        return $this->hasMany('Folder', 'parent_id');
+        return $this->hasMany('App\Folder', 'parent_id');
+    }
+
+    public function taskTrackings()
+    {
+        return $this->hasMany('App\TaskTracking', 'folder_id');
     }
 
     public function owner()
     {
-        return $this->belongsTo('User', 'user_id');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     public function scopeTopLevel($query)
@@ -46,6 +52,10 @@ class Folder extends Model
     }
 
     public function getModelNameAttribute(){
+        return 'Folder';
+    }
+
+    public function getTypeAttribute(){
         return 'Folder';
     }
 

@@ -22,8 +22,16 @@ class FolderController extends Controller
     public function folderByName($name)
     {
 
+        $folder = Folder::query()->user()->where('title', '=', $name)->first();
+        $subFolders = $folder->children->toArray();
+        $taskTrackings = $folder->taskTrackings()->with('tasks.subTask')->get()->toArray();
+        $tasks = array_column($taskTrackings, 'tasks');
+
+
         return [
-            "data" => Folder::query()->user()->where('name', '=', $name)->get(),
+            'subFolders' => $subFolders,
+            'taskTrackings' => $taskTrackings,
+            'table' => array_merge($subFolders, $tasks)
         ];
 
     }
