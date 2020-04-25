@@ -28,6 +28,6 @@ class CreateTaskTags extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('TaskTags');
+        Schema::dropIfExists('task_tags');
     }
 }
