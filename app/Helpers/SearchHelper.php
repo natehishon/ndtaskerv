@@ -88,15 +88,15 @@ class SearchHelper
 
         //escaped query in total
         if (count($keywords) > 0) {
-            $titleSQL[] = "if (title = '" . $escQuery . "',{$scoreExactMatchTitle},0)";
-            $titleSQL[] = "if (title LIKE '%" . $escQuery . "%',{$scoreFullTitle},0)";
+            $titleSQL[] = "(case when title = '" . $escQuery . "' then {$scoreExactMatchTitle} else 0 end)";
+            $titleSQL[] = "(case when title LIKE '%" . $escQuery . "%' then {$scoreFullTitle} else 0 end)";
 
         }
 
 
         //going through each word
         foreach ($keywords as $key) {
-            $titleSQL[] = "if (title LIKE '%" . $this->escape_like($key) . "%',{$scoreTitleKeyword},0)";
+            $titleSQL[] = "(case when title LIKE '%" . $this->escape_like($key) . "%' then {$scoreTitleKeyword} else 0 end)";
         }
 
 
@@ -154,18 +154,18 @@ class SearchHelper
 
         //escaped query in total
         if (count($keywords) > 0) {
-            $titleSQL[] = "if (title = '" . $escQuery . "',{$scoreExactMatchTitle},0)";
-            $titleSQL[] = "if (title LIKE '%" . $escQuery . "%',{$scoreFullTitle},0)";
-            $contentSQL[] = "if (content = '" . $escQuery . "',{$scoreExactMatchContent},0)";
-            $contentSQL[] = "if (content LIKE '%" . $escQuery . "%',{$scoreFullContent},0)";
+            $titleSQL[] = "case when title = '" . $escQuery . " ' then {$scoreExactMatchTitle} else 0 end";
+            $titleSQL[] = "(case when title LIKE '%" . $escQuery . "%' then {$scoreFullTitle} else 0 end)";
+            $contentSQL[] = "(case when content = '" . $escQuery . "' then {$scoreExactMatchContent} else 0 end)";
+            $contentSQL[] = "(case when content LIKE '%" . $escQuery . "%' then {$scoreFullContent} else 0 end)";
 
         }
 
 
         //going through each word
         foreach ($keywords as $key) {
-            $titleSQL[] = "if (title LIKE '%" . $this->escape_like($key) . "%',{$scoreTitleKeyword},0)";
-            $contentSQL[] = "if (content LIKE '%" . $this->escape_like($key) . "%',{$scoreContentKeyword},0)";
+            $titleSQL[] = "(case when title LIKE '%" . $this->escape_like($key) . "%' then {$scoreTitleKeyword} else 0 end)";
+            $contentSQL[] = "(case when content LIKE '%" . $this->escape_like($key) . "%' then {$scoreContentKeyword} else 0 end)";
         }
 
 
@@ -198,6 +198,7 @@ class SearchHelper
         //user scope these
 
         //running the actual query
+//        dd($sql);
         $results = DB::select(DB::raw($sql));
 
         if($model === 'tasks'){
