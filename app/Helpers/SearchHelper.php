@@ -68,7 +68,8 @@ class SearchHelper
 
     }
 
-    function titleSearch($model, $query){
+    function titleSearch($model, $query)
+    {
 
         //ready our query
         $query = trim($query);
@@ -105,23 +106,24 @@ class SearchHelper
         }
 
 
-
         $sql = "SELECT t.id,t.title,t.created_at,
             
             (
                 (" . implode(" + ", $titleSQL) . ")
             ) as score
-            FROM ". $model ." t
+            FROM " . $model . " t
            
+           group by t.id, t.title,t.created_at
             HAVING (
                 (" . implode(" + ", $titleSQL) . ")
             ) > 0
+            
             ORDER BY score DESC
             LIMIT 25";
 
         $results = DB::select(DB::raw($sql));
 
-        if($model === 'folders'){
+        if ($model === 'folders') {
             $models = Folder::hydrate($results);
         }
 
@@ -187,8 +189,9 @@ class SearchHelper
                 +
                 (" . implode(" + ", $contentSQL) . ")
             ) as score
-            FROM ". $model ." t
-           
+            FROM " . $model . " t
+           group by t.id,t.title,t.created_at,
+            t.content
             HAVING (
                 (" . implode(" + ", $titleSQL) . ")
                 +
@@ -207,15 +210,15 @@ class SearchHelper
 //        dd($sql);
         $results = DB::select(DB::raw($sql));
 
-        if($model === 'tasks'){
+        if ($model === 'tasks') {
             $models = Task::hydrate($results);
         }
 
-        if($model === 'jargons'){
+        if ($model === 'jargons') {
             $models = Jargon::hydrate($results);
         }
 
-        if($model === 'jots'){
+        if ($model === 'jots') {
             $models = Jot::hydrate($results);
         }
 
