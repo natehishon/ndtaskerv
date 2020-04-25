@@ -113,7 +113,9 @@ class SearchHelper
             ) as score
             FROM ". $model ." t
            
-            HAVING score > 0
+            HAVING (
+                (" . implode(" + ", $titleSQL) . ")
+            ) > 0
             ORDER BY score DESC
             LIMIT 25";
 
@@ -187,7 +189,11 @@ class SearchHelper
             ) as score
             FROM ". $model ." t
            
-            HAVING score > 0
+            HAVING (
+                (" . implode(" + ", $titleSQL) . ")
+                +
+                (" . implode(" + ", $contentSQL) . ")
+            ) > 0
             ORDER BY score DESC
             LIMIT 25";
 

@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/app/Helpers/SearchHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/SearchHelper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
@@ -91,24 +90,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+            <state relative-caret-position="65">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
-                <element signature="e#415#457#0" expanded="true" />
                 <element signature="e#1065#1095#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Helpers/SearchHelper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="98" column="122" selection-start-line="98" selection-start-column="122" selection-end-line="98" selection-end-column="122" />
+            <state relative-caret-position="233">
+              <caret line="112" column="22" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
               <folding>
                 <element signature="e#32#47#0#PHP" expanded="true" />
               </folding>
@@ -145,8 +143,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>first task</find>
-      <find>Search</find>
       <find>sea</find>
       <find>search</find>
       <find>import v</find>
@@ -173,8 +169,10 @@
       <find>secure_as</find>
       <find>prodswap</find>
       <find>prod</find>
-      <find>prodsw</find>
       <find>if</find>
+      <find>titlese</find>
+      <find>prodsw</find>
+      <find>score</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/resources</dir>
@@ -186,6 +184,7 @@
       <dir>$PROJECT_DIR$/resources/js/jargons</dir>
       <dir>$PROJECT_DIR$/app</dir>
       <dir>$PROJECT_DIR$/resources/js</dir>
+      <dir>$PROJECT_DIR$/database/migrations</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -241,10 +240,10 @@
         <option value="$PROJECT_DIR$/resources/js/task/Task.vue" />
         <option value="$PROJECT_DIR$/resources/js/folders/Folders.vue" />
         <option value="$PROJECT_DIR$/resources/js/subTask/SubTaskSlide.vue" />
+        <option value="$PROJECT_DIR$/app/Helpers/SearchHelper.php" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/app/Helpers/SearchHelper.php" />
       </list>
     </option>
   </component>
@@ -528,18 +527,17 @@
       <workItem from="1585013390163" duration="22934000" />
       <workItem from="1585411677650" duration="35750000" />
       <workItem from="1586269494638" duration="19563000" />
-      <workItem from="1586889373464" duration="37081000" />
+      <workItem from="1586889373464" duration="38548000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="353673000" />
+    <option name="totallyTimeSpent" value="355140000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49673203" visible="true" weight="0.30048466" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49673203" visible="true" weight="0.30048466" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.503268" side_tool="true" weight="0.2907916" />
@@ -553,7 +551,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.329927" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.329927" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.44087592" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -885,13 +883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/task/Task.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2595">
-          <caret line="175" column="20" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/subTask/SubTaskSlide.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -940,23 +931,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+    <entry file="file://$PROJECT_DIR$/resources/js/task/Task.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-          <folding>
-            <element signature="e#415#457#0" expanded="true" />
-            <element signature="e#1065#1095#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2595">
+          <caret line="175" column="20" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Helpers/SearchHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="98" column="122" selection-start-line="98" selection-start-column="122" selection-end-line="98" selection-end-column="122" />
+        <state relative-caret-position="233">
+          <caret line="112" column="22" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
           <folding>
             <element signature="e#32#47#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#1065#1095#0" expanded="true" />
           </folding>
         </state>
       </provider>
