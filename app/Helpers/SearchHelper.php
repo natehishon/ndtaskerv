@@ -3,7 +3,9 @@
 namespace App\Helpers;
 
 
+use App\Folder;
 use App\Jargon;
+use App\Jot;
 use App\SearchHistory;
 use App\Task;
 use Illuminate\Support\Facades\DB;
@@ -64,6 +66,67 @@ class SearchHelper
 
         return $searchHistories;
 
+    }
+
+    function titleSearch($model, $query){
+
+        //ready our query
+        $query = trim($query);
+        if (mb_strlen($query) === 0) {
+            return false;
+        }
+        $query = $this->limitChars($query);
+        $keywords = $this->filterSearchKeys($query);
+        $escQuery = $this->escape_like($query);
+        $titleSQL = array();
+
+        //set scores
+        $scoreExactMatchTitle = 6;
+        $scoreFullTitle = 4;
+        $scoreTitleKeyword = 3;
+
+
+        //escaped query in total
+        if (count($keywords) > 0) {
+            $titleSQL[] = "if (title = '" . $escQuery . "',{$scoreExactMatchTitle},0)";
+            $titleSQL[] = "if (title LIKE '%" . $escQuery . "%',{$scoreFullTitle},0)";
+
+        }
+
+
+        //going through each word
+        foreach ($keywords as $key) {
+            $titleSQL[] = "if (title LIKE '%" . $this->escape_like($key) . "%',{$scoreTitleKeyword},0)";
+        }
+
+
+        if (empty($titleSQL)) {
+            $titleSQL[] = 0;
+        }
+
+
+
+        $sql = "SELECT t.id,t.title,t.created_at,
+            
+            (
+                (" . implode(" + ", $titleSQL) . ")
+            ) as score
+            FROM ". $model ." t
+           
+            HAVING score > 0
+            ORDER BY score DESC
+            LIMIT 25";
+
+        $results = DB::select(DB::raw($sql));
+
+        if($model === 'folders'){
+            $models = Folder::hydrate($results);
+        }
+
+        if (!$results) {
+            return [];
+        }
+        return $models;
     }
 
     function modelSearch($model, $query)
@@ -143,6 +206,10 @@ class SearchHelper
 
         if($model === 'jargons'){
             $models = Jargon::hydrate($results);
+        }
+
+        if($model === 'jots'){
+            $models = Jot::hydrate($results);
         }
 
         if (!$results) {

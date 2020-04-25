@@ -16,11 +16,11 @@
 
         <div class="tasks-container mt-3" v-if="loading === false">
             <h5>folders</h5>
-            <!--            <ul v-if="favorites.length > 0">-->
-            <!--                <li v-for="favorite in favorites">-->
-            <!--                    <b-button class="m-1" variant="success" v-on:click="chooseFavorite(favorite)">title: {{favorite.searchable.title}} content: {{favorite.searchable.content}}</b-button>-->
-            <!--                </li>-->
-            <!--            </ul>-->
+                        <ul v-if="folders.length > 0">
+                            <li v-for="folder in folders">
+                                <b-button class="m-1" variant="success" v-on:click="chooseFavorite(folder)">title: {{folder.title}}</b-button>
+                            </li>
+                        </ul>
             <span v-if="folders.length === 0">no folder results</span>
         </div>
 
@@ -55,11 +55,11 @@
 
         <div class="tasks-container mt-3" v-if="loading === false">
             <h5>jots</h5>
-            <!--            <ul v-if="favorites.length > 0">-->
-            <!--                <li v-for="favorite in favorites">-->
-            <!--                    <b-button class="m-1" variant="success" v-on:click="chooseFavorite(favorite)">title: {{favorite.searchable.title}} content: {{favorite.searchable.content}}</b-button>-->
-            <!--                </li>-->
-            <!--            </ul>-->
+                        <ul v-if="jots.length > 0">
+                            <li v-for="jot in jots">
+                                <b-button class="m-1" variant="success" v-on:click="chooseFavorite(jot)">title: {{jot.title}} content: {{jot.content}}</b-button>
+                            </li>
+                        </ul>
                         <span v-if="jots.length === 0">no jot results</span>
         </div>
 
@@ -101,6 +101,8 @@
                 this.tasks = response.data.tasks;
                 this.jargons = response.data.jargons;
                 this.favorites = response.data.history;
+                this.folders = response.data.folders;
+                this.jots = response.data.jots;
 
                 console.log(this.favorites);
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFoldersTable extends Migration
+class CreateJotsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateFoldersTable extends Migration
      */
     public function up()
     {
-        Schema::create('folders', function (Blueprint $table) {
+        Schema::create('jots', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->index();
-            $table->unsignedBigInteger('searchable_id')->index();
-            $table->string('searchable_type')->index();
-            $table->string('slug');
-            $table->boolean('top_level')->default(0);
-            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->unsignedBigInteger('model_id')->index();
+            $table->string('model_type')->index();
+            $table->string('title')->index();
+            $table->text('content');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateFoldersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('folders');
+        Schema::dropIfExists('jots');
     }
 }

@@ -28,14 +28,13 @@
 
         <b-row class="m-5" v-if="stepTwo === true">
             <b-col xs="12">
-                {{currentSlide.modelName}}
                 <b-form @submit="onSubmit">
                     <b-form-group
                             id="input-group-1"
                     >
                         <froala :tag="'textarea'" :config="config" v-model="content"></froala>
                     </b-form-group>
-                    <b-button type="submit" variant="dark">submit</b-button>
+                    <b-button type="submit" variant="dark">ask</b-button>
                 </b-form>
             </b-col>
         </b-row>

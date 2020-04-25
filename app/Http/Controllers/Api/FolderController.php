@@ -14,7 +14,7 @@ class FolderController extends Controller
     {
 
         return [
-            "data" => Folder::query()->user()->topLevel()->get(),
+            "table" => Folder::query()->user()->topLevel()->get(),
         ];
 
     }
@@ -22,7 +22,7 @@ class FolderController extends Controller
     public function folderByName($name)
     {
 
-        $folder = Folder::query()->user()->where('title', '=', $name)->first();
+        $folder = Folder::query()->user()->where('slug', '=', $name)->first();
         $subFolders = $folder->children->toArray();
         $taskTrackings = $folder->taskTrackings()->with('tasks.subTask')->get()->toArray();
         $tasks = array_column($taskTrackings, 'tasks');

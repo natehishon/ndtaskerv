@@ -11,9 +11,8 @@
         </b-button>
         <b-popover :target="time" triggers="hover blur click" placement="top" :title="jargon.title">
 
-            {{jargon.content}}
-            <br>
-            <a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
+            <span v-html="jargon.content"></span>
+
         </b-popover>
 
 

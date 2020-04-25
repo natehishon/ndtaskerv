@@ -3,8 +3,9 @@
 
     <div class="task-container">
 
-        <v-runtime-template :template="'<div>' + task.content + '</div>'"/>
-
+        <div class="content-container">
+            <v-runtime-template :template="'<div>' + task.content + '</div>'"/>
+        </div>
 
         <subTaskSlideShow v-on:slide-change="slideChange" v-if="task.sub_task.length > 0"
                           v-bind:sub_tasks="task.sub_task"></subTaskSlideShow>
@@ -169,6 +170,10 @@
     .bullet-active {
         font-weight: 900;
         color: blue;
+    }
+
+    .content-container{
+        margin: 0 33px;
     }
 
 </style>

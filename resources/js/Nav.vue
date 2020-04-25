@@ -83,7 +83,8 @@
 
                 // this.$router.push({ path: 'register', query: { plan: 'private' } })
                 let search = this.search;
-                this.$router.push({ path: 'search', query: { q: this.search } }).catch((err) => {
+
+                this.$router.replace({ name: 'search', query: { q: this.search } }).catch((err) => {
                     this.$emit('search')
                 });
 

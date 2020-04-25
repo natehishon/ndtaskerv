@@ -31,13 +31,17 @@ class SearchController extends Controller
         $searchHelper = new SearchHelper();
         $taskResults = $searchHelper->modelSearch('tasks', $searchWord);
         $jargonResults = $searchHelper->modelSearch('jargons', $searchWord);
+        $folderResults = $searchHelper->titleSearch('folders', $searchWord);
+        $jotResults = $searchHelper->modelSearch('jots', $searchWord);
         $searchHistories = $searchHelper->userHistory($searchWord);
 
 
         return [
             'tasks' => $taskResults,
             'jargons' => $jargonResults,
-            'history' => $searchHistories
+            'history' => $searchHistories,
+            'jots' => $jotResults,
+            'folders' => $folderResults,
         ];
 
     }
