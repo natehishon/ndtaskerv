@@ -13,7 +13,7 @@ class CreateSearchHistory extends Migration
      */
     public function up()
     {
-        Schema::create('search_history', function (Blueprint $table) {
+        Schema::create('search_histories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('searchable_id')->index();
@@ -31,6 +31,6 @@ class CreateSearchHistory extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('search_history');
+        Schema::dropIfExists('search_histories');
     }
 }

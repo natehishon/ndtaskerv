@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Jot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/SearchHistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SearchHistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_15_203644_create_search_history.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_15_203644_create_search_history.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_15_203644_create_search_history.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+            <state relative-caret-position="449">
+              <caret line="33" column="46" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -66,7 +65,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/SearchHistory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
+            <state relative-caret-position="135">
               <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
             </state>
           </provider>
@@ -140,9 +139,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>route.push</find>
-      <find>this.$router</find>
-      <find>-&gt;with('</find>
       <find>$bvModal</find>
       <find>changeSlide</find>
       <find>src</find>
@@ -170,6 +166,9 @@
       <find>Schema::create('task_tags'</find>
       <find>task_tags</find>
       <find>ndtask.search_history</find>
+      <find>search_histories</find>
+      <find>search_history</find>
+      <find>search_histor</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/resources</dir>
@@ -179,9 +178,9 @@
       <dir>$PROJECT_DIR$/node_modules/vue2-admin-lte</dir>
       <dir>$PROJECT_DIR$/public/js</dir>
       <dir>$PROJECT_DIR$/resources/js/jargons</dir>
-      <dir>$PROJECT_DIR$/app</dir>
       <dir>$PROJECT_DIR$/resources/js</dir>
       <dir>$PROJECT_DIR$/database/migrations</dir>
+      <dir>$PROJECT_DIR$/app</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -199,7 +198,6 @@
         <option value="$PROJECT_DIR$/database/factories/JargonFactory.php" />
         <option value="$PROJECT_DIR$/resources/js/profile/Profile.vue" />
         <option value="$PROJECT_DIR$/app/TaskTag.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_03_15_203644_create_search_history.php" />
         <option value="$PROJECT_DIR$/app/Jargon.php" />
         <option value="$PROJECT_DIR$/resources/js/jargons/jargon.vue" />
         <option value="$PROJECT_DIR$/resources/js/tasks/TaskListItem.vue" />
@@ -240,6 +238,7 @@
         <option value="$PROJECT_DIR$/database/migrations/2020_02_19_003600_create_task_tags.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_04_07_142527_create_folders_table.php" />
         <option value="$PROJECT_DIR$/app/Jot.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_03_15_203644_create_search_history.php" />
         <option value="$PROJECT_DIR$/app/SearchHistory.php" />
       </list>
     </option>
@@ -524,12 +523,12 @@
       <workItem from="1585013390163" duration="22934000" />
       <workItem from="1585411677650" duration="35750000" />
       <workItem from="1586269494638" duration="19563000" />
-      <workItem from="1586889373464" duration="42503000" />
+      <workItem from="1586889373464" duration="42857000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="359095000" />
+    <option name="totallyTimeSpent" value="359449000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
@@ -900,13 +899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_15_203644_create_search_history.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Folder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -952,9 +944,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_15_203644_create_search_history.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="33" column="46" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/SearchHistory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
+        <state relative-caret-position="135">
           <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
         </state>
       </provider>
