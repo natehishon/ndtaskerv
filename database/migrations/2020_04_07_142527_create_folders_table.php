@@ -18,6 +18,7 @@ class CreateFoldersTable extends Migration
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('searchable_id')->index();
             $table->string('searchable_type')->index();
+            $table->string('title');
             $table->string('slug');
             $table->boolean('top_level')->default(0);
             $table->unsignedBigInteger('parent_id')->nullable();
