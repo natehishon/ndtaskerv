@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jot extends Model
 {
-    protected $table = 'ndtask.jots';
 
     public function searchHistories()
     {
