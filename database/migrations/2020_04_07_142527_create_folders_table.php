@@ -16,8 +16,6 @@ class CreateFoldersTable extends Migration
         Schema::create('folders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->index();
-            $table->unsignedBigInteger('searchable_id')->index();
-            $table->string('searchable_type')->index();
             $table->string('title');
             $table->string('slug');
             $table->boolean('top_level')->default(0);
