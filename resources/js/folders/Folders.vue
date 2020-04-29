@@ -111,8 +111,11 @@
                 }
             }
 
-            let trim = this.$route.path.replace(/^\/|\/$/g, '');
-            let split = trim.split("/");
+            let trim = this.$route.path;
+            let trimmed = trim.replace(/^\/|\/$/g, '')
+            console.log("trim");
+            console.log(trimmed);
+            let split = trimmed.split("/");
 
             this.breadCrumbs = this.breadCrumbs.concat(split)
 

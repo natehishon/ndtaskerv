@@ -15,9 +15,10 @@ class FolderController extends Controller
     {
 
         $user = JWTAuth::user();
+        $folders = Folder::query()->where('user_id', '=', $user->id)->topLevel()->get();
 
         return [
-            "table" => Folder::query()->where('user_id', '=', $user->id)->topLevel()->get(),
+            "table" => $folders
         ];
 
     }
@@ -25,7 +26,8 @@ class FolderController extends Controller
     public function folderByName($name)
     {
 
-        $folder = Folder::query()->user()->where('slug', '=', $name)->first();
+        $user = JWTAuth::user();
+        $folder = Folder::query()->where('user_id', '=', $user->id)->where('slug', '=', $name)->first();
         $subFolders = $folder->children->toArray();
         $taskTrackings = $folder->taskTrackings()->with('tasks.subTask')->get()->toArray();
         $tasks = array_column($taskTrackings, 'tasks');
