@@ -70,6 +70,8 @@
                     url += "/" + this.breadCrumbs[i];
                 }
 
+
+
                 // window.location.href = window.location.origin + url;
                 if(url){
                     this.$router.replace({ path: url})
