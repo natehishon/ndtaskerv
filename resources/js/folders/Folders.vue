@@ -121,7 +121,27 @@
 
             let last = this.breadCrumbs.slice(-1)[0];
 
-            axios.get('folders/' + last).then(response => {
+            if(last === 'folders'){
+                axios.get('folders').then(response => {
+
+                    this.folders = response.data.table;
+
+
+                }).catch(err => {
+                    console.log(err);
+                });
+            } else {
+                axios.get('folders/' + last).then(response => {
+
+                    this.folders = response.data.table;
+
+
+                }).catch(err => {
+                    console.log(err);
+                });
+            }
+
+            axios.get('folders/' + (last === 'folders' ? "" : last)).then(response => {
 
                 this.folders = response.data.table;
 
