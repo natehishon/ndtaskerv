@@ -41,11 +41,11 @@ class Folder extends Model
         return $query->where('top_level', '=', true);
     }
 
-//    public function scopeUser($query)
-//    {
-//
-//        return $query->where('user_id', '=', $user->id);
-//    }
+    public function scopeUser($query)
+    {
+        $user = JWTAuth::user();
+        return $query->where('user_id', '=', $user->id);
+    }
 
     public function getSearchTypeAttribute(){
         return 'App\Folder';

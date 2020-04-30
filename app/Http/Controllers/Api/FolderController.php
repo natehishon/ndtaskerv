@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Folder;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Tymon\JWTAuth\Facades\JWTAuth;
+
 
 class FolderController extends Controller
 {
@@ -15,10 +14,10 @@ class FolderController extends Controller
     {
 
 
-        $folders = Folder::query()->where('user_id', '=', 1)->topLevel()->get();
+
 
         return [
-            "table" => $folders
+            "table" => Folder::query()->user()->topLevel()->get(),
         ];
 
     }
@@ -26,8 +25,7 @@ class FolderController extends Controller
     public function folderByName($name)
     {
 
-        $user = JWTAuth::user();
-        $folder = Folder::query()->where('user_id', '=', 1)->where('slug', '=', $name)->first();
+        $folder = Folder::query()->user()->where('slug', '=', $name)->first();
         $subFolders = $folder->children->toArray();
         $taskTrackings = $folder->taskTrackings()->with('tasks.subTask')->get()->toArray();
         $tasks = array_column($taskTrackings, 'tasks');
