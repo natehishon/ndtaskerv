@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/folders/Folders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/folders/Folders.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,10 +59,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/folders/Folders.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="123" column="23" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
+            <state relative-caret-position="246">
+              <caret line="123" column="39" selection-start-line="123" selection-start-column="39" selection-end-line="123" selection-end-column="39" />
               <folding>
-                <marker date="1588215084161" expanded="true" signature="3274:3316" ph="..." />
+                <marker date="1588217053843" expanded="true" signature="3274:3316" ph="..." />
               </folding>
             </state>
           </provider>
@@ -513,15 +513,16 @@
       <workItem from="1586269494638" duration="19563000" />
       <workItem from="1586889373464" duration="45134000" />
       <workItem from="1588079102284" duration="7425000" />
-      <workItem from="1588210242652" duration="2316000" />
+      <workItem from="1588210242652" duration="3198000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371467000" />
+    <option name="totallyTimeSpent" value="372349000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49673203" visible="true" weight="0.45961228" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -939,10 +940,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/folders/Folders.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="123" column="23" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
+        <state relative-caret-position="246">
+          <caret line="123" column="39" selection-start-line="123" selection-start-column="39" selection-end-line="123" selection-end-column="39" />
           <folding>
-            <marker date="1588215084161" expanded="true" signature="3274:3316" ph="..." />
+            <marker date="1588217053843" expanded="true" signature="3274:3316" ph="..." />
           </folding>
         </state>
       </provider>
