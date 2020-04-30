@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/js/folders/Folders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/folders/Folders.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,9 +60,9 @@
         <entry file="file://$PROJECT_DIR$/resources/js/folders/Folders.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="303">
-              <caret line="123" column="23" lean-forward="true" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
+              <caret line="123" column="23" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
               <folding>
-                <marker date="1588214453018" expanded="true" signature="3277:3319" ph="..." />
+                <marker date="1588215084161" expanded="true" signature="3274:3316" ph="..." />
               </folding>
             </state>
           </provider>
@@ -513,12 +513,12 @@
       <workItem from="1586269494638" duration="19563000" />
       <workItem from="1586889373464" duration="45134000" />
       <workItem from="1588079102284" duration="7425000" />
-      <workItem from="1588210242652" duration="1721000" />
+      <workItem from="1588210242652" duration="2316000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="370872000" />
+    <option name="totallyTimeSpent" value="371467000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
@@ -940,9 +940,9 @@
     <entry file="file://$PROJECT_DIR$/resources/js/folders/Folders.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
-          <caret line="123" column="23" lean-forward="true" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
+          <caret line="123" column="23" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
           <folding>
-            <marker date="1588214453018" expanded="true" signature="3277:3319" ph="..." />
+            <marker date="1588215084161" expanded="true" signature="3274:3316" ph="..." />
           </folding>
         </state>
       </provider>
