@@ -14,19 +14,19 @@ import Folders from "./folders/Folders";
 
 
 const routes = [
-    {
-        path: "/",
-        component: Tasks,
-        name: "home",
-        beforeEnter: (to, from, next) => {
-            if (!store.getters['auth/authenticated']) {
-                return next({
-                    name: 'signin'
-                })
-            }
-            next()
-        }
-    },
+    // {
+    //     path: "/",
+    //     component: Tasks,
+    //     name: "home",
+    //     beforeEnter: (to, from, next) => {
+    //         if (!store.getters['auth/authenticated']) {
+    //             return next({
+    //                 name: 'signin'
+    //             })
+    //         }
+    //         next()
+    //     }
+    // },
     {
         path: "/my-tasks",
         component: TaskTrackings,
@@ -113,10 +113,10 @@ const routes = [
         name: "signin"
     },
     {
-        path: '/folders*',
+        path: '/*',
         component: Folders,
         props: (route) => ({ name: route.query.q }),
-        name: "folders",
+        name: "home",
         beforeEnter: (to, from, next) => {
             if (!store.getters['auth/authenticated']) {
                 return next({

@@ -13,8 +13,8 @@
 {{--        prodswap--}}
 
         <script src="{{ ('js/app.js') }}" defer></script>
-        <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
-{{--                <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
+{{--        <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">--}}
+                <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="manifest" href="./manifest.json"/>
 
 

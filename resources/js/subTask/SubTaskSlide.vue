@@ -52,8 +52,7 @@
             }
         },
         created() {
-            console.log('yo');
-            console.log(this.sub_task);
+
         },
         mounted: function () {
             console.log(this.sub_task.imageUrl);
@@ -62,7 +61,7 @@
         },
         methods: {
             openMedia(crumb) {
-
+                console.log("yo");
             }
         }
 

@@ -47,7 +47,7 @@ class TaskController extends Controller
 
     }
 
-    public function uploadImage(){
+    public function uploadImage(Request $request){
 
         //validator
 
@@ -58,12 +58,15 @@ class TaskController extends Controller
 
         $task->save();
 
-        $file = request()->file('image');
+//        $file = request()->file('image');
 
-        $path = Storage::disk('s3')->put('taskImage/'.$task->id, $file);
+//        $path = Storage::disk('s3')->put('taskImage/'.$task->id, $file);
+        $path = $request->file('image')->store('images', 's3');
+//        Storage::disk('s3')->setVisibility($path, 'public');
         $storageName = basename($path);
 
-        $task->imageUrl = $storageName;
+        $task->filename = $storageName;
+        $task->imageUrl = Storage::disk('s3')->url($path);
         $task->save();
 
 

@@ -2,34 +2,51 @@
 
     <div class="">
 
-        <div class="breadcrumb-container">
-            <ul class="breadcrumb-ul">
-                <li v-for="(crumb, index) in breadCrumbs" v-if="crumb" @click="crumbClick(index)"><span>{{crumb}}</span></li>
-            </ul>
-        </div>
+
 
         <div class="folder-table mt-4">
 
-            <b-table
-                    :items="folders"
-                    :fields="fields"
-                    ref="selectableTable"
-                    @row-clicked="choose"
-                    responsive="sm"
-                    :tbody-tr-class="rowClass"></b-table>
 
-            <b-modal footer-bg-variant="dark"
-                     footer-text-variant="light"
-                     id="modalID" size="xl"
-                     :title="task.title"
+            <b-row>
+                <b-col cols="10" offset-sm="1">
 
-            >
-                <Task v-on:task-slide="changeSlide" :task="task"></Task>
-                <template v-slot:modal-footer>
-                    <BottomNotch v-if="task" :current-slide="task.sub_task[currentSlide]"></BottomNotch>
-                </template>
-            </b-modal>
+                    <div class="breadcrumb-container">
+                        <ul class="breadcrumb-ul">
+                            <li v-for="(crumb, index) in breadCrumbs" v-if="crumb" @click="crumbClick(index)"><span>{{crumb}}</span>
+                            </li>
+                        </ul>
+                    </div>
 
+                    <b-table
+                            :items="folders"
+                            :fields="fields"
+                            ref="selectableTable"
+                            @row-clicked="choose"
+                            responsive="sm"
+                            :tbody-tr-class="rowClass">
+
+                        <template v-slot:cell(image)="data">
+                            <div style="height: 100px;">
+                                <img v-bind:src="data.item.imageUrl" style="height: 100px;">
+                            </div>
+                        </template>
+
+                    </b-table>
+
+                    <b-modal footer-bg-variant="dark"
+                             footer-text-variant="light"
+                             id="modalID" size="xl"
+                             :title="task.title"
+
+                    >
+                        <Task v-on:task-slide="changeSlide" :task="task"></Task>
+                        <template v-slot:modal-footer>
+                            <BottomNotch v-if="task" :current-slide="task.sub_task[currentSlide]"></BottomNotch>
+                        </template>
+                    </b-modal>
+                </b-col>
+
+            </b-row>
         </div>
     </div>
 
@@ -53,8 +70,10 @@
             return {
                 folders: null,
                 fields: [
-                    {key: 'title', sortable: true},
-                    {key: 'type', sortable: true},
+                    {key: 'image', sortable: false, tdClass: 'imageColumn'},
+                    {key: 'title', sortable: true,},
+                    {key: 'type', sortable: true, },
+
                 ],
                 task: {id: "0", title: "", sub_task: []},
                 currentSlide: 0,
@@ -66,17 +85,16 @@
                 console.log(crumb);
                 console.log(this.breadCrumbs);
                 let url = "";
-                for(let i = 1; i <= crumb; i++){
+                for (let i = 1; i <= crumb; i++) {
                     url += "/" + this.breadCrumbs[i];
                 }
 
 
-
                 // window.location.href = window.location.origin + url;
-                if(url){
-                    this.$router.replace({ path: url})
+                if (url) {
+                    this.$router.replace({path: url})
                 } else {
-                    this.$router.replace({ name: 'home'})
+                    this.$router.replace({name: 'home'})
                 }
 
             },
@@ -112,7 +130,7 @@
             }
 
             let trim = this.$route.path;
-            let trimmed = trim.replace(/^\/|\/$/g, '')
+            let trimmed = trim.replace(/^\/|\/$/g, '');
             console.log("trim");
             console.log(trimmed);
             let split = trimmed.split("/");
@@ -121,8 +139,9 @@
 
             let last = this.breadCrumbs.slice(-1)[0];
 
-            if(last === 'folders'){
+            if (last === 'folders') {
                 axios.get('folders').then(response => {
+                    console.log("1");
 
                     this.folders = response.data.table;
 
@@ -132,6 +151,7 @@
                 });
             } else {
                 axios.get('folders/' + last).then(response => {
+                    console.log("2");
 
                     this.folders = response.data.table;
 
@@ -140,15 +160,6 @@
                     console.log(err);
                 });
             }
-
-            axios.get('folders/' + (last === 'folders' ? "" : last)).then(response => {
-
-                this.folders = response.data.table;
-
-
-            }).catch(err => {
-                console.log(err);
-            });
         }
 
     }
@@ -156,6 +167,10 @@
 </script>
 
 <style lang="scss">
+
+    .imageColumn {
+        width: 130px;
+    }
 
     .folder-table {
         tr {
@@ -174,7 +189,7 @@
         flex-wrap: wrap;
         -webkit-box-pack: start;
         justify-content: flex-start;
-        margin: 30px 0;
+        /*margin: 30px 0;*/
         padding: 0;
 
         li {
