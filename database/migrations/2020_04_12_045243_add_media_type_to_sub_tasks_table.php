@@ -14,7 +14,7 @@ class AddMediaTypeToSubTasksTable extends Migration
     public function up()
     {
         Schema::table('sub_tasks', function (Blueprint $table) {
-            $table->string('media_type');
+            $table->string('media_type')->nullable();
         });
     }
 

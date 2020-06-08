@@ -2,7 +2,7 @@
 
     <div>
 
-        <b-button id="show-btn" @click="showModal">ask a question</b-button>
+        <b-button id="show-btn" @click="showModal">say something</b-button>
 
         <b-modal ref="my-modal" hide-footer size="lg" :title="choice" >
             <Jot v-on:jot-choice="changeTitle" :currentSlide="currentSlide"></Jot>
@@ -18,7 +18,7 @@
     export default {
         data(){
             return {
-                choice: "what type of question?",
+                choice: "what type of something?",
             }
         },
         props: ['currentSlide'],

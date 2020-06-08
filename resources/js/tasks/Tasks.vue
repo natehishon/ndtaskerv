@@ -172,5 +172,13 @@
         }
     }
 
+    .modal-title{
+        width: 100%;
+        margin-left: 43px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 700;
+    }
+
 
 </style>

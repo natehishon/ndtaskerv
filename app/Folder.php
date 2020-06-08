@@ -23,7 +23,12 @@ class Folder extends Model
 
     public function children()
     {
-        return $this->hasMany('App\Folder', 'parent_id');
+        return $this->hasMany('App\Folder', 'parent_id')->with('taskTrackings.tasks');
+    }
+
+    public function childrensChildren()
+    {
+        return $this->hasMany('App\Folder', 'parent_id')->with(['childrensChildren', 'taskTrackings.tasks']);
     }
 
     public function taskTrackings()
@@ -47,6 +52,16 @@ class Folder extends Model
         return $query->where('user_id', '=', $user->id);
     }
 
+    public function allParents(){
+        return $this->parent()->with('allParents');
+    }
+
+
+    public function getFullSlug(){
+        return $this->allParents;
+
+    }
+
     public function getSearchTypeAttribute(){
         return 'App\Folder';
     }
@@ -56,7 +71,7 @@ class Folder extends Model
     }
 
     public function getTypeAttribute(){
-        return 'Folder';
+        return 'folder';
     }
 
 

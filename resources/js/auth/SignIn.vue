@@ -32,6 +32,7 @@
 
 
                             <b-button class="mt-3" type="submit" variant="secondary">log in</b-button>
+                            <b-button class="mt-3" variant="secondary" @click="signUp">sign up</b-button>
 
                         </b-form>
 
@@ -104,6 +105,11 @@
                 }).catch(err => {
                     console.log(err);
                 });
+            },
+            signUp(){
+                this.$router.replace({
+                    name: 'signUp'
+                })
             }
         }
     }

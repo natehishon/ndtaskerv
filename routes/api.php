@@ -26,23 +26,39 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function(){
     Route::get('me', 'MeController');
 });
 
+Route::get('users', 'Api\UserController@index');
 
 Route::get('tasks', 'Api\TaskController@index');
 Route::get('tasks/{id}', 'Api\TaskController@show');
-Route::post('tasks', 'Api\TaskController@uploadImage');
+Route::post('tasks/{id}', 'Api\TaskController@update');
+Route::post('tasks', 'Api\TaskController@store');
 
 Route::get('folders/{name}', 'Api\FolderController@folderByName');
 Route::get('folders', 'Api\FolderController@index');
+Route::post('folders/{id}', 'Api\FolderController@store');
+Route::get('user-folders/{id}', 'Api\FolderController@userFolders');
+Route::delete('folders/{id}', 'Api\FolderController@destroy');
 
 Route::get('trackings', 'Api\TaskTrackingController@index');
 Route::get('trackings/{id}', 'Api\TaskTrackingController@show');
+Route::post('trackings/{id}', 'Api\TaskTrackingController@store');
+Route::delete('trackings/{id}', 'Api\TaskTrackingController@destroy');
 
-Route::get('jargons/{title}', 'Api\JargonController@getByTitle');
+Route::get('jargons', 'Api\JargonController@index');
+Route::get('jargons/{id}', 'Api\JargonController@show');
+Route::get('jargons/find/{title}', 'Api\JargonController@getByTitle');
+Route::post('jargons/{id}', 'Api\JargonController@update');
+
+Route::post('jargons', 'Api\JargonController@store');
 
 Route::group(['prefix' => 'search'], function(){
     Route::post('user-search', 'Api\SearchController@userSearch');
     Route::post('user-choice', 'Api\SearchController@userChoice');
     Route::post('history-choice', 'Api\SearchController@historyChoice');
 });
+
+Route::post('jots', 'Api\JotController@store');
+Route::get('jots', 'Api\JotController@index');
+Route::get('jots/{id}', 'Api\JotController@show');
 
 Route::apiResource('tasks', 'Api\TaskController')->only(['index', 'show']);

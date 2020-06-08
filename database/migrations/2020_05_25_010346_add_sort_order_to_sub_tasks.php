@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageFileNameTasks extends Migration
+class AddSortOrderToSubTasks extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddImageFileNameTasks extends Migration
      */
     public function up()
     {
-        Schema::table('tasks', function (Blueprint $table) {
-            $table->string('filename')->nullable();
-            $table->string('media_type')->nullable();
+        Schema::table('sub_tasks', function (Blueprint $table) {
+            $table->unsignedInteger('sort_order')->nullable();
         });
     }
 
@@ -26,10 +25,8 @@ class AddImageFileNameTasks extends Migration
      */
     public function down()
     {
-        Schema::table('tasks', function (Blueprint $table) {
-            $table->dropColumn('filename');
-            $table->dropColumn('media_type');
-
+        Schema::table('sub_tasks', function (Blueprint $table) {
+            $table->dropColumn('sort_order');
         });
     }
 }

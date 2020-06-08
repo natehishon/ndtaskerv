@@ -34,7 +34,7 @@
                     >
                         <froala :tag="'textarea'" :config="config" v-model="content"></froala>
                     </b-form-group>
-                    <b-button type="submit" variant="dark">ask</b-button>
+                    <b-button class="float-right" size="xl" type="submit" variant="primary">ask</b-button>
                 </b-form>
             </b-col>
         </b-row>
@@ -44,6 +44,8 @@
 </template>
 
 <script>
+
+    import axios from "axios";
 
     export default {
         data() {
@@ -85,7 +87,21 @@
             },
             onSubmit(evt) {
                 evt.preventDefault();
-                alert(JSON.stringify(this.form))
+                let formData = {
+                    content: this.content,
+                    jotable: this.currentSlide
+                }
+
+                axios.post('/jots', formData).then(response => {
+
+                    //add to
+                    console.log(this.response);
+
+                }).catch(err => {
+                    console.log(err);
+                });
+                console.log(this.content);
+                console.log(this.currentSlide);
             },
         },
         props: ['currentSlide'],

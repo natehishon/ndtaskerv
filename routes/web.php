@@ -15,6 +15,6 @@ Route::get('/{any?}', function () {
     return view('welcome');
 })->where('any', '^(?!api\/)[\/\w\.-]*');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Auth::routes(['verify' => true]);
+//
+//Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');

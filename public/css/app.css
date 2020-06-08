@@ -20326,13 +20326,8 @@ input[type=color].form-control:disabled {
 
 body {
   font-family: "Roboto", sans-serif;
-}
-
-@media (min-width: 756px) {
-  .modal-dialog {
-    max-width: 700px;
-    margin: 1.75rem auto;
-  }
+  background-color: #f8f9fa;
+  color: #212529;
 }
 
 .bg-primary {
@@ -20373,6 +20368,12 @@ body {
   border-color: #17a2b8;
 }
 
+.badge-info {
+  color: white;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
 .btn-info:not(:disabled):not(.disabled):active {
   background-color: #117a8b;
   border-color: #10707f;
@@ -20406,7 +20407,6 @@ body {
 
 .body {
   color: #fff;
-  background-color: white !important;
 }
 
 .modal {
@@ -20415,7 +20415,6 @@ body {
 
 .index {
   width: 100%;
-  background-color: white;
 }
 
 .slide-show-container {
@@ -20459,5 +20458,38 @@ body {
 
 .sidebar .side-bar-title-container .side-bar-title {
   margin-left: 0.5rem;
+}
+
+@media (min-width: 456px) {
+  .modal-dialog {
+    /*margin: 1.75rem auto;*/
+  }
+}
+
+.fr-emoticon {
+  background-repeat: no-repeat !important;
+  font-size: inherit;
+  height: 1em;
+  width: 1em;
+  min-height: 20px;
+  min-width: 20px;
+  display: inline-block;
+  margin: -0.1em 0.1em 0.1em;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.way-form .form-group label {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.way-form .form-group input {
+  padding: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.way-form .form-group .fr-box.fr-basic .fr-element {
+  font-size: 1.25rem;
 }
 

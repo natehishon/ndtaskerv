@@ -9,7 +9,8 @@ class SubTask extends Model
 
     protected $appends = [
         'searchType',
-        'modelName'
+        'modelName',
+        'active'
     ];
 
     public function getCoverAttribute() {
@@ -22,7 +23,7 @@ class SubTask extends Model
 
     public function jots()
     {
-        return $this->morphMany('App\Jots', 'jotable');
+        return $this->morphMany('App\Jot', 'model');
     }
 
     public function searchHistories()
@@ -36,6 +37,10 @@ class SubTask extends Model
 
     public function getModelNameAttribute(){
         return 'subtask';
+    }
+
+    public function getActiveAttribute(){
+        return true;
     }
 
 

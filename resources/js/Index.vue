@@ -2,7 +2,9 @@
 
     <div class="index">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-        <Nav @created="handleCreate"></Nav>
+        <Nav :routeName="currentRouteName" @created="handleCreate"></Nav>
+
+        <div class="vertical-spacer"></div>
 
         <b-container fluid v-if="authenticated">
             <router-view :key="$route.fullPath"></router-view>
@@ -35,15 +37,20 @@
             ...mapGetters({
                 authenticated: 'auth/authenticated',
                 user: 'auth/user'
-            })
+            }),
+            currentRouteName() {
+                return this.$route.name;
+            }
+
         },
+
+
 
         components: {
             Nav,
             Sidebar,
             'va-button': VAButton,
         },
-
         data() {
             return {
                 route: 0
@@ -60,3 +67,9 @@
 
 </script>
 
+<style lang="scss">
+    .vertical-spacer{
+        height: 40px;
+    }
+
+</style>

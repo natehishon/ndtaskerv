@@ -27,9 +27,11 @@ class SearchController extends Controller
 
     public function userSearch(Request $request)
     {
+
         $searchWord = $request->input('search');
         $searchHelper = new SearchHelper();
-        $taskResults = $searchHelper->modelSearch('tasks', $searchWord);
+        //this needs to be trackings
+        $taskResults = $searchHelper->taskSearch($searchWord);
         $jargonResults = $searchHelper->modelSearch('jargons', $searchWord);
         $folderResults = $searchHelper->titleSearch('folders', $searchWord);
         $jotResults = $searchHelper->modelSearch('jots', $searchWord);

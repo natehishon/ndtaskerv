@@ -19,4 +19,18 @@ class Jot extends Model
         return $this->morphTo();
     }
 
+    public function jotResponses()
+    {
+        return $this->hasMany(JotResponse::class, 'jot_id');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+//    public function subTasks()
+//    {
+//        return $this->morphedByMany('App\SubTask', 'jotable');
+//    }
+
 }

@@ -3,12 +3,50 @@
 
     <div class="task-container">
 
-        <div class="content-container">
-            <v-runtime-template :template="'<div>' + task.content + '</div>'"/>
-        </div>
+        <b-row>
+            <b-col sm="12">
+                <b-tabs pills card vertical fill class="tabs-yo">
 
-        <subTaskSlideShow v-on:slide-change="slideChange" v-if="task.sub_task.length > 0"
-                          v-bind:sub_tasks="task.sub_task"></subTaskSlideShow>
+                    <b-tab v-for="subTask in task.sub_task" :title="subTask.title" :key="subTask.id">
+                        <sub-task-slide class="sub-slide" v-if="subTask"
+                                        v-bind:sub_task="subTask"></sub-task-slide>
+                    </b-tab>
+                    <!--                    <b-tab title="Tab 1" active>-->
+                    <!--                        <b-col sm="12" md="6">-->
+                    <!--                            <v-runtime-template :template="'<div>' + task.content + '</div>'"/>-->
+                    <!--                        </b-col>-->
+
+                    <!--                        <b-col sm="12" md="6">-->
+
+                    <!--                            <div class="image-container" v-if="task.media_type === 'image'">-->
+                    <!--                                <b-img v-bind:src="task.imageUrl" fluid></b-img>-->
+                    <!--                            </div>-->
+
+                    <!--                            <div class="video-container" v-if="task.media_type === 'video'">-->
+                    <!--                                <vue-plyr>-->
+                    <!--                                    <video poster="" src="video.mp4">-->
+                    <!--                                        <source v-bind:src="task.imageUrl" type="video/mp4" size="1080">-->
+                    <!--                                    </video>-->
+                    <!--                                </vue-plyr>-->
+                    <!--                            </div>-->
+
+
+                    <!--                        </b-col>-->
+                    <!--                    </b-tab>-->
+                    <!--                    <b-tab title="Tab 2">-->
+                    <!--                        yoo-->
+                    <!--                    </b-tab>-->
+                    <!--                    <b-tab title="Tab 3">-->
+                    <!--                        what up-->
+                    <!--                    </b-tab>-->
+                </b-tabs>
+            </b-col>
+
+
+        </b-row>
+
+        <!--        <subTaskSlideShow v-on:slide-change="slideChange" v-if="task.sub_task.length > 0"-->
+        <!--                          v-bind:sub_tasks="task.sub_task"></subTaskSlideShow>-->
 
     </div>
 
@@ -19,9 +57,11 @@
     import Jargon from '../jargons/Jargon';
     import SubTaskSlideShow from '../subTask/SubTaskSlideShow'
     import VRuntimeTemplate from "v-runtime-template";
+    import SubTaskSlide from "../subTask/SubTaskSlide";
 
     export default {
         components: {
+            SubTaskSlide,
             SubTaskSlideShow,
             Jargon,
             VRuntimeTemplate,
@@ -31,53 +71,6 @@
         data() {
             //return an object
             return {
-                // task: null,
-                // subTasks: [
-                //     {
-                //         cover: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png',
-                //         title: 'Step One',
-                //         content: 'Subtask one',
-                //         description: '<p>Whenever Pikachu comes across something new, it blasts it with a jolt of <jargon>first jargon</jargon>. If you come across a blackened berry, it\'s evidence that this <jargon>second jargon</jargon> mistook the intensity of its charge.</p>',
-                //         url: "/"
-                //     },
-                //     {
-                //         cover: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png',
-                //         title: 'Squirtle',
-                //         content: 'Subtask one',
-                //         description: 'Squirtle\'s shell is not merely used for protection. The shell\'s rounded shape and the grooves on its surface help minimize resistance in water, enabling this Pokémon to swim at high speeds.',
-                //         url: "/"
-                //     },
-                //     {
-                //         cover: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png',
-                //         title: 'Bulbasaur',
-                //         content: 'Subtask one',
-                //         description: 'Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun\'s rays, the seed grows progressively larger..',
-                //         url: "/"
-                //     },
-                //     {
-                //         cover: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png',
-                //         title: 'Charmander',
-                //         content: 'Subtask one',
-                //         description: 'The flame that burns at the tip of its tail is an indication of its emotions. The flame wavers when Charmander is enjoying itself. If the Pokémon becomes enraged, the flame burns fiercely.',
-                //         url: "/"
-                //     },
-                //     {
-                //         cover: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png',
-                //         title: 'Eevee',
-                //         content: 'Subtask one',
-                //         description: 'Eevee has an unstable genetic makeup that suddenly mutates due to the environment in which it lives. Radiation from various stones causes this Pokémon to evolve.',
-                //         url: "/"
-                //     },
-                //     {
-                //         cover: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/147.png',
-                //         title: 'Dratini',
-                //         content: 'Subtask one',
-                //         description: 'Dratini continually molts and sloughs off its old skin. It does so because the life energy within its body steadily builds to reach uncontrollable levels.',
-                //         url: "/"
-                //     },
-                //
-                //
-                // ],
                 number: 500,
                 window: {
                     width: 0,
@@ -87,18 +80,11 @@
 
             };
         },
+        mounted: function () {
+
+        },
         created() {
-            // axios.get(`tasks/${this.$route.params.id}`).then(response => {
-            //     this.task = response.data.data;
-            //
-            //     // this.subTasks = response.data.data.sub_task;
-            // });
-            console.log('12');
-            console.log(this.task.sub_task);
-            // $('[data-toggle="popover"]').popover()
-            // Vue.nextTick(function () {
-            //
-            // })
+
         },
         methods: {
             onTermChange(index) {
@@ -122,7 +108,7 @@
     }
 </script>
 
-<style>
+<style lang="scss">
 
     button:focus {
         outline: none !important;
@@ -172,8 +158,28 @@
         color: blue;
     }
 
-    .content-container{
+    .content-container {
         margin: 0 33px;
     }
+
+    .video-js .vjs-control-bar {
+        bottom: -30px;
+    }
+
+    .video-js .vjs-control-bar, .vjs-fade-in, .vjs-fade-out {
+        visibility: visible !important;
+        opacity: 1 !important;
+        transition-duration: 0s !important;
+        display: block !important;
+    }
+
+    .tabs-yo {
+
+        .card-header {
+            background-color: white;
+        }
+
+    }
+
 
 </style>

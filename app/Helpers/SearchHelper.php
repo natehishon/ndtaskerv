@@ -9,6 +9,7 @@ use App\Jot;
 use App\SearchHistory;
 use App\Task;
 use Illuminate\Support\Facades\DB;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class SearchHelper
 {
@@ -107,17 +108,17 @@ class SearchHelper
 
 
         $sql = "SELECT t.id,t.title,t.created_at,
-            
+
             (
                 (" . implode(" + ", $titleSQL) . ")
             ) as score
             FROM " . $model . " t
-           
+
            group by t.id, t.title,t.created_at
             HAVING (
                 (" . implode(" + ", $titleSQL) . ")
             ) > 0
-            
+
             ORDER BY score DESC
             LIMIT 25";
 
@@ -125,6 +126,102 @@ class SearchHelper
 
         if ($model === 'folders') {
             $models = Folder::hydrate($results);
+        }
+
+        if (!$results) {
+            return [];
+        }
+        return $models;
+    }
+
+    function taskSearch($query)
+    {
+
+        $user = JWTAuth::user();
+
+        //ready our query
+        $query = trim($query);
+        if (mb_strlen($query) === 0) {
+            return false;
+        }
+        $query = $this->limitChars($query);
+        $keywords = $this->filterSearchKeys($query);
+        $escQuery = $this->escape_like($query);
+        $titleSQL = array();
+        $contentSQL = array();
+
+        //set scores
+        $scoreExactMatchTitle = 6;
+        $scoreExactMatchContent = 5;
+        $scoreFullTitle = 4;
+        $scoreTitleKeyword = 3;
+        $scoreFullContent = 2;
+        $scoreContentKeyword = 1;
+
+
+        //escaped query in total
+        if (count($keywords) > 0) {
+            $titleSQL[] = "case when t.title = '" . $escQuery . " ' then {$scoreExactMatchTitle} else 0 end";
+            $titleSQL[] = "(case when t.title LIKE '%" . $escQuery . "%' then {$scoreFullTitle} else 0 end)";
+            $contentSQL[] = "(case when content = '" . $escQuery . "' then {$scoreExactMatchContent} else 0 end)";
+            $contentSQL[] = "(case when content LIKE '%" . $escQuery . "%' then {$scoreFullContent} else 0 end)";
+
+        }
+
+
+        //going through each word
+        foreach ($keywords as $key) {
+            $titleSQL[] = "(case when t.title LIKE '%" . $this->escape_like($key) . "%' then {$scoreTitleKeyword} else 0 end)";
+            $contentSQL[] = "(case when content LIKE '%" . $this->escape_like($key) . "%' then {$scoreContentKeyword} else 0 end)";
+        }
+
+
+        if (empty($titleSQL)) {
+            $titleSQL[] = 0;
+        }
+
+        if (empty($contentSQL)) {
+            $contentSQL[] = 0;
+        }
+
+
+        $sql = "SELECT distinct t.id, tt.id as tid, tt.folder_id,t.title,t.created_at,f.slug,
+            t.content,
+            (
+                (" . implode(" + ", $titleSQL) . ")
+                +
+                (" . implode(" + ", $contentSQL) . ")
+            ) as score
+            FROM tasks t
+            join task_trackings tt
+            on t.id = tt.task_id
+            join folders f
+            on f.id = tt.folder_id
+            where tt.user_id = ". $user->id ."
+           group by t.id,t.title,t.created_at,
+            t.content, tt.id, tt.folder_id, f.slug
+            HAVING (
+                (" . implode(" + ", $titleSQL) . ")
+                +
+                (" . implode(" + ", $contentSQL) . ")
+            ) > 0
+            ORDER BY score DESC
+            LIMIT 5";
+
+        //TODO
+        //one known bug is to implement a set ON object properties
+        //important, should make these models implement a searchable interface
+        //user scope these
+
+        //running the actual query
+
+        $results = DB::select(DB::raw($sql));
+
+        $models = Task::hydrate($results);
+
+        foreach ($models as $model){
+            $folder = Folder::query()->find($model->folder_id);
+            $model->all_parents = $folder->getFullSlug();
         }
 
         if (!$results) {
@@ -198,16 +295,15 @@ class SearchHelper
                 (" . implode(" + ", $contentSQL) . ")
             ) > 0
             ORDER BY score DESC
-            LIMIT 25";
+            LIMIT 5";
 
         //TODO
-        //more models, jargons
         //one known bug is to implement a set ON object properties
         //important, should make these models implement a searchable interface
         //user scope these
 
         //running the actual query
-//        dd($sql);
+
         $results = DB::select(DB::raw($sql));
 
         if ($model === 'tasks') {

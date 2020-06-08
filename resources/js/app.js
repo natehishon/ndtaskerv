@@ -12,6 +12,8 @@ require('froala-editor/css/froala_editor.pkgd.min.css')
 require('froala-editor/css/froala_style.min.css')
 import 'froala-editor/js/plugins.pkgd.min'
 
+import '../sass/tailwind.css'
+
 import VueRouter from "vue-router";
 import Index from "./Index";
 import router from "./routes";
@@ -21,6 +23,9 @@ import store from "./store";
 import { VueperSlides, VueperSlide } from 'vueperslides'
 
 import VueFroala from 'vue-froala-wysiwyg'
+import VuePlyr from 'vue-plyr'
+import VueBootstrapTypeahead from 'vue-bootstrap-typeahead'
+import draggable from 'vuedraggable'
 
 import axios from "axios";
 
@@ -53,7 +58,9 @@ Vue.use(VueperSlides);
 Vue.use(VueperSlide);
 Vue.use(Editor);
 Vue.use(VueFroala)
-Vue.use(Sortable)
+Vue.use(VuePlyr)
+Vue.use(VueBootstrapTypeahead)
+// Vue.use(draggable)
 
 const prod = process.env.NODE_ENV === 'production'
 const shouldSW = 'serviceWorker' in navigator && prod
