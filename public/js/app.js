@@ -88333,10 +88333,11 @@ __webpack_require__(/*! froala-editor/css/froala_style.min.css */ "./node_module
 
 
 
-__webpack_require__(/*! ./store/subscriber */ "./resources/js/store/subscriber.js"); // axios.defaults.baseURL = 'https://evening-forest-04369.herokuapp.com/api/';
+__webpack_require__(/*! ./store/subscriber */ "./resources/js/store/subscriber.js"); //prodswap
 
 
-axios__WEBPACK_IMPORTED_MODULE_11___default.a.defaults.baseURL = 'http://127.0.0.1:8000/api/';
+axios__WEBPACK_IMPORTED_MODULE_11___default.a.defaults.baseURL = 'https://evening-forest-04369.herokuapp.com/api/'; // axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
+
 
  // import vClickOutside from 'v-click-outside'
 
