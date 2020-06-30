@@ -14,7 +14,7 @@ class SubTask extends Model
     ];
 
     public function getCoverAttribute() {
-        return $this->imageUrl;
+        return $this->image_url;
     }
 
     public function task() {
@@ -23,7 +23,7 @@ class SubTask extends Model
 
     public function jots()
     {
-        return $this->morphMany('App\Jot', 'model');
+        return $this->morphMany('App\Jot', 'jotable');
     }
 
     public function searchHistories()

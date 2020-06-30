@@ -2,13 +2,15 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Jargon extends Model
 {
 
     protected $appends = [
-        'searchType'
+        'searchType',
+        'formattedDate'
     ];
 
     public function searchHistories()
@@ -18,6 +20,10 @@ class Jargon extends Model
 
     public function getSearchTypeAttribute(){
         return 'App\Jargon';
+    }
+
+    public function getFormattedDateAttribute(){
+        return date_format($this->created_at, 'm/d/yy');
     }
 
 }

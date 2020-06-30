@@ -32,17 +32,21 @@ class SearchController extends Controller
         $searchHelper = new SearchHelper();
         //this needs to be trackings
         $taskResults = $searchHelper->taskSearch($searchWord);
+        $subTaskResults = $searchHelper->subTaskSearch($searchWord);
         $jargonResults = $searchHelper->modelSearch('jargons', $searchWord);
-        $folderResults = $searchHelper->titleSearch('folders', $searchWord);
-        $jotResults = $searchHelper->modelSearch('jots', $searchWord);
+        $folderResults = $searchHelper->titleSearch('user_folders', $searchWord);
+        $jotResults = $searchHelper->jotSearch($searchWord);
+        $jotConvo = $searchHelper->jotConvoSearch($searchWord);
         $searchHistories = $searchHelper->userHistory($searchWord);
 
 
         return [
             'tasks' => $taskResults,
+            'subTasks' => $subTaskResults,
             'jargons' => $jargonResults,
             'history' => $searchHistories,
             'jots' => $jotResults,
+            'jotConvo' => $jotConvo,
             'folders' => $folderResults,
         ];
 

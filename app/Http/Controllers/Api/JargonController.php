@@ -22,16 +22,12 @@ class JargonController extends Controller
 
     public function show($id)
     {
-
         $jargon = Jargon::query()->findOrFail($id);
-
         return [
             "data" => $jargon,
-
         ];
 
     }
-
 
     public function getByTitle($title)
     {
@@ -51,14 +47,15 @@ class JargonController extends Controller
         $jargon = new Jargon();
 
         $jargon->title = request()->input('title');
-        $jargon->content = request()->input('content');
+        $jargon->content_html = request()->input('content_html');
+        $jargon->content = strip_tags(request()->input('content_html'));
         $jargon->color = 'primary';
 
         if(!empty($request->file('image'))){
             $path = $request->file('image')->store('images', 's3');
             $storageName = basename($path);
 //            $jargon->filename = $storageName;
-            $jargon->imageUrl = Storage::disk('s3')->url($path);
+            $jargon->image_url = Storage::disk('s3')->url($path);
         }
 
         $jargon->save();
@@ -72,13 +69,14 @@ class JargonController extends Controller
         $jargon = Jargon::query()->findOrFail($id);
 
         $jargon->title = request()->input('title');
-        $jargon->content = request()->input('content');
+        $jargon->content_html = request()->input('content_html');
+        $jargon->content = strip_tags(request()->input('content'));
 
         if(!empty($request->file('image'))){
             $path = $request->file('image')->store('images', 's3');
             $storageName = basename($path);
 //            $jargon->filename = $storageName;
-            $jargon->imageUrl = Storage::disk('s3')->url($path);
+            $jargon->image_url = Storage::disk('s3')->url($path);
         }
 
         $jargon->save();

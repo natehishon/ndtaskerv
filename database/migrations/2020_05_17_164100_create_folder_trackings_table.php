@@ -13,13 +13,11 @@ class CreateFolderTrackingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('folder_trackings', function (Blueprint $table) {
+        Schema::create('prebuilt_folders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->index();
             $table->string('title');
             $table->string('slug');
-            $table->boolean('top_level')->default(0);
-            $table->unsignedBigInteger('parent_id')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateFolderTrackingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('folder_trackings');
+        Schema::dropIfExists('prebuilt_folders');
     }
 }

@@ -11,9 +11,14 @@ class Task extends Model
     protected $appends = [
         'imagePath',
         'searchType',
-        'type'
+        'type',
+        'formattedDate'
 
     ];
+
+    public function getFormattedDateAttribute(){
+        return date_format($this->created_at, 'm/d/yy');
+    }
 
     public function taskTrackings()
     {
@@ -41,6 +46,16 @@ class Task extends Model
         return 'https://ndtask.s3.us-east-2.amazonaws.com/taskImage/' . $this->id . '/';
     }
 
+    public function jots()
+    {
+        return $this->morphMany('App\Jot', 'jotable');
+    }
+
+    public function prebuiltFolders()
+    {
+        return $this->belongsToMany('App\PrebuiltFolders');
+    }
+
     public function getSearchTypeAttribute()
     {
         return 'App\Task';
@@ -62,7 +77,9 @@ class Task extends Model
 
                 $newSubTask = new SubTask();
                 $newSubTask->title = $subTask['title'];
-                $newSubTask->content = $subTask['content'];
+                $newSubTask->content_html = $subTask['content_html'];
+                $newSubTask->content = strip_tags($subTask['content']);
+
                 $newSubTask->media_type = "image";
 
                 $newSubTask->task()->associate($this);
@@ -80,14 +97,15 @@ class Task extends Model
                 }
 
                 $newSubTask->title = $subTask['title'];
-                $newSubTask->content = $subTask['content'];
+                $newSubTask->content_html = $subTask['content_html'];
+                $newSubTask->content = strip_tags($subTask['content']);
                 $newSubTask->media_type = "image";
             }
 
             if ((isset($subTask['fileKey']) && !empty($subTask['fileKey']))) {
                 if ($imageFiles[$subTask['fileKey']]) {
                     $path = $imageFiles[$subTask['fileKey']]->store('images', 's3');
-                    $newSubTask->imageUrl = Storage::disk('s3')->url($path);
+                    $newSubTask->image_url = Storage::disk('s3')->url($path);
 
                     $imageTypes = ['image/jpeg', 'image/gif', 'image/png', 'image/bmp', 'image/svg+xml'];
                     $videoTypes = ['video/mp4', 'video/ogg', 'video/webm'];

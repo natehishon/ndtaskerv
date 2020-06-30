@@ -9,6 +9,14 @@ use Illuminate\Database\Eloquent\Model;
 class Jot extends Model
 {
 
+    protected $appends = [
+        'formattedDate'
+    ];
+
+    protected $types = [
+        'subTask' => 'App\SubTask',
+    ];
+
     public function searchHistories()
     {
         return $this->morphMany('App\SearchHistory', 'searchable');
@@ -21,12 +29,17 @@ class Jot extends Model
 
     public function jotResponses()
     {
-        return $this->hasMany(JotResponse::class, 'jot_id');
+        return $this->hasMany(JotResponse::class, 'jot_id')->with('user');
     }
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function getFormattedDateAttribute(){
+        return date_format($this->created_at, 'm/d/yy');
+    }
+
 
 //    public function subTasks()
 //    {

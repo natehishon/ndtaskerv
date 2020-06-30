@@ -18,7 +18,8 @@ class CreateSubTasksTable extends Migration
             $table->unsignedBigInteger('task_id')->index();
             $table->string('title');
             $table->text('content');
-            $table->string('imageUrl')->nullable();
+            $table->text('content_html');
+            $table->string('image_url')->nullable();
             $table->timestamps();
         });
     }

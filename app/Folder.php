@@ -16,6 +16,8 @@ class Folder extends Model
         'type'
     ];
 
+    protected $table = 'ndtask.user_folders';
+
     public function parent()
     {
         return $this->belongsTo('App\Folder', 'parent_id');

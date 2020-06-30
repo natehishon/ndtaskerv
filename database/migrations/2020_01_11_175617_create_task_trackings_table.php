@@ -17,9 +17,7 @@ class CreateTaskTrackingsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->unsignedBigInteger('task_id')->index();
-//            $table->foreign('task_id')->references('id')->on('tasks');
             $table->unsignedBigInteger('user_id')->index();
-//            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

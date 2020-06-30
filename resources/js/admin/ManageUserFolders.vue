@@ -6,7 +6,7 @@
         <b-col cols="12" class="flex-container">
             <div style="display: inherit">
                 <b-button class="new-folder mb-3" size="lg" @click="newFolderModal()" variant="success">
-                    <i class="fas fa-plus "></i> new parent folder
+                    new parent folder&nbsp;&nbsp;<i class="fas fa-plus "></i>
                 </b-button>
             </div>
             <b-modal
@@ -34,11 +34,11 @@
 
                 <template v-slot:modal-footer>
                     <b-button size="md" @click="addNewFolder()" variant="success">
-                        <i class="fas fa-plus "></i> save
+                        save&nbsp;&nbsp;<i class="fas fa-plus "></i>
                     </b-button>
                 </template>
             </b-modal>
-            <div class="folder-parent-container mt-4">
+            <div class="folder-parent-container">
                 <folder-tree :currentFolders="userFolders" :taskList="this.taskList"></folder-tree>
             </div>
         </b-col>
@@ -63,6 +63,7 @@
             flex-direction: column;
             flex-wrap: nowrap;
             justify-content: center;
+            margin: 10px auto;
         }
     }
 
@@ -101,7 +102,8 @@
                 axios.post('/folders/' + this.$route.params.id, formData).then(response => {
 
                     //add to
-                    console.log(this.response);
+                    this.userFolders = response.data.folders;
+                    this.taskList = response.data.tasks;
 
                 }).catch(err => {
                     console.log(err);

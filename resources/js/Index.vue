@@ -59,7 +59,6 @@
 
         methods: {
             handleCreate() {
-                console.log('Child has been created.');
                 this.route += 1;
             }
         }

@@ -6,31 +6,31 @@
         <ul>
             <li v-for="folder in currentFolders" class="folder-container">
                 <span class="folder" v-b-toggle="'folder' + folder.id">
-                    <b-badge variant="primary" class="mr-1"><i class="fas fa-folder fa-fw"></i>folder</b-badge>
+                    <b-badge variant="primary" class="mr-1">folder&nbsp;&nbsp;<i class="fas fa-folder fa-fw"></i></b-badge>
                     {{folder.title}}
                 </span>
                 <b-dropdown no-caret variant="light">
-                    <template v-slot:button-content>
-                        <i class="fas fa-ellipsis-h" style="font-size: 20px; margin-top: 2px"></i>
+                    <template v-slot:button-content >
+                        <i class="fas fa-ellipsis-h" style="font-size: 18px;"></i>&nbsp;&nbsp;<span style="font-size: 18px">edit</span>
                     </template>
-                    <b-dropdown-item @click="newChildFolderModal(folder)">add folder</b-dropdown-item>
-                    <b-dropdown-item @click="newChildTask(folder)">add task</b-dropdown-item>
-                    <b-dropdown-item @click="deleteFolder(folder)">delete</b-dropdown-item>
+                    <b-dropdown-item @click="newChildFolderModal(folder)">add folder&nbsp;&nbsp;<i class="far fa-folder"></i></b-dropdown-item>
+                    <b-dropdown-item @click="newChildTask(folder)">add task&nbsp;&nbsp;<i class="fas fa-list"></i></b-dropdown-item>
+                    <b-dropdown-item @click="deleteFolder(folder)">delete&nbsp;&nbsp;<i class="fas fa-trash"></i></b-dropdown-item>
                 </b-dropdown>
                 <b-collapse :id="'folder'+folder.id" class="folder-tree-ul ">
                     <ul v-if="folder.task_trackings">
                         <li v-for="taskTracking in folder.task_trackings">
                             <span class="task mb-2">
                                 <b-badge variant="info" class="mr-1">
-                                    <i class="fas fa-list fa-fw"></i>task
+                                    task&nbsp;&nbsp;<i class="fas fa-list fa-fw"></i>
                                 </b-badge>
                             {{taskTracking.tasks.title}}
                             </span>
                             <b-dropdown no-caret variant="light">
                                 <template v-slot:button-content>
-                                    <i class="fas fa-ellipsis-h" style="font-size: 20px; margin-top: 2px"></i>
+                                    <i class="fas fa-ellipsis-h" style="font-size: 18px;"></i>&nbsp;&nbsp;<span style="font-size: 18px">edit</span>
                                 </template>
-                                <b-dropdown-item @click="deleteTracking(taskTracking)">delete</b-dropdown-item>
+                                <b-dropdown-item @click="deleteTracking(taskTracking)">delete&nbsp;&nbsp;<i class="fas fa-trash"></i></b-dropdown-item>
                             </b-dropdown>
                         </li>
                     </ul>
@@ -45,9 +45,21 @@
                     <div class="container-fluid">
                         <form enctype="multipart/form-data">
                             <div class="row">
-                                <div class="col-xs-12">
+                                <div class="col-xs-12 col-sm-6">
                                     <div class="form-group">
-                                        <label for="title">Title</label>
+                                        <label for="title">new folder title</label>
+                                        <input type="text" class="form-control"
+                                               v-model="newFolder.title">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>folder image</label>
+                                        <input type="file" ref="folderFile" @change="selectFolderFiles"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="title">prebuilt folder</label>
                                         <input type="text" class="form-control"
                                                v-model="newFolder.title">
                                     </div>
@@ -109,15 +121,13 @@
 
 <style lang="scss">
 
+
+
     .user-folder-tree-container {
 
         display: flex;
-        justify-content: center;
+        justify-content: left;
 
-        .folder-container {
-            /*border: 2px solid rgba(0, 0, 0, 0.05);*/
-
-        }
 
         .folder-tree-ul {
             border-left: 5px solid rgba(0, 0, 0, 0.05);
@@ -168,7 +178,6 @@
                 axios.post('/trackings/' + this.$route.params.id, postData).then(response => {
 
                     //add to
-                    console.log(this.response);
 
                 }).catch(err => {
                     console.log(err);
@@ -190,7 +199,8 @@
                 axios.post('/folders/' + this.$route.params.id, formData).then(response => {
 
                     //add to
-                    console.log(this.response);
+                    this.currentFolders = response.data.folders;
+                    // this.taskList = response.data.tasks;
 
                 }).catch(err => {
                     console.log(err);
@@ -221,7 +231,6 @@
                 axios.delete('/trackings/' + tracking.id).then(response => {
 
                     //add to
-                    console.log(this.response);
 
                 }).catch(err => {
                     console.log(err);
@@ -231,7 +240,6 @@
                 axios.delete('/folders/' + folder.id).then(response => {
 
                     //add to
-                    console.log(this.response);
 
                 }).catch(err => {
                     console.log(err);

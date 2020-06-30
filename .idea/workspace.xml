@@ -21,61 +21,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/JotController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/JotResponse.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/FolderTree.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/ManageJargons.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/ManageJots.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/ManageTasks.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/ManageUserFolders.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/ManageUsers.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/alerts/Success.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/auth/SignUp.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/jargons/CreateJargon.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/jargons/EditJargon.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/jots/Jots.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/jots/UserJots.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/miscellaneous/SuccessModal.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/tailwind.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ndtaskerv.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ndtaskerv.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/PrebuiltFolder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/PrebuiltFolder.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/PrebuiltFolders.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/jargons/JargonPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/jargons/UserJargons.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Folder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Folder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Helpers/SearchHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/SearchHelper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/FolderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/FolderController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/JargonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/JargonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/JotController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/JotController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SearchController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/TaskController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/TaskTrackingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/TaskTrackingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jargon.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jargon.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Jot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jot.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/SubTask.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SubTask.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Task.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_12_045243_add_media_type_to_sub_tasks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_12_045243_add_media_type_to_sub_tasks_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_07_043445_add_image_file_name_tasks.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_07_043445_add_image_file_name_tasks.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_185931_create_tasks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_28_185931_create_tasks_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_11_175617_create_task_trackings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_11_175617_create_task_trackings_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_18_232848_create_sub_tasks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_18_232848_create_sub_tasks_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_04_023611_create_jargons_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_04_023611_create_jargons_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_07_142527_create_folders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_07_142527_create_folders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_21_184303_create_jots_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_21_184303_create_jots_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_05_185352_add_image_url_folders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_05_185352_add_image_url_folders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_17_164100_create_folder_trackings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_17_164100_create_folder_trackings_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_05_044252_create_jot_responses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_05_044252_create_jot_responses_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/service-worker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Nav.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/AssignTasks.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/AdminTools.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/admin/CreateTask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/CreateTask.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/admin/EditTask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/EditTask.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/FolderTree.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/FolderTree.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/ManageJargons.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/ManageJargons.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/ManageJots.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/ManageJots.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/ManageTasks.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/ManageTasks.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/ManageUserFolders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/ManageUserFolders.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/ManageUsers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/ManageUsers.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/auth/SignIn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/SignIn.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/auth/SignUp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/SignUp.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/folders/Folders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/folders/Folders.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/jargons/CreateJargon.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jargons/CreateJargon.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/jargons/EditJargon.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jargons/EditJargon.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/jargons/Jargon.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jargons/Jargon.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/jots/BottomNotch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jots/BottomNotch.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/jots/Jot.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jots/Jot.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/jots/Jots.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jots/Jots.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/jots/UserJots.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jots/UserJots.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/search/Search.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/search/Search.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/subTask/SubTaskSlide.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/subTask/SubTaskSlide.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/task/Task.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/task/Task.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/tasks/Tasks.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/tasks/Tasks.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +282,15 @@
       <workItem from="1589783310036" duration="70575000" />
       <workItem from="1590853825332" duration="27788000" />
       <workItem from="1591232258761" duration="124000" />
-      <workItem from="1591232674984" duration="16747000" />
+      <workItem from="1591232674984" duration="17133000" />
+      <workItem from="1591582565244" duration="29000" />
+      <workItem from="1591582699163" duration="4782000" />
+      <workItem from="1591646324500" duration="20795000" />
+      <workItem from="1592004347288" duration="14576000" />
+      <workItem from="1592238578306" duration="1704000" />
+      <workItem from="1592241851504" duration="9066000" />
+      <workItem from="1592620720318" duration="15016000" />
+      <workItem from="1592958720211" duration="40950000" />
     </task>
     <servers />
   </component>
@@ -303,6 +313,11 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -334,22 +349,30 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="371" y="112" key="#phpunit.xml/0.23.1440.877@0.23.1440.877" timestamp="1590443758840" />
-    <state x="376" y="194" key="NewPhpClassDialog" timestamp="1591457224491">
+    <state x="376" y="194" key="NewPhpClassDialog" timestamp="1592086685100">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="376" y="194" key="NewPhpClassDialog/0.23.1440.877@0.23.1440.877" timestamp="1591457224491" />
-    <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589769273342">
+    <state x="376" y="194" key="NewPhpClassDialog/0.23.1440.877@0.23.1440.877" timestamp="1592086685100" />
+    <state width="645" height="445" key="SwitcherDM" timestamp="1592947451480">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1589769273342" />
-    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1591552260224">
+    <state width="645" height="445" key="SwitcherDM/0.23.1440.877@0.23.1440.877" timestamp="1592947451480" />
+    <state x="339" y="79" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1593546722084">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1591552260224" />
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1591556690030">
+    <state x="339" y="79" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.877@0.23.1440.877" timestamp="1593546722084" />
+    <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591585096105">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1591556690030" />
+    <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1591585096105" />
+    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1593552783664">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1593552783664" />
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1593553634909">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1593553634909" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

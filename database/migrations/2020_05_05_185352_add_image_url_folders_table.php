@@ -13,8 +13,8 @@ class AddImageUrlFoldersTable extends Migration
      */
     public function up()
     {
-        Schema::table('folders', function (Blueprint $table) {
-            $table->string('imageUrl')->nullable();
+        Schema::table('user_folders', function (Blueprint $table) {
+            $table->string('image_url')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddImageUrlFoldersTable extends Migration
      */
     public function down()
     {
-        Schema::table('folders', function (Blueprint $table) {
-            $table->dropColumn('imageUrl');
+        Schema::table('user_folders', function (Blueprint $table) {
+            $table->dropColumn('image_url');
         });
     }
 }

@@ -2,16 +2,16 @@
 
     <div class="sign-in-container">
 
-
             <b-card class="mt-5"
-                    header="wayfinder log in"
+                    header="log in"
                     header-tag="header"
+                    header-class="login-header"
             >
 
-                        <b-form style="min-width:500px" @submit.prevent="submit">
+                        <b-form class="way-form" style="min-width:500px" @submit.prevent="submit">
                             <b-form-group
                                     id="input-group-1"
-                                    label="Email address:"
+                                    label="email address:"
                                     label-for="input-1"
                                     description=""
                             >
@@ -20,48 +20,26 @@
                                         v-model="form.email"
                                         type="email"
                                         required
-                                        placeholder="Enter email"
+                                        placeholder="enter email"
                                 ></b-form-input>
                             </b-form-group>
 
-                            <b-form >
-                            <label for="text-password">Password</label>
-                            <b-input type="password" id="text-password" v-model="form.password" aria-describedby="password-help-block"></b-input>
+                            <b-form-group>
+                            <label for="text-password">password</label>
+                            <b-input type="password" placeholder="enter password" id="text-password" v-model="form.password" aria-describedby="password-help-block"></b-input>
+                            </b-form-group>
+
+                                <b-button size="lg" type="submit" class="mb-3" variant="success">
+                                log in&nbsp;&nbsp;<i class="fas fa-door-open"></i>
+                            </b-button>
+                            <b-button size="lg" @click="signUp" class="mb-3" variant="info">
+                                sign up&nbsp;&nbsp;<i class="fas fa-user-plus"></i>
+                            </b-button>
 
                         </b-form>
 
-
-                            <b-button class="mt-3" type="submit" variant="secondary">log in</b-button>
-                            <b-button class="mt-3" variant="secondary" @click="signUp">sign up</b-button>
-
-                        </b-form>
-
-<!--                <b-card-text>Header and footers using props.</b-card-text>-->
-<!--                <b-button href="#" variant="primary">Go somewhere</b-button>-->
             </b-card>
 
-
-<!--        <h1>wayfinder</h1>-->
-
-
-
-<!--        <form @submit.prevent="submit">-->
-<!--            <div>-->
-<!--                <label for="email"></label>-->
-<!--                <input type="text" name="email" id="email" v-model="form.email">-->
-<!--            </div>-->
-
-<!--            <div>-->
-<!--                <label for="password"></label>-->
-<!--                <input type="password" name="password" id="password" v-model="form.password">-->
-<!--            </div>-->
-
-<!--            <div>-->
-<!--                <button type="submit">-->
-<!--                    Sign in-->
-<!--                </button>-->
-<!--            </div>-->
-<!--        </form>-->
     </div>
 </template>
 
@@ -73,6 +51,13 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items:center
+    }
+
+    .login-header{
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #495057;
+        text-align: center;
     }
 
 </style>

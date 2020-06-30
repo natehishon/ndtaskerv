@@ -17,8 +17,9 @@ class CreateJargonsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title')->unique();
             $table->text('content');
+            $table->text('content_html');
             $table->string('color');
-            $table->string('imageUrl')->nullable();
+            $table->string('image_url')->nullable();
             $table->timestamps();
         });
     }

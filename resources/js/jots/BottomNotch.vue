@@ -2,10 +2,12 @@
 
     <div>
 
-        <b-button id="show-btn" @click="showModal">say something</b-button>
+        <b-button variant="info" id="show-btn" @click="showModal">
+            say something
+            <i class="fas fa-comment fa-fw"></i></b-button>
 
-        <b-modal ref="my-modal" hide-footer size="lg" :title="choice" >
-            <Jot v-on:jot-choice="changeTitle" :currentSlide="currentSlide"></Jot>
+        <b-modal ref="my-modal" hide-footer size="lg" title="make a jot" >
+            <Jot v-on:jot-choice="changeTitle" :currentSlide="subTasks[currentSlide]" :choice="choice"></Jot>
         </b-modal>
 
     </div>
@@ -18,10 +20,10 @@
     export default {
         data(){
             return {
-                choice: "what type of something?",
+                choice: null,
             }
         },
-        props: ['currentSlide'],
+        props: ['currentSlide', 'subTasks'],
         components: {
           Jot
         },
@@ -32,6 +34,10 @@
             changeTitle(event) {
                 this.choice = event;
             }
+        },
+        mounted() {
+            console.log("SKDFJSLKF")
+            console.log(this.currentSlide);
         }
     }
 

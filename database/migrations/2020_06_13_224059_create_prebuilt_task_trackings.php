@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJotsTable extends Migration
+class CreatePrebuiltTaskTrackings extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateJotsTable extends Migration
      */
     public function up()
     {
-        Schema::create('jots', function (Blueprint $table) {
+        Schema::create('prebuilt_folder_task', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id')->index();
-            $table->unsignedBigInteger('jotable_id')->index();
-            $table->string('jotable_type')->index();
-            $table->string('title')->index();
-            $table->text('content');
-            $table->text('content_html');
+            $table->unsignedBigInteger('prebuilt_folder_id')->index();
+            $table->unsignedBigInteger('task_id')->index();
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreateJotsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jots');
+        Schema::dropIfExists('prebuilt_folder_task');
     }
 }

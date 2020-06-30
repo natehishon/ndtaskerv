@@ -119,7 +119,6 @@
 
             const request = axios.get("tasks").then(response => {
                 this.tasks = response.data.data;
-                console.log(this.tasks);
                 this.loading = false;
             })
         }

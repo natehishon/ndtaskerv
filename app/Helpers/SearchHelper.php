@@ -7,6 +7,7 @@ use App\Folder;
 use App\Jargon;
 use App\Jot;
 use App\SearchHistory;
+use App\SubTask;
 use App\Task;
 use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -107,7 +108,7 @@ class SearchHelper
         }
 
 
-        $sql = "SELECT t.id,t.title,t.created_at,
+        $sql = "SELECT t.id,t.title,t.slug,t.created_at,
 
             (
                 (" . implode(" + ", $titleSQL) . ")
@@ -124,8 +125,279 @@ class SearchHelper
 
         $results = DB::select(DB::raw($sql));
 
-        if ($model === 'folders') {
+        if ($model === 'user_folders') {
             $models = Folder::hydrate($results);
+        }
+
+        foreach ($models as $model) {
+            $folder = Folder::query()->find($model->id);
+            $model->all_parents = $folder->getFullSlug();
+        }
+
+        if (!$results) {
+            return [];
+        }
+        return $models;
+    }
+
+    function jotConvoSearch($query)
+    {
+        $user = JWTAuth::user();
+
+        //ready our query
+        $query = trim($query);
+        if (mb_strlen($query) === 0) {
+            return false;
+        }
+        $query = $this->limitChars($query);
+        $keywords = $this->filterSearchKeys($query);
+        $escQuery = $this->escape_like($query);
+//        $titleSQL = array();
+        $contentSQL = array();
+
+        //set scores
+        $scoreExactMatchTitle = 6;
+        $scoreExactMatchContent = 5;
+        $scoreFullTitle = 4;
+//        $scoreTitleKeyword = 3;
+        $scoreFullContent = 2;
+        $scoreContentKeyword = 1;
+
+
+        //escaped query in total
+        if (count($keywords) > 0) {
+//            $titleSQL[] = "case when j.title = '" . $escQuery . " ' then {$scoreExactMatchTitle} else 0 end";
+//            $titleSQL[] = "(case when j.title LIKE '%" . $escQuery . "%' then {$scoreFullTitle} else 0 end)";
+            $contentSQL[] = "(case when j.content = '" . $escQuery . "' then {$scoreExactMatchContent} else 0 end)";
+            $contentSQL[] = "(case when j.content LIKE '%" . $escQuery . "%' then {$scoreFullContent} else 0 end)";
+
+        }
+
+        //going through each word
+        foreach ($keywords as $key) {
+//            $titleSQL[] = "(case when j.title LIKE '%" . $this->escape_like($key) . "%' then {$scoreTitleKeyword} else 0 end)";
+            $contentSQL[] = "(case when j.content LIKE '%" . $this->escape_like($key) . "%' then {$scoreContentKeyword} else 0 end)";
+        }
+
+
+//        if (empty($titleSQL)) {
+//            $titleSQL[] = 0;
+//        }
+
+        if (empty($contentSQL)) {
+            $contentSQL[] = 0;
+        }
+
+
+        $sql = "SELECT distinct j.id,
+            j.content,
+            (
+
+                (" . implode(" + ", $contentSQL) . ")
+            ) as score
+            FROM jot_responses j
+            join jots on
+            jots.id = j.jot_id
+            where jots.user_id = " . $user->id . "
+           group by j.id,j.created_at,
+            j.content
+            HAVING (
+
+                (" . implode(" + ", $contentSQL) . ")
+            ) > 0
+            ORDER BY score DESC
+            LIMIT 5";
+
+        //TODO
+        //one known bug is to implement a set ON object properties
+        //important, should make these models implement a searchable interface
+        //user scope these
+
+        //running the actual query
+
+        $results = DB::select(DB::raw($sql));
+
+        $models = Task::hydrate($results);
+
+        if (!$results) {
+            return [];
+        }
+        return $models;
+    }
+
+    function jotSearch($query)
+    {
+        $user = JWTAuth::user();
+
+        //ready our query
+        $query = trim($query);
+        if (mb_strlen($query) === 0) {
+            return false;
+        }
+        $query = $this->limitChars($query);
+        $keywords = $this->filterSearchKeys($query);
+        $escQuery = $this->escape_like($query);
+        $titleSQL = array();
+        $contentSQL = array();
+
+        //set scores
+        $scoreExactMatchTitle = 6;
+        $scoreExactMatchContent = 5;
+        $scoreFullTitle = 4;
+        $scoreTitleKeyword = 3;
+        $scoreFullContent = 2;
+        $scoreContentKeyword = 1;
+
+
+        //escaped query in total
+        if (count($keywords) > 0) {
+            $titleSQL[] = "case when j.title = '" . $escQuery . " ' then {$scoreExactMatchTitle} else 0 end";
+            $titleSQL[] = "(case when j.title LIKE '%" . $escQuery . "%' then {$scoreFullTitle} else 0 end)";
+            $contentSQL[] = "(case when j.content = '" . $escQuery . "' then {$scoreExactMatchContent} else 0 end)";
+            $contentSQL[] = "(case when j.content LIKE '%" . $escQuery . "%' then {$scoreFullContent} else 0 end)";
+
+        }
+
+        //going through each word
+        foreach ($keywords as $key) {
+            $titleSQL[] = "(case when j.title LIKE '%" . $this->escape_like($key) . "%' then {$scoreTitleKeyword} else 0 end)";
+            $contentSQL[] = "(case when j.content LIKE '%" . $this->escape_like($key) . "%' then {$scoreContentKeyword} else 0 end)";
+        }
+
+
+        if (empty($titleSQL)) {
+            $titleSQL[] = 0;
+        }
+
+        if (empty($contentSQL)) {
+            $contentSQL[] = 0;
+        }
+
+
+        $sql = "SELECT distinct j.id, j.title,
+            j.content,
+            (
+                (" . implode(" + ", $titleSQL) . ")
+                +
+                (" . implode(" + ", $contentSQL) . ")
+            ) as score
+            FROM jots j
+            where j.user_id = " . $user->id . "
+           group by j.id,j.title,j.created_at,
+            j.content
+            HAVING (
+                (" . implode(" + ", $titleSQL) . ")
+                +
+                (" . implode(" + ", $contentSQL) . ")
+            ) > 0
+            ORDER BY score DESC
+            LIMIT 5";
+
+        //TODO
+        //one known bug is to implement a set ON object properties
+        //important, should make these models implement a searchable interface
+        //user scope these
+
+        //running the actual query
+
+        $results = DB::select(DB::raw($sql));
+
+        $models = Task::hydrate($results);
+
+        if (!$results) {
+            return [];
+        }
+        return $models;
+    }
+
+    function subTaskSearch($query)
+    {
+
+        $user = JWTAuth::user();
+
+        //ready our query
+        $query = trim($query);
+        if (mb_strlen($query) === 0) {
+            return false;
+        }
+        $query = $this->limitChars($query);
+        $keywords = $this->filterSearchKeys($query);
+        $escQuery = $this->escape_like($query);
+        $titleSQL = array();
+        $contentSQL = array();
+
+        //set scores
+        $scoreExactMatchTitle = 6;
+        $scoreExactMatchContent = 5;
+        $scoreFullTitle = 4;
+        $scoreTitleKeyword = 3;
+        $scoreFullContent = 2;
+        $scoreContentKeyword = 1;
+
+
+        //escaped query in total
+        if (count($keywords) > 0) {
+            $titleSQL[] = "case when st.title = '" . $escQuery . " ' then {$scoreExactMatchTitle} else 0 end";
+            $titleSQL[] = "(case when st.title LIKE '%" . $escQuery . "%' then {$scoreFullTitle} else 0 end)";
+            $contentSQL[] = "(case when st.content = '" . $escQuery . "' then {$scoreExactMatchContent} else 0 end)";
+            $contentSQL[] = "(case when st.content LIKE '%" . $escQuery . "%' then {$scoreFullContent} else 0 end)";
+
+        }
+
+        //going through each word
+        foreach ($keywords as $key) {
+            $titleSQL[] = "(case when st.title LIKE '%" . $this->escape_like($key) . "%' then {$scoreTitleKeyword} else 0 end)";
+            $contentSQL[] = "(case when st.content LIKE '%" . $this->escape_like($key) . "%' then {$scoreContentKeyword} else 0 end)";
+        }
+
+
+        if (empty($titleSQL)) {
+            $titleSQL[] = 0;
+        }
+
+        if (empty($contentSQL)) {
+            $contentSQL[] = 0;
+        }
+
+
+        $sql = "SELECT distinct st.id, st.title, f.id as folderID, f.slug, t.id as taskID,
+            st.content,
+            (
+                (" . implode(" + ", $titleSQL) . ")
+                +
+                (" . implode(" + ", $contentSQL) . ")
+            ) as score
+            FROM sub_tasks st
+            join tasks t
+            on t.id = st.task_id
+            join task_trackings tt
+            on t.id = tt.task_id
+            join user_folders f
+            on f.id = tt.folder_id
+            where tt.user_id = " . $user->id . "
+           group by st.id, st.title, f.id, f.slug, t.id
+            HAVING (
+                (" . implode(" + ", $titleSQL) . ")
+                +
+                (" . implode(" + ", $contentSQL) . ")
+            ) > 0
+            ORDER BY score DESC
+            LIMIT 5";
+
+        //TODO
+        //one known bug is to implement a set ON object properties
+        //important, should make these models implement a searchable interface
+        //user scope these
+
+        //running the actual query
+
+        $results = DB::select(DB::raw($sql));
+
+        $models = SubTask::hydrate($results);
+
+        foreach ($models as $model) {
+            $folder = Folder::query()->find($model->folderID);
+            $model->all_parents = $folder->getFullSlug();
         }
 
         if (!$results) {
@@ -136,7 +408,6 @@ class SearchHelper
 
     function taskSearch($query)
     {
-
         $user = JWTAuth::user();
 
         //ready our query
@@ -168,7 +439,6 @@ class SearchHelper
 
         }
 
-
         //going through each word
         foreach ($keywords as $key) {
             $titleSQL[] = "(case when t.title LIKE '%" . $this->escape_like($key) . "%' then {$scoreTitleKeyword} else 0 end)";
@@ -195,9 +465,9 @@ class SearchHelper
             FROM tasks t
             join task_trackings tt
             on t.id = tt.task_id
-            join folders f
+            join user_folders f
             on f.id = tt.folder_id
-            where tt.user_id = ". $user->id ."
+            where tt.user_id = " . $user->id . "
            group by t.id,t.title,t.created_at,
             t.content, tt.id, tt.folder_id, f.slug
             HAVING (
@@ -215,11 +485,12 @@ class SearchHelper
 
         //running the actual query
 
+
         $results = DB::select(DB::raw($sql));
 
         $models = Task::hydrate($results);
 
-        foreach ($models as $model){
+        foreach ($models as $model) {
             $folder = Folder::query()->find($model->folder_id);
             $model->all_parents = $folder->getFullSlug();
         }

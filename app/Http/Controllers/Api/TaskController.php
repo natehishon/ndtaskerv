@@ -31,12 +31,14 @@ class TaskController extends Controller
 
     public function update(Request $request, $id)
     {
+
         $task = Task::query()->with('subTask')->findOrFail($id);
 
         $userInput = json_decode($request->input('task'), true);
 
         $task->title = $userInput['title'];
-        $task->content = $userInput['content'];
+        $task->content_html = $userInput['content_html'];
+        $task->content = strip_tags($userInput['content_html']);
 
         if(!empty($request->file('taskFile'))){
 
@@ -55,7 +57,7 @@ class TaskController extends Controller
 
 
             $task->filename = $storageName;
-            $task->imageUrl = Storage::disk('s3')->url($path);
+            $task->image_url = Storage::disk('s3')->url($path);
         }
 
         $task->setSubTasks($userInput['sub_task'], $request->file());
@@ -86,13 +88,15 @@ class TaskController extends Controller
 
 
             $task->filename = $storageName;
-            $task->imageUrl = Storage::disk('s3')->url($path);
+            $task->image_url = Storage::disk('s3')->url($path);
         }
 
         $userInput = json_decode($request->input('task'), true);
 
         $task->title = $userInput['title'];
-        $task->content = $userInput['content'];
+        $task->content_html = $userInput['content_html'];
+        $task->content = strip_tags($userInput['content_html']);
+
 
         $task->save();
 

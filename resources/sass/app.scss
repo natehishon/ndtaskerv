@@ -229,22 +229,46 @@ body {
     vertical-align: middle;
 }
 
+.large-font {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+.search-component {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #495057;
+
+   .btn{
+       font-size: 1.25rem;
+    }
+
+    input {
+        padding: 1.5rem;
+        font-size: 1.25rem;
+    }
+
+
+}
+
 //forms!
 
-.way-form{
+.way-form {
 
-    .form-group{
-        label{
+    .form-group {
+        label {
             font-size: 1.25rem;
             font-weight: 600;
+            color: #495057;
         }
 
-        input{
+        input {
             padding: 1.5rem;
             font-size: 1.25rem;
         }
 
-        .fr-box.fr-basic .fr-element{
+        .fr-box.fr-basic .fr-element {
             font-size: 1.25rem;
         }
 

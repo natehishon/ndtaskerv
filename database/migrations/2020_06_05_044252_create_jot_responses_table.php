@@ -18,6 +18,7 @@ class CreateJotResponsesTable extends Migration
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('jot_id')->index();
             $table->text('content');
+            $table->text('content_html');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateJotResponsesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jotResponses');
+        Schema::dropIfExists('jot_responses');
     }
 }

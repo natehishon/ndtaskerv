@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div >
 
         <div class="tasks-container mt-3" v-if="loading === false">
             <h5>favorites</h5>
@@ -126,6 +126,7 @@
                 this.form.choice = choice;
                 axios.post('/search/user-choice', this.form).then(response => {
                     // this.loading = false;
+                    console.log("yo");
                     console.log(response.data);
                     this.$router.push({path: '/'})
                     // this.results = response.data;

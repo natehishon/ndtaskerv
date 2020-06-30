@@ -1,14 +1,24 @@
 <template>
 
     <div class="">
-        <b-table striped hover :items="users" :fields="fields">
+
+        <b-button size="lg" @click="newTask()" class="mb-3" variant="success">
+            new user&nbsp;&nbsp;<i class="fas fa-plus"></i>
+        </b-button>
+
+        <b-table hover :items="users" :fields="fields">
             <template v-slot:cell(actions)="data">
-                <b-button size="sm" @click="editUser(data.item.id)" class="mr-1">
-                    edit user
-                </b-button>
-                <b-button size="sm" @click="manageFolders(data.item.id)" class="mr-1">
-                    user folders
-                </b-button>
+
+                <b-dropdown no-caret variant="white" class="manage-dropdown">
+                    <template v-slot:button-content>
+                        <span style="font-size: 14px">options</span>&nbsp;&nbsp;<i class="fas fa-ellipsis-h"
+                                                                                   style="font-size: 14px;"></i>
+                    </template>
+                    <b-dropdown-item @click="editUser(data.item.id)">edit user&nbsp;&nbsp;<i class="fas fa-edit"></i>
+                    </b-dropdown-item>
+                    <b-dropdown-item @click="manageFolders(data.item.id)">user folders&nbsp;&nbsp;<i
+                        class="far fa-folder"></i></b-dropdown-item>
+                </b-dropdown>
             </template>
         </b-table>
     </div>
@@ -20,8 +30,6 @@
 </style>
 
 <script>
-
-
     import axios from "axios";
 
     export default {
@@ -29,7 +37,23 @@
         data() {
             return {
                 users: null,
-                fields: ['id', 'name', 'email', 'actions'],
+                fields: [
+                    {
+                        name: {
+                            label: 'user name'
+                        },
+                    },
+                    {
+                        email: {
+                            label: 'user email'
+                        },
+                    },
+                    {
+                        actions: {
+                            label: 'actions'
+                        },
+                    },
+                ]
             }
         },
         components: {},
@@ -37,8 +61,8 @@
             editUser(userId) {
                 console.log(userId);
             },
-            manageFolders(userId){
-                this.$router.push({ name: 'userFolders', params: { id: userId } })
+            manageFolders(userId) {
+                this.$router.push({name: 'userFolders', params: {id: userId}})
             }
         },
         mounted() {

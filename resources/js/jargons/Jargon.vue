@@ -9,23 +9,27 @@
                 <slot></slot>
             </div>
         </b-button>
-        <b-popover :target="time" triggers="hover blur click" placement="top" >
+        <b-popover :target="time" triggers="hover blur click" placement="top">
 
-                <b-row>
+            <b-row>
 
-                    <b-col xs="6">
-                        <v-runtime-template :template="'<div>' + jargon.content + '</div>'"/>
+                    <b-col xs="6" v-if="jargon.image_url">
+                        <v-runtime-template :template="'<div>' + jargon.content_html + '</div>'"/>
                     </b-col>
 
-                    <b-col xs="6">
-
-                            <b-img v-bind:src="jargon.imageUrl" @click="openNewTab(jargon.imageUrl)" fluid
-                                   style="cursor: pointer" class="jargon-image"></b-img>
-
-
+                    <b-col xs="6" v-if="jargon.image_url">
+                        <b-img v-bind:src="jargon.image_url" @click="openNewTab(jargon.image_url)" fluid
+                               style="cursor: pointer" class="jargon-image"></b-img>
                     </b-col>
+
+                    <b-col xs="12" v-if="!jargon.image_url">
+                        <v-runtime-template :template="'<div>' + jargon.content_html + '</div>'"/>
+                    </b-col>
+
+
+
             </b-row>
-<!--            <span v-html="jargon.content"></span>-->
+            <!--            <span v-html="jargon.content"></span>-->
 
         </b-popover>
 
@@ -48,7 +52,7 @@
         data() {
             return {
                 searchTag: "",
-                jargon: null,
+                jargon: {},
                 time: null
             }
         },
@@ -79,7 +83,7 @@
 
 <style lang="scss">
 
-    .jargon-image{
+    .jargon-image {
         max-width: 100px;
         max-height: 100px;
     }
@@ -97,9 +101,9 @@
     .jargon {
         display: inline-block;
 
-    .slot-wrapper {
-        font-weight: 700;
-    }
+        .slot-wrapper {
+            font-weight: 700;
+        }
 
     }
 

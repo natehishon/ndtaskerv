@@ -27,6 +27,7 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function(){
 });
 
 Route::get('users', 'Api\UserController@index');
+Route::post('users', 'Api\UserController@store');
 
 Route::get('tasks', 'Api\TaskController@index');
 Route::get('tasks/{id}', 'Api\TaskController@show');
@@ -37,6 +38,9 @@ Route::get('folders/{name}', 'Api\FolderController@folderByName');
 Route::get('folders', 'Api\FolderController@index');
 Route::post('folders/{id}', 'Api\FolderController@store');
 Route::get('user-folders/{id}', 'Api\FolderController@userFolders');
+Route::get('prebuilt-folders', 'Api\FolderController@prebuiltFolders');
+Route::get('prebuilt-folders/{id}', 'Api\FolderController@getPrebuiltFolder');
+Route::post('prebuilt-folders-task/{id}', 'Api\FolderController@storePrebuiltTask');
 Route::delete('folders/{id}', 'Api\FolderController@destroy');
 
 Route::get('trackings', 'Api\TaskTrackingController@index');
@@ -58,7 +62,10 @@ Route::group(['prefix' => 'search'], function(){
 });
 
 Route::post('jots', 'Api\JotController@store');
+Route::post('jots/{id}', 'Api\JotController@jotComment');
 Route::get('jots', 'Api\JotController@index');
 Route::get('jots/{id}', 'Api\JotController@show');
+Route::get('jots-admin', 'Api\JotController@adminIndex');
+
 
 Route::apiResource('tasks', 'Api\TaskController')->only(['index', 'show']);

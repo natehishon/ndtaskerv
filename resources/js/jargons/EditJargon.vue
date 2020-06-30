@@ -13,7 +13,7 @@
 
                     <div class="form-group">
                         <label>Content</label>
-                        <froala :tag="'textarea'" :config="config" v-model="jargon.content"></froala>
+                        <froala :tag="'textarea'" :config="config" v-model="jargon.content_html"></froala>
                     </div>
 
                     <div class="form-group">

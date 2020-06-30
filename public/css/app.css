@@ -20479,9 +20479,31 @@ body {
   vertical-align: middle;
 }
 
+.large-font {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+.search-component {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+.search-component .btn {
+  font-size: 1.25rem;
+}
+
+.search-component input {
+  padding: 1.5rem;
+  font-size: 1.25rem;
+}
+
 .way-form .form-group label {
   font-size: 1.25rem;
   font-weight: 600;
+  color: #495057;
 }
 
 .way-form .form-group input {

@@ -5,40 +5,24 @@
 
         <b-row>
             <b-col sm="12">
-                <b-tabs pills card vertical fill class="tabs-yo">
+                <b-tabs pills card vertical fill class="tabs-yo" v-model="taskIndex" >
 
-                    <b-tab v-for="subTask in task.sub_task" :title="subTask.title" :key="subTask.id">
-                        <sub-task-slide class="sub-slide" v-if="subTask"
-                                        v-bind:sub_task="subTask"></sub-task-slide>
-                    </b-tab>
-                    <!--                    <b-tab title="Tab 1" active>-->
-                    <!--                        <b-col sm="12" md="6">-->
-                    <!--                            <v-runtime-template :template="'<div>' + task.content + '</div>'"/>-->
-                    <!--                        </b-col>-->
+                    <div v-if="sub.length > 0">
 
-                    <!--                        <b-col sm="12" md="6">-->
+                        <b-tab  v-for="(subTask, index) in sub" @click="tabClick(index)" :title="subTask.title" :key="subTask.id">
+                            <sub-task-slide class="sub-slide" v-if="subTask"
+                                            v-bind:sub_task="subTask"></sub-task-slide>
+                        </b-tab>
 
-                    <!--                            <div class="image-container" v-if="task.media_type === 'image'">-->
-                    <!--                                <b-img v-bind:src="task.imageUrl" fluid></b-img>-->
-                    <!--                            </div>-->
+                    </div>
 
-                    <!--                            <div class="video-container" v-if="task.media_type === 'video'">-->
-                    <!--                                <vue-plyr>-->
-                    <!--                                    <video poster="" src="video.mp4">-->
-                    <!--                                        <source v-bind:src="task.imageUrl" type="video/mp4" size="1080">-->
-                    <!--                                    </video>-->
-                    <!--                                </vue-plyr>-->
-                    <!--                            </div>-->
+                    <div v-if="sub.length === 0">
+                        <sub-task-slide class="sub-slide"
+                                        v-bind:sub_task="task"></sub-task-slide>
+                    </div>
 
 
-                    <!--                        </b-col>-->
-                    <!--                    </b-tab>-->
-                    <!--                    <b-tab title="Tab 2">-->
-                    <!--                        yoo-->
-                    <!--                    </b-tab>-->
-                    <!--                    <b-tab title="Tab 3">-->
-                    <!--                        what up-->
-                    <!--                    </b-tab>-->
+
                 </b-tabs>
             </b-col>
 
@@ -67,7 +51,7 @@
             VRuntimeTemplate,
 
         },
-        props: ['task'],
+        props: ['task', 'sub', 'currentIndex'],
         data() {
             //return an object
             return {
@@ -76,7 +60,9 @@
                     width: 0,
                     height: 0
                 },
-                currentIndex: 0,
+                taskIndex: this.currentIndex,
+                currentSub: null,
+                init:false
 
             };
         },
@@ -85,10 +71,16 @@
         },
         created() {
 
+
+            this.goToSlide()
+
         },
         methods: {
+            tabClick(index){
+                this.$emit('indexchange', index)
+            },
             onTermChange(index) {
-                this.currentIndex = index;
+                // this.currentIndex = index;
 
             },
             increase() {
@@ -96,13 +88,26 @@
             },
             slideChange(event) {
                 this.$emit('task-slide', event)
+            },
+            goToSlide(){
+
+                if(this.$route.query.subTaskID){
+                    if(this.sub.length > 0){
+                        this.sub.forEach((value, index) => {
+                            if(value.id == this.$route.query.subTaskID){
+                                this.taskIndex = index;
+                            }
+                        })
+                    }
+                }
+
             }
         },
         computed: {
             // a computed getter
             taskTemplate: function () {
                 // `this` points to the vm instance
-                return '<div>' + this.task.content + '</div>'
+                return '<div>' + this.task.content_html + '</div>'
             }
         },
     }
@@ -179,6 +184,10 @@
             background-color: white;
         }
 
+    }
+
+    .nav-pills{
+        text-align: center;
     }
 
 

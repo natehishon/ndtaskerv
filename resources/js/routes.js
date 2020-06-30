@@ -10,6 +10,7 @@ import ManageTasks from "./admin/ManageTasks"
 import ManageUsers from "./admin/ManageUsers"
 import ManageUserFolders from "./admin/ManageUserFolders"
 import ManageJargons from "./admin/ManageJargons"
+import ManageJots from "./admin/ManageJots"
 import store from "./store/index"
 import TaskTrackings from "./taskTrackings/TaskTrackings";
 import TaskTracking from "./taskTracking/TaskTracking";
@@ -22,6 +23,10 @@ import CreateJargon from "./jargons/CreateJargon";
 import EditJargon from "./jargons/EditJargon";
 import Jots from "./jots/Jots"
 import UserJots from "./jots/UserJots"
+import PrebuiltFolders from "./admin/PrebuiltFolders"
+import PrebuiltFolder from "./admin/PrebuiltFolder"
+import UserJargons from "./jargons/UserJargons"
+import JargonPage from "./jargons/JargonPage";
 
 
 const routes = [
@@ -130,6 +135,32 @@ const routes = [
         }
     },
     {
+        path: "/prebuilt-folders",
+        component: PrebuiltFolders,
+        name: "prebuiltFolder",
+        beforeEnter: (to, from, next) => {
+            if (!store.getters['auth/authenticated'] || !store.getters['auth/user'].isAdmin) {
+                return next({
+                    name: 'signin'
+                })
+            }
+            next()
+        }
+    },
+    {
+        path: "/prebuilt-folders/:id",
+        component: PrebuiltFolder,
+        name: "prebuiltFolder",
+        beforeEnter: (to, from, next) => {
+            if (!store.getters['auth/authenticated'] || !store.getters['auth/user'].isAdmin) {
+                return next({
+                    name: 'signin'
+                })
+            }
+            next()
+        }
+    },
+    {
         path: "/profile",
         component: Profile,
         name: "profile",
@@ -146,6 +177,19 @@ const routes = [
         path: "/jots",
         component: Jots,
         name: "jots",
+        beforeEnter: (to, from, next) => {
+            if (!store.getters['auth/authenticated']) {
+                return next({
+                    name: 'signin'
+                })
+            }
+            next()
+        }
+    },
+    {
+        path: "/jargons",
+        component: UserJargons,
+        name: "jargons",
         beforeEnter: (to, from, next) => {
             if (!store.getters['auth/authenticated']) {
                 return next({
@@ -188,7 +232,7 @@ const routes = [
         component: ManageUserFolders,
         name: "userFolders",
         beforeEnter: (to, from, next) => {
-            console.log(store.getters['auth/user'].isAdmin);
+            console.log(store.getters['auth/authenticated']);
             if (!store.getters['auth/authenticated'] || !store.getters['auth/user'].isAdmin) {
                 return next({
                     name: 'home'
@@ -201,6 +245,19 @@ const routes = [
         path: "/jots/:id",
         component: UserJots,
         name: "userJots",
+        beforeEnter: (to, from, next) => {
+            if (!store.getters['auth/authenticated']) {
+                return next({
+                    name: 'home'
+                })
+            }
+            next()
+        }
+    },
+    {
+        path: "/jargons/:id",
+        component: JargonPage,
+        name: "jargonPage",
         beforeEnter: (to, from, next) => {
             if (!store.getters['auth/authenticated']) {
                 return next({
@@ -225,8 +282,8 @@ const routes = [
     },
     {
         path: "/manage-jots",
-        component: ManageJ,
-        name: "manageJargons",
+        component: ManageJots,
+        name: "manageJots",
         beforeEnter: (to, from, next) => {
             if (!store.getters['auth/authenticated'] || !store.getters['auth/user'].isAdmin) {
                 return next({
@@ -277,7 +334,8 @@ const routes = [
     {
         path: '/*',
         component: Folders,
-        props: (route) => ({ name: route.query.q }),
+        // props: (route) => ({ name: route.query.q }),
+        props: true,
         name: "home",
         beforeEnter: (to, from, next) => {
             if (!store.getters['auth/authenticated']) {

@@ -1,19 +1,27 @@
 <template>
 
     <div class="">
-        <b-button size="sm" @click="newJargon()" class="mr-1">
-            new jargon
+        <b-button size="lg" @click="newJargon()" class="mb-3" variant="success">
+            new jargon&nbsp;&nbsp;<i class="fas fa-plus "></i>
         </b-button>
-        <b-table striped hover :items="jargons" :fields="fields">
+        <b-table hover :items="jargons" :fields="fields">
 
-            <template v-slot:cell(content)="data">
-                <v-runtime-template :template="'<div>' + data.item.content + '</div>'"/>
+            <template v-slot:cell(content_html)="data">
+                <v-runtime-template :template="'<div>' + data.item.content_html + '</div>'"/>
             </template>
 
             <template v-slot:cell(actions)="data">
-                <b-button size="sm" @click="editJargon(data.item.id)" class="mr-1">
-                    edit
-                </b-button>
+                <b-dropdown no-caret variant="white" class="manage-dropdown">
+                    <template v-slot:button-content>
+                        <span style="font-size: 14px">options</span>&nbsp;&nbsp;<i class="fas fa-ellipsis-h"
+                                                                                   style="font-size: 14px;"></i>
+                    </template>
+                    <b-dropdown-item @click="editJargon(data.item.id)">edit jargon&nbsp;&nbsp;<i class="fas fa-edit"></i>
+                    </b-dropdown-item>
+                    <b-dropdown-item @click="deleteJargon(data.item.id)">delete jargon&nbsp;&nbsp;<i
+                        class="fas fa-trash"></i></b-dropdown-item>
+                </b-dropdown>
+
             </template>
         </b-table>
     </div>
@@ -34,7 +42,23 @@
         data() {
             return {
                 jargons: null,
-                fields: ['id', 'title', 'content', 'created_at', 'actions'],
+                fields: [
+                    {
+                        title: {
+                            label: 'title'
+                        },
+                    },
+                    {
+                        formattedDate: {
+                            label: 'created date'
+                        },
+                    },
+                    {
+                        actions: {
+                            label: 'actions'
+                        },
+                    },
+                ]
             }
         },
         components: {

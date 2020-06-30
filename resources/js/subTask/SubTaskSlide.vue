@@ -3,20 +3,20 @@
         <b-row>
 
             <b-col sm="12" md="6">
-                <v-runtime-template :template="'<div>' + sub_task.content + '</div>'"/>
+                <v-runtime-template :template="'<div>' + sub_task.content_html + '</div>'"/>
             </b-col>
 
             <b-col sm="12" md="6">
 
                 <div class="image-container" v-if="sub_task.media_type === 'image'">
-                    <b-img v-bind:src="sub_task.imageUrl" @click="openNewTab(sub_task.imageUrl)" fluid
+                    <b-img center v-bind:src="sub_task.image_url" @click="openNewTab(sub_task.image_url)" fluid
                            style="cursor: pointer"></b-img>
                 </div>
 
                 <div class="video-container" v-if="sub_task.media_type === 'video'">
                     <vue-plyr>
                         <video poster="" src="video.mp4">
-                            <source v-bind:src="sub_task.imageUrl" type="video/mp4" size="1080">
+                            <source v-bind:src="sub_task.image_url" type="video/mp4" size="1080">
                         </video>
                     </vue-plyr>
                 </div>
@@ -62,13 +62,9 @@
 
         },
         mounted: function () {
-            console.log(this.sub_task.imageUrl);
-            // this.$refs.videoRef.src = this.sub_task.imageUrl;
-            // this.$refs.videoRef.play();
         },
         methods: {
             openMedia(crumb) {
-                console.log("yo");
             },
             openNewTab(url) {
                 window.open(url, "_blank");

@@ -16,7 +16,7 @@
 
                 <div class="form-group">
                     <label>Content</label>
-                    <froala :tag="'textarea'" :config="config" v-model="newJargon.content"></froala>
+                    <froala :tag="'textarea'" :config="config" v-model="newJargon.content_html"></froala>
                 </div>
 
                 <div class="form-group">
@@ -74,7 +74,7 @@
                 newJargon: {
                     title: "",
                     // content: "",
-                    content: '',
+                    content_html: '',
                 },
                 file: "",
                 template: `<jargon></jargon>`,
@@ -100,7 +100,7 @@
             // a computed getter
             taskTemplate: function () {
                 // `this` points to the vm instance
-                return '<div>' + this.newJargon.content + '</div>'
+                return '<div>' + this.newJargon.content_html + '</div>'
             }
         },
 
@@ -116,8 +116,8 @@
 
             addJargon($event) {
                 $event.preventDefault();
-                this.newJargon.content = this.newJargon.content + ' <jargon></jargon> '
-                console.log(this.newJargon.content);
+                this.newJargon.content_html = this.newJargon.content_html + ' <jargon></jargon> '
+                console.log(this.newJargon.content_html);
             },
 
             check(event) {

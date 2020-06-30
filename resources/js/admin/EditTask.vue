@@ -13,7 +13,7 @@
 
                     <div class="form-group">
                         <label>Content</label>
-                        <froala :tag="'textarea'" :config="config" v-model="task.content"></froala>
+                        <froala :tag="'textarea'" :config="config" v-model="task.content_html"></froala>
                     </div>
 
                     <div class="form-group">
@@ -51,10 +51,10 @@
                                                 paragraphFormatSelection: true,
                                                 refreshAfterCallback: true,
                                                 htmlUntouched: true,
-                                                htmlAllowedTags: ['.*', 'jargon'],
+                                                htmlAllowedTags: ['.*'],
                                                 htmlRemoveTags: ['']
                                                  }"
-                                                        v-model="newSubTask.content"></froala>
+                                                        v-model="newSubTask.content_html"></froala>
                                             </div>
 
                                             <div class="form-group">
@@ -102,7 +102,7 @@
                                                 htmlAllowedTags: ['.*', 'jargon'],
                                                 htmlRemoveTags: ['']
                                                  }"
-                                                        v-model="editSubTask.content"></froala>
+                                                        v-model="editSubTask.content_html"></froala>
                                             </div>
 
                                             <div class="form-group">
@@ -188,9 +188,11 @@
         data() {
             return {
                 task: null,
+                stripped: "",
                 newSubTask: {
                     title: null,
                     content: "",
+                    content_html: "",
                     fileKey: "",
                     file: "",
                     active: true
@@ -198,6 +200,7 @@
                 editSubTask: {
                     title: null,
                     content: "",
+                    content_html: "",
                     fileKey: "",
                     file: "",
                     active: true
@@ -224,7 +227,6 @@
         // props: ['id'],
         mounted() {
             axios.get('/tasks/' + this.$route.params.id).then(response => {
-                console.log(response)
                 this.task = response.data.data;
             }).catch(err => {
 
@@ -261,10 +263,15 @@
                 this.newSubTask = {
                     title: null,
                     content: "",
+                    content_html: "",
                     fileKey: "",
                     file: ""
                 }
                 this.$bvModal.hide("modalNewID");
+            },
+            strippedContent(content) {
+                let regex = /(<([^>]+)>)/ig;
+                return content.replace(regex, "");
             },
             createSubTask() {
                 this.$bvModal.show("modalNewID");
@@ -295,6 +302,8 @@
 
                     formData.append(value.fileKey, value.file);
                 })
+
+                console.log(this.task);
 
                 formData.append('task', JSON.stringify(this.task));
 
