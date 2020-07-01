@@ -5463,6 +5463,7 @@ __webpack_require__.r(__webpack_exports__);
 
     if (last === 'folders') {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('folders').then(function (response) {
+        console.log("1");
         _this6.folders = response.data.table;
 
         _this6.openTask();
@@ -5471,6 +5472,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     } else {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('folders/' + last).then(function (response) {
+        console.log("2");
         _this6.folders = response.data.table;
 
         _this6.openTask();

@@ -512,6 +512,7 @@
 
             if (last === 'folders') {
                 axios.get('folders').then(response => {
+                    console.log("1");
                     this.folders = response.data.table;
                     this.openTask()
                 }).catch(err => {
@@ -519,6 +520,7 @@
                 });
             } else {
                 axios.get('folders/' + last).then(response => {
+                    console.log("2");
                     this.folders = response.data.table;
                     this.openTask()
                 }).catch(err => {
