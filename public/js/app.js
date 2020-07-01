@@ -5461,9 +5461,8 @@ __webpack_require__.r(__webpack_exports__);
     this.breadCrumbs = this.breadCrumbs.concat(split);
     var last = this.breadCrumbs.slice(-1)[0];
 
-    if (last === 'folders') {
+    if (last === 'folders' || !last) {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('folders').then(function (response) {
-        console.log("1");
         _this6.folders = response.data.table;
 
         _this6.openTask();
@@ -5471,8 +5470,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     } else {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('folders').then(function (response) {
-        console.log("2");
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('folders/' + last).then(function (response) {
         _this6.folders = response.data.table;
 
         _this6.openTask();

@@ -510,17 +510,16 @@
 
             let last = this.breadCrumbs.slice(-1)[0];
 
-            if (last === 'folders') {
+
+            if (last === 'folders' || !last) {
                 axios.get('folders').then(response => {
-                    console.log("1");
                     this.folders = response.data.table;
                     this.openTask()
                 }).catch(err => {
                     console.log(err);
                 });
             } else {
-                axios.get('folders').then(response => {
-                    console.log("2");
+                axios.get('folders/' + last).then(response => {
                     this.folders = response.data.table;
                     this.openTask()
                 }).catch(err => {
