@@ -519,7 +519,7 @@
                     console.log(err);
                 });
             } else {
-                axios.get('folders/' + last).then(response => {
+                axios.get('folders').then(response => {
                     console.log("2");
                     this.folders = response.data.table;
                     this.openTask()
