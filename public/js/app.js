@@ -3176,13 +3176,13 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('task', JSON.stringify(this.task));
 
       if (this.task.id) {
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('tasks/' + this.task.id, formData).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('tasks' + this.task.id, formData).then(function (response) {
           _this.task = response.data;
         })["catch"](function (err) {
           console.log(err);
         });
       } else {
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('tasks/', formData).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('tasks', formData).then(function (response) {
           _this.task = response.data;
         })["catch"](function (err) {
           console.log(err);
