@@ -2581,12 +2581,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return 'admin tools';
 
         case 'tasks':
-          // code block
+          this.infoText = "Manage tasks here, edit existing tasks or create new ones.";
           return 'manage tasks';
 
         case 'users':
           // code block
-          this.infoText = "Manager users here, this includes an option to manage a particular user's folder structure: options > user folders.";
+          this.infoText = "Manage users here, this includes an option to manage a particular user's folder structure: options > user folders.";
           return 'manage users';
 
         case 'userFolders':

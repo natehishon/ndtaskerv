@@ -28,6 +28,11 @@ class UserController extends Controller
 
         $user->save();
 
+        if($user->id === 1){
+            $user->isAdmin = true;
+            $user->save();
+        }
+
         return [
             "success" => true
         ];
