@@ -354,7 +354,7 @@
                 formData.append('task', JSON.stringify(this.task));
 
                 if (this.task.id) {
-                    axios.post('/tasks/' + this.task.id, formData).then(response => {
+                    axios.post('tasks/' + this.task.id, formData).then(response => {
 
                         this.task = response.data;
 
@@ -362,7 +362,7 @@
                         console.log(err);
                     });
                 } else {
-                    axios.post('/tasks/', formData).then(response => {
+                    axios.post('tasks/', formData).then(response => {
 
                         this.task = response.data;
 

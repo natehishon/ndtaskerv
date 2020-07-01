@@ -117,7 +117,7 @@
                     jotable: this.currentSlide
                 }
 
-                axios.post('/jots', formData).then(response => {
+                axios.post('jots', formData).then(response => {
 
                     //add to
                     console.log(this.response);

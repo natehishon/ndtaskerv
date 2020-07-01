@@ -3176,13 +3176,13 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('task', JSON.stringify(this.task));
 
       if (this.task.id) {
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/tasks/' + this.task.id, formData).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('tasks/' + this.task.id, formData).then(function (response) {
           _this.task = response.data;
         })["catch"](function (err) {
           console.log(err);
         });
       } else {
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/tasks/', formData).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('tasks/', formData).then(function (response) {
           _this.task = response.data;
         })["catch"](function (err) {
           console.log(err);
@@ -3511,7 +3511,7 @@ __webpack_require__.r(__webpack_exports__);
       });
       console.log(this.task);
       formData.append('task', JSON.stringify(this.task));
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/tasks/' + this.task.id, formData).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('tasks/' + this.task.id, formData).then(function (response) {
         _this2.task = response.data;
       })["catch"](function (err) {
         console.log(err);
@@ -3709,7 +3709,7 @@ __webpack_require__.r(__webpack_exports__);
         taskID: this.selectedAddress.id,
         folderID: folder.id
       };
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/trackings/' + this.$route.params.id, postData).then(function (response) {//add to
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('trackings/' + this.$route.params.id, postData).then(function (response) {//add to
       })["catch"](function (err) {
         console.log(err);
       });
@@ -3725,7 +3725,7 @@ __webpack_require__.r(__webpack_exports__);
       var formData = new FormData();
       formData.append('folderFile', this.folderFile);
       formData.append('folder', JSON.stringify(this.newFolder));
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/folders/' + this.$route.params.id, formData).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('folders/' + this.$route.params.id, formData).then(function (response) {
         //add to
         _this.currentFolders = response.data.folders; // this.taskList = response.data.tasks;
       })["catch"](function (err) {
@@ -4199,7 +4199,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.folderFile);
       formData.append('folderFile', this.folderFile);
       formData.append('folder', JSON.stringify(this.newFolder));
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/folders/' + this.$route.params.id, formData).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('folders/' + this.$route.params.id, formData).then(function (response) {
         //add to
         _this.userFolders = response.data.folders;
         _this.taskList = response.data.tasks;
@@ -4774,8 +4774,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submit: function submit() {
       var _this = this;
 
-      console.log("yo");
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/users', this.form).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('users', this.form).then(function (response) {
         _this.signIn(_this.form).then(function () {
           _this.$router.replace({
             name: 'home'
@@ -5233,7 +5232,7 @@ __webpack_require__.r(__webpack_exports__);
       var formData = {
         search: this.searchQuery
       };
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/search/user-search', formData).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('search/user-search', formData).then(function (response) {
         _this4.searchResponse = response.data;
 
         if (_this4.searchResponse.tasks) {
@@ -5618,7 +5617,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       console.log(formData);
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/jargons', formData).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('jargons', formData).then(function (response) {
         console.log(response);
       })["catch"](function (err) {
         console.log(err);
@@ -5725,12 +5724,11 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.jargon);
 
       for (var property in this.jargon) {
-        console.log("doin things");
         formData.append(property, this.jargon[property]);
       }
 
       console.log(formData);
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/jargons/' + this.jargon.id, formData).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('jargons/' + this.jargon.id, formData).then(function (response) {
         console.log(response);
       })["catch"](function (err) {
         console.log(err);
@@ -6165,7 +6163,7 @@ __webpack_require__.r(__webpack_exports__);
         content: this.content,
         jotable: this.currentSlide
       };
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/jots', formData).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('jots', formData).then(function (response) {
         //add to
         console.log(_this.response);
       })["catch"](function (err) {
@@ -6414,7 +6412,7 @@ __webpack_require__.r(__webpack_exports__);
         var postData = {
           comment: this.jotComment
         };
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/jots/' + this.jot.id, postData).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('jots/' + this.jot.id, postData).then(function (response) {
           _this.jot = response.data.data;
           _this.jotComment = null;
           console.log(_this.jot);
@@ -6594,7 +6592,7 @@ __webpack_require__.r(__webpack_exports__);
 
     this.loading = true;
     this.form.search = this.search;
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/search/user-search', this.form).then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('search/user-search', this.form).then(function (response) {
       _this.loading = false;
       console.log(response.data);
       _this.tasks = response.data.tasks;
@@ -6612,7 +6610,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       console.log(favorite);
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/search/history-choice', favorite).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('search/history-choice', favorite).then(function (response) {
         console.log(response);
         console.log('pretend I am routing away');
 
@@ -6626,7 +6624,7 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log(choice);
       this.form.choice = choice;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/search/user-choice', this.form).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('search/user-choice', this.form).then(function (response) {
         // this.loading = false;
         console.log("yo");
         console.log(response.data);

@@ -86,12 +86,11 @@
                 formData.append('image', this.file);
                 console.log(this.jargon)
                 for (let property in this.jargon) {
-                    console.log("doin things");
                     formData.append(property, this.jargon[property]);
                 }
 
                 console.log(formData);
-                axios.post('/jargons/' + this.jargon.id, formData).then(response => {
+                axios.post('jargons/' + this.jargon.id, formData).then(response => {
                     console.log(response)
                 }).catch(err => {
                     console.log(err);

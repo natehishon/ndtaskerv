@@ -134,7 +134,7 @@
 
                 console.log(formData);
 
-                axios.post('/jargons', formData).then(response => {
+                axios.post('jargons', formData).then(response => {
                     console.log(response)
                 }).catch(err => {
                     console.log(err);

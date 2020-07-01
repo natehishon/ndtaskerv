@@ -92,8 +92,7 @@
                 signIn: 'auth/signIn'
             }),
             submit() {
-                console.log("yo");
-                axios.post('/users', this.form).then(response => {
+                axios.post('users', this.form).then(response => {
 
                     this.signIn(this.form).then(() => {
                         this.$router.replace({

@@ -394,7 +394,7 @@
                     search: this.searchQuery
                 }
 
-                axios.post('/search/user-search', formData).then(response => {
+                axios.post('search/user-search', formData).then(response => {
 
                     this.searchResponse = response.data;
 

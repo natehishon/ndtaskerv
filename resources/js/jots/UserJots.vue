@@ -106,7 +106,7 @@
                     let postData = {
                         comment: this.jotComment
                     }
-                    axios.post('/jots/' + this.jot.id, postData).then(response => {
+                    axios.post('jots/' + this.jot.id, postData).then(response => {
 
                         this.jot = response.data.data;
                         this.jotComment = null;

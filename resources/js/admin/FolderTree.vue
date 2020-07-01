@@ -175,7 +175,7 @@
                     taskID: this.selectedAddress.id,
                     folderID: folder.id
                 }
-                axios.post('/trackings/' + this.$route.params.id, postData).then(response => {
+                axios.post('trackings/' + this.$route.params.id, postData).then(response => {
 
                     //add to
 
@@ -196,7 +196,7 @@
                 formData.append('folder', JSON.stringify(this.newFolder));
 
 
-                axios.post('/folders/' + this.$route.params.id, formData).then(response => {
+                axios.post('folders/' + this.$route.params.id, formData).then(response => {
 
                     //add to
                     this.currentFolders = response.data.folders;

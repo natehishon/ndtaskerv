@@ -307,7 +307,7 @@
 
                 formData.append('task', JSON.stringify(this.task));
 
-                axios.post('/tasks/' + this.task.id, formData).then(response => {
+                axios.post('tasks/' + this.task.id, formData).then(response => {
 
                     this.task = response.data;
 

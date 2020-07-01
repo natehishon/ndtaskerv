@@ -94,7 +94,7 @@
             this.loading = true;
             this.form.search = this.search;
 
-            axios.post('/search/user-search', this.form).then(response => {
+            axios.post('search/user-search', this.form).then(response => {
                 this.loading = false;
 
                 console.log(response.data);
@@ -114,7 +114,7 @@
 
             chooseFavorite(favorite) {
                 console.log(favorite);
-                axios.post('/search/history-choice', favorite).then(response => {
+                axios.post('search/history-choice', favorite).then(response => {
                     console.log(response);
                     console.log('pretend I am routing away');
                     this.$router.push({path: '/'})
@@ -124,7 +124,7 @@
             choose(choice) {
                 console.log(choice);
                 this.form.choice = choice;
-                axios.post('/search/user-choice', this.form).then(response => {
+                axios.post('search/user-choice', this.form).then(response => {
                     // this.loading = false;
                     console.log("yo");
                     console.log(response.data);

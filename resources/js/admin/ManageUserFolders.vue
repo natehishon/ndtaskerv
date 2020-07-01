@@ -99,7 +99,7 @@
                 formData.append('folder', JSON.stringify(this.newFolder));
 
 
-                axios.post('/folders/' + this.$route.params.id, formData).then(response => {
+                axios.post('folders/' + this.$route.params.id, formData).then(response => {
 
                     //add to
                     this.userFolders = response.data.folders;
