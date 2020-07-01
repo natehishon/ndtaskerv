@@ -16,7 +16,7 @@ class Folder extends Model
         'type'
     ];
 
-    protected $table = 'ndtask.user_folders';
+    protected $table = 'user_folders';
 
     public function parent()
     {
