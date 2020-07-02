@@ -23,7 +23,7 @@ class Jargon extends Model
     }
 
     public function getFormattedDateAttribute(){
-        return date_format($this->created_at, 'm/d/yy');
+        return $this->created_at ? date_format($this->created_at, 'm/d/yy') : null;
     }
 
 }
