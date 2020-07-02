@@ -17,7 +17,7 @@ class Task extends Model
     ];
 
     public function getFormattedDateAttribute(){
-        return date_format($this->created_at, 'm/d/yy');
+        return date_format($this->created_at, 'm/d/yy') ?? null;
     }
 
     public function taskTrackings()
