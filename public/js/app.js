@@ -5404,6 +5404,22 @@ __webpack_require__.r(__webpack_exports__);
     close: function close() {
       this.$bvModal.hide("searchModal");
     },
+    jotSelect: function jotSelect(jot) {
+      this.$router.replace({
+        name: 'userJots',
+        params: {
+          id: jot.id
+        }
+      });
+    },
+    jotConvoSelect: function jotConvoSelect(jotConvo) {
+      this.$router.replace({
+        name: 'userJots',
+        params: {
+          id: jotConvo.jotID
+        }
+      });
+    },
     jargonSelect: function jargonSelect(jargon) {
       this.$router.replace({
         name: 'jargonPage',
@@ -59294,7 +59310,7 @@ var render = function() {
                                 {
                                   on: {
                                     click: function($event) {
-                                      return _vm.searchFolderSelect(result)
+                                      return _vm.jotSelect(result)
                                     }
                                   }
                                 },
@@ -59349,7 +59365,7 @@ var render = function() {
                                 {
                                   on: {
                                     click: function($event) {
-                                      return _vm.searchFolderSelect(result)
+                                      return _vm.jotConvoSelect(result)
                                     }
                                   }
                                 },
@@ -88332,10 +88348,11 @@ __webpack_require__(/*! froala-editor/css/froala_style.min.css */ "./node_module
 
 
 __webpack_require__(/*! ./store/subscriber */ "./resources/js/store/subscriber.js"); //prodswap
+// axios.defaults.baseURL = 'https://evening-forest-04369.herokuapp.com/api/';
+// axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
 
 
-axios__WEBPACK_IMPORTED_MODULE_11___default.a.defaults.baseURL = 'https://evening-forest-04369.herokuapp.com/api/'; // axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
-
+axios__WEBPACK_IMPORTED_MODULE_11___default.a.defaults.baseURL = 'https://wayfinder.dev/';
 
  // import vClickOutside from 'v-click-outside'
 

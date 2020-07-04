@@ -32,8 +32,9 @@ import axios from "axios";
 require('./store/subscriber');
 
 //prodswap
-axios.defaults.baseURL = 'https://evening-forest-04369.herokuapp.com/api/';
+// axios.defaults.baseURL = 'https://evening-forest-04369.herokuapp.com/api/';
 // axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
+axios.defaults.baseURL = 'https://wayfinder.dev/';
 
 import CKEditor from '@ckeditor/ckeditor5-vue/dist/ckeditor';
 

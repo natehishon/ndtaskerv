@@ -6,6 +6,7 @@ namespace App\Helpers;
 use App\Folder;
 use App\Jargon;
 use App\Jot;
+use App\JotResponse;
 use App\SearchHistory;
 use App\SubTask;
 use App\Task;
@@ -190,7 +191,7 @@ class SearchHelper
 
 
         $sql = "SELECT distinct j.id,
-            j.content,
+            j.content, jots.id as jotID,
             (
 
                 (" . implode(" + ", $contentSQL) . ")
@@ -217,7 +218,7 @@ class SearchHelper
 
         $results = DB::select(DB::raw($sql));
 
-        $models = Task::hydrate($results);
+        $models = JotResponse::hydrate($results);
 
         if (!$results) {
             return [];

@@ -148,7 +148,7 @@
                             jots:
                             <ul class="search-list">
                                 <li v-for="(result, index) in searchResponse.jots"
-                                    @click="searchFolderSelect(result)">
+                                    @click="jotSelect(result)">
                                     title:
                                     <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
                                     <br>
@@ -162,7 +162,7 @@
                             jot conversation:
                             <ul class="search-list">
                                 <li v-for="(result, index) in searchResponse.jotConvo"
-                                    @click="searchFolderSelect(result)">
+                                    @click="jotConvoSelect(result)">
                                     content:
                                     <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>
                                 </li>
@@ -450,10 +450,16 @@
                 this.$bvModal.hide("searchModal");
             },
 
+            jotSelect(jot){
+                this.$router.replace({name: 'userJots', params: {id: jot.id}})
+            },
+
+            jotConvoSelect(jotConvo){
+                this.$router.replace({name: 'userJots', params: {id: jotConvo.jotID}})
+            },
+
             jargonSelect(jargon){
-
                 this.$router.replace({name: 'jargonPage', params: {id: jargon.id}})
-
             },
 
             openTask() {
