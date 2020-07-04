@@ -88352,7 +88352,7 @@ __webpack_require__(/*! ./store/subscriber */ "./resources/js/store/subscriber.j
 // axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
 
 
-axios__WEBPACK_IMPORTED_MODULE_11___default.a.defaults.baseURL = 'https://wayfinder.dev/';
+axios__WEBPACK_IMPORTED_MODULE_11___default.a.defaults.baseURL = 'https://wayfinder.dev/api/';
 
  // import vClickOutside from 'v-click-outside'
 
