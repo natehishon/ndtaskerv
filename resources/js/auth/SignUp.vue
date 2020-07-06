@@ -8,7 +8,7 @@
                 header-class="login-header"
         >
 
-            <b-form class="way-form" style="min-width:500px" @submit.prevent="submit">
+            <b-form class="way-form" @submit.prevent="submit">
                 <b-form-group
                     id="input-group-1"
                     label="email address:"
@@ -44,12 +44,14 @@
                     <b-input type="password" placeholder="enter password" id="text-password" v-model="form.password" aria-describedby="password-help-block"></b-input>
                 </b-form-group>
 
-                <b-button size="lg" type="submit" class="mb-3" variant="success">
+                <div class="sign-in-buttons">
+                <b-button size="lg" type="submit" class="mb-3 mr-2  " variant="success">
                     submit&nbsp;&nbsp;<i class="fas fa-user-plus"></i>
                 </b-button>
                 <b-button size="lg" @click="signInButton" class="mb-3" variant="info">
                     sign in&nbsp;&nbsp;<i class="fas fa-door-open"></i>
                 </b-button>
+                </div>
 
             </b-form>
 
@@ -58,7 +60,13 @@
     </div>
 </template>
 
-<style>
+<style lang="scss">
+
+    /*.sign-in-buttons{*/
+    /*    display: flex;*/
+    /*    flex-direction: row;*/
+    /*    justify-content: flex-end;*/
+    /*}*/
 
     .sign-up-container{
         display:flex;
