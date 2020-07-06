@@ -29,7 +29,7 @@
                         </b-form-group>
 
                         <b-form-group>
-                            <label for="text-password">password</label>
+                            <label for="text-password">password:</label>
                             <b-input type="password" placeholder="enter password" id="text-password"
                                      v-model="form.password"
                                      aria-describedby="password-help-block"></b-input>

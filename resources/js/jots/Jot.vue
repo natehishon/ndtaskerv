@@ -5,21 +5,21 @@
         <b-row class="m-5" v-if="stepOne === true">
             <b-col xs="12" sm="4">
                 <b-card bg-variant="success" text-variant="white" header=" "
-                        header-html="<i class='fas fa-comments' style='font-size: 22px;'></i> "
+                        header-html="<i class='fas fa-comments' style='font-size: 1.25rem;'></i> "
                         class="text-center jot-card" @click="jotChoice('so about ')">
                     <b-card-text>comment</b-card-text>
                 </b-card>
             </b-col>
             <b-col xs="12" sm="4">
                 <b-card bg-variant="info" text-variant="white" header=" "
-                        header-html="<i class='fas fa-question' style='font-size: 22px;'></i> "
+                        header-html="<i class='fas fa-question' style='font-size: 1.25rem;'></i> "
                         class="text-center jot-card" @click="jotChoice('unsure about ')">
                     <b-card-text>unsure</b-card-text>
                 </b-card>
             </b-col>
             <b-col xs="12" sm="4">
                 <b-card bg-variant="warning" text-variant="white" header=" "
-                        header-html="<i class='fas fa-times-circle' style='font-size: 22px;'></i> "
+                        header-html="<i class='fas fa-times-circle' style='font-size: 1.25rem;'></i> "
                         class="text-center jot-card" @click="jotChoice('stuck on ')">
                     <b-card-text>stuck</b-card-text>
                 </b-card>
@@ -31,13 +31,13 @@
                 <b-form @submit="onSubmit" class="way-form">
 
                     <div class="form-group">
-                        <label for="title">title</label>
+                        <label for="title">jot title:</label>
                         <input type="text" class="form-control"
                                v-model="title">
                     </div>
 
                     <div class="form-group">
-                        <label>content</label>
+                        <label>jot content:</label>
                         <froala :tag="'textarea'" :key="'nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2=='" :attribution="false" :config="config" v-model="content"></froala>
                     </div>
 

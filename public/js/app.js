@@ -59130,7 +59130,7 @@ var render = function() {
                         "b-form-group",
                         [
                           _c("label", { attrs: { for: "text-password" } }, [
-                            _vm._v("password")
+                            _vm._v("password:")
                           ]),
                           _vm._v(" "),
                           _c("b-input", {
@@ -59332,7 +59332,7 @@ var render = function() {
                         "b-form-group",
                         [
                           _c("label", { attrs: { for: "text-password" } }, [
-                            _vm._v("password")
+                            _vm._v("password:")
                           ]),
                           _vm._v(" "),
                           _c("b-input", {
@@ -60755,7 +60755,7 @@ var render = function() {
                         "text-variant": "white",
                         header: " ",
                         "header-html":
-                          "<i class='fas fa-comments' style='font-size: 22px;'></i> "
+                          "<i class='fas fa-comments' style='font-size: 1.25rem;'></i> "
                       },
                       on: {
                         click: function($event) {
@@ -60783,7 +60783,7 @@ var render = function() {
                         "text-variant": "white",
                         header: " ",
                         "header-html":
-                          "<i class='fas fa-question' style='font-size: 22px;'></i> "
+                          "<i class='fas fa-question' style='font-size: 1.25rem;'></i> "
                       },
                       on: {
                         click: function($event) {
@@ -60811,7 +60811,7 @@ var render = function() {
                         "text-variant": "white",
                         header: " ",
                         "header-html":
-                          "<i class='fas fa-times-circle' style='font-size: 22px;'></i> "
+                          "<i class='fas fa-times-circle' style='font-size: 1.25rem;'></i> "
                       },
                       on: {
                         click: function($event) {
@@ -60845,7 +60845,7 @@ var render = function() {
                     [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "title" } }, [
-                          _vm._v("title")
+                          _vm._v("jot title:")
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -60875,7 +60875,7 @@ var render = function() {
                         "div",
                         { staticClass: "form-group" },
                         [
-                          _c("label", [_vm._v("content")]),
+                          _c("label", [_vm._v("jot content:")]),
                           _vm._v(" "),
                           _c("froala", {
                             key:
