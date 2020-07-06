@@ -1,24 +1,48 @@
 <template>
 
     <div class="container-fluid">
-        <form enctype="multipart/form-data">
-            <div class="row">
-                <div class="col-xs-12">
+        <form enctype="multipart/form-data" class="way-form">
+            <b-row>
+                <b-col xs="12" sm="6">
                     <div class="form-group">
-                        <label for="title">Title</label>
+                        <label for="title">task title</label>
                         <input type="text" class="form-control"
                                v-model="task.title">
                     </div>
 
 
                     <div class="form-group">
-                        <label>Content</label>
-                        <froala :tag="'textarea'" :config="config" v-model="task.content_html"></froala>
+                        <label>task content</label>
+                        <froala :tag="'textarea'" :config="{
+                                                colorsStep: 6,
+                                                colorsText: [
+                                                    '#15E67F', '#E3DE8C', '#D8A076', '#D83762', '#76B6D8', 'REMOVE',
+                                                    '#1C7A90', '#249CB8', '#4ABED9', '#FBD75B', '#FBE571', '#FFFFFF'
+                                                ],
+                                                quickInsertTags: [],
+                                                toolbarButtons: ['paragraphFormat', 'bold', 'italic', 'strikeThrough', 'textColor', 'formatOL', 'formatUL', 'clearFormatting', 'link', 'unlink', 'myButton', 'image', 'blockquote', 'html'],
+                                                paragraphFormatSelection: true,
+                                                refreshAfterCallback: true,
+                                                htmlUntouched: true,
+                                                htmlAllowedTags: ['.*', 'jargon'],
+                                                htmlRemoveTags: ['']
+                                                 }" v-model="task.content_html"></froala>
+
                     </div>
 
+                    <b-button size="lg" @click="submitTask($event)" class="mb-3" variant="success">
+                        save&nbsp;&nbsp;<i class="fas fa-save "></i>
+                    </b-button>
+                </b-col>
+
+                <b-col xs="12" sm="6">
+
                     <div class="form-group">
-                        <label>Task Image</label>
-                        <input type="file" ref="file" @change="selectTaskFiles"/>
+                        <label>task media</label><br>
+                        <b-form-file
+                            ref="file"
+                            @change="selectTaskFiles"
+                        ></b-form-file>
                     </div>
 
 
@@ -27,19 +51,19 @@
 
                         <b-modal
                             id="modalNewID" size="xl"
-                            title="create subtask"
+                            title="create task step"
                         >
                             <div class="container-fluid">
-                                <form enctype="multipart/form-data">
-                                    <div class="row">
-                                        <div class="col-xs-12">
+                                <form enctype="multipart/form-data" class="way-form">
+                                    <b-row>
+                                        <b-col cols="10" offset-sm="1">
                                             <div class="form-group">
-                                                <label for="title">Title</label>
+                                                <label for="title">task step title</label>
                                                 <input type="text" class="form-control"
                                                        v-model="newSubTask.title">
                                             </div>
                                             <div class="form-group">
-                                                <label>Content</label>
+                                                <label>task step content</label>
                                                 <froala :tag="'textarea'" :config="{
                                                 colorsStep: 6,
                                                 colorsText: [
@@ -51,23 +75,24 @@
                                                 paragraphFormatSelection: true,
                                                 refreshAfterCallback: true,
                                                 htmlUntouched: true,
-                                                htmlAllowedTags: ['.*'],
+                                                htmlAllowedTags: ['.*', 'jargon'],
                                                 htmlRemoveTags: ['']
                                                  }"
                                                         v-model="newSubTask.content_html"></froala>
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Sub Task Image</label>
-                                                <input type="file" ref="file" @change="selectSubTaskFiles"/>
+                                                <label>task step media</label><br>
+                                                <input class="input-file" type="file" ref="file"
+                                                       @change="selectSubTaskFiles"/>
                                             </div>
-                                        </div>
-                                    </div>
+                                        </b-col>
+                                    </b-row>
                                 </form>
                             </div>
 
                             <template v-slot:modal-footer>
-                                <b-button size="md" @click="newSubTaskAdded()" variant="success">
+                                <b-button size="md" @click="newSubTaskAdded()" variant="success" class="large-button">
                                     <i class="fas fa-plus "></i> add
                                 </b-button>
                             </template>
@@ -121,8 +146,8 @@
                             </template>
                         </b-modal>
 
-                        <b-button size="sm" @click="createSubTask()" class="mb-3" variant="primary">
-                            <i class="fas fa-plus "></i> new sub task
+                        <b-button size="lg" @click="createSubTask()" class="mb-3" variant="primary">
+                            new sub task&nbsp;&nbsp;<i class="fas fa-plus "></i>
                         </b-button>
 
                     </div>
@@ -152,12 +177,10 @@
                             </div>
                     </draggable>
 
-                    <b-button size="lg" @click="submitTask($event)" class="mb-3" variant="success">
-                        <i class="fas fa-plus "></i> save
-                    </b-button>
+
                     <!--                    <button class="btn btn-secondary btn-block" @click="check($event)">Save</button>-->
-                </div>
-            </div>
+                </b-col>
+            </b-row>
         </form>
         <success-modal :id="'successID'" :uniqueId="'successModalID'" :ref="'successModal'"></success-modal>
     </div>
@@ -280,8 +303,9 @@
                 this.$bvModal.show("modalEditID");
                 this.editSubTask = this.task.sub_task[index];
             },
-            selectTaskFiles() {
-                this.taskFile = this.$refs.file.files[0];
+            selectTaskFiles(event) {
+                console.log(this.$refs);
+                this.taskFile = event.target.files[0];
             },
             selectSubTaskFiles() {
                 this.newSubTask.file = this.$refs.file.files[0];
@@ -295,6 +319,8 @@
             submitTask(event) {
                 event.preventDefault();
                 const formData = new FormData();
+
+                console.log(this.taskFile);
 
                 formData.append('taskFile', this.taskFile);
 

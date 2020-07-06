@@ -4,12 +4,12 @@
 
         <b-modal
             :id="'successModal'+uniqueId" size="md"
-            title="success"
+            title="success!"
             hide-footer
         >
-            <div class="container-fluid">
-                <b-button size="lg" @click="dismiss" variant="success">
-                    <i class="fas fa-plus "></i> save
+            <div class="container-fluid text-center">
+                <b-button size="lg" @click="dismiss" variant="success" class="large-button">
+                    <i class="fas fa-check"></i> okay
                 </b-button>
             </div>
 

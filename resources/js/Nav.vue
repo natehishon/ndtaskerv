@@ -11,7 +11,6 @@
                 <b-popover target="nav-pop" triggers="hover blur" placement="top">
 
             <b-row>
-
                     <b-col xs="12">
                         <span>{{infoText}}</span>
                     </b-col>
@@ -68,10 +67,23 @@
                 user: 'auth/user'
             }),
             getRouteName: function () {
+                console.log(this.routeName);
                 switch (this.routeName) {
+                    case 'signin':
+                        // code block
+                        this.infoText = "wayfinder is an application designed to help you succeed at work! sign in!";
+                        return 'wayfinder'
+                    case 'signUp':
+                        // code block
+                        this.infoText = "wayfinder is an application designed to help you succeed at work! sign up!";
+                        return 'wayfinder'
                     case 'jargons':
                         // code block
-                        this.infoText = "Jargons are terms with a specific meaning in this workplace context/setting. You can check them out here.";
+                        this.infoText = "Jargons(definition: special words or expressions that are used by a particular profession or group and are difficult for others to understand) are highlighted terms with a specific meaning in this workplace setting. You can check them out here.";
+                        return 'jargons'
+                    case 'jargonPage':
+                        // code block
+                        this.infoText = "Here you can check out individual jargons.";
                         return 'jargons'
                     case 'manageJots':
                         this.infoText = "Manage jots here: comment on jot questions/comments posted by users.";
@@ -98,11 +110,11 @@
                         // code block
                         return 'admin tools'
                     case 'tasks':
-                        this.infoText = "Manage tasks here, edit existing tasks or create new ones.";
+                        this.infoText = "Manage tasks here: edit existing tasks or create new ones.";
                         return 'manage tasks'
                     case 'users':
                         // code block
-                        this.infoText = "Manage users here, this includes an option to manage a particular user's folder structure: options > user folders.";
+                        this.infoText = "Manage users here: this includes an option to manage a particular user's folder structure: options > user folders.";
                         return 'manage users'
                     case 'userFolders':
                         this.infoText = "Manager user folders here: create a new folder for a user and assign tasks to that folder.";
@@ -110,10 +122,10 @@
                     case 'home':
                         return 'wayfinder'
                     case 'jots':
-                        this.infoText = "Jots are questions or comments about a task or sub task, you can click on options > check jots to ask further questions and see response.";
+                        this.infoText = "Jots(definition: to write or mark down quickly or briefly) are questions or comments about a task, task step, etc. You can click on options > check jots to ask further questions and see response.";
                         return 'jots'
                     case 'userJots':
-                        // code block
+                        this.infoText = "Here you can see responses to your jots and ask follow up questions.";
                         return 'jot'
                     default:
                         this.infoText = "wayfinder is an application designed to help you succeed at work! Click on folders to open them and click on tasks to launch them. You can also search for something you can't find.";

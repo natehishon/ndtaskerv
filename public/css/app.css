@@ -20485,6 +20485,11 @@ body {
   color: #495057;
 }
 
+.large-button {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
 .search-component {
   font-size: 1.25rem;
   font-weight: 600;
@@ -20511,7 +20516,16 @@ body {
   font-size: 1.25rem;
 }
 
+.way-form .form-group .input-file {
+  padding: 0;
+}
+
 .way-form .form-group .fr-box.fr-basic .fr-element {
   font-size: 1.25rem;
+}
+
+.collapsed > .when-opened,
+:not(.collapsed) > .when-closed {
+  display: none;
 }
 

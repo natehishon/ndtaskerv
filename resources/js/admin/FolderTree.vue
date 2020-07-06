@@ -5,20 +5,32 @@
 
         <ul>
             <li v-for="folder in currentFolders" class="folder-container">
+
                 <span class="folder" v-b-toggle="'folder' + folder.id">
-                    <b-badge variant="primary" class="mr-1">folder&nbsp;&nbsp;<i class="fas fa-folder fa-fw"></i></b-badge>
+                    <span class="when-opened">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                    </span>
+                    <span class="when-closed">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </span>
+                    <b-badge variant="primary" class="mr-1">folder&nbsp;&nbsp;<i
+                        class="fas fa-folder fa-fw"></i></b-badge>
                     {{folder.title}}
                 </span>
                 <b-dropdown no-caret variant="light">
-                    <template v-slot:button-content >
-                        <i class="fas fa-ellipsis-h" style="font-size: 18px;"></i>&nbsp;&nbsp;<span style="font-size: 18px">edit</span>
+                    <template v-slot:button-content>
+                        <i class="fas fa-ellipsis-h" style="font-size: 18px;"></i>&nbsp;&nbsp;<span
+                        style="font-size: 18px">edit</span>
                     </template>
-                    <b-dropdown-item @click="newChildFolderModal(folder)">add folder&nbsp;&nbsp;<i class="far fa-folder"></i></b-dropdown-item>
-                    <b-dropdown-item @click="newChildTask(folder)">add task&nbsp;&nbsp;<i class="fas fa-list"></i></b-dropdown-item>
-                    <b-dropdown-item @click="deleteFolder(folder)">delete&nbsp;&nbsp;<i class="fas fa-trash"></i></b-dropdown-item>
+                    <b-dropdown-item @click="newChildFolderModal(folder)">add folder&nbsp;&nbsp;<i
+                        class="far fa-folder"></i></b-dropdown-item>
+                    <b-dropdown-item @click="newChildTask(folder)">add task&nbsp;&nbsp;<i class="fas fa-list"></i>
+                    </b-dropdown-item>
+                    <b-dropdown-item @click="deleteFolder(folder)">delete&nbsp;&nbsp;<i class="fas fa-trash"></i>
+                    </b-dropdown-item>
                 </b-dropdown>
                 <b-collapse :id="'folder'+folder.id" class="folder-tree-ul ">
-                    <ul v-if="folder.task_trackings">
+                    <ul v-if="folder.task_trackings" style="padding-left: 24px">
                         <li v-for="taskTracking in folder.task_trackings">
                             <span class="task mb-2">
                                 <b-badge variant="info" class="mr-1">
@@ -28,14 +40,16 @@
                             </span>
                             <b-dropdown no-caret variant="light">
                                 <template v-slot:button-content>
-                                    <i class="fas fa-ellipsis-h" style="font-size: 18px;"></i>&nbsp;&nbsp;<span style="font-size: 18px">edit</span>
+                                    <i class="fas fa-ellipsis-h" style="font-size: 18px;"></i>&nbsp;&nbsp;<span
+                                    style="font-size: 18px">edit</span>
                                 </template>
-                                <b-dropdown-item @click="deleteTracking(taskTracking)">delete&nbsp;&nbsp;<i class="fas fa-trash"></i></b-dropdown-item>
+                                <b-dropdown-item @click="deleteTracking(taskTracking)">delete&nbsp;&nbsp;<i
+                                    class="fas fa-trash"></i></b-dropdown-item>
                             </b-dropdown>
                         </li>
                     </ul>
                     <folder-tree :current-folders="folder.childrens_children" :task-list="taskList"
-                                 v-if="folder.childrens_children"></folder-tree>
+                                 v-if="folder.childrens_children" :refresh-folders="refreshFolders"></folder-tree>
 
                 </b-collapse>
                 <b-modal
@@ -43,38 +57,27 @@
                     title="add folder"
                 >
                     <div class="container-fluid">
-                        <form enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6">
+                        <form enctype="multipart/form-data" class="way-form">
+                            <b-row>
+                                <b-col cols="10" offset-sm="1">
                                     <div class="form-group">
-                                        <label for="title">new folder title</label>
+                                        <label for="title">folder title</label>
                                         <input type="text" class="form-control"
                                                v-model="newFolder.title">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>folder image</label>
-                                        <input type="file" ref="folderFile" @change="selectFolderFiles"/>
+                                        <label>folder image</label><br>
+                                        <input class="input-file" type="file" ref="folderFile"
+                                               @change="selectFolderFiles"/>
                                     </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="title">prebuilt folder</label>
-                                        <input type="text" class="form-control"
-                                               v-model="newFolder.title">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>folder image</label>
-                                        <input type="file" ref="folderFile" @change="selectFolderFiles"/>
-                                    </div>
-                                </div>
-                            </div>
+                                </b-col>
+                            </b-row>
                         </form>
                     </div>
 
                     <template v-slot:modal-footer>
-                        <b-button size="md" @click="addNewFolder()" variant="success">
+                        <b-button size="md" @click="addNewFolder(folder)" variant="success" class="large-button">
                             <i class="fas fa-plus "></i> save
                         </b-button>
                     </template>
@@ -84,9 +87,9 @@
                     title="add task"
                 >
                     <div class="container-fluid">
-                        <form enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="col-xs-12">
+                        <form enctype="multipart/form-data" class="way-form">
+                            <b-row>
+                                <b-col cols="10" offset-sm="1">
                                     <div class="form-group">
                                         <label for="title">task picker</label>
                                         <vue-bootstrap-typeahead
@@ -96,22 +99,21 @@
                                             @hit="selectedAddress = $event"
                                         />
                                     </div>
-                                </div>
-                            </div>
+                                </b-col>
+                            </b-row>
                         </form>
                     </div>
 
                     <template v-slot:modal-footer>
-                        <b-button size="md" @click="addNewTask(folder)" variant="success">
+                        <b-button size="md" @click="addNewTask(folder)" variant="success" class="large-button">
                             <i class="fas fa-plus "></i> save
                         </b-button>
                     </template>
                 </b-modal>
-                <success-modal :id="'successID' + folder.id" :uniqueId="folder.id" :ref="'successModal'+folder.id"></success-modal>
+                <success-modal :id="'successID' + folder.id" :uniqueId="folder.id"
+                               :ref="'successModal'+folder.id"></success-modal>
             </li>
         </ul>
-
-
 
 
     </div>
@@ -120,7 +122,6 @@
 </template>
 
 <style lang="scss">
-
 
 
     .user-folder-tree-container {
@@ -164,31 +165,32 @@
                 selectedAddress: null
             }
         },
-        props: ['currentFolders', 'taskList'],
+        props: ['currentFolders', 'taskList', 'refreshFolders'],
         components: {
             VueBootstrapTypeahead,
             SuccessModal
         },
         methods: {
             addNewTask(folder) {
-                let postData= {
+                let postData = {
                     taskID: this.selectedAddress.id,
                     folderID: folder.id
                 }
                 axios.post('trackings/' + this.$route.params.id, postData).then(response => {
 
                     //add to
+                    this.refreshFolders();
 
                 }).catch(err => {
                     console.log(err);
                 });
                 this.selectedAddress = null;
-                let obName = "successModal"+ folder.id;
+                let obName = "successModal" + folder.id;
                 let ref = this.$refs[obName];
                 this.$bvModal.hide("childTask" + folder.id);
                 ref[0].show()
             },
-            addNewFolder() {
+            addNewFolder(folder) {
                 const formData = new FormData();
 
                 formData.append('folderFile', this.folderFile);
@@ -199,8 +201,15 @@
                 axios.post('folders/' + this.$route.params.id, formData).then(response => {
 
                     //add to
-                    this.currentFolders = response.data.folders;
+                    // this.currentFolders = response.data.folders;
                     // this.taskList = response.data.tasks;
+
+
+                    let obName = "successModal" + folder.id;
+                    let ref = this.$refs[obName];
+                    //:id="'childFolder' + folder.id
+                    this.$bvModal.hide("childFolder" + folder.id);
+                    ref[0].show()
 
                 }).catch(err => {
                     console.log(err);
@@ -227,7 +236,7 @@
             selectFolderFiles() {
                 this.folderFile = this.$refs.folderFile[0].files[0];
             },
-            deleteTracking(tracking){
+            deleteTracking(tracking) {
                 axios.delete('/trackings/' + tracking.id).then(response => {
 
                     //add to
@@ -236,7 +245,7 @@
                     console.log(err);
                 });
             },
-            deleteFolder(folder){
+            deleteFolder(folder) {
                 axios.delete('/folders/' + folder.id).then(response => {
 
                     //add to

@@ -14,32 +14,33 @@
                 title="add folder"
             >
                 <div class="container-fluid">
-                    <form enctype="multipart/form-data">
-                        <div class="row">
-                            <div class="col-xs-12">
+                    <form enctype="multipart/form-data" class="way-form">
+                        <b-row>
+                            <b-col cols="10" offset-sm="1">
                                 <div class="form-group">
-                                    <label for="title">Title</label>
+                                    <label for="title">folder title</label>
                                     <input type="text" class="form-control"
                                            v-model="newFolder.title">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>folder image</label>
-                                    <input type="file" ref="file" @change="selectFolderFiles"/>
+                                    <label>folder image</label><br>
+                                    <input class="input-file" type="file" ref="file" @change="selectFolderFiles"/>
                                 </div>
-                            </div>
-                        </div>
+                            </b-col>
+                        </b-row>
                     </form>
                 </div>
 
-                <template v-slot:modal-footer>
-                    <b-button size="md" @click="addNewFolder()" variant="success">
+                <template v-slot:modal-footer >
+                    <b-button size="md" @click="addNewFolder()" variant="success" class="large-button">
                         save&nbsp;&nbsp;<i class="fas fa-plus "></i>
                     </b-button>
                 </template>
             </b-modal>
+            <success-modal id="parentFolderSuccessId" :uniqueId="'parentFolderSuccessId'" :ref="'parentFolderSuccessId'"></success-modal>
             <div class="folder-parent-container">
-                <folder-tree :currentFolders="userFolders" :taskList="this.taskList"></folder-tree>
+                <folder-tree :currentFolders="userFolders" :refresh-folders="refreshFolders" :taskList="this.taskList"></folder-tree>
             </div>
         </b-col>
     </b-row>
@@ -74,6 +75,7 @@
 
     import axios from "axios";
     import FolderTree from "./FolderTree";
+    import SuccessModal from "../miscellaneous/SuccessModal";
 
 
     export default {
@@ -87,24 +89,26 @@
             }
         },
         components: {
-            FolderTree
+            FolderTree,
+            SuccessModal
         },
         methods: {
             addNewFolder() {
                 const formData = new FormData();
 
-                console.log(this.folderFile);
                 formData.append('folderFile', this.folderFile);
-
                 formData.append('folder', JSON.stringify(this.newFolder));
 
-
                 axios.post('folders/' + this.$route.params.id, formData).then(response => {
-
                     //add to
                     this.userFolders = response.data.folders;
                     this.taskList = response.data.tasks;
 
+                    //show success and close
+                    this.$bvModal.hide("parentFolderID");
+                    // this.$bvModal.show("parent-folder-success-id");
+
+                    this.$refs.parentFolderSuccessId.show();
                 }).catch(err => {
                     console.log(err);
                 });
@@ -121,6 +125,13 @@
             },
             selectFolderFiles() {
                 this.folderFile = this.$refs.file.files[0];
+            },
+            refreshFolders(){
+                axios.get("user-folders/" + this.$route.params.id).then(response => {
+                    this.userFolders = response.data.folders;
+                    this.taskList = response.data.tasks;
+                    // this.loading = false;
+                })
             }
         },
         mounted() {

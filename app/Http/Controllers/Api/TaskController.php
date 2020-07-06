@@ -37,13 +37,15 @@ class TaskController extends Controller
         $userInput = json_decode($request->input('task'), true);
 
         $task->title = $userInput['title'];
-        $task->content_html = $userInput['content_html'];
-        $task->content = strip_tags($userInput['content_html']);
+
+        if(!empty($userInput['content_html'])){
+            $task->content_html = $userInput['content_html'];
+            $task->content = strip_tags($userInput['content_html']);
+        }
 
         if(!empty($request->file('taskFile'))){
 
             $path = $request->file('taskFile')->store('images', 's3');
-            $storageName = basename($path);
 
             $imageTypes=['image/jpeg','image/gif','image/png','image/bmp','image/svg+xml'];
             $videoTypes=['video/mp4', 'video/ogg', 'video/webm'];
@@ -56,7 +58,7 @@ class TaskController extends Controller
             }
 
 
-            $task->filename = $storageName;
+            $task->filename = $request->file('taskFile')->getClientOriginalName();
             $task->image_url = Storage::disk('s3')->url($path);
         }
 
@@ -72,9 +74,7 @@ class TaskController extends Controller
         $task = new Task();
 
         if(!empty($request->file('taskFile'))){
-
             $path = $request->file('taskFile')->store('images', 's3');
-            $storageName = basename($path);
 
             $imageTypes=['image/jpeg','image/gif','image/png','image/bmp','image/svg+xml'];
             $videoTypes=['video/mp4', 'video/ogg', 'video/webm'];
@@ -87,7 +87,7 @@ class TaskController extends Controller
             }
 
 
-            $task->filename = $storageName;
+            $task->filename = $request->file('taskFile')->getClientOriginalName();
             $task->image_url = Storage::disk('s3')->url($path);
         }
 

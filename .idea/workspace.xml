@@ -21,8 +21,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/js/alerts/NotFound.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/JotController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/JotController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/TaskController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jargon.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jargon.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/service-worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Nav.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/CreateTask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/CreateTask.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/EditTask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/EditTask.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/FolderTree.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/FolderTree.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/ManageJots.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/ManageJots.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/ManageUserFolders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/ManageUserFolders.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/folders/Folders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/folders/Folders.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/jargons/JargonPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jargons/JargonPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/jots/BottomNotch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jots/BottomNotch.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/jots/Jot.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jots/Jot.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/jots/Jots.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jots/Jots.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/miscellaneous/SuccessModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/miscellaneous/SuccessModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/task/Task.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/task/Task.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +259,7 @@
       <workItem from="1592238578306" duration="1704000" />
       <workItem from="1592241851504" duration="9066000" />
       <workItem from="1592620720318" duration="15016000" />
-      <workItem from="1592958720211" duration="52169000" />
+      <workItem from="1592958720211" duration="70104000" />
     </task>
     <servers />
   </component>
@@ -295,6 +318,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="371" y="112" key="#phpunit.xml/0.23.1440.877@0.23.1440.877" timestamp="1590443758840" />
+    <state x="100" y="123" width="1240" height="677" key="DiffContextDialog" timestamp="1593989407765">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="100" y="123" width="1240" height="677" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1593989407765" />
     <state x="376" y="194" key="NewPhpClassDialog" timestamp="1592086685100">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -303,29 +330,29 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="645" height="445" key="SwitcherDM/0.23.1440.877@0.23.1440.877" timestamp="1592947451480" />
-    <state x="339" y="79" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1593546722084">
+    <state x="339" y="79" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1593986820585">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="339" y="79" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.877@0.23.1440.877" timestamp="1593546722084" />
+    <state x="339" y="79" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.877@0.23.1440.877" timestamp="1593986820585" />
     <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591585096105">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1591585096105" />
-    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1593903830788">
+    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1593994403493">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1593903830788" />
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1593663394960">
+    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1593994403493" />
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1593988449979">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1593663394960" />
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1593988449979" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/welcome.blade.php</url>
-          <line>25</line>
+          <line>26</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 
 
 use App\Http\Controllers\Controller;
+use App\Jargon;
 use App\Jot;
 use App\JotResponse;
 use App\SubTask;
@@ -24,27 +25,32 @@ class JotController extends Controller
 
     public function adminIndex()
     {
-        $subTasks = Jot::query()->orderBy('jots.created_at')
+        $subTasks = Jot::query()
             ->leftJoin('users', function ($q) {
                 $q->on('users.id', '=', 'jots.user_id');
             })
             ->leftJoin('sub_tasks', function ($q) {
-                $q->on('jots.jotable_id', '=', 'sub_tasks.id');
-            })->where('jots.jotable_type', '=', 'App\SubTask')
-            ->get(['jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at', 'users.name as user']);
-
-        $tasks = Jot::query()->orderBy('jots.created_at')
-            ->leftJoin('users', function ($q) {
-                $q->on('users.id', '=', 'jots.user_id');
+                $q->on('jots.jotable_id', '=', 'sub_tasks.id')
+                ->where('jots.jotable_type', '=', 'App\SubTask');
             })
+
             ->leftJoin('tasks', function ($q) {
-                $q->on('jots.jotable_id', '=', 'tasks.id');
-            })->where('jots.jotable_type', '=', 'App\Task')
-            ->get(['jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at', 'users.name as user']);
+                $q->on('jots.jotable_id', '=', 'tasks.id')
+                    ->where('jots.jotable_type', '=', 'App\Task');
+            });
 
-        $collected = array_merge($subTasks->toArray(), $tasks->toArray());
+//        $tasks = Jot::query()->orderBy('jots.created_at')
+//            ->leftJoin('users', function ($q) {
+//                $q->on('users.id', '=', 'jots.user_id');
+//            })
+//            ->leftJoin('tasks', function ($q) {
+//                $q->on('jots.jotable_id', '=', 'tasks.id');
+//            })->where('jots.jotable_type', '=', 'App\Task')
+//            ->get(['jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at', 'users.name as user']);
 
-        return $collected;
+//        $collected = array_merge($subTasks->toArray());
+
+        return $subTasks->get(['jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at', 'users.name as user']);
 
     }
 
@@ -104,6 +110,10 @@ class JotController extends Controller
                 case "App\Task":
                     $task = Task::query()->find($request->input('jotable')['id']);
                     $task->jots()->save($jot);
+                    break;
+                case "App\Jargon":
+                    $jargon = Jargon::query()->find($request->input('jotable')['id']);
+                    $jargon->jots()->save($jot);
                     break;
             }
         }

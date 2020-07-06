@@ -62,10 +62,11 @@
                              @hide="taskClose"
 
                     >
-                        <Task v-on:task-slide="changeSlide" :task="task" :sub="subTaskCopy" :current-index="currentSlide" @indexchange="indexChange($event)"></Task>
+                        <Task v-on:task-slide="changeSlide" :task="task" :sub="subTaskCopy"
+                              :current-index="currentSlide" @indexchange="indexChange($event)"></Task>
                         <template v-slot:modal-footer>
-                            <BottomNotch v-if="task"
-                                         :sub-tasks="subTaskCopy" :current-slide="currentSlide"></BottomNotch>
+                            <BottomNotch v-if="task" :sub-tasks="subTaskCopy"
+                                         :current-slide="currentSlide"></BottomNotch>
                         </template>
                     </b-modal>
                 </b-col>
@@ -90,7 +91,7 @@
                     </b-col>
                     <b-col cols="2">
                         <div class="search-button-container">
-                            <b-button size="md" @click="search()" variant="primary">
+                            <b-button size="md" @click="search()" variant="primary" class="large-button">
                                 search&nbsp;&nbsp;<i class="fas fa-search"></i>
                             </b-button>
                         </div>
@@ -119,6 +120,7 @@
                                 <ul class="search-list">
                                     <li v-for="(result, index) in searchResponse.tasks"
                                         @click="searchTaskSelect(result)">
+
                                         title:
                                         <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
                                         <br>
@@ -205,7 +207,7 @@
             </div>
 
             <template v-slot:modal-footer>
-                <b-button size="md" @click="close" variant="secondary">
+                <b-button size="md" @click="close" variant="secondary" class="large-button">
                     cancel&nbsp;&nbsp;<i class="fas fa-times "></i>
                 </b-button>
             </template>
@@ -257,7 +259,7 @@
         },
         methods: {
 
-            indexChange(event){
+            indexChange(event) {
                 this.currentSlide = event
             },
 
@@ -286,7 +288,10 @@
             },
             choose(row) {
 
+                console.log("HEY");
+
                 if (row.type === 'task') {
+                    console.log("YO")
                     this.task = row;
 
                     if (this.task.sub_task.length > 0) {
@@ -298,10 +303,21 @@
                             image_url: this.task.image_url,
                             media_type: this.task.media_type,
                             searchType: this.task.searchType,
-                            id: this.task.id
+                            id: this.task.id,
+                            task: false
                         }
                         this.subTaskCopy.unshift(startSub);
+                    } else {
+                        this.subTaskCopy = [
+                            {
+                                taskTitle: this.task.title,
+                                id: this.task.id,
+                                task: true
+                            }
+                        ];
                     }
+
+                    console.log(this.subTaskCopy);
 
                     this.$bvModal.show("modalID");
                 }
@@ -450,15 +466,15 @@
                 this.$bvModal.hide("searchModal");
             },
 
-            jotSelect(jot){
+            jotSelect(jot) {
                 this.$router.replace({name: 'userJots', params: {id: jot.id}})
             },
 
-            jotConvoSelect(jotConvo){
+            jotConvoSelect(jotConvo) {
                 this.$router.replace({name: 'userJots', params: {id: jotConvo.jotID}})
             },
 
-            jargonSelect(jargon){
+            jargonSelect(jargon) {
                 this.$router.replace({name: 'jargonPage', params: {id: jargon.id}})
             },
 
@@ -482,6 +498,13 @@
                                         id: this.task.id
                                     }
                                     this.subTaskCopy.unshift(startSub);
+                                } else {
+                                    this.subTaskCopy = [
+                                        {
+                                            taskTitle: this.task.title,
+                                            id: this.task.id
+                                        }
+                                    ];
                                 }
 
 
@@ -656,7 +679,7 @@
         background: yellow;
     }
 
-    .type-class{
+    .type-class {
         max-width: 60px;
     }
 

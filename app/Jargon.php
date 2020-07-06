@@ -13,6 +13,11 @@ class Jargon extends Model
         'formattedDate'
     ];
 
+    public function jots()
+    {
+        return $this->morphMany('App\Jot', 'jotable');
+    }
+
     public function searchHistories()
     {
         return $this->morphMany('App\SearchHistory', 'searchable');

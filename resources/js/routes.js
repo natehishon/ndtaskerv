@@ -27,6 +27,7 @@ import PrebuiltFolders from "./admin/PrebuiltFolders"
 import PrebuiltFolder from "./admin/PrebuiltFolder"
 import UserJargons from "./jargons/UserJargons"
 import JargonPage from "./jargons/JargonPage";
+import NotFound from "./alerts/NotFound";
 
 
 const routes = [
@@ -101,6 +102,19 @@ const routes = [
         name: "editTask",
         beforeEnter: (to, from, next) => {
             if (!store.getters['auth/authenticated'] || !store.getters['auth/user'].isAdmin) {
+                return next({
+                    name: 'signin'
+                })
+            }
+            next()
+        }
+    },
+    {
+        path: "/not-found",
+        component: NotFound,
+        name: "notFound",
+        beforeEnter: (to, from, next) => {
+            if (!store.getters['auth/authenticated']) {
                 return next({
                     name: 'signin'
                 })

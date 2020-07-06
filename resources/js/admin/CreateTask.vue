@@ -6,14 +6,14 @@
 
                 <b-col xs="12" sm="6">
                     <div class="form-group">
-                        <label for="title">title</label>
+                        <label for="title">task title</label>
                         <input type="text" class="form-control"
                                v-model="task.title">
                     </div>
 
 
                     <div class="form-group">
-                        <label>content</label>
+                        <label>task content</label>
                         <froala :tag="'textarea'" :config="{
                                                 colorsStep: 6,
                                                 colorsText: [
@@ -54,19 +54,19 @@
 
                         <b-modal
                             id="modalNewID" size="xl"
-                            title="create subtask"
+                            title="create task step"
                         >
                             <div class="container-fluid">
-                                <form enctype="multipart/form-data">
-                                    <div class="row">
-                                        <div class="col-xs-12">
+                                <form enctype="multipart/form-data" class="way-form">
+                                    <b-row>
+                                        <b-col cols="10" offset-sm="1">
                                             <div class="form-group">
-                                                <label for="title">Title</label>
+                                                <label for="title">task step title</label>
                                                 <input type="text" class="form-control"
                                                        v-model="newSubTask.title">
                                             </div>
                                             <div class="form-group">
-                                                <label>Content</label>
+                                                <label>task step content</label>
                                                 <froala :tag="'textarea'" :config="{
                                                 colorsStep: 6,
                                                 colorsText: [
@@ -85,16 +85,17 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Sub Task Image</label>
-                                                <input type="file" ref="file" @change="selectSubTaskFiles"/>
+                                                <label>task step media</label><br>
+                                                <input class="input-file" type="file" ref="file"
+                                                       @change="selectSubTaskFiles"/>
                                             </div>
-                                        </div>
-                                    </div>
+                                        </b-col>
+                                    </b-row>
                                 </form>
                             </div>
 
                             <template v-slot:modal-footer>
-                                <b-button size="md" @click="newSubTaskAdded()" variant="success">
+                                <b-button size="md" @click="newSubTaskAdded()" variant="success" class="large-button">
                                     <i class="fas fa-plus "></i> add
                                 </b-button>
                             </template>
@@ -105,16 +106,16 @@
                             title="edit subtask"
                         >
                             <div class="container-fluid">
-                                <form enctype="multipart/form-data">
-                                    <div class="row">
-                                        <div class="col-xs-12">
+                                <form enctype="multipart/form-data" class="way-form">
+                                    <b-row>
+                                        <b-col cols="10" offset-sm="1">
                                             <div class="form-group">
-                                                <label for="title">Title</label>
+                                                <label for="title">task step title</label>
                                                 <input type="text" class="form-control"
                                                        v-model="editSubTask.title">
                                             </div>
                                             <div class="form-group">
-                                                <label>Content</label>
+                                                <label>task step content</label>
                                                 <froala :tag="'textarea'" :config="{
                                                 colorsStep: 6,
                                                 colorsText: [
@@ -134,17 +135,17 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Sub Task Image</label>
-                                                <input type="file" ref="file" @change="selectEditSubTaskFiles"/>
+                                                <label>task step media</label><br>
+                                                <input class="input-file" type="file" ref="file" @change="selectEditSubTaskFiles"/>
                                             </div>
-                                        </div>
-                                    </div>
+                                        </b-col>
+                                    </b-row>
                                 </form>
                             </div>
 
                             <template v-slot:modal-footer>
-                                <b-button size="md" @click="subTaskEdited()" variant="success">
-                                    <i class="fas fa-plus "></i> add
+                                <b-button size="md" @click="subTaskEdited()" variant="success" class="large-button">
+                                    <i class="fas fa-edit "></i> edit
                                 </b-button>
                             </template>
                         </b-modal>
@@ -333,9 +334,7 @@
             },
             submitTask(event) {
 
-
                 console.log(this.task)
-
 
                 event.preventDefault();
                 const formData = new FormData();
@@ -382,7 +381,7 @@
 </script>
 
 <style lang="scss">
-    .sub-task-container{
+    .sub-task-container {
         display: flex;
         justify-content: space-between;
         align-items: center;

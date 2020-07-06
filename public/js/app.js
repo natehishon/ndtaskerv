@@ -2534,7 +2534,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['routeName'],
@@ -2543,10 +2542,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     user: 'auth/user'
   }), {
     getRouteName: function getRouteName() {
+      console.log(this.routeName);
+
       switch (this.routeName) {
+        case 'signin':
+          // code block
+          this.infoText = "wayfinder is an application designed to help you succeed at work! sign in!";
+          return 'wayfinder';
+
+        case 'signUp':
+          // code block
+          this.infoText = "wayfinder is an application designed to help you succeed at work! sign up!";
+          return 'wayfinder';
+
         case 'jargons':
           // code block
-          this.infoText = "Jargons are terms with a specific meaning in this workplace context/setting. You can check them out here.";
+          this.infoText = "Jargons(definition: special words or expressions that are used by a particular profession or group and are difficult for others to understand) are highlighted terms with a specific meaning in this workplace setting. You can check them out here.";
+          return 'jargons';
+
+        case 'jargonPage':
+          // code block
+          this.infoText = "Here you can check out individual jargons.";
           return 'jargons';
 
         case 'manageJots':
@@ -2581,12 +2597,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return 'admin tools';
 
         case 'tasks':
-          this.infoText = "Manage tasks here, edit existing tasks or create new ones.";
+          this.infoText = "Manage tasks here: edit existing tasks or create new ones.";
           return 'manage tasks';
 
         case 'users':
           // code block
-          this.infoText = "Manage users here, this includes an option to manage a particular user's folder structure: options > user folders.";
+          this.infoText = "Manage users here: this includes an option to manage a particular user's folder structure: options > user folders.";
           return 'manage users';
 
         case 'userFolders':
@@ -2597,11 +2613,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return 'wayfinder';
 
         case 'jots':
-          this.infoText = "Jots are questions or comments about a task or sub task, you can click on options > check jots to ask further questions and see response.";
+          this.infoText = "Jots(definition: to write or mark down quickly or briefly) are questions or comments about a task, task step, etc. You can click on options > check jots to ask further questions and see response.";
           return 'jots';
 
         case 'userJots':
-          // code block
+          this.infoText = "Here you can see responses to your jots and ask follow up questions.";
           return 'jot';
 
         default:
@@ -2832,6 +2848,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuedraggable */ "./node_modules/vuedraggable/dist/vuedraggable.common.js");
 /* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vuedraggable__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _miscellaneous_SuccessModal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../miscellaneous/SuccessModal */ "./resources/js/miscellaneous/SuccessModal.vue");
+//
 //
 //
 //
@@ -3379,6 +3396,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3488,8 +3528,9 @@ __webpack_require__.r(__webpack_exports__);
       this.$bvModal.show("modalEditID");
       this.editSubTask = this.task.sub_task[index];
     },
-    selectTaskFiles: function selectTaskFiles() {
-      this.taskFile = this.$refs.file.files[0];
+    selectTaskFiles: function selectTaskFiles(event) {
+      console.log(this.$refs);
+      this.taskFile = event.target.files[0];
     },
     selectSubTaskFiles: function selectSubTaskFiles() {
       this.newSubTask.file = this.$refs.file.files[0];
@@ -3505,6 +3546,7 @@ __webpack_require__.r(__webpack_exports__);
 
       event.preventDefault();
       var formData = new FormData();
+      console.log(this.taskFile);
       formData.append('taskFile', this.taskFile);
       this.task.sub_task.forEach(function (value) {
         formData.append(value.fileKey, value.file);
@@ -3686,6 +3728,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -3698,18 +3741,22 @@ __webpack_require__.r(__webpack_exports__);
       selectedAddress: null
     };
   },
-  props: ['currentFolders', 'taskList'],
+  props: ['currentFolders', 'taskList', 'refreshFolders'],
   components: {
     VueBootstrapTypeahead: vue_bootstrap_typeahead__WEBPACK_IMPORTED_MODULE_1__["default"],
     SuccessModal: _miscellaneous_SuccessModal__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   methods: {
     addNewTask: function addNewTask(folder) {
+      var _this = this;
+
       var postData = {
         taskID: this.selectedAddress.id,
         folderID: folder.id
       };
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('trackings/' + this.$route.params.id, postData).then(function (response) {//add to
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('trackings/' + this.$route.params.id, postData).then(function (response) {
+        //add to
+        _this.refreshFolders();
       })["catch"](function (err) {
         console.log(err);
       });
@@ -3719,15 +3766,22 @@ __webpack_require__.r(__webpack_exports__);
       this.$bvModal.hide("childTask" + folder.id);
       ref[0].show();
     },
-    addNewFolder: function addNewFolder() {
-      var _this = this;
+    addNewFolder: function addNewFolder(folder) {
+      var _this2 = this;
 
       var formData = new FormData();
       formData.append('folderFile', this.folderFile);
       formData.append('folder', JSON.stringify(this.newFolder));
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('folders/' + this.$route.params.id, formData).then(function (response) {
         //add to
-        _this.currentFolders = response.data.folders; // this.taskList = response.data.tasks;
+        // this.currentFolders = response.data.folders;
+        // this.taskList = response.data.tasks;
+        var obName = "successModal" + folder.id;
+        var ref = _this2.$refs[obName]; //:id="'childFolder' + folder.id
+
+        _this2.$bvModal.hide("childFolder" + folder.id);
+
+        ref[0].show();
       })["catch"](function (err) {
         console.log(err);
       });
@@ -3969,6 +4023,10 @@ __webpack_require__.r(__webpack_exports__);
       if (data === "App\\Task") {
         return 'task';
       }
+
+      if (data === "App\\Jargon") {
+        return 'jargon';
+      }
     }
   },
   mounted: function mounted() {
@@ -4104,6 +4162,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _FolderTree__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FolderTree */ "./resources/js/admin/FolderTree.vue");
+/* harmony import */ var _miscellaneous_SuccessModal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../miscellaneous/SuccessModal */ "./resources/js/miscellaneous/SuccessModal.vue");
 //
 //
 //
@@ -4176,6 +4235,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4189,20 +4250,25 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    FolderTree: _FolderTree__WEBPACK_IMPORTED_MODULE_1__["default"]
+    FolderTree: _FolderTree__WEBPACK_IMPORTED_MODULE_1__["default"],
+    SuccessModal: _miscellaneous_SuccessModal__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   methods: {
     addNewFolder: function addNewFolder() {
       var _this = this;
 
       var formData = new FormData();
-      console.log(this.folderFile);
       formData.append('folderFile', this.folderFile);
       formData.append('folder', JSON.stringify(this.newFolder));
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('folders/' + this.$route.params.id, formData).then(function (response) {
         //add to
         _this.userFolders = response.data.folders;
-        _this.taskList = response.data.tasks;
+        _this.taskList = response.data.tasks; //show success and close
+
+        _this.$bvModal.hide("parentFolderID"); // this.$bvModal.show("parent-folder-success-id");
+
+
+        _this.$refs.parentFolderSuccessId.show();
       })["catch"](function (err) {
         console.log(err);
       });
@@ -4216,14 +4282,22 @@ __webpack_require__.r(__webpack_exports__);
     },
     selectFolderFiles: function selectFolderFiles() {
       this.folderFile = this.$refs.file.files[0];
+    },
+    refreshFolders: function refreshFolders() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("user-folders/" + this.$route.params.id).then(function (response) {
+        _this2.userFolders = response.data.folders;
+        _this2.taskList = response.data.tasks; // this.loading = false;
+      });
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this3 = this;
 
     var request = axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("user-folders/" + this.$route.params.id).then(function (response) {
-      _this2.userFolders = response.data.folders;
-      _this2.taskList = response.data.tasks; // this.loading = false;
+      _this3.userFolders = response.data.folders;
+      _this3.taskList = response.data.tasks; // this.loading = false;
     });
   }
 });
@@ -4545,6 +4619,38 @@ __webpack_require__.r(__webpack_exports__);
       _this.prebuiltFolders = response.data.folders; // this.loading = false;
     });
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/alerts/NotFound.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/alerts/NotFound.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'notFound',
+  data: function data() {
+    return {};
+  },
+  components: {},
+  methods: {}
 });
 
 /***/ }),
@@ -5028,6 +5134,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -5106,7 +5214,10 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push(this.$route.path);
     },
     choose: function choose(row) {
+      console.log("HEY");
+
       if (row.type === 'task') {
+        console.log("YO");
         this.task = row;
 
         if (this.task.sub_task.length > 0) {
@@ -5118,11 +5229,19 @@ __webpack_require__.r(__webpack_exports__);
             image_url: this.task.image_url,
             media_type: this.task.media_type,
             searchType: this.task.searchType,
-            id: this.task.id
+            id: this.task.id,
+            task: false
           };
           this.subTaskCopy.unshift(startSub);
+        } else {
+          this.subTaskCopy = [{
+            taskTitle: this.task.title,
+            id: this.task.id,
+            task: true
+          }];
         }
 
+        console.log(this.subTaskCopy);
         this.$bvModal.show("modalID");
       }
 
@@ -5450,6 +5569,11 @@ __webpack_require__.r(__webpack_exports__);
                 };
 
                 _this5.subTaskCopy.unshift(startSub);
+              } else {
+                _this5.subTaskCopy = [{
+                  taskTitle: _this5.task.title,
+                  id: _this5.task.id
+                }];
               }
 
               _this5.$bvModal.show("modalID");
@@ -5859,6 +5983,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var v_runtime_template__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! v-runtime-template */ "./node_modules/v-runtime-template/dist/v-runtime-template.es.js");
+/* harmony import */ var _jots_BottomNotch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../jots/BottomNotch */ "./resources/js/jots/BottomNotch.vue");
 //
 //
 //
@@ -5885,6 +6010,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -5895,7 +6026,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    VRuntimeTemplate: v_runtime_template__WEBPACK_IMPORTED_MODULE_1__["default"]
+    VRuntimeTemplate: v_runtime_template__WEBPACK_IMPORTED_MODULE_1__["default"],
+    BottomNotch: _jots_BottomNotch__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   methods: {},
   created: function created() {
@@ -6012,6 +6144,36 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jot__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Jot */ "./resources/js/jots/Jot.vue");
+/* harmony import */ var _miscellaneous_SuccessModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../miscellaneous/SuccessModal */ "./resources/js/miscellaneous/SuccessModal.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6029,28 +6191,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       choice: null
     };
   },
-  props: ['currentSlide', 'subTasks'],
+  props: ['currentSlide', 'subTasks', 'jargon'],
   components: {
-    Jot: _Jot__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Jot: _Jot__WEBPACK_IMPORTED_MODULE_0__["default"],
+    SuccessModal: _miscellaneous_SuccessModal__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
     showModal: function showModal() {
-      this.$refs['my-modal'].show();
+      this.$refs['jotModal'].show();
+    },
+    showSuccess: function showSuccess() {
+      this.$refs.jotSuccessId.show();
     },
     changeTitle: function changeTitle(event) {
       this.choice = event;
     }
   },
-  mounted: function mounted() {
-    console.log("SKDFJSLKF");
-    console.log(this.currentSlide);
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -6122,10 +6286,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
   data: function data() {
     return {
       stepOne: true,
@@ -6156,16 +6319,26 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    backJot: function backJot() {
+      this.stepOne = !this.stepOne;
+      this.stepTwo = !this.stepTwo;
+    },
     jotChoice: function jotChoice(choice) {
       // console.log(choice);
       this.stepOne = !this.stepOne;
       this.stepTwo = !this.stepTwo;
-      console.log(choice);
 
-      if (this.currentSlide.taskTitle) {
-        this.title = choice + this.currentSlide.taskTitle;
-      } else {
-        this.title = choice + this.currentSlide.title;
+      if (this.currentSlide != null) {
+        if (this.currentSlide.taskTitle) {
+          this.title = choice + this.currentSlide.taskTitle;
+        } else {
+          this.title = choice + this.currentSlide.title;
+        }
+      }
+
+      if (this.jargon) {
+        console.log(this.jargon);
+        this.title = choice + this.jargon.title;
       }
 
       this.$emit('jot-choice', choice);
@@ -6174,27 +6347,35 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       evt.preventDefault();
-      var formData = {
-        title: this.title,
-        content: this.content,
-        jotable: this.currentSlide
-      };
+      var formData = {};
+
+      if (this.currentSlide) {
+        formData = {
+          title: this.title,
+          content: this.content,
+          jotable: this.currentSlide
+        };
+      }
+
+      if (this.jargon) {
+        formData = {
+          title: this.title,
+          content: this.content,
+          jotable: this.jargon
+        };
+      }
+
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('jots', formData).then(function (response) {
-        //add to
-        console.log(_this.response);
+        _this.$bvModal.hide("jotModal");
+
+        _this.showSuccess(); // this.$refs.jotSuccessId.show();
+
       })["catch"](function (err) {
         console.log(err);
       });
-      console.log(this.content);
-      console.log(this.currentSlide);
     }
   },
-  props: ['currentSlide'],
-  created: function created() {
-    console.log("this.currentSlide");
-    console.log(this.currentSlide);
-    console.log(this.choice);
-  }
+  props: ['currentSlide', 'jargon', 'showSuccess']
 });
 
 /***/ }),
@@ -6300,6 +6481,10 @@ __webpack_require__.r(__webpack_exports__);
 
       if (data === "App\\Task") {
         return 'task';
+      }
+
+      if (data === "App\\Jargon") {
+        return 'jargon';
       }
     }
   },
@@ -44560,7 +44745,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".jargon-page-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  flex-wrap: nowrap;\n  -webkit-box-pack: center;\n          justify-content: center;\n  font-size: 1.25rem;\n  font-weight: 600;\n}\n.jargon-page-container .jargon-page-image-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  flex-wrap: nowrap;\n}", ""]);
+exports.push([module.i, ".jargon-page-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  flex-wrap: nowrap;\n  -webkit-box-pack: center;\n          justify-content: center;\n  font-size: 1.25rem;\n  font-weight: 600;\n}\n.jargon-page-container .jargon-page-image-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  flex-wrap: nowrap;\n}\n.jargon-jot-container {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -webkit-box-pack: center;\n          justify-content: center;\n}", ""]);
 
 // exports
 
@@ -55852,7 +56037,9 @@ var render = function() {
                 { attrs: { xs: "12", sm: "6" } },
                 [
                   _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "title" } }, [_vm._v("title")]),
+                    _c("label", { attrs: { for: "title" } }, [
+                      _vm._v("task title")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -55881,7 +56068,7 @@ var render = function() {
                     "div",
                     { staticClass: "form-group" },
                     [
-                      _c("label", [_vm._v("content")]),
+                      _c("label", [_vm._v("task content")]),
                       _vm._v(" "),
                       _c("froala", {
                         attrs: {
@@ -55990,7 +56177,7 @@ var render = function() {
                           attrs: {
                             id: "modalNewID",
                             size: "xl",
-                            title: "create subtask"
+                            title: "create task step"
                           },
                           scopedSlots: _vm._u([
                             {
@@ -56000,6 +56187,7 @@ var render = function() {
                                   _c(
                                     "b-button",
                                     {
+                                      staticClass: "large-button",
                                       attrs: { size: "md", variant: "success" },
                                       on: {
                                         click: function($event) {
@@ -56024,122 +56212,897 @@ var render = function() {
                           _c("div", { staticClass: "container-fluid" }, [
                             _c(
                               "form",
-                              { attrs: { enctype: "multipart/form-data" } },
+                              {
+                                staticClass: "way-form",
+                                attrs: { enctype: "multipart/form-data" }
+                              },
                               [
-                                _c("div", { staticClass: "row" }, [
-                                  _c("div", { staticClass: "col-xs-12" }, [
-                                    _c("div", { staticClass: "form-group" }, [
-                                      _c("label", { attrs: { for: "title" } }, [
-                                        _vm._v("Title")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("input", {
-                                        directives: [
+                                _c(
+                                  "b-row",
+                                  [
+                                    _c(
+                                      "b-col",
+                                      {
+                                        attrs: { cols: "10", "offset-sm": "1" }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              { attrs: { for: "title" } },
+                                              [_vm._v("task step title")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.newSubTask.title,
+                                                  expression: "newSubTask.title"
+                                                }
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: { type: "text" },
+                                              domProps: {
+                                                value: _vm.newSubTask.title
+                                              },
+                                              on: {
+                                                input: function($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.$set(
+                                                    _vm.newSubTask,
+                                                    "title",
+                                                    $event.target.value
+                                                  )
+                                                }
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("task step content")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("froala", {
+                                              attrs: {
+                                                tag: "textarea",
+                                                config: {
+                                                  colorsStep: 6,
+                                                  colorsText: [
+                                                    "#15E67F",
+                                                    "#E3DE8C",
+                                                    "#D8A076",
+                                                    "#D83762",
+                                                    "#76B6D8",
+                                                    "REMOVE",
+                                                    "#1C7A90",
+                                                    "#249CB8",
+                                                    "#4ABED9",
+                                                    "#FBD75B",
+                                                    "#FBE571",
+                                                    "#FFFFFF"
+                                                  ],
+                                                  quickInsertTags: [],
+                                                  toolbarButtons: [
+                                                    "paragraphFormat",
+                                                    "bold",
+                                                    "italic",
+                                                    "strikeThrough",
+                                                    "textColor",
+                                                    "formatOL",
+                                                    "formatUL",
+                                                    "clearFormatting",
+                                                    "link",
+                                                    "unlink",
+                                                    "myButton",
+                                                    "image",
+                                                    "blockquote",
+                                                    "html"
+                                                  ],
+                                                  paragraphFormatSelection: true,
+                                                  refreshAfterCallback: true,
+                                                  htmlUntouched: true,
+                                                  htmlAllowedTags: [
+                                                    ".*",
+                                                    "jargon"
+                                                  ],
+                                                  htmlRemoveTags: [""]
+                                                }
+                                              },
+                                              model: {
+                                                value:
+                                                  _vm.newSubTask.content_html,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    _vm.newSubTask,
+                                                    "content_html",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression:
+                                                  "newSubTask.content_html"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("task step media")
+                                            ]),
+                                            _c("br"),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              ref: "file",
+                                              staticClass: "input-file",
+                                              attrs: { type: "file" },
+                                              on: {
+                                                change: _vm.selectSubTaskFiles
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-modal",
+                        {
+                          attrs: {
+                            id: "modalEditID",
+                            size: "xl",
+                            title: "edit subtask"
+                          },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "modal-footer",
+                              fn: function() {
+                                return [
+                                  _c(
+                                    "b-button",
+                                    {
+                                      staticClass: "large-button",
+                                      attrs: { size: "md", variant: "success" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.subTaskEdited()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("i", { staticClass: "fas fa-edit " }),
+                                      _vm._v(
+                                        " edit\n                            "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              },
+                              proxy: true
+                            }
+                          ])
+                        },
+                        [
+                          _c("div", { staticClass: "container-fluid" }, [
+                            _c(
+                              "form",
+                              {
+                                staticClass: "way-form",
+                                attrs: { enctype: "multipart/form-data" }
+                              },
+                              [
+                                _c(
+                                  "b-row",
+                                  [
+                                    _c(
+                                      "b-col",
+                                      {
+                                        attrs: { cols: "10", "offset-sm": "1" }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              { attrs: { for: "title" } },
+                                              [_vm._v("task step title")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.editSubTask.title,
+                                                  expression:
+                                                    "editSubTask.title"
+                                                }
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: { type: "text" },
+                                              domProps: {
+                                                value: _vm.editSubTask.title
+                                              },
+                                              on: {
+                                                input: function($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.$set(
+                                                    _vm.editSubTask,
+                                                    "title",
+                                                    $event.target.value
+                                                  )
+                                                }
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("task step content")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("froala", {
+                                              attrs: {
+                                                tag: "textarea",
+                                                config: {
+                                                  colorsStep: 6,
+                                                  colorsText: [
+                                                    "#15E67F",
+                                                    "#E3DE8C",
+                                                    "#D8A076",
+                                                    "#D83762",
+                                                    "#76B6D8",
+                                                    "REMOVE",
+                                                    "#1C7A90",
+                                                    "#249CB8",
+                                                    "#4ABED9",
+                                                    "#FBD75B",
+                                                    "#FBE571",
+                                                    "#FFFFFF"
+                                                  ],
+                                                  quickInsertTags: [],
+                                                  toolbarButtons: [
+                                                    "paragraphFormat",
+                                                    "bold",
+                                                    "italic",
+                                                    "strikeThrough",
+                                                    "textColor",
+                                                    "formatOL",
+                                                    "formatUL",
+                                                    "clearFormatting",
+                                                    "link",
+                                                    "unlink",
+                                                    "myButton",
+                                                    "image",
+                                                    "blockquote",
+                                                    "html"
+                                                  ],
+                                                  paragraphFormatSelection: true,
+                                                  refreshAfterCallback: true,
+                                                  htmlUntouched: true,
+                                                  htmlAllowedTags: [
+                                                    ".*",
+                                                    "jargon"
+                                                  ],
+                                                  htmlRemoveTags: [""]
+                                                }
+                                              },
+                                              model: {
+                                                value:
+                                                  _vm.editSubTask.content_html,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    _vm.editSubTask,
+                                                    "content_html",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression:
+                                                  "editSubTask.content_html"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("task step media")
+                                            ]),
+                                            _c("br"),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              ref: "file",
+                                              staticClass: "input-file",
+                                              attrs: { type: "file" },
+                                              on: {
+                                                change:
+                                                  _vm.selectEditSubTaskFiles
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-button",
+                        {
+                          staticClass: "mb-3",
+                          attrs: { size: "lg", variant: "primary" },
+                          on: {
+                            click: function($event) {
+                              return _vm.createSubTask()
+                            }
+                          }
+                        },
+                        [
+                          _vm._v("\n                        new sub task  "),
+                          _c("i", { staticClass: "fas fa-plus " })
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm.task.sub_task
+                    ? _c(
+                        "draggable",
+                        {
+                          staticClass: "list-group",
+                          attrs: {
+                            list: _vm.task.sub_task,
+                            "ghost-class": "ghost",
+                            handle: ".handle"
+                          }
+                        },
+                        _vm._l(_vm.filteredSubs, function(element, index) {
+                          return _c(
+                            "div",
+                            {
+                              key: index,
+                              staticClass:
+                                "list-group-item cursor-pointer sub-task-container"
+                            },
+                            [
+                              _vm._v(
+                                "\n\n                        " +
+                                  _vm._s(element.title) +
+                                  "\n\n                        "
+                              ),
+                              _c(
+                                "div",
+                                [
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "handle",
+                                      staticStyle: { cursor: "pointer" }
+                                    },
+                                    [
+                                      _vm._v("sort "),
+                                      _c("i", {
+                                        staticClass: "fas fa-arrows-alt"
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "b-dropdown",
+                                    {
+                                      attrs: {
+                                        "no-caret": "",
+                                        variant: "white",
+                                        right: ""
+                                      },
+                                      scopedSlots: _vm._u(
+                                        [
                                           {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.newSubTask.title,
-                                            expression: "newSubTask.title"
+                                            key: "button-content",
+                                            fn: function() {
+                                              return [
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticStyle: {
+                                                      "font-size": "18px"
+                                                    }
+                                                  },
+                                                  [_vm._v("options")]
+                                                ),
+                                                _vm._v(
+                                                  "\n                                     "
+                                                ),
+                                                _c("i", {
+                                                  staticClass:
+                                                    "fas fa-ellipsis-h",
+                                                  staticStyle: {
+                                                    "font-size": "18px"
+                                                  }
+                                                })
+                                              ]
+                                            },
+                                            proxy: true
                                           }
                                         ],
-                                        staticClass: "form-control",
-                                        attrs: { type: "text" },
-                                        domProps: {
-                                          value: _vm.newSubTask.title
-                                        },
-                                        on: {
-                                          input: function($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
-                                            _vm.$set(
-                                              _vm.newSubTask,
-                                              "title",
-                                              $event.target.value
-                                            )
-                                          }
-                                        }
-                                      })
-                                    ]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "form-group" },
-                                      [
-                                        _c("label", [_vm._v("Content")]),
-                                        _vm._v(" "),
-                                        _c("froala", {
-                                          attrs: {
-                                            tag: "textarea",
-                                            config: {
-                                              colorsStep: 6,
-                                              colorsText: [
-                                                "#15E67F",
-                                                "#E3DE8C",
-                                                "#D8A076",
-                                                "#D83762",
-                                                "#76B6D8",
-                                                "REMOVE",
-                                                "#1C7A90",
-                                                "#249CB8",
-                                                "#4ABED9",
-                                                "#FBD75B",
-                                                "#FBE571",
-                                                "#FFFFFF"
-                                              ],
-                                              quickInsertTags: [],
-                                              toolbarButtons: [
-                                                "paragraphFormat",
-                                                "bold",
-                                                "italic",
-                                                "strikeThrough",
-                                                "textColor",
-                                                "formatOL",
-                                                "formatUL",
-                                                "clearFormatting",
-                                                "link",
-                                                "unlink",
-                                                "myButton",
-                                                "image",
-                                                "blockquote",
-                                                "html"
-                                              ],
-                                              paragraphFormatSelection: true,
-                                              refreshAfterCallback: true,
-                                              htmlUntouched: true,
-                                              htmlAllowedTags: [".*", "jargon"],
-                                              htmlRemoveTags: [""]
-                                            }
-                                          },
-                                          model: {
-                                            value: _vm.newSubTask.content_html,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                _vm.newSubTask,
-                                                "content_html",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "newSubTask.content_html"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "form-group" }, [
-                                      _c("label", [_vm._v("Sub Task Image")]),
+                                        null,
+                                        true
+                                      )
+                                    },
+                                    [
                                       _vm._v(" "),
-                                      _c("input", {
-                                        ref: "file",
-                                        attrs: { type: "file" },
-                                        on: { change: _vm.selectSubTaskFiles }
-                                      })
-                                    ])
-                                  ])
-                                ])
-                              ]
+                                      _c(
+                                        "b-dropdown-item",
+                                        {
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.editSubTasker(index)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _vm._v("edit subtask  "),
+                                          _c("i", {
+                                            staticClass: "fas fa-edit"
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-dropdown-item",
+                                        {
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.deleteSubTask(index)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _vm._v("delete subtask  "),
+                                          _c("i", {
+                                            staticClass: "fas fa-trash"
+                                          })
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("success-modal", {
+        ref: "successModal",
+        attrs: { id: "successID", uniqueId: "successModalID" }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/EditTask.vue?vue&type=template&id=600137e6&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/EditTask.vue?vue&type=template&id=600137e6& ***!
+  \******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container-fluid" },
+    [
+      _c(
+        "form",
+        { staticClass: "way-form", attrs: { enctype: "multipart/form-data" } },
+        [
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                { attrs: { xs: "12", sm: "6" } },
+                [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "title" } }, [
+                      _vm._v("task title")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.task.title,
+                          expression: "task.title"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.task.title },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.task, "title", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-group" },
+                    [
+                      _c("label", [_vm._v("task content")]),
+                      _vm._v(" "),
+                      _c("froala", {
+                        attrs: {
+                          tag: "textarea",
+                          config: {
+                            colorsStep: 6,
+                            colorsText: [
+                              "#15E67F",
+                              "#E3DE8C",
+                              "#D8A076",
+                              "#D83762",
+                              "#76B6D8",
+                              "REMOVE",
+                              "#1C7A90",
+                              "#249CB8",
+                              "#4ABED9",
+                              "#FBD75B",
+                              "#FBE571",
+                              "#FFFFFF"
+                            ],
+                            quickInsertTags: [],
+                            toolbarButtons: [
+                              "paragraphFormat",
+                              "bold",
+                              "italic",
+                              "strikeThrough",
+                              "textColor",
+                              "formatOL",
+                              "formatUL",
+                              "clearFormatting",
+                              "link",
+                              "unlink",
+                              "myButton",
+                              "image",
+                              "blockquote",
+                              "html"
+                            ],
+                            paragraphFormatSelection: true,
+                            refreshAfterCallback: true,
+                            htmlUntouched: true,
+                            htmlAllowedTags: [".*", "jargon"],
+                            htmlRemoveTags: [""]
+                          }
+                        },
+                        model: {
+                          value: _vm.task.content_html,
+                          callback: function($$v) {
+                            _vm.$set(_vm.task, "content_html", $$v)
+                          },
+                          expression: "task.content_html"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-button",
+                    {
+                      staticClass: "mb-3",
+                      attrs: { size: "lg", variant: "success" },
+                      on: {
+                        click: function($event) {
+                          return _vm.submitTask($event)
+                        }
+                      }
+                    },
+                    [
+                      _vm._v("\n                    save  "),
+                      _c("i", { staticClass: "fas fa-save " })
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-col",
+                { attrs: { xs: "12", sm: "6" } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "form-group" },
+                    [
+                      _c("label", [_vm._v("task media")]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("b-form-file", {
+                        ref: "file",
+                        on: { change: _vm.selectTaskFiles }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-group" },
+                    [
+                      _c("label", [_vm._v("edit sub tasks")]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c(
+                        "b-modal",
+                        {
+                          attrs: {
+                            id: "modalNewID",
+                            size: "xl",
+                            title: "create task step"
+                          },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "modal-footer",
+                              fn: function() {
+                                return [
+                                  _c(
+                                    "b-button",
+                                    {
+                                      staticClass: "large-button",
+                                      attrs: { size: "md", variant: "success" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.newSubTaskAdded()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("i", { staticClass: "fas fa-plus " }),
+                                      _vm._v(
+                                        " add\n                            "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              },
+                              proxy: true
+                            }
+                          ])
+                        },
+                        [
+                          _c("div", { staticClass: "container-fluid" }, [
+                            _c(
+                              "form",
+                              {
+                                staticClass: "way-form",
+                                attrs: { enctype: "multipart/form-data" }
+                              },
+                              [
+                                _c(
+                                  "b-row",
+                                  [
+                                    _c(
+                                      "b-col",
+                                      {
+                                        attrs: { cols: "10", "offset-sm": "1" }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              { attrs: { for: "title" } },
+                                              [_vm._v("task step title")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.newSubTask.title,
+                                                  expression: "newSubTask.title"
+                                                }
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: { type: "text" },
+                                              domProps: {
+                                                value: _vm.newSubTask.title
+                                              },
+                                              on: {
+                                                input: function($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.$set(
+                                                    _vm.newSubTask,
+                                                    "title",
+                                                    $event.target.value
+                                                  )
+                                                }
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("task step content")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("froala", {
+                                              attrs: {
+                                                tag: "textarea",
+                                                config: {
+                                                  colorsStep: 6,
+                                                  colorsText: [
+                                                    "#15E67F",
+                                                    "#E3DE8C",
+                                                    "#D8A076",
+                                                    "#D83762",
+                                                    "#76B6D8",
+                                                    "REMOVE",
+                                                    "#1C7A90",
+                                                    "#249CB8",
+                                                    "#4ABED9",
+                                                    "#FBD75B",
+                                                    "#FBE571",
+                                                    "#FFFFFF"
+                                                  ],
+                                                  quickInsertTags: [],
+                                                  toolbarButtons: [
+                                                    "paragraphFormat",
+                                                    "bold",
+                                                    "italic",
+                                                    "strikeThrough",
+                                                    "textColor",
+                                                    "formatOL",
+                                                    "formatUL",
+                                                    "clearFormatting",
+                                                    "link",
+                                                    "unlink",
+                                                    "myButton",
+                                                    "image",
+                                                    "blockquote",
+                                                    "html"
+                                                  ],
+                                                  paragraphFormatSelection: true,
+                                                  refreshAfterCallback: true,
+                                                  htmlUntouched: true,
+                                                  htmlAllowedTags: [
+                                                    ".*",
+                                                    "jargon"
+                                                  ],
+                                                  htmlRemoveTags: [""]
+                                                }
+                                              },
+                                              model: {
+                                                value:
+                                                  _vm.newSubTask.content_html,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    _vm.newSubTask,
+                                                    "content_html",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression:
+                                                  "newSubTask.content_html"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("task step media")
+                                            ]),
+                                            _c("br"),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              ref: "file",
+                                              staticClass: "input-file",
+                                              attrs: { type: "file" },
+                                              on: {
+                                                change: _vm.selectSubTaskFiles
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
                             )
                           ])
                         ]
@@ -56344,116 +57307,55 @@ var render = function() {
                             "div",
                             {
                               key: index,
-                              staticClass:
-                                "list-group-item cursor-pointer sub-task-container"
+                              staticClass: "list-group-item cursor-pointer"
                             },
                             [
                               _vm._v(
-                                "\n\n                        " +
+                                "\n                            " +
                                   _vm._s(element.title) +
-                                  "\n\n                        "
+                                  "\n\n                            "
                               ),
+                              _c("i", {
+                                staticClass: "fas fa-arrows-alt handle"
+                              }),
+                              _vm._v(" "),
                               _c(
-                                "div",
+                                "b-button",
+                                {
+                                  attrs: { size: "sm", variant: "info" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.editSubTasker(index)
+                                    }
+                                  }
+                                },
                                 [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "handle",
-                                      staticStyle: { cursor: "pointer" }
-                                    },
-                                    [
-                                      _vm._v("sort "),
-                                      _c("i", {
-                                        staticClass: "fas fa-arrows-alt"
-                                      })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "b-dropdown",
-                                    {
-                                      attrs: {
-                                        "no-caret": "",
-                                        variant: "white",
-                                        right: ""
-                                      },
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "button-content",
-                                            fn: function() {
-                                              return [
-                                                _c(
-                                                  "span",
-                                                  {
-                                                    staticStyle: {
-                                                      "font-size": "18px"
-                                                    }
-                                                  },
-                                                  [_vm._v("options")]
-                                                ),
-                                                _vm._v(
-                                                  "\n                                     "
-                                                ),
-                                                _c("i", {
-                                                  staticClass:
-                                                    "fas fa-ellipsis-h",
-                                                  staticStyle: {
-                                                    "font-size": "18px"
-                                                  }
-                                                })
-                                              ]
-                                            },
-                                            proxy: true
-                                          }
-                                        ],
-                                        null,
-                                        true
-                                      )
-                                    },
-                                    [
-                                      _vm._v(" "),
-                                      _c(
-                                        "b-dropdown-item",
-                                        {
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.editSubTasker(index)
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _vm._v("edit subtask  "),
-                                          _c("i", {
-                                            staticClass: "fas fa-edit"
-                                          })
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "b-dropdown-item",
-                                        {
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.deleteSubTask(index)
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _vm._v("delete subtask  "),
-                                          _c("i", {
-                                            staticClass: "fas fa-trash"
-                                          })
-                                        ]
-                                      )
-                                    ],
-                                    1
+                                  _c("i", { staticClass: "fas fa-plus " }),
+                                  _vm._v(
+                                    " edit sub task\n                            "
                                   )
-                                ],
-                                1
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-button",
+                                {
+                                  attrs: { size: "sm", variant: "danger" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.deleteSubTask(index)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", { staticClass: "fas fa-plus " }),
+                                  _vm._v(
+                                    " delete sub task\n                            "
+                                  )
+                                ]
                               )
-                            ]
+                            ],
+                            1
                           )
                         }),
                         0
@@ -56468,532 +57370,6 @@ var render = function() {
         ],
         1
       ),
-      _vm._v(" "),
-      _c("success-modal", {
-        ref: "successModal",
-        attrs: { id: "successID", uniqueId: "successModalID" }
-      })
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/EditTask.vue?vue&type=template&id=600137e6&":
-/*!******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/EditTask.vue?vue&type=template&id=600137e6& ***!
-  \******************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container-fluid" },
-    [
-      _c("form", { attrs: { enctype: "multipart/form-data" } }, [
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            { staticClass: "col-xs-12" },
-            [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.task.title,
-                      expression: "task.title"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.task.title },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.task, "title", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", [_vm._v("Content")]),
-                  _vm._v(" "),
-                  _c("froala", {
-                    attrs: { tag: "textarea", config: _vm.config },
-                    model: {
-                      value: _vm.task.content_html,
-                      callback: function($$v) {
-                        _vm.$set(_vm.task, "content_html", $$v)
-                      },
-                      expression: "task.content_html"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Task Image")]),
-                _vm._v(" "),
-                _c("input", {
-                  ref: "file",
-                  attrs: { type: "file" },
-                  on: { change: _vm.selectTaskFiles }
-                })
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", [_vm._v("edit sub tasks")]),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c(
-                    "b-modal",
-                    {
-                      attrs: {
-                        id: "modalNewID",
-                        size: "xl",
-                        title: "create subtask"
-                      },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "modal-footer",
-                          fn: function() {
-                            return [
-                              _c(
-                                "b-button",
-                                {
-                                  attrs: { size: "md", variant: "success" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.newSubTaskAdded()
-                                    }
-                                  }
-                                },
-                                [
-                                  _c("i", { staticClass: "fas fa-plus " }),
-                                  _vm._v(" add\n                            ")
-                                ]
-                              )
-                            ]
-                          },
-                          proxy: true
-                        }
-                      ])
-                    },
-                    [
-                      _c("div", { staticClass: "container-fluid" }, [
-                        _c(
-                          "form",
-                          { attrs: { enctype: "multipart/form-data" } },
-                          [
-                            _c("div", { staticClass: "row" }, [
-                              _c("div", { staticClass: "col-xs-12" }, [
-                                _c("div", { staticClass: "form-group" }, [
-                                  _c("label", { attrs: { for: "title" } }, [
-                                    _vm._v("Title")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.newSubTask.title,
-                                        expression: "newSubTask.title"
-                                      }
-                                    ],
-                                    staticClass: "form-control",
-                                    attrs: { type: "text" },
-                                    domProps: { value: _vm.newSubTask.title },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.newSubTask,
-                                          "title",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  })
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "form-group" },
-                                  [
-                                    _c("label", [_vm._v("Content")]),
-                                    _vm._v(" "),
-                                    _c("froala", {
-                                      attrs: {
-                                        tag: "textarea",
-                                        config: {
-                                          colorsStep: 6,
-                                          colorsText: [
-                                            "#15E67F",
-                                            "#E3DE8C",
-                                            "#D8A076",
-                                            "#D83762",
-                                            "#76B6D8",
-                                            "REMOVE",
-                                            "#1C7A90",
-                                            "#249CB8",
-                                            "#4ABED9",
-                                            "#FBD75B",
-                                            "#FBE571",
-                                            "#FFFFFF"
-                                          ],
-                                          quickInsertTags: [],
-                                          toolbarButtons: [
-                                            "paragraphFormat",
-                                            "bold",
-                                            "italic",
-                                            "strikeThrough",
-                                            "textColor",
-                                            "formatOL",
-                                            "formatUL",
-                                            "clearFormatting",
-                                            "link",
-                                            "unlink",
-                                            "myButton",
-                                            "image",
-                                            "blockquote",
-                                            "html"
-                                          ],
-                                          paragraphFormatSelection: true,
-                                          refreshAfterCallback: true,
-                                          htmlUntouched: true,
-                                          htmlAllowedTags: [".*"],
-                                          htmlRemoveTags: [""]
-                                        }
-                                      },
-                                      model: {
-                                        value: _vm.newSubTask.content_html,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.newSubTask,
-                                            "content_html",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "newSubTask.content_html"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "form-group" }, [
-                                  _c("label", [_vm._v("Sub Task Image")]),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    ref: "file",
-                                    attrs: { type: "file" },
-                                    on: { change: _vm.selectSubTaskFiles }
-                                  })
-                                ])
-                              ])
-                            ])
-                          ]
-                        )
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-modal",
-                    {
-                      attrs: {
-                        id: "modalEditID",
-                        size: "xl",
-                        title: "edit subtask"
-                      },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "modal-footer",
-                          fn: function() {
-                            return [
-                              _c(
-                                "b-button",
-                                {
-                                  attrs: { size: "md", variant: "success" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.subTaskEdited()
-                                    }
-                                  }
-                                },
-                                [
-                                  _c("i", { staticClass: "fas fa-plus " }),
-                                  _vm._v(" add\n                            ")
-                                ]
-                              )
-                            ]
-                          },
-                          proxy: true
-                        }
-                      ])
-                    },
-                    [
-                      _c("div", { staticClass: "container-fluid" }, [
-                        _c(
-                          "form",
-                          { attrs: { enctype: "multipart/form-data" } },
-                          [
-                            _c("div", { staticClass: "row" }, [
-                              _c("div", { staticClass: "col-xs-12" }, [
-                                _c("div", { staticClass: "form-group" }, [
-                                  _c("label", { attrs: { for: "title" } }, [
-                                    _vm._v("Title")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.editSubTask.title,
-                                        expression: "editSubTask.title"
-                                      }
-                                    ],
-                                    staticClass: "form-control",
-                                    attrs: { type: "text" },
-                                    domProps: { value: _vm.editSubTask.title },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.editSubTask,
-                                          "title",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  })
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "form-group" },
-                                  [
-                                    _c("label", [_vm._v("Content")]),
-                                    _vm._v(" "),
-                                    _c("froala", {
-                                      attrs: {
-                                        tag: "textarea",
-                                        config: {
-                                          colorsStep: 6,
-                                          colorsText: [
-                                            "#15E67F",
-                                            "#E3DE8C",
-                                            "#D8A076",
-                                            "#D83762",
-                                            "#76B6D8",
-                                            "REMOVE",
-                                            "#1C7A90",
-                                            "#249CB8",
-                                            "#4ABED9",
-                                            "#FBD75B",
-                                            "#FBE571",
-                                            "#FFFFFF"
-                                          ],
-                                          quickInsertTags: [],
-                                          toolbarButtons: [
-                                            "paragraphFormat",
-                                            "bold",
-                                            "italic",
-                                            "strikeThrough",
-                                            "textColor",
-                                            "formatOL",
-                                            "formatUL",
-                                            "clearFormatting",
-                                            "link",
-                                            "unlink",
-                                            "myButton",
-                                            "image",
-                                            "blockquote",
-                                            "html"
-                                          ],
-                                          paragraphFormatSelection: true,
-                                          refreshAfterCallback: true,
-                                          htmlUntouched: true,
-                                          htmlAllowedTags: [".*", "jargon"],
-                                          htmlRemoveTags: [""]
-                                        }
-                                      },
-                                      model: {
-                                        value: _vm.editSubTask.content_html,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.editSubTask,
-                                            "content_html",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "editSubTask.content_html"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "form-group" }, [
-                                  _c("label", [_vm._v("Sub Task Image")]),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    ref: "file",
-                                    attrs: { type: "file" },
-                                    on: { change: _vm.selectEditSubTaskFiles }
-                                  })
-                                ])
-                              ])
-                            ])
-                          ]
-                        )
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-button",
-                    {
-                      staticClass: "mb-3",
-                      attrs: { size: "sm", variant: "primary" },
-                      on: {
-                        click: function($event) {
-                          return _vm.createSubTask()
-                        }
-                      }
-                    },
-                    [
-                      _c("i", { staticClass: "fas fa-plus " }),
-                      _vm._v(" new sub task\n                    ")
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm.task.sub_task
-                ? _c(
-                    "draggable",
-                    {
-                      staticClass: "list-group",
-                      attrs: {
-                        list: _vm.task.sub_task,
-                        "ghost-class": "ghost",
-                        handle: ".handle"
-                      }
-                    },
-                    _vm._l(_vm.filteredSubs, function(element, index) {
-                      return _c(
-                        "div",
-                        {
-                          key: index,
-                          staticClass: "list-group-item cursor-pointer"
-                        },
-                        [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(element.title) +
-                              "\n\n                            "
-                          ),
-                          _c("i", { staticClass: "fas fa-arrows-alt handle" }),
-                          _vm._v(" "),
-                          _c(
-                            "b-button",
-                            {
-                              attrs: { size: "sm", variant: "info" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.editSubTasker(index)
-                                }
-                              }
-                            },
-                            [
-                              _c("i", { staticClass: "fas fa-plus " }),
-                              _vm._v(
-                                " edit sub task\n                            "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "b-button",
-                            {
-                              attrs: { size: "sm", variant: "danger" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.deleteSubTask(index)
-                                }
-                              }
-                            },
-                            [
-                              _c("i", { staticClass: "fas fa-plus " }),
-                              _vm._v(
-                                " delete sub task\n                            "
-                              )
-                            ]
-                          )
-                        ],
-                        1
-                      )
-                    }),
-                    0
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "b-button",
-                {
-                  staticClass: "mb-3",
-                  attrs: { size: "lg", variant: "success" },
-                  on: {
-                    click: function($event) {
-                      return _vm.submitTask($event)
-                    }
-                  }
-                },
-                [
-                  _c("i", { staticClass: "fas fa-plus " }),
-                  _vm._v(" save\n                ")
-                ]
-              )
-            ],
-            1
-          )
-        ])
-      ]),
       _vm._v(" "),
       _c("success-modal", {
         ref: "successModal",
@@ -57047,6 +57423,10 @@ var render = function() {
                 staticClass: "folder"
               },
               [
+                _vm._m(0, true),
+                _vm._v(" "),
+                _vm._m(1, true),
+                _vm._v(" "),
                 _c(
                   "b-badge",
                   { staticClass: "mr-1", attrs: { variant: "primary" } },
@@ -57146,6 +57526,7 @@ var render = function() {
                 folder.task_trackings
                   ? _c(
                       "ul",
+                      { staticStyle: { "padding-left": "24px" } },
                       _vm._l(folder.task_trackings, function(taskTracking) {
                         return _c(
                           "li",
@@ -57242,7 +57623,8 @@ var render = function() {
                   ? _c("folder-tree", {
                       attrs: {
                         "current-folders": folder.childrens_children,
-                        "task-list": _vm.taskList
+                        "task-list": _vm.taskList,
+                        "refresh-folders": _vm.refreshFolders
                       }
                     })
                   : _vm._e()
@@ -57267,10 +57649,11 @@ var render = function() {
                           _c(
                             "b-button",
                             {
+                              staticClass: "large-button",
                               attrs: { size: "md", variant: "success" },
                               on: {
                                 click: function($event) {
-                                  return _vm.addNewFolder()
+                                  return _vm.addNewFolder(folder)
                                 }
                               }
                             },
@@ -57290,99 +57673,72 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "container-fluid" }, [
-                  _c("form", { attrs: { enctype: "multipart/form-data" } }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-xs-12 col-sm-6" }, [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "title" } }, [
-                            _vm._v("new folder title")
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.newFolder.title,
-                                expression: "newFolder.title"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { type: "text" },
-                            domProps: { value: _vm.newFolder.title },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.newFolder,
-                                  "title",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", [_vm._v("folder image")]),
-                          _vm._v(" "),
-                          _c("input", {
-                            ref: "folderFile",
-                            refInFor: true,
-                            attrs: { type: "file" },
-                            on: { change: _vm.selectFolderFiles }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-xs-12 col-sm-6" }, [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "title" } }, [
-                            _vm._v("prebuilt folder")
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.newFolder.title,
-                                expression: "newFolder.title"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { type: "text" },
-                            domProps: { value: _vm.newFolder.title },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.newFolder,
-                                  "title",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", [_vm._v("folder image")]),
-                          _vm._v(" "),
-                          _c("input", {
-                            ref: "folderFile",
-                            refInFor: true,
-                            attrs: { type: "file" },
-                            on: { change: _vm.selectFolderFiles }
-                          })
-                        ])
-                      ])
-                    ])
-                  ])
+                  _c(
+                    "form",
+                    {
+                      staticClass: "way-form",
+                      attrs: { enctype: "multipart/form-data" }
+                    },
+                    [
+                      _c(
+                        "b-row",
+                        [
+                          _c(
+                            "b-col",
+                            { attrs: { cols: "10", "offset-sm": "1" } },
+                            [
+                              _c("div", { staticClass: "form-group" }, [
+                                _c("label", { attrs: { for: "title" } }, [
+                                  _vm._v("folder title")
+                                ]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.newFolder.title,
+                                      expression: "newFolder.title"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: { type: "text" },
+                                  domProps: { value: _vm.newFolder.title },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.newFolder,
+                                        "title",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "form-group" }, [
+                                _c("label", [_vm._v("folder image")]),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("input", {
+                                  ref: "folderFile",
+                                  refInFor: true,
+                                  staticClass: "input-file",
+                                  attrs: { type: "file" },
+                                  on: { change: _vm.selectFolderFiles }
+                                })
+                              ])
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
                 ])
               ]
             ),
@@ -57404,6 +57760,7 @@ var render = function() {
                           _c(
                             "b-button",
                             {
+                              staticClass: "large-button",
                               attrs: { size: "md", variant: "success" },
                               on: {
                                 click: function($event) {
@@ -57427,43 +57784,59 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "container-fluid" }, [
-                  _c("form", { attrs: { enctype: "multipart/form-data" } }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-xs-12" }, [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", { attrs: { for: "title" } }, [
-                              _vm._v("task picker")
-                            ]),
-                            _vm._v(" "),
-                            _c("vue-bootstrap-typeahead", {
-                              attrs: {
-                                data: _vm.taskList,
-                                serializer: function(s) {
-                                  return s.title
-                                }
-                              },
-                              on: {
-                                hit: function($event) {
-                                  _vm.selectedAddress = $event
-                                }
-                              },
-                              model: {
-                                value: _vm.selectedTask,
-                                callback: function($$v) {
-                                  _vm.selectedTask = $$v
-                                },
-                                expression: "selectedTask"
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      ])
-                    ])
-                  ])
+                  _c(
+                    "form",
+                    {
+                      staticClass: "way-form",
+                      attrs: { enctype: "multipart/form-data" }
+                    },
+                    [
+                      _c(
+                        "b-row",
+                        [
+                          _c(
+                            "b-col",
+                            { attrs: { cols: "10", "offset-sm": "1" } },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "form-group" },
+                                [
+                                  _c("label", { attrs: { for: "title" } }, [
+                                    _vm._v("task picker")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("vue-bootstrap-typeahead", {
+                                    attrs: {
+                                      data: _vm.taskList,
+                                      serializer: function(s) {
+                                        return s.title
+                                      }
+                                    },
+                                    on: {
+                                      hit: function($event) {
+                                        _vm.selectedAddress = $event
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.selectedTask,
+                                      callback: function($$v) {
+                                        _vm.selectedTask = $$v
+                                      },
+                                      expression: "selectedTask"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
                 ])
               ]
             ),
@@ -57481,7 +57854,24 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "when-opened" }, [
+      _c("i", { staticClass: "fa fa-minus", attrs: { "aria-hidden": "true" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "when-closed" }, [
+      _c("i", { staticClass: "fa fa-plus", attrs: { "aria-hidden": "true" } })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -57954,6 +58344,7 @@ var render = function() {
                       _c(
                         "b-button",
                         {
+                          staticClass: "large-button",
                           attrs: { size: "md", variant: "success" },
                           on: {
                             click: function($event) {
@@ -57974,56 +58365,82 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "container-fluid" }, [
-                _c("form", { attrs: { enctype: "multipart/form-data" } }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-xs-12" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("label", { attrs: { for: "title" } }, [
-                          _vm._v("Title")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.newFolder.title,
-                              expression: "newFolder.title"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text" },
-                          domProps: { value: _vm.newFolder.title },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.newFolder,
-                                "title",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("label", [_vm._v("folder image")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          ref: "file",
-                          attrs: { type: "file" },
-                          on: { change: _vm.selectFolderFiles }
-                        })
-                      ])
-                    ])
-                  ])
-                ])
+                _c(
+                  "form",
+                  {
+                    staticClass: "way-form",
+                    attrs: { enctype: "multipart/form-data" }
+                  },
+                  [
+                    _c(
+                      "b-row",
+                      [
+                        _c(
+                          "b-col",
+                          { attrs: { cols: "10", "offset-sm": "1" } },
+                          [
+                            _c("div", { staticClass: "form-group" }, [
+                              _c("label", { attrs: { for: "title" } }, [
+                                _vm._v("folder title")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.newFolder.title,
+                                    expression: "newFolder.title"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "text" },
+                                domProps: { value: _vm.newFolder.title },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.newFolder,
+                                      "title",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "form-group" }, [
+                              _c("label", [_vm._v("folder image")]),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("input", {
+                                ref: "file",
+                                staticClass: "input-file",
+                                attrs: { type: "file" },
+                                on: { change: _vm.selectFolderFiles }
+                              })
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
               ])
             ]
           ),
+          _vm._v(" "),
+          _c("success-modal", {
+            ref: "parentFolderSuccessId",
+            attrs: {
+              id: "parentFolderSuccessId",
+              uniqueId: "parentFolderSuccessId"
+            }
+          }),
           _vm._v(" "),
           _c(
             "div",
@@ -58032,6 +58449,7 @@ var render = function() {
               _c("folder-tree", {
                 attrs: {
                   currentFolders: _vm.userFolders,
+                  "refresh-folders": _vm.refreshFolders,
                   taskList: this.taskList
                 }
               })
@@ -58518,6 +58936,30 @@ var render = function() {
     ],
     1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/alerts/NotFound.vue?vue&type=template&id=30872579&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/alerts/NotFound.vue?vue&type=template&id=30872579& ***!
+  \*******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", {}, [_vm._v("\n    Not found!\n")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -59046,6 +59488,7 @@ var render = function() {
                   _c(
                     "b-button",
                     {
+                      staticClass: "large-button",
                       attrs: { size: "md", variant: "secondary" },
                       on: { click: _vm.close }
                     },
@@ -59115,6 +59558,7 @@ var render = function() {
                         _c(
                           "b-button",
                           {
+                            staticClass: "large-button",
                             attrs: { size: "md", variant: "primary" },
                             on: {
                               click: function($event) {
@@ -59205,7 +59649,7 @@ var render = function() {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                    title:\n                                    "
+                                      "\n\n                                    title:\n                                    "
                                     ),
                                     _c("v-runtime-template", {
                                       attrs: {
@@ -59788,51 +60232,66 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "jargon-page-container" }, [
-    _vm.jargon.image_url
-      ? _c(
-          "div",
-          { staticClass: "jargon-page-image-container" },
-          [
-            _c(
-              "div",
-              { staticStyle: { margin: "0 40px" } },
-              [
-                _c("v-runtime-template", {
-                  attrs: {
-                    template: "<div>" + _vm.jargon.content_html + "</div>"
+  return _c("div", [
+    _c("div", { staticClass: "jargon-page-container" }, [
+      _vm.jargon.image_url
+        ? _c(
+            "div",
+            { staticClass: "jargon-page-image-container" },
+            [
+              _c(
+                "div",
+                { staticStyle: { margin: "0 40px" } },
+                [
+                  _c("v-runtime-template", {
+                    attrs: {
+                      template: "<div>" + _vm.jargon.content_html + "</div>"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("b-img", {
+                staticStyle: { cursor: "pointer", margin: "0 40px" },
+                attrs: { src: _vm.jargon.image_url, fluid: "" },
+                on: {
+                  click: function($event) {
+                    return _vm.openNewTab(_vm.jargon.image_url)
                   }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("b-img", {
-              staticStyle: { cursor: "pointer", margin: "0 40px" },
-              attrs: { src: _vm.jargon.image_url, fluid: "" },
-              on: {
-                click: function($event) {
-                  return _vm.openNewTab(_vm.jargon.image_url)
                 }
-              }
-            })
-          ],
-          1
-        )
-      : _vm._e(),
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.jargon.image_url
+        ? _c(
+            "div",
+            { staticClass: "jargon-page-no-image-container" },
+            [
+              _c("v-runtime-template", {
+                attrs: {
+                  template: "<div>" + _vm.jargon.content_html + "</div>"
+                }
+              })
+            ],
+            1
+          )
+        : _vm._e()
+    ]),
     _vm._v(" "),
-    !_vm.jargon.image_url
-      ? _c(
-          "div",
-          { staticClass: "jargon-page-no-image-container" },
-          [
-            _c("v-runtime-template", {
-              attrs: { template: "<div>" + _vm.jargon.content_html + "</div>" }
-            })
-          ],
-          1
-        )
-      : _vm._e()
+    _c(
+      "div",
+      { staticClass: "mt-10 jargon-jot-container" },
+      [
+        _vm.jargon
+          ? _c("BottomNotch", { attrs: { jargon: _vm.jargon } })
+          : _vm._e()
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -59969,35 +60428,140 @@ var render = function() {
   return _c(
     "div",
     [
-      _c(
-        "b-button",
-        {
-          attrs: { variant: "info", id: "show-btn" },
-          on: { click: _vm.showModal }
-        },
-        [
-          _vm._v("\n        say something\n        "),
-          _c("i", { staticClass: "fas fa-comment fa-fw" })
-        ]
-      ),
+      _vm.currentSlide != null
+        ? _c(
+            "div",
+            [
+              _c(
+                "b-button",
+                {
+                  staticClass: "large-button",
+                  attrs: { variant: "info", id: "show-btn" },
+                  on: { click: _vm.showModal }
+                },
+                [
+                  _vm._v("\n            question/comment\n            "),
+                  _c("i", { staticClass: "fas fa-comment fa-fw" })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-modal",
+                {
+                  ref: "jotModal",
+                  attrs: { id: "jotModal", "hide-footer": "", size: "lg" },
+                  scopedSlots: _vm._u(
+                    [
+                      {
+                        key: "modal-title",
+                        fn: function() {
+                          return [
+                            _vm._v(
+                              "\n                make a jot\n                "
+                            ),
+                            _c("i", {
+                              staticClass: "fas fa-info-circle",
+                              staticStyle: {
+                                "font-size": "20px",
+                                cursor: "pointer"
+                              },
+                              attrs: { id: "jot-pop" }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "b-popover",
+                              {
+                                attrs: {
+                                  target: "jot-pop",
+                                  triggers: "hover blur",
+                                  placement: "top"
+                                }
+                              },
+                              [
+                                _c(
+                                  "b-row",
+                                  [
+                                    _c("b-col", { attrs: { xs: "12" } }, [
+                                      _c("span", [
+                                        _vm._v(
+                                          "Jots(definition: to write or mark down quickly or briefly) are questions or comments about a task, task step, etc. You can click on a type to give a little context about your jot and use the form to express your thought."
+                                        )
+                                      ])
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ]
+                        },
+                        proxy: true
+                      }
+                    ],
+                    null,
+                    false,
+                    2437423513
+                  )
+                },
+                [
+                  _vm._v(" "),
+                  _c("Jot", {
+                    attrs: {
+                      "show-success": _vm.showSuccess,
+                      "current-slide": _vm.subTasks[_vm.currentSlide],
+                      choice: _vm.choice
+                    },
+                    on: { "jot-choice": _vm.changeTitle }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
-      _c(
-        "b-modal",
-        {
-          ref: "my-modal",
-          attrs: { "hide-footer": "", size: "lg", title: "make a jot" }
-        },
-        [
-          _c("Jot", {
-            attrs: {
-              currentSlide: _vm.subTasks[_vm.currentSlide],
-              choice: _vm.choice
-            },
-            on: { "jot-choice": _vm.changeTitle }
-          })
-        ],
-        1
-      )
+      _vm.jargon
+        ? _c(
+            "div",
+            [
+              _c(
+                "b-button",
+                {
+                  staticClass: "large-button",
+                  attrs: { variant: "info", id: "show-jargon" },
+                  on: { click: _vm.showModal }
+                },
+                [
+                  _vm._v("\n            question/comment\n            "),
+                  _c("i", { staticClass: "fas fa-comment fa-fw" })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-modal",
+                {
+                  ref: "jotModal",
+                  attrs: {
+                    id: "jotModal",
+                    "hide-footer": "",
+                    size: "lg",
+                    title: "make a jot"
+                  }
+                },
+                [_c("Jot", { attrs: { jargon: _vm.jargon } })],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c("success-modal", {
+        ref: "jotSuccessId",
+        attrs: { id: "jotSuccessId", uniqueId: "jotSuccessId" }
+      })
     ],
     1
   )
@@ -60131,7 +60695,7 @@ var render = function() {
                 [
                   _c(
                     "b-form",
-                    { on: { submit: _vm.onSubmit } },
+                    { staticClass: "way-form", on: { submit: _vm.onSubmit } },
                     [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "title" } }, [
@@ -60184,7 +60748,7 @@ var render = function() {
                       _c(
                         "b-button",
                         {
-                          staticClass: "float-right",
+                          staticClass: "float-right large-button ",
                           attrs: {
                             size: "xl",
                             type: "submit",
@@ -60194,6 +60758,19 @@ var render = function() {
                         [
                           _vm._v("ask  "),
                           _c("i", { staticClass: "fas fa-comment" })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-button",
+                        {
+                          staticClass: "float-right large-button mr-2 ",
+                          attrs: { size: "xl", variant: "secondary" },
+                          on: { click: _vm.backJot }
+                        },
+                        [
+                          _vm._v("back  "),
+                          _c("i", { staticClass: "fas fa-chevron-left" })
                         ]
                       )
                     ],
@@ -60561,24 +61138,25 @@ var render = function() {
           attrs: {
             id: "successModal" + _vm.uniqueId,
             size: "md",
-            title: "success",
+            title: "success!",
             "hide-footer": ""
           }
         },
         [
           _c(
             "div",
-            { staticClass: "container-fluid" },
+            { staticClass: "container-fluid text-center" },
             [
               _c(
                 "b-button",
                 {
+                  staticClass: "large-button",
                   attrs: { size: "lg", variant: "success" },
                   on: { click: _vm.dismiss }
                 },
                 [
-                  _c("i", { staticClass: "fas fa-plus " }),
-                  _vm._v(" save\n            ")
+                  _c("i", { staticClass: "fas fa-check" }),
+                  _vm._v(" okay\n            ")
                 ]
               )
             ],
@@ -61117,7 +61695,7 @@ var render = function() {
                   }
                 },
                 [
-                  _vm.sub.length > 0
+                  !_vm.sub[0].task
                     ? _c(
                         "div",
                         _vm._l(_vm.sub, function(subTask, index) {
@@ -61147,7 +61725,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.sub.length === 0
+                  _vm.sub[0].task
                     ? _c(
                         "div",
                         [
@@ -88288,6 +88866,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/alerts/NotFound.vue":
+/*!******************************************!*\
+  !*** ./resources/js/alerts/NotFound.vue ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _NotFound_vue_vue_type_template_id_30872579___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NotFound.vue?vue&type=template&id=30872579& */ "./resources/js/alerts/NotFound.vue?vue&type=template&id=30872579&");
+/* harmony import */ var _NotFound_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NotFound.vue?vue&type=script&lang=js& */ "./resources/js/alerts/NotFound.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NotFound_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NotFound_vue_vue_type_template_id_30872579___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _NotFound_vue_vue_type_template_id_30872579___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/alerts/NotFound.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/alerts/NotFound.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/alerts/NotFound.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./NotFound.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/alerts/NotFound.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/alerts/NotFound.vue?vue&type=template&id=30872579&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/alerts/NotFound.vue?vue&type=template&id=30872579& ***!
+  \*************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_template_id_30872579___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./NotFound.vue?vue&type=template&id=30872579& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/alerts/NotFound.vue?vue&type=template&id=30872579&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_template_id_30872579___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_template_id_30872579___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -88352,7 +88999,7 @@ __webpack_require__(/*! ./store/subscriber */ "./resources/js/store/subscriber.j
 // axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
 
 
-axios__WEBPACK_IMPORTED_MODULE_11___default.a.defaults.baseURL = 'https://wayfinder.dev/api/';
+axios__WEBPACK_IMPORTED_MODULE_11___default.a.defaults.baseURL = 'https://www.wayfinder.dev/api/';
 
  // import vClickOutside from 'v-click-outside'
 
@@ -89506,6 +90153,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_PrebuiltFolder__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/PrebuiltFolder */ "./resources/js/admin/PrebuiltFolder.vue");
 /* harmony import */ var _jargons_UserJargons__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./jargons/UserJargons */ "./resources/js/jargons/UserJargons.vue");
 /* harmony import */ var _jargons_JargonPage__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./jargons/JargonPage */ "./resources/js/jargons/JargonPage.vue");
+/* harmony import */ var _alerts_NotFound__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./alerts/NotFound */ "./resources/js/alerts/NotFound.vue");
+
 
 
 
@@ -89604,6 +90253,19 @@ var routes = [// {
   name: "editTask",
   beforeEnter: function beforeEnter(to, from, next) {
     if (!_store_index__WEBPACK_IMPORTED_MODULE_11__["default"].getters['auth/authenticated'] || !_store_index__WEBPACK_IMPORTED_MODULE_11__["default"].getters['auth/user'].isAdmin) {
+      return next({
+        name: 'signin'
+      });
+    }
+
+    next();
+  }
+}, {
+  path: "/not-found",
+  component: _alerts_NotFound__WEBPACK_IMPORTED_MODULE_27__["default"],
+  name: "notFound",
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_store_index__WEBPACK_IMPORTED_MODULE_11__["default"].getters['auth/authenticated']) {
       return next({
         name: 'signin'
       });

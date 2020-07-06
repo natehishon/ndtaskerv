@@ -95,6 +95,9 @@
                 if (data === "App\\Task") {
                     return 'task';
                 }
+                if (data === "App\\Jargon") {
+                    return 'jargon';
+                }
             }
         },
         mounted() {

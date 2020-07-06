@@ -28,7 +28,7 @@
 
         <b-row class="m-1" v-if="stepTwo === true">
             <b-col xs="12">
-                <b-form @submit="onSubmit">
+                <b-form @submit="onSubmit" class="way-form">
 
                     <div class="form-group">
                         <label for="title">title</label>
@@ -41,16 +41,14 @@
                         <froala :tag="'textarea'" :config="config" v-model="content"></froala>
                     </div>
 
-<!--                    <b-form-group-->
-<!--                            id="input-group-1"-->
-<!--                    >-->
-<!--                        <froala :tag="'textarea'" :config="config" v-model="content"></froala>-->
-<!--                    </b-form-group>-->
-                    <b-button class="float-right" size="xl" type="submit" variant="success">ask&nbsp;&nbsp;<i
+                    <b-button class="float-right large-button "  size="xl" type="submit" variant="success">ask&nbsp;&nbsp;<i
                         class="fas fa-comment"></i></b-button>
+                    <b-button class="float-right large-button mr-2 " @click="backJot" size="xl" variant="secondary">back&nbsp;&nbsp;<i
+                        class="fas fa-chevron-left"></i></b-button>
                 </b-form>
             </b-col>
         </b-row>
+
 
     </div>
 
@@ -61,6 +59,8 @@
     import axios from "axios";
 
     export default {
+        components:{
+        },
         data() {
             return {
                 stepOne: true,
@@ -94,16 +94,28 @@
             }
         },
         methods: {
+            backJot(){
+                this.stepOne = !this.stepOne;
+                this.stepTwo = !this.stepTwo;
+
+            },
             jotChoice(choice) {
                 // console.log(choice);
                 this.stepOne = !this.stepOne;
                 this.stepTwo = !this.stepTwo;
-                console.log(choice);
 
-                if(this.currentSlide.taskTitle){
-                    this.title = choice + this.currentSlide.taskTitle;
-                } else {
-                    this.title = choice + this.currentSlide.title;
+                if(this.currentSlide != null){
+                    if(this.currentSlide.taskTitle){
+                        this.title = choice + this.currentSlide.taskTitle;
+                    } else {
+                        this.title = choice + this.currentSlide.title;
+                    }
+                }
+
+
+                if(this.jargon){
+                    console.log(this.jargon);
+                    this.title = choice + this.jargon.title;
                 }
 
 
@@ -111,30 +123,37 @@
             },
             onSubmit(evt) {
                 evt.preventDefault();
-                let formData = {
-                    title: this.title,
-                    content: this.content,
-                    jotable: this.currentSlide
+                let formData = {};
+                if(this.currentSlide){
+                    formData = {
+                        title: this.title,
+                        content: this.content,
+                        jotable: this.currentSlide
+                    }
+                }
+
+                if(this.jargon){
+                    formData = {
+                        title: this.title,
+                        content: this.content,
+                        jotable: this.jargon
+                    }
                 }
 
                 axios.post('jots', formData).then(response => {
 
-                    //add to
-                    console.log(this.response);
+                    this.$bvModal.hide("jotModal");
+
+                    this.showSuccess()
+                    // this.$refs.jotSuccessId.show();
 
                 }).catch(err => {
                     console.log(err);
                 });
-                console.log(this.content);
-                console.log(this.currentSlide);
             },
         },
-        props: ['currentSlide'],
-        created(){
-            console.log("this.currentSlide")
-            console.log(this.currentSlide)
-            console.log(this.choice)
-        }
+        props: ['currentSlide', 'jargon', 'showSuccess'],
+
     }
 
 </script>

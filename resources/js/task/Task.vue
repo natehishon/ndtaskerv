@@ -7,7 +7,7 @@
             <b-col sm="12">
                 <b-tabs pills card vertical fill class="tabs-yo" v-model="taskIndex" >
 
-                    <div v-if="sub.length > 0">
+                    <div v-if="!sub[0].task">
 
                         <b-tab  v-for="(subTask, index) in sub" @click="tabClick(index)" :title="subTask.title" :key="subTask.id">
                             <sub-task-slide class="sub-slide" v-if="subTask"
@@ -16,7 +16,7 @@
 
                     </div>
 
-                    <div v-if="sub.length === 0">
+                    <div v-if="sub[0].task">
                         <sub-task-slide class="sub-slide"
                                         v-bind:sub_task="task"></sub-task-slide>
                     </div>
