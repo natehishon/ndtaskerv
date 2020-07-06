@@ -201,7 +201,7 @@ class SearchHelper
             jots.id = j.jot_id
             where jots.user_id = " . $user->id . "
            group by j.id,j.created_at,
-            j.content
+            j.content, jots.id
             HAVING (
 
                 (" . implode(" + ", $contentSQL) . ")

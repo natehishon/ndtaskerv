@@ -21,30 +21,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/alerts/NotFound.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/JotController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/JotController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/TaskController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jargon.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jargon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/SearchHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/SearchHelper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Nav.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/CreateTask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/CreateTask.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/EditTask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/EditTask.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/FolderTree.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/FolderTree.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/ManageJots.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/ManageJots.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/ManageUserFolders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/ManageUserFolders.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/folders/Folders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/folders/Folders.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/jargons/JargonPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jargons/JargonPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/jots/BottomNotch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jots/BottomNotch.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/jots/Jot.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jots/Jot.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/jots/Jots.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jots/Jots.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/miscellaneous/SuccessModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/miscellaneous/SuccessModal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/task/Task.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/task/Task.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -259,7 +241,7 @@
       <workItem from="1592238578306" duration="1704000" />
       <workItem from="1592241851504" duration="9066000" />
       <workItem from="1592620720318" duration="15016000" />
-      <workItem from="1592958720211" duration="70104000" />
+      <workItem from="1592958720211" duration="70581000" />
     </task>
     <servers />
   </component>
@@ -338,14 +320,14 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1591585096105" />
-    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1593994403493">
+    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1593994917492">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1593994403493" />
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1593988449979">
+    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1593994917492" />
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1593994951867">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1593988449979" />
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1593994951867" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
