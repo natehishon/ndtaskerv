@@ -22,6 +22,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/service-worker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/admin/CreateTask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/CreateTask.vue" afterDir="false" />
     </list>
@@ -237,7 +238,7 @@
       <workItem from="1592238578306" duration="1704000" />
       <workItem from="1592241851504" duration="9066000" />
       <workItem from="1592620720318" duration="15016000" />
-      <workItem from="1592958720211" duration="74169000" />
+      <workItem from="1592958720211" duration="74660000" />
     </task>
     <servers />
   </component>
@@ -316,10 +317,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1591585096105" />
-    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1594004096490">
+    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1594005244645">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1594004096490" />
+    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1594005244645" />
     <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1594004397096">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
