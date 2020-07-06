@@ -3057,6 +3057,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -4799,6 +4803,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
 //
 //
 //
@@ -56495,6 +56502,11 @@ var render = function() {
                                               attrs: {
                                                 tag: "textarea",
                                                 config: {
+                                                  key:
+                                                    "nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2==",
+                                                  apiKey:
+                                                    "nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2==",
+                                                  attribution: false,
                                                   colorsStep: 6,
                                                   colorsText: [
                                                     "#15E67F",
@@ -59003,12 +59015,12 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "sign-in-container" },
+    { staticClass: "sign-in-container pr-4 pl-4" },
     [
       _c(
         "b-card",
         {
-          staticClass: "mt-5",
+          staticClass: "mt-5 ",
           attrs: {
             header: "sign in",
             "header-tag": "header",
@@ -59019,7 +59031,7 @@ var render = function() {
           _c(
             "b-form",
             {
-              staticClass: "way-form",
+              staticClass: "way-form ",
               on: {
                 submit: function($event) {
                   $event.preventDefault()
@@ -59271,7 +59283,7 @@ var render = function() {
                       attrs: { size: "lg", type: "submit", variant: "success" }
                     },
                     [
-                      _vm._v("\n                submit  "),
+                      _vm._v("\n                            submit  "),
                       _c("i", { staticClass: "fas fa-user-plus" })
                     ]
                   ),
@@ -59284,7 +59296,7 @@ var render = function() {
                       on: { click: _vm.signInButton }
                     },
                     [
-                      _vm._v("\n                sign in  "),
+                      _vm._v("\n                            sign in  "),
                       _c("i", { staticClass: "fas fa-door-open" })
                     ]
                   )

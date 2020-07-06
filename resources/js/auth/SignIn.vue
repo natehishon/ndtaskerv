@@ -1,14 +1,14 @@
 <template>
 
-    <div class="sign-in-container">
+    <div class="sign-in-container pr-4 pl-4">
 
-        <b-card class="mt-5"
+        <b-card class="mt-5 "
                 header="sign in"
                 header-tag="header"
                 header-class="login-header"
         >
 
-            <b-form class="way-form" @submit.prevent="submit">
+            <b-form class="way-form " @submit.prevent="submit">
                 <b-form-group
                     id="input-group-1"
                     label="email address:"

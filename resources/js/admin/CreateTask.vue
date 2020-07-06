@@ -117,6 +117,9 @@
                                             <div class="form-group">
                                                 <label>task step content</label>
                                                 <froala :tag="'textarea'" :config="{
+                                                key:'nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2==',
+                                                apiKey:'nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2==',
+                                                attribution: false,
                                                 colorsStep: 6,
                                                 colorsText: [
                                                     '#15E67F', '#E3DE8C', '#D8A076', '#D83762', '#76B6D8', 'REMOVE',
@@ -136,7 +139,8 @@
 
                                             <div class="form-group">
                                                 <label>task step media</label><br>
-                                                <input class="input-file" type="file" ref="file" @change="selectEditSubTaskFiles"/>
+                                                <input class="input-file" type="file" ref="file"
+                                                       @change="selectEditSubTaskFiles"/>
                                             </div>
                                         </b-col>
                                     </b-row>
