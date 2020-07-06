@@ -2,24 +2,24 @@
 
     <div>
 
-        <b-row class="m-5" v-if="stepOne === true">
+        <b-row class="m-5 jot-cards" v-if="stepOne === true">
             <b-col xs="12" sm="4">
                 <b-card bg-variant="success" text-variant="white" header=" "
-                        header-html="<i class='fas fa-comments' style='font-size: 1.25rem;'></i> "
+                        header-html="<i class='fas fa-comments' style='font-size: 1.5rem;'></i> "
                         class="text-center jot-card" @click="jotChoice('so about ')">
                     <b-card-text>comment</b-card-text>
                 </b-card>
             </b-col>
             <b-col xs="12" sm="4">
                 <b-card bg-variant="info" text-variant="white" header=" "
-                        header-html="<i class='fas fa-question' style='font-size: 1.25rem;'></i> "
+                        header-html="<i class='fas fa-question' style='font-size: 1.5rem;'></i> "
                         class="text-center jot-card" @click="jotChoice('unsure about ')">
                     <b-card-text>unsure</b-card-text>
                 </b-card>
             </b-col>
             <b-col xs="12" sm="4">
                 <b-card bg-variant="warning" text-variant="white" header=" "
-                        header-html="<i class='fas fa-times-circle' style='font-size: 1.25rem;'></i> "
+                        header-html="<i class='fas fa-times-circle' style='font-size: 1.5rem;'></i> "
                         class="text-center jot-card" @click="jotChoice('stuck on ')">
                     <b-card-text>stuck</b-card-text>
                 </b-card>
@@ -159,10 +159,17 @@
 </script>
 
 
-<style>
+<style lang="scss">
 
     .jot-card {
         cursor: pointer;
+    }
+
+    .jot-cards{
+        .card-text{
+            font-size: 1.25rem;
+
+        }
     }
 
 </style>
