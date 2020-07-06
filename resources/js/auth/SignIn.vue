@@ -1,48 +1,56 @@
 <template>
 
-    <div class="sign-in-container pr-4 pl-4">
+    <div class="sign-in-container">
 
-        <b-card class="mt-5 "
-                header="sign in"
-                header-tag="header"
-                header-class="login-header"
-        >
+        <b-row>
+            <b-col sm="8" md="6" lg="4" offset-sm="2" offset-md="3" offset-lg="4" >
 
-            <b-form class="way-form " @submit.prevent="submit">
-                <b-form-group
-                    id="input-group-1"
-                    label="email address:"
-                    label-for="input-1"
-                    description=""
+
+                <b-card class="mt-5 "
+                        header="sign in"
+                        header-tag="header"
+                        header-class="login-header"
                 >
-                    <b-form-input
-                        id="input-1"
-                        v-model="form.email"
-                        type="email"
-                        required
-                        placeholder="enter email"
-                    ></b-form-input>
-                </b-form-group>
 
-                <b-form-group>
-                    <label for="text-password">password</label>
-                    <b-input type="password" placeholder="enter password" id="text-password" v-model="form.password"
-                             aria-describedby="password-help-block"></b-input>
-                </b-form-group>
+                    <b-form class="way-form " @submit.prevent="submit">
+                        <b-form-group
+                            id="input-group-1"
+                            label="email address:"
+                            label-for="input-1"
+                            description=""
+                        >
+                            <b-form-input
+                                id="input-1"
+                                v-model="form.email"
+                                type="email"
+                                required
+                                placeholder="enter email"
+                            ></b-form-input>
+                        </b-form-group>
 
-                <div class="sign-in-buttons">
-                    <b-button size="lg" type="submit" class="mb-3 mr-2" variant="success">
-                        sign in&nbsp;&nbsp;<i class="fas fa-door-open"></i>
-                    </b-button>
-                    <b-button size="lg" @click="signUp" class="mb-3" variant="info">
-                        sign up&nbsp;&nbsp;<i class="fas fa-user-plus"></i>
-                    </b-button>
-                </div>
+                        <b-form-group>
+                            <label for="text-password">password</label>
+                            <b-input type="password" placeholder="enter password" id="text-password"
+                                     v-model="form.password"
+                                     aria-describedby="password-help-block"></b-input>
+                        </b-form-group>
+
+                        <div class="sign-in-buttons">
+                            <b-button size="lg" type="submit" class="mb-3 mr-2" variant="success">
+                                sign in&nbsp;&nbsp;<i class="fas fa-door-open"></i>
+                            </b-button>
+                            <b-button size="lg" @click="signUp" class="mb-3" variant="info">
+                                sign up&nbsp;&nbsp;<i class="fas fa-user-plus"></i>
+                            </b-button>
+                        </div>
 
 
-            </b-form>
+                    </b-form>
 
-        </b-card>
+                </b-card>
+
+            </b-col>
+        </b-row>
 
     </div>
 </template>
@@ -50,14 +58,14 @@
 <style lang="scss">
 
     .sign-in-container {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        /*flex-wrap: wrap;*/
+        /*justify-content: center;*/
+        /*align-items: center*/
     }
 
-    .sign-in-buttons{
+    .sign-in-buttons {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;

@@ -13,7 +13,7 @@
 
                     <div class="form-group">
                         <label>task content</label>
-                        <froala :tag="'textarea'" :config="{
+                        <froala :tag="'textarea'" :key="'nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2=='" :attribution="false" :config="{
                                                 colorsStep: 6,
                                                 colorsText: [
                                                     '#15E67F', '#E3DE8C', '#D8A076', '#D83762', '#76B6D8', 'REMOVE',
@@ -64,7 +64,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>task step content</label>
-                                                <froala :tag="'textarea'" :config="{
+                                                <froala :tag="'textarea'" :key="'nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2=='" :attribution="false" :config="{
                                                 colorsStep: 6,
                                                 colorsText: [
                                                     '#15E67F', '#E3DE8C', '#D8A076', '#D83762', '#76B6D8', 'REMOVE',
@@ -113,7 +113,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Content</label>
-                                                <froala :tag="'textarea'" :config="{
+                                                <froala :tag="'textarea'" :key="'nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2=='" :attribution="false" :config="{
                                                 colorsStep: 6,
                                                 colorsText: [
                                                     '#15E67F', '#E3DE8C', '#D8A076', '#D83762', '#76B6D8', 'REMOVE',

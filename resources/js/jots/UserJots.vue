@@ -16,7 +16,7 @@
 
                         <b-col xs="10">
                             <div class="form-group">
-                                <froala :tag="'textarea'" :config="{
+                                <froala :tag="'textarea'" :key="'nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2=='" :attribution="false" :config="{
 
                     colorsStep: 6,
                     colorsText: [

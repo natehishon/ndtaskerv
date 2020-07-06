@@ -2,13 +2,15 @@
 
     <div class="sign-in-container">
 
-        <b-card class="mt-5"
-                header="sign up"
-                header-tag="header"
-                header-class="login-header"
-        >
+        <b-row>
+            <b-col sm="8" md="6" lg="4" offset-sm="2" offset-md="3" offset-lg="4">
+                <b-card class="mt-5"
+                        header="sign up"
+                        header-tag="header"
+                        header-class="login-header"
+                >
 
-            <b-form class="way-form" @submit.prevent="submit">
+                    <b-form class="way-form" @submit.prevent="submit">
 
                         <b-form-group
                             id="input-group-1"
@@ -56,9 +58,12 @@
 
 
 
-            </b-form>
+                    </b-form>
 
-        </b-card>
+                </b-card>
+            </b-col>
+        </b-row>
+
 
     </div>
 </template>

@@ -3063,6 +3063,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4751,6 +4757,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'signin',
@@ -4805,6 +4819,11 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
 //
 //
 //
@@ -44734,7 +44753,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".sign-in-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  flex-wrap: wrap;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.sign-in-buttons {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -webkit-box-pack: end;\n          justify-content: flex-end;\n}\n.login-header {\n  font-size: 1.5rem;\n  font-weight: 600;\n  color: #495057;\n  text-align: center;\n}", ""]);
+exports.push([module.i, ".sign-in-container {\n  /*display: flex;*/\n  /*flex-direction: column;*/\n  /*flex-wrap: wrap;*/\n  /*justify-content: center;*/\n  /*align-items: center*/\n}\n.sign-in-buttons {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -webkit-box-pack: end;\n          justify-content: flex-end;\n}\n.login-header {\n  font-size: 1.5rem;\n  font-weight: 600;\n  color: #495057;\n  text-align: center;\n}", ""]);
 
 // exports
 
@@ -56107,9 +56126,6 @@ var render = function() {
                             "nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2==",
                           attribution: false,
                           config: {
-                            key:
-                              "nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2==",
-                            attribution: false,
                             colorsStep: 6,
                             colorsText: [
                               "#15E67F",
@@ -56855,8 +56871,11 @@ var render = function() {
                       _c("label", [_vm._v("task content")]),
                       _vm._v(" "),
                       _c("froala", {
+                        key:
+                          "nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2==",
                         attrs: {
                           tag: "textarea",
+                          attribution: false,
                           config: {
                             colorsStep: 6,
                             colorsText: [
@@ -57059,8 +57078,11 @@ var render = function() {
                                             ]),
                                             _vm._v(" "),
                                             _c("froala", {
+                                              key:
+                                                "nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2==",
                                               attrs: {
                                                 tag: "textarea",
+                                                attribution: false,
                                                 config: {
                                                   colorsStep: 6,
                                                   colorsText: [
@@ -57238,8 +57260,11 @@ var render = function() {
                                         _c("label", [_vm._v("Content")]),
                                         _vm._v(" "),
                                         _c("froala", {
+                                          key:
+                                            "nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2==",
                                           attrs: {
                                             tag: "textarea",
+                                            attribution: false,
                                             config: {
                                               colorsStep: 6,
                                               colorsText: [
@@ -59030,114 +59055,140 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "sign-in-container pr-4 pl-4" },
+    { staticClass: "sign-in-container" },
     [
       _c(
-        "b-card",
-        {
-          staticClass: "mt-5 ",
-          attrs: {
-            header: "sign in",
-            "header-tag": "header",
-            "header-class": "login-header"
-          }
-        },
+        "b-row",
         [
           _c(
-            "b-form",
+            "b-col",
             {
-              staticClass: "way-form ",
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.submit($event)
-                }
+              attrs: {
+                sm: "8",
+                md: "6",
+                lg: "4",
+                "offset-sm": "2",
+                "offset-md": "3",
+                "offset-lg": "4"
               }
             },
             [
               _c(
-                "b-form-group",
+                "b-card",
                 {
+                  staticClass: "mt-5 ",
                   attrs: {
-                    id: "input-group-1",
-                    label: "email address:",
-                    "label-for": "input-1",
-                    description: ""
+                    header: "sign in",
+                    "header-tag": "header",
+                    "header-class": "login-header"
                   }
                 },
                 [
-                  _c("b-form-input", {
-                    attrs: {
-                      id: "input-1",
-                      type: "email",
-                      required: "",
-                      placeholder: "enter email"
-                    },
-                    model: {
-                      value: _vm.form.email,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "email", $$v)
-                      },
-                      expression: "form.email"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-group",
-                [
-                  _c("label", { attrs: { for: "text-password" } }, [
-                    _vm._v("password")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-input", {
-                    attrs: {
-                      type: "password",
-                      placeholder: "enter password",
-                      id: "text-password",
-                      "aria-describedby": "password-help-block"
-                    },
-                    model: {
-                      value: _vm.form.password,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "password", $$v)
-                      },
-                      expression: "form.password"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "sign-in-buttons" },
-                [
                   _c(
-                    "b-button",
+                    "b-form",
                     {
-                      staticClass: "mb-3 mr-2",
-                      attrs: { size: "lg", type: "submit", variant: "success" }
+                      staticClass: "way-form ",
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.submit($event)
+                        }
+                      }
                     },
                     [
-                      _vm._v("\n                    sign in  "),
-                      _c("i", { staticClass: "fas fa-door-open" })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-button",
-                    {
-                      staticClass: "mb-3",
-                      attrs: { size: "lg", variant: "info" },
-                      on: { click: _vm.signUp }
-                    },
-                    [
-                      _vm._v("\n                    sign up  "),
-                      _c("i", { staticClass: "fas fa-user-plus" })
-                    ]
+                      _c(
+                        "b-form-group",
+                        {
+                          attrs: {
+                            id: "input-group-1",
+                            label: "email address:",
+                            "label-for": "input-1",
+                            description: ""
+                          }
+                        },
+                        [
+                          _c("b-form-input", {
+                            attrs: {
+                              id: "input-1",
+                              type: "email",
+                              required: "",
+                              placeholder: "enter email"
+                            },
+                            model: {
+                              value: _vm.form.email,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "email", $$v)
+                              },
+                              expression: "form.email"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-form-group",
+                        [
+                          _c("label", { attrs: { for: "text-password" } }, [
+                            _vm._v("password")
+                          ]),
+                          _vm._v(" "),
+                          _c("b-input", {
+                            attrs: {
+                              type: "password",
+                              placeholder: "enter password",
+                              id: "text-password",
+                              "aria-describedby": "password-help-block"
+                            },
+                            model: {
+                              value: _vm.form.password,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "password", $$v)
+                              },
+                              expression: "form.password"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "sign-in-buttons" },
+                        [
+                          _c(
+                            "b-button",
+                            {
+                              staticClass: "mb-3 mr-2",
+                              attrs: {
+                                size: "lg",
+                                type: "submit",
+                                variant: "success"
+                              }
+                            },
+                            [
+                              _vm._v("\n                            sign in  "),
+                              _c("i", { staticClass: "fas fa-door-open" })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-button",
+                            {
+                              staticClass: "mb-3",
+                              attrs: { size: "lg", variant: "info" },
+                              on: { click: _vm.signUp }
+                            },
+                            [
+                              _vm._v("\n                            sign up  "),
+                              _c("i", { staticClass: "fas fa-user-plus" })
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
@@ -59179,141 +59230,167 @@ var render = function() {
     { staticClass: "sign-in-container" },
     [
       _c(
-        "b-card",
-        {
-          staticClass: "mt-5",
-          attrs: {
-            header: "sign up",
-            "header-tag": "header",
-            "header-class": "login-header"
-          }
-        },
+        "b-row",
         [
           _c(
-            "b-form",
+            "b-col",
             {
-              staticClass: "way-form",
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.submit($event)
-                }
+              attrs: {
+                sm: "8",
+                md: "6",
+                lg: "4",
+                "offset-sm": "2",
+                "offset-md": "3",
+                "offset-lg": "4"
               }
             },
             [
               _c(
-                "b-form-group",
+                "b-card",
                 {
+                  staticClass: "mt-5",
                   attrs: {
-                    id: "input-group-1",
-                    label: "email address:",
-                    "label-for": "input-1",
-                    description: ""
+                    header: "sign up",
+                    "header-tag": "header",
+                    "header-class": "login-header"
                   }
                 },
                 [
-                  _c("b-form-input", {
-                    attrs: {
-                      id: "input-1",
-                      type: "email",
-                      required: "",
-                      placeholder: "enter email"
-                    },
-                    model: {
-                      value: _vm.form.email,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "email", $$v)
-                      },
-                      expression: "form.email"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-group",
-                {
-                  attrs: {
-                    id: "input-group-2",
-                    label: "name:",
-                    "label-for": "input-2",
-                    description: ""
-                  }
-                },
-                [
-                  _c("b-form-input", {
-                    attrs: {
-                      id: "input-2",
-                      type: "text",
-                      required: "",
-                      placeholder: "enter name"
-                    },
-                    model: {
-                      value: _vm.form.name,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "name", $$v)
-                      },
-                      expression: "form.name"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-group",
-                [
-                  _c("label", { attrs: { for: "text-password" } }, [
-                    _vm._v("password")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-input", {
-                    attrs: {
-                      type: "password",
-                      placeholder: "enter password",
-                      id: "text-password",
-                      "aria-describedby": "password-help-block"
-                    },
-                    model: {
-                      value: _vm.form.password,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "password", $$v)
-                      },
-                      expression: "form.password"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "sign-in-buttons" },
-                [
                   _c(
-                    "b-button",
+                    "b-form",
                     {
-                      staticClass: "mb-3 mr-2  ",
-                      attrs: { size: "lg", type: "submit", variant: "success" }
+                      staticClass: "way-form",
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.submit($event)
+                        }
+                      }
                     },
                     [
-                      _vm._v("\n                            submit  "),
-                      _c("i", { staticClass: "fas fa-user-plus" })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-button",
-                    {
-                      staticClass: "mb-3",
-                      attrs: { size: "lg", variant: "info" },
-                      on: { click: _vm.signInButton }
-                    },
-                    [
-                      _vm._v("\n                            sign in  "),
-                      _c("i", { staticClass: "fas fa-door-open" })
-                    ]
+                      _c(
+                        "b-form-group",
+                        {
+                          attrs: {
+                            id: "input-group-1",
+                            label: "email address:",
+                            "label-for": "input-1",
+                            description: ""
+                          }
+                        },
+                        [
+                          _c("b-form-input", {
+                            attrs: {
+                              id: "input-1",
+                              type: "email",
+                              required: "",
+                              placeholder: "enter email"
+                            },
+                            model: {
+                              value: _vm.form.email,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "email", $$v)
+                              },
+                              expression: "form.email"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-form-group",
+                        {
+                          attrs: {
+                            id: "input-group-2",
+                            label: "name:",
+                            "label-for": "input-2",
+                            description: ""
+                          }
+                        },
+                        [
+                          _c("b-form-input", {
+                            attrs: {
+                              id: "input-2",
+                              type: "text",
+                              required: "",
+                              placeholder: "enter name"
+                            },
+                            model: {
+                              value: _vm.form.name,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "name", $$v)
+                              },
+                              expression: "form.name"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-form-group",
+                        [
+                          _c("label", { attrs: { for: "text-password" } }, [
+                            _vm._v("password")
+                          ]),
+                          _vm._v(" "),
+                          _c("b-input", {
+                            attrs: {
+                              type: "password",
+                              placeholder: "enter password",
+                              id: "text-password",
+                              "aria-describedby": "password-help-block"
+                            },
+                            model: {
+                              value: _vm.form.password,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "password", $$v)
+                              },
+                              expression: "form.password"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "sign-in-buttons" },
+                        [
+                          _c(
+                            "b-button",
+                            {
+                              staticClass: "mb-3 mr-2  ",
+                              attrs: {
+                                size: "lg",
+                                type: "submit",
+                                variant: "success"
+                              }
+                            },
+                            [
+                              _vm._v("\n                            submit  "),
+                              _c("i", { staticClass: "fas fa-user-plus" })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-button",
+                            {
+                              staticClass: "mb-3",
+                              attrs: { size: "lg", variant: "info" },
+                              on: { click: _vm.signInButton }
+                            },
+                            [
+                              _vm._v("\n                            sign in  "),
+                              _c("i", { staticClass: "fas fa-door-open" })
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
@@ -60018,7 +60095,13 @@ var render = function() {
               _c("label", [_vm._v("Content")]),
               _vm._v(" "),
               _c("froala", {
-                attrs: { tag: "textarea", config: _vm.config },
+                key:
+                  "nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2==",
+                attrs: {
+                  tag: "textarea",
+                  attribution: false,
+                  config: _vm.config
+                },
                 model: {
                   value: _vm.newJargon.content_html,
                   callback: function($$v) {
@@ -60120,7 +60203,13 @@ var render = function() {
               _c("label", [_vm._v("Content")]),
               _vm._v(" "),
               _c("froala", {
-                attrs: { tag: "textarea", config: _vm.config },
+                key:
+                  "nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2==",
+                attrs: {
+                  tag: "textarea",
+                  config: _vm.config,
+                  attribution: false
+                },
                 model: {
                   value: _vm.jargon.content_html,
                   callback: function($$v) {
@@ -60789,7 +60878,13 @@ var render = function() {
                           _c("label", [_vm._v("content")]),
                           _vm._v(" "),
                           _c("froala", {
-                            attrs: { tag: "textarea", config: _vm.config },
+                            key:
+                              "nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2==",
+                            attrs: {
+                              tag: "textarea",
+                              attribution: false,
+                              config: _vm.config
+                            },
                             model: {
                               value: _vm.content,
                               callback: function($$v) {
@@ -61064,8 +61159,11 @@ var render = function() {
                         { staticClass: "form-group" },
                         [
                           _c("froala", {
+                            key:
+                              "nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2==",
                             attrs: {
                               tag: "textarea",
+                              attribution: false,
                               config: {
                                 colorsStep: 6,
                                 colorsText: [
@@ -89053,10 +89151,10 @@ __webpack_require__(/*! froala-editor/css/froala_style.min.css */ "./node_module
 
 __webpack_require__(/*! ./store/subscriber */ "./resources/js/store/subscriber.js"); //prodswap
 // axios.defaults.baseURL = 'https://evening-forest-04369.herokuapp.com/api/';
-// axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
 
 
-axios__WEBPACK_IMPORTED_MODULE_11___default.a.defaults.baseURL = 'https://www.wayfinder.dev/api/';
+axios__WEBPACK_IMPORTED_MODULE_11___default.a.defaults.baseURL = 'http://127.0.0.1:8000/api/'; // axios.defaults.baseURL = 'https://www.wayfinder.dev/api/';
+
 
  // import vClickOutside from 'v-click-outside'
 

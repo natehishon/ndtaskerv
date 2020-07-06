@@ -16,7 +16,7 @@
 
                 <div class="form-group">
                     <label>Content</label>
-                    <froala :tag="'textarea'" :config="config" v-model="newJargon.content_html"></froala>
+                    <froala :tag="'textarea'" :key="'nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2=='" :attribution="false" :config="config" v-model="newJargon.content_html"></froala>
                 </div>
 
                 <div class="form-group">

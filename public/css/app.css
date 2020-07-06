@@ -20529,3 +20529,7 @@ body {
   display: none;
 }
 
+#logo {
+  display: none !important;
+}
+
