@@ -61818,7 +61818,7 @@ var render = function() {
         "div",
         { staticClass: "sub-task" },
         [
-          !_vm.task.image_url
+          !_vm.sub_task.image_url
             ? _c(
                 "b-row",
                 [
@@ -61840,7 +61840,7 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          _vm.task.image_url
+          _vm.sub_task.image_url
             ? _c(
                 "b-row",
                 [
