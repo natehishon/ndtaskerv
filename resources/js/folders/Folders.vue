@@ -342,14 +342,14 @@
                 if (this.$router.currentRoute.path === "/") {
                     this.$router.replace({
                         path: `${result.fullSlug}`,
-                        query: {taskID: result.taskID, subTaskID: result.id}
+                        query: {taskID: result.taskid, subTaskID: result.id}
                     })
                     // this.$router.push({ path: `${result.fullSlug}`, params: {test: result.id}})
                 } else {
                     this.$router.push({name: 'home'},
                         () => this.$router.replace({
                             path: `${result.fullSlug}`,
-                            query: {taskID: result.taskID, subTaskID: result.id}
+                            query: {taskID: result.taskid, subTaskID: result.id}
                         }))
                 }
             },

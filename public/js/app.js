@@ -5336,7 +5336,7 @@ __webpack_require__.r(__webpack_exports__);
         this.$router.replace({
           path: "".concat(result.fullSlug),
           query: {
-            taskID: result.taskID,
+            taskID: result.taskid,
             subTaskID: result.id
           }
         }); // this.$router.push({ path: `${result.fullSlug}`, params: {test: result.id}})
@@ -5347,7 +5347,7 @@ __webpack_require__.r(__webpack_exports__);
           return _this2.$router.replace({
             path: "".concat(result.fullSlug),
             query: {
-              taskID: result.taskID,
+              taskID: result.taskid,
               subTaskID: result.id
             }
           });
