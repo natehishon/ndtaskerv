@@ -539,6 +539,8 @@
 
             let last = this.breadCrumbs.slice(-1)[0];
 
+            console.log("last");
+            console.log(last);
 
             if (last === 'folders' || !last) {
                 axios.get('folders').then(response => {
