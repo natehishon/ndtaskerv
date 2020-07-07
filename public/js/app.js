@@ -6957,6 +6957,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -61811,77 +61818,102 @@ var render = function() {
         "div",
         { staticClass: "sub-task" },
         [
-          _c(
-            "b-row",
-            [
-              _c(
-                "b-col",
-                { attrs: { sm: "12", md: "6" } },
+          !_vm.task.image_url
+            ? _c(
+                "b-row",
                 [
-                  _c("v-runtime-template", {
-                    attrs: {
-                      template: "<div>" + _vm.sub_task.content_html + "</div>"
-                    }
-                  })
+                  _c(
+                    "b-col",
+                    { attrs: { sm: "12" } },
+                    [
+                      _c("v-runtime-template", {
+                        attrs: {
+                          template:
+                            "<div>" + _vm.sub_task.content_html + "</div>"
+                        }
+                      })
+                    ],
+                    1
+                  )
                 ],
                 1
-              ),
-              _vm._v(" "),
-              _c("b-col", { attrs: { sm: "12", md: "6" } }, [
-                _vm.sub_task.media_type === "image"
-                  ? _c(
-                      "div",
-                      { staticClass: "image-container" },
-                      [
-                        _c("b-img", {
-                          staticStyle: {
-                            cursor: "pointer",
-                            "max-height": "400px"
-                          },
-                          attrs: {
-                            center: "",
-                            src: _vm.sub_task.image_url,
-                            fluid: ""
-                          },
-                          on: {
-                            click: function($event) {
-                              return _vm.openNewTab(_vm.sub_task.image_url)
-                            }
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.sub_task.media_type === "video"
-                  ? _c(
-                      "div",
-                      { staticClass: "video-container" },
-                      [
-                        _c("vue-plyr", [
-                          _c(
-                            "video",
-                            { attrs: { poster: "", src: "video.mp4" } },
-                            [
-                              _c("source", {
-                                attrs: {
-                                  src: _vm.sub_task.image_url,
-                                  type: "video/mp4",
-                                  size: "1080"
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.task.image_url
+            ? _c(
+                "b-row",
+                [
+                  _c(
+                    "b-col",
+                    { attrs: { sm: "12", md: "6" } },
+                    [
+                      _c("v-runtime-template", {
+                        attrs: {
+                          template:
+                            "<div>" + _vm.sub_task.content_html + "</div>"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("b-col", { attrs: { sm: "12", md: "6" } }, [
+                    _vm.sub_task.media_type === "image"
+                      ? _c(
+                          "div",
+                          { staticClass: "image-container" },
+                          [
+                            _c("b-img", {
+                              staticStyle: {
+                                cursor: "pointer",
+                                "max-height": "400px"
+                              },
+                              attrs: {
+                                center: "",
+                                src: _vm.sub_task.image_url,
+                                fluid: ""
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.openNewTab(_vm.sub_task.image_url)
                                 }
-                              })
-                            ]
-                          )
-                        ])
-                      ],
-                      1
-                    )
-                  : _vm._e()
-              ])
-            ],
-            1
-          )
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.sub_task.media_type === "video"
+                      ? _c(
+                          "div",
+                          { staticClass: "video-container" },
+                          [
+                            _c("vue-plyr", [
+                              _c(
+                                "video",
+                                { attrs: { poster: "", src: "video.mp4" } },
+                                [
+                                  _c("source", {
+                                    attrs: {
+                                      src: _vm.sub_task.image_url,
+                                      type: "video/mp4",
+                                      size: "1080"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ],
+                          1
+                        )
+                      : _vm._e()
+                  ])
+                ],
+                1
+              )
+            : _vm._e()
         ],
         1
       )

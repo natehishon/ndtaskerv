@@ -1,6 +1,13 @@
 <template>
     <div v-if="sub_task" class="sub-task">
-        <b-row>
+
+        <b-row v-if="!task.image_url">
+            <b-col sm="12" >
+                <v-runtime-template :template="'<div>' + sub_task.content_html + '</div>'"/>
+            </b-col>
+        </b-row>
+
+        <b-row v-if="task.image_url">
 
             <b-col sm="12" md="6">
                 <v-runtime-template :template="'<div>' + sub_task.content_html + '</div>'"/>
