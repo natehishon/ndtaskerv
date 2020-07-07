@@ -54,7 +54,7 @@
 
 
                     <div class="form-group">
-                        <label>edit sub tasks</label><br>
+                        <label>edit task steps</label><br>
 
                         <b-modal
                             id="modalNewID" size="xl"
@@ -109,7 +109,7 @@
 
                         <b-modal
                             id="modalEditID" size="xl"
-                            title="edit subtask"
+                            title="edit task step"
                         >
                             <div class="container-fluid">
                                 <form enctype="multipart/form-data" class="way-form">
@@ -162,9 +162,13 @@
                             </template>
                         </b-modal>
 
-                        <b-button size="lg" @click="createSubTask()" class="mb-3" variant="primary">
-                            new sub task&nbsp;&nbsp;<i class="fas fa-plus "></i>
+                        <b-button size="lg" @click="createSubTask()" class="" variant="primary">
+                            new task step&nbsp;&nbsp;<i class="fas fa-plus "></i>
                         </b-button>
+
+
+
+
 
                     </div>
 
@@ -192,20 +196,16 @@
                                         <span style="font-size: 18px">options</span>
                                         &nbsp;<i class="fas fa-ellipsis-h" style="font-size: 18px;"></i>
                                     </template>
-                                    <b-dropdown-item @click="editSubTasker(index)">edit subtask&nbsp;&nbsp;<i
+                                    <b-dropdown-item @click="editSubTasker(index)">edit task step&nbsp;&nbsp;<i
                                         class="fas fa-edit"></i></b-dropdown-item>
-                                    <b-dropdown-item @click="deleteSubTask(index)">delete subtask&nbsp;&nbsp;<i
+                                    <b-dropdown-item @click="deleteSubTask(index)">delete task step&nbsp;&nbsp;<i
                                         class="fas fa-trash"></i></b-dropdown-item>
                                 </b-dropdown>
                             </div>
-                            <!--                            <b-button size="lg" @click="editSubTasker(index)" variant="info">-->
-                            <!--                                <i class="fas fa-plus "></i> edit sub task-->
-                            <!--                            </b-button>-->
-                            <!--                            <b-button size="lg" @click="deleteSubTask(index)" variant="danger">-->
-                            <!--                                <i class="fas fa-plus "></i> delete sub task-->
-                            <!--                            </b-button>-->
+
                         </div>
                     </draggable>
+
 
                 </b-col>
 

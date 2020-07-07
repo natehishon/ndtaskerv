@@ -15,7 +15,7 @@
                     <b-popover target="jot-pop" triggers="hover blur" placement="top">
                         <b-row>
                             <b-col xs="12">
-                                <span>Jots(definition: to write or mark down quickly or briefly) are questions or comments about a task, task step, etc. You can click on a type to give a little context about your jot and use the form to express your thought.</span>
+                                <span>Jots(definition: to write or mark down quickly or briefly) are questions or comments about a task, task step, etc. You can click on a type to give a little context about your jot and use the form(and emojis!) to express your thought.</span>
                             </b-col>
                         </b-row>
                     </b-popover>

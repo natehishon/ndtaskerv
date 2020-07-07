@@ -61,8 +61,8 @@ class FolderController extends Controller
 
     public function destroy($id)
     {
-        $folders = Folder::query()->findOrFail($id);
-        $folders->delete();
+        $folder = Folder::query()->findOrFail($id);
+        Folder::deleteAll($folder);
         return [
             "success" => true,
         ];

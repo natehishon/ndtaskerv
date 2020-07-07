@@ -2,7 +2,7 @@
 
     <div class="">
 
-        <b-button size="lg" @click="comment()" class="mb-3" variant="success">
+        <b-button size="lg" @click="comment()" class="mb-3 large-button" variant="success">
             <i class="fas fa-plus "></i> comment
         </b-button>
 
@@ -46,11 +46,23 @@
         </b-modal>
 
         <div v-if="jot">
-            {{jot.title}}
-                <div class="content-class">
-                    {{jot.user.name}}:
-                    <v-runtime-template :template="'<div>' + jot.content_html + '</div>'"/>
+
+            <div class="jot-top-container">
+
+                <div class="jot-stats">
+                    jot user: {{jot.user.name}}<br>
+                    jot title: {{jot.title}}<br>
+                    jot content: <v-runtime-template :template="'<div>' + jot.content_html + '</div>'"/>
                 </div>
+
+                <div class="jotable" v-if="jot.jotable">
+
+                </div>
+
+            </div>
+
+
+
 
             <div v-for="(response, index) in jot.jot_responses" class="content-class">
                 {{response.user.name}}:

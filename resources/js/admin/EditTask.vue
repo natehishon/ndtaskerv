@@ -38,11 +38,13 @@
                 <b-col xs="12" sm="6">
 
                     <div class="form-group">
-                        <label>task media</label><br>
-                        <b-form-file
-                            ref="file"
-                            @change="selectTaskFiles"
-                        ></b-form-file>
+                        <div class="media-container">
+                            <label>task media</label>
+                            <div class="large-font">task file: {{ taskFile ? taskFile.name : task.filename }}</div>
+                        </div>
+
+                        <b-form-file ref="file" @change="selectTaskFiles"></b-form-file>
+
                     </div>
 
 
@@ -146,7 +148,7 @@
                             </template>
                         </b-modal>
 
-                        <b-button size="lg" @click="createSubTask()" class="mb-3" variant="primary">
+                        <b-button size="lg" @click="createSubTask()" class="" variant="primary">
                             new sub task&nbsp;&nbsp;<i class="fas fa-plus "></i>
                         </b-button>
 
@@ -161,19 +163,32 @@
 
                     >
                         <div
-                            class="list-group-item cursor-pointer"
+                            class="list-group-item cursor-pointer sub-task-container"
                             v-for="(element, index) in filteredSubs"
                             :key="index"
                         >
                                 {{ element.title }}
+                            <div>
+                                <span class="handle" style="cursor: pointer">sort&nbsp;<i class="fas fa-arrows-alt"></i></span>
+                                <b-dropdown no-caret variant="white" right>
+                                    <template v-slot:button-content>
+                                        <span style="font-size: 18px">options</span>
+                                        &nbsp;<i class="fas fa-ellipsis-h" style="font-size: 18px;"></i>
+                                    </template>
+                                    <b-dropdown-item @click="editSubTasker(index)">edit subtask&nbsp;&nbsp;<i
+                                        class="fas fa-edit"></i></b-dropdown-item>
+                                    <b-dropdown-item @click="deleteSubTask(index)">delete subtask&nbsp;&nbsp;<i
+                                        class="fas fa-trash"></i></b-dropdown-item>
+                                </b-dropdown>
+                            </div>
 
-                                <i class="fas fa-arrows-alt handle"></i>
-                                <b-button size="sm" @click="editSubTasker(index)" variant="info">
-                                    <i class="fas fa-plus "></i> edit sub task
-                                </b-button>
-                                <b-button size="sm" @click="deleteSubTask(index)" variant="danger">
-                                    <i class="fas fa-plus "></i> delete sub task
-                                </b-button>
+<!--                                <i class="fas fa-arrows-alt handle"></i>-->
+<!--                                <b-button size="sm" @click="editSubTasker(index)" variant="info">-->
+<!--                                    <i class="fas fa-plus "></i> edit sub task-->
+<!--                                </b-button>-->
+<!--                                <b-button size="sm" @click="deleteSubTask(index)" variant="danger">-->
+<!--                                    <i class="fas fa-plus "></i> delete sub task-->
+<!--                                </b-button>-->
                             </div>
                     </draggable>
 
@@ -348,3 +363,11 @@
     }
 
 </script>
+
+
+<style lang="scss">
+    .media-container{
+        display: flex;
+        justify-content: space-between;
+    }
+</style>

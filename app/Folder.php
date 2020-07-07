@@ -28,6 +28,35 @@ class Folder extends Model
         return $this->hasMany('App\Folder', 'parent_id')->with('taskTrackings.tasks');
     }
 
+    public static function deleteAll($folder){
+//        $this->taskTrackings()->delete();
+//        $this->children()->delete();
+//        $folder->childrensChildren;
+
+//        dd($folder->childrensChildren->toArray());
+
+        $folder->taskTrackings()->delete();
+
+        foreach ($folder->childrensChildren as $children){
+
+            //delete course tracking
+
+            $children->taskTrackings()->delete();
+
+            if($children->childrensChildren){
+                self::deleteAll($children);
+            }
+
+            $children->delete();
+
+            //delete folder
+        }
+
+        $folder->delete();
+//        $this->childrensChildren()->delete();
+//        parent::delete();
+    }
+
     public function childrensChildren()
     {
         return $this->hasMany('App\Folder', 'parent_id')->with(['childrensChildren', 'taskTrackings.tasks']);

@@ -3431,6 +3431,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -6557,6 +6572,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var v_runtime_template__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! v-runtime-template */ "./node_modules/v-runtime-template/dist/v-runtime-template.es.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -44665,6 +44692,25 @@ exports.push([module.i, ".sub-task-container {\n  display: -webkit-box;\n  displ
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/EditTask.vue?vue&type=style&index=0&lang=scss&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/EditTask.vue?vue&type=style&index=0&lang=scss& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".media-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/FolderTree.vue?vue&type=style&index=0&lang=scss&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/FolderTree.vue?vue&type=style&index=0&lang=scss& ***!
@@ -51783,6 +51829,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/EditTask.vue?vue&type=style&index=0&lang=scss&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/EditTask.vue?vue&type=style&index=0&lang=scss& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./EditTask.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/EditTask.vue?vue&type=style&index=0&lang=scss&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/FolderTree.vue?vue&type=style&index=0&lang=scss&":
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/FolderTree.vue?vue&type=style&index=0&lang=scss& ***!
@@ -56220,7 +56296,7 @@ var render = function() {
                     "div",
                     { staticClass: "form-group" },
                     [
-                      _c("label", [_vm._v("edit sub tasks")]),
+                      _c("label", [_vm._v("edit task steps")]),
                       _c("br"),
                       _vm._v(" "),
                       _c(
@@ -56430,7 +56506,7 @@ var render = function() {
                           attrs: {
                             id: "modalEditID",
                             size: "xl",
-                            title: "edit subtask"
+                            title: "edit task step"
                           },
                           scopedSlots: _vm._u([
                             {
@@ -56633,7 +56709,6 @@ var render = function() {
                       _c(
                         "b-button",
                         {
-                          staticClass: "mb-3",
                           attrs: { size: "lg", variant: "primary" },
                           on: {
                             click: function($event) {
@@ -56642,7 +56717,7 @@ var render = function() {
                           }
                         },
                         [
-                          _vm._v("\n                        new sub task  "),
+                          _vm._v("\n                        new task step  "),
                           _c("i", { staticClass: "fas fa-plus " })
                         ]
                       )
@@ -56746,7 +56821,7 @@ var render = function() {
                                           }
                                         },
                                         [
-                                          _vm._v("edit subtask  "),
+                                          _vm._v("edit task step  "),
                                           _c("i", {
                                             staticClass: "fas fa-edit"
                                           })
@@ -56763,7 +56838,7 @@ var render = function() {
                                           }
                                         },
                                         [
-                                          _vm._v("delete subtask  "),
+                                          _vm._v("delete task step  "),
                                           _c("i", {
                                             staticClass: "fas fa-trash"
                                           })
@@ -56940,7 +57015,7 @@ var render = function() {
                       }
                     },
                     [
-                      _vm._v("\n                    save  "),
+                      _vm._v("\n                        save  "),
                       _c("i", { staticClass: "fas fa-save " })
                     ]
                   )
@@ -56956,8 +57031,20 @@ var render = function() {
                     "div",
                     { staticClass: "form-group" },
                     [
-                      _c("label", [_vm._v("task media")]),
-                      _c("br"),
+                      _c("div", { staticClass: "media-container" }, [
+                        _c("label", [_vm._v("task media")]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "large-font" }, [
+                          _vm._v(
+                            "task file: " +
+                              _vm._s(
+                                _vm.taskFile
+                                  ? _vm.taskFile.name
+                                  : _vm.task.filename
+                              )
+                          )
+                        ])
+                      ]),
                       _vm._v(" "),
                       _c("b-form-file", {
                         ref: "file",
@@ -57001,7 +57088,7 @@ var render = function() {
                                     [
                                       _c("i", { staticClass: "fas fa-plus " }),
                                       _vm._v(
-                                        " add\n                            "
+                                        " add\n                                "
                                       )
                                     ]
                                   )
@@ -57201,7 +57288,7 @@ var render = function() {
                                     [
                                       _c("i", { staticClass: "fas fa-plus " }),
                                       _vm._v(
-                                        " add\n                            "
+                                        " add\n                                "
                                       )
                                     ]
                                   )
@@ -57344,7 +57431,6 @@ var render = function() {
                       _c(
                         "b-button",
                         {
-                          staticClass: "mb-3",
                           attrs: { size: "lg", variant: "primary" },
                           on: {
                             click: function($event) {
@@ -57353,7 +57439,9 @@ var render = function() {
                           }
                         },
                         [
-                          _vm._v("\n                        new sub task  "),
+                          _vm._v(
+                            "\n                            new sub task  "
+                          ),
                           _c("i", { staticClass: "fas fa-plus " })
                         ]
                       )
@@ -57377,55 +57465,116 @@ var render = function() {
                             "div",
                             {
                               key: index,
-                              staticClass: "list-group-item cursor-pointer"
+                              staticClass:
+                                "list-group-item cursor-pointer sub-task-container"
                             },
                             [
                               _vm._v(
-                                "\n                            " +
+                                "\n                                " +
                                   _vm._s(element.title) +
-                                  "\n\n                            "
+                                  "\n                            "
                               ),
-                              _c("i", {
-                                staticClass: "fas fa-arrows-alt handle"
-                              }),
-                              _vm._v(" "),
                               _c(
-                                "b-button",
-                                {
-                                  attrs: { size: "sm", variant: "info" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.editSubTasker(index)
-                                    }
-                                  }
-                                },
+                                "div",
                                 [
-                                  _c("i", { staticClass: "fas fa-plus " }),
-                                  _vm._v(
-                                    " edit sub task\n                            "
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "handle",
+                                      staticStyle: { cursor: "pointer" }
+                                    },
+                                    [
+                                      _vm._v("sort "),
+                                      _c("i", {
+                                        staticClass: "fas fa-arrows-alt"
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "b-dropdown",
+                                    {
+                                      attrs: {
+                                        "no-caret": "",
+                                        variant: "white",
+                                        right: ""
+                                      },
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "button-content",
+                                            fn: function() {
+                                              return [
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticStyle: {
+                                                      "font-size": "18px"
+                                                    }
+                                                  },
+                                                  [_vm._v("options")]
+                                                ),
+                                                _vm._v(
+                                                  "\n                                         "
+                                                ),
+                                                _c("i", {
+                                                  staticClass:
+                                                    "fas fa-ellipsis-h",
+                                                  staticStyle: {
+                                                    "font-size": "18px"
+                                                  }
+                                                })
+                                              ]
+                                            },
+                                            proxy: true
+                                          }
+                                        ],
+                                        null,
+                                        true
+                                      )
+                                    },
+                                    [
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-dropdown-item",
+                                        {
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.editSubTasker(index)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _vm._v("edit subtask  "),
+                                          _c("i", {
+                                            staticClass: "fas fa-edit"
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-dropdown-item",
+                                        {
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.deleteSubTask(index)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _vm._v("delete subtask  "),
+                                          _c("i", {
+                                            staticClass: "fas fa-trash"
+                                          })
+                                        ]
+                                      )
+                                    ],
+                                    1
                                   )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "b-button",
-                                {
-                                  attrs: { size: "sm", variant: "danger" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.deleteSubTask(index)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c("i", { staticClass: "fas fa-plus " }),
-                                  _vm._v(
-                                    " delete sub task\n                            "
-                                  )
-                                ]
+                                ],
+                                1
                               )
-                            ],
-                            1
+                            ]
                           )
                         }),
                         0
@@ -60630,7 +60779,7 @@ var render = function() {
                                     _c("b-col", { attrs: { xs: "12" } }, [
                                       _c("span", [
                                         _vm._v(
-                                          "Jots(definition: to write or mark down quickly or briefly) are questions or comments about a task, task step, etc. You can click on a type to give a little context about your jot and use the form to express your thought."
+                                          "Jots(definition: to write or mark down quickly or briefly) are questions or comments about a task, task step, etc. You can click on a type to give a little context about your jot and use the form(and emojis!) to express your thought."
                                         )
                                       ])
                                     ])
@@ -60647,7 +60796,7 @@ var render = function() {
                     ],
                     null,
                     false,
-                    2437423513
+                    3390040069
                   )
                 },
                 [
@@ -61100,7 +61249,7 @@ var render = function() {
       _c(
         "b-button",
         {
-          staticClass: "mb-3",
+          staticClass: "mb-3 large-button",
           attrs: { size: "lg", variant: "success" },
           on: {
             click: function($event) {
@@ -61215,24 +61364,33 @@ var render = function() {
         ? _c(
             "div",
             [
-              _vm._v("\n        " + _vm._s(_vm.jot.title) + "\n            "),
-              _c(
-                "div",
-                { staticClass: "content-class" },
-                [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.jot.user.name) +
-                      ":\n                "
-                  ),
-                  _c("v-runtime-template", {
-                    attrs: {
-                      template: "<div>" + _vm.jot.content_html + "</div>"
-                    }
-                  })
-                ],
-                1
-              ),
+              _c("div", { staticClass: "jot-top-container" }, [
+                _c(
+                  "div",
+                  { staticClass: "jot-stats" },
+                  [
+                    _vm._v(
+                      "\n                jot user: " + _vm._s(_vm.jot.user.name)
+                    ),
+                    _c("br"),
+                    _vm._v(
+                      "\n                jot title: " + _vm._s(_vm.jot.title)
+                    ),
+                    _c("br"),
+                    _vm._v("\n                jot content: "),
+                    _c("v-runtime-template", {
+                      attrs: {
+                        template: "<div>" + _vm.jot.content_html + "</div>"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm.jot.jotable
+                  ? _c("div", { staticClass: "jotable" })
+                  : _vm._e()
+              ]),
               _vm._v(" "),
               _vm._l(_vm.jot.jot_responses, function(response, index) {
                 return _c(
@@ -61676,7 +61834,10 @@ var render = function() {
                       { staticClass: "image-container" },
                       [
                         _c("b-img", {
-                          staticStyle: { cursor: "pointer" },
+                          staticStyle: {
+                            cursor: "pointer",
+                            "max-height": "400px"
+                          },
                           attrs: {
                             center: "",
                             src: _vm.sub_task.image_url,
@@ -88339,7 +88500,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _EditTask_vue_vue_type_template_id_600137e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditTask.vue?vue&type=template&id=600137e6& */ "./resources/js/admin/EditTask.vue?vue&type=template&id=600137e6&");
 /* harmony import */ var _EditTask_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditTask.vue?vue&type=script&lang=js& */ "./resources/js/admin/EditTask.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _EditTask_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditTask.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/admin/EditTask.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -88347,7 +88510,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _EditTask_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _EditTask_vue_vue_type_template_id_600137e6___WEBPACK_IMPORTED_MODULE_0__["render"],
   _EditTask_vue_vue_type_template_id_600137e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -88376,6 +88539,22 @@ component.options.__file = "resources/js/admin/EditTask.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTask_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./EditTask.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/EditTask.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTask_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/EditTask.vue?vue&type=style&index=0&lang=scss&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/admin/EditTask.vue?vue&type=style&index=0&lang=scss& ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTask_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./EditTask.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/EditTask.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTask_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTask_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTask_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTask_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTask_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
