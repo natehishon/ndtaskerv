@@ -34,7 +34,7 @@ class SearchController extends Controller
         $taskResults = $searchHelper->taskSearch($searchWord);
         $subTaskResults = $searchHelper->subTaskSearch($searchWord);
         $jargonResults = $searchHelper->modelSearch('jargons', $searchWord);
-        $folderResults = $searchHelper->titleSearch('user_folders', $searchWord);
+        $folderResults = $searchHelper->folderSearch($searchWord);
         $jotResults = $searchHelper->jotSearch($searchWord);
         $jotConvo = $searchHelper->jotConvoSearch($searchWord);
         $searchHistories = $searchHelper->userHistory($searchWord);

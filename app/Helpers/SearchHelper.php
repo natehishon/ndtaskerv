@@ -71,6 +71,75 @@ class SearchHelper
 
     }
 
+    function folderSearch($query)
+    {
+
+        $user = JWTAuth::user();
+        //ready our query
+        $query = trim($query);
+        if (mb_strlen($query) === 0) {
+            return false;
+        }
+        $query = $this->limitChars($query);
+        $keywords = $this->filterSearchKeys($query);
+        $escQuery = $this->escape_like($query);
+        $titleSQL = array();
+
+        //set scores
+        $scoreExactMatchTitle = 6;
+        $scoreFullTitle = 4;
+        $scoreTitleKeyword = 3;
+
+
+        //escaped query in total
+        if (count($keywords) > 0) {
+            $titleSQL[] = "(case when title = '" . $escQuery . "' then {$scoreExactMatchTitle} else 0 end)";
+            $titleSQL[] = "(case when title LIKE '%" . $escQuery . "%' then {$scoreFullTitle} else 0 end)";
+        }
+
+        //going through each word
+        foreach ($keywords as $key) {
+            $titleSQL[] = "(case when title LIKE '%" . $this->escape_like($key) . "%' then {$scoreTitleKeyword} else 0 end)";
+        }
+
+
+        if (empty($titleSQL)) {
+            $titleSQL[] = 0;
+        }
+
+
+        $sql = "SELECT t.id,t.title,t.slug,t.created_at,
+
+            (
+                (" . implode(" + ", $titleSQL) . ")
+            ) as score
+            FROM user_folders t
+            where t.user_id = " . $user->id . "
+           group by t.id, t.title,t.created_at
+            HAVING (
+                (" . implode(" + ", $titleSQL) . ")
+            ) > 0
+
+            ORDER BY score DESC
+            LIMIT 25";
+
+        $results = DB::select(DB::raw($sql));
+
+
+        $models = Folder::hydrate($results);
+
+
+        foreach ($models as $model) {
+            $folder = Folder::query()->find($model->id);
+            $model->all_parents = $folder->getFullSlug();
+        }
+
+        if (!$results) {
+            return [];
+        }
+        return $models;
+    }
+
     function titleSearch($model, $query)
     {
 
