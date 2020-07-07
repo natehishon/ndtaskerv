@@ -5275,10 +5275,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push(this.$route.path);
     },
     choose: function choose(row) {
-      console.log("HEY");
-
       if (row.type === 'task') {
-        console.log("YO");
         this.task = row;
 
         if (this.task.sub_task.length > 0) {
@@ -5302,7 +5299,6 @@ __webpack_require__.r(__webpack_exports__);
           }];
         }
 
-        console.log(this.subTaskCopy);
         this.$bvModal.show("modalID");
       }
 
@@ -5361,16 +5357,13 @@ __webpack_require__.r(__webpack_exports__);
     searchTaskSelect: function searchTaskSelect(result) {
       var _this3 = this;
 
-      // console.log(this.$route.name);
-      // this.$router.push({name: 'home', path: `${result.fullSlug}`})
-      //.$router.push({name: 'reading-comprehension', params: {guid:self.userInfo.uniqueID }});
       if (this.$router.currentRoute.path === "/") {
         this.$router.replace({
           path: "".concat(result.fullSlug),
           query: {
             taskID: result.id
           }
-        }); // this.$router.push({ path: `${result.fullSlug}`, params: {test: result.id}})
+        });
       } else {
         this.$router.push({
           name: 'home'
@@ -5618,6 +5611,16 @@ __webpack_require__.r(__webpack_exports__);
               _this5.task = folder;
 
               if (_this5.task.sub_task.length > 0) {
+                if (_this5.$route.query.subTaskID) {
+                  _this5.task.sub_task.forEach(sub, function (index) {
+                    if (sub.id == _this5.$route.query.subTaskID) {
+                      _this5.currentSlide = index;
+                    }
+                  });
+
+                  _this5.currentSlide = 1;
+                }
+
                 _this5.subTaskCopy = JSON.parse(JSON.stringify(_this5.task.sub_task));
                 var startSub = {
                   title: "start!",
@@ -5661,8 +5664,6 @@ __webpack_require__.r(__webpack_exports__);
     var split = trimmed.split("/");
     this.breadCrumbs = this.breadCrumbs.concat(split);
     var last = this.breadCrumbs.slice(-1)[0];
-    console.log("last");
-    console.log(last);
 
     if (last === 'folders' || !last) {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('folders').then(function (response) {

@@ -361,7 +361,7 @@ class SearchHelper
         }
 
 
-        $sql = "SELECT distinct st.id, st.title, f.id as folderID, f.slug, t.id as taskID,
+        $sql = "SELECT distinct st.id, st.title, f.id as folderid, f.slug, t.id as taskID,
             st.content,
             (
                 (" . implode(" + ", $titleSQL) . ")

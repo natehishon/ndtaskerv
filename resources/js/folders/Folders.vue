@@ -288,10 +288,7 @@
             },
             choose(row) {
 
-                console.log("HEY");
-
                 if (row.type === 'task') {
-                    console.log("YO")
                     this.task = row;
 
                     if (this.task.sub_task.length > 0) {
@@ -316,9 +313,6 @@
                             }
                         ];
                     }
-
-                    console.log(this.subTaskCopy);
-
                     this.$bvModal.show("modalID");
                 }
 
@@ -361,13 +355,9 @@
             },
 
             searchTaskSelect(result) {
-                // console.log(this.$route.name);
-                // this.$router.push({name: 'home', path: `${result.fullSlug}`})
-                //.$router.push({name: 'reading-comprehension', params: {guid:self.userInfo.uniqueID }});
 
                 if (this.$router.currentRoute.path === "/") {
                     this.$router.replace({path: `${result.fullSlug}`, query: {taskID: result.id}})
-                    // this.$router.push({ path: `${result.fullSlug}`, params: {test: result.id}})
                 } else {
                     this.$router.push({name: 'home'},
                         () => this.$router.replace({path: `${result.fullSlug}`, query: {taskID: result.id}}))
@@ -479,14 +469,24 @@
             },
 
             openTask() {
+
                 if (this.$route.query.taskID) {
                     this.folders.forEach(folder => {
                         if (folder.type === 'task') {
 
                             if (folder.id == this.$route.query.taskID) {
-                                this.task = folder;
 
+                                this.task = folder;
                                 if (this.task.sub_task.length > 0) {
+                                    if(this.$route.query.subTaskID){
+                                        this.task.sub_task.forEach(sub,index => {
+                                            if(sub.id == this.$route.query.subTaskID){
+                                                this.currentSlide = index;
+                                            }
+                                        })
+
+                                        this.currentSlide = 1;
+                                    }
                                     this.subTaskCopy = JSON.parse(JSON.stringify(this.task.sub_task));
                                     let startSub = {
                                         title: "start!",
@@ -506,9 +506,8 @@
                                         }
                                     ];
                                 }
-
-
                                 this.$bvModal.show("modalID");
+
                             }
                         }
                     })
@@ -538,9 +537,6 @@
             this.breadCrumbs = this.breadCrumbs.concat(split)
 
             let last = this.breadCrumbs.slice(-1)[0];
-
-            console.log("last");
-            console.log(last);
 
             if (last === 'folders' || !last) {
                 axios.get('folders').then(response => {
