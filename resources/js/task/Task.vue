@@ -5,7 +5,7 @@
 
         <b-row>
             <b-col sm="12">
-                <b-tabs pills card vertical fill class="tabs-yo" v-model="taskIndex" >
+                <b-tabs pills card vertical fill class="tabs-yo" v-model="taskIndex" nav-wrapper-class="col-sm-4 col-md-2" >
 
                     <div v-if="!sub[0].task">
 

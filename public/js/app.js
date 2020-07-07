@@ -62001,7 +62001,13 @@ var render = function() {
                 "b-tabs",
                 {
                   staticClass: "tabs-yo",
-                  attrs: { pills: "", card: "", vertical: "", fill: "" },
+                  attrs: {
+                    pills: "",
+                    card: "",
+                    vertical: "",
+                    fill: "",
+                    "nav-wrapper-class": "col-sm-4 col-md-2"
+                  },
                   model: {
                     value: _vm.taskIndex,
                     callback: function($$v) {
