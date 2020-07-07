@@ -397,8 +397,7 @@ class SearchHelper
         $models = SubTask::hydrate($results);
 
         foreach ($models as $model) {
-            dd($model);
-            $folder = Folder::query()->find($model->folderID);
+            $folder = Folder::query()->find($model->folderid);
             $model->all_parents = $folder->getFullSlug();
         }
 
