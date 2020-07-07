@@ -5612,7 +5612,7 @@ __webpack_require__.r(__webpack_exports__);
 
               if (_this5.task.sub_task.length > 0) {
                 if (_this5.$route.query.subTaskID) {
-                  _this5.task.sub_task.forEach(sub, function (index) {
+                  _this5.task.sub_task.forEach(function (sub, index) {
                     if (sub.id == _this5.$route.query.subTaskID) {
                       _this5.currentSlide = index;
                     }

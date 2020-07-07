@@ -479,7 +479,7 @@
                                 this.task = folder;
                                 if (this.task.sub_task.length > 0) {
                                     if(this.$route.query.subTaskID){
-                                        this.task.sub_task.forEach(sub,index => {
+                                        this.task.sub_task.forEach((sub,index) => {
                                             if(sub.id == this.$route.query.subTaskID){
                                                 this.currentSlide = index;
                                             }
