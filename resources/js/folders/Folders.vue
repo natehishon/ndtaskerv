@@ -309,6 +309,7 @@
                             {
                                 taskTitle: this.task.title,
                                 id: this.task.id,
+                                searchType: this.task.searchType,
                                 task: true
                             }
                         ];
@@ -502,7 +503,8 @@
                                     this.subTaskCopy = [
                                         {
                                             taskTitle: this.task.title,
-                                            id: this.task.id
+                                            id: this.task.id,
+                                            searchType: this.task.searchType,
                                         }
                                     ];
                                 }

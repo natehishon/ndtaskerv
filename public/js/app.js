@@ -5295,6 +5295,7 @@ __webpack_require__.r(__webpack_exports__);
           this.subTaskCopy = [{
             taskTitle: this.task.title,
             id: this.task.id,
+            searchType: this.task.searchType,
             task: true
           }];
         }
@@ -5636,7 +5637,8 @@ __webpack_require__.r(__webpack_exports__);
               } else {
                 _this5.subTaskCopy = [{
                   taskTitle: _this5.task.title,
-                  id: _this5.task.id
+                  id: _this5.task.id,
+                  searchType: _this5.task.searchType
                 }];
               }
 
