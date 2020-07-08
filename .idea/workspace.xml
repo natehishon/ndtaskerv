@@ -22,11 +22,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/SearchHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/SearchHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SearchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/task/Task.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/task/Task.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +236,7 @@
       <workItem from="1592238578306" duration="1704000" />
       <workItem from="1592241851504" duration="9066000" />
       <workItem from="1592620720318" duration="15016000" />
-      <workItem from="1592958720211" duration="92887000" />
+      <workItem from="1592958720211" duration="93511000" />
     </task>
     <servers />
   </component>
@@ -319,14 +315,14 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1591585096105" />
-    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1594155061352">
+    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1594165639547">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1594155061352" />
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1594165234243">
+    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1594165639547" />
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1594166886970">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1594165234243" />
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1594166886970" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
