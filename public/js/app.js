@@ -62085,6 +62085,7 @@ var render = function() {
               _vm.sub[0].task
                 ? _c(
                     "div",
+                    { staticClass: "pr-3 pl-3" },
                     [
                       _c("sub-task-slide", {
                         staticClass: "sub-slide",

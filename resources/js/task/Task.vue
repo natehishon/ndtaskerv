@@ -17,7 +17,7 @@
                     </div>
                 </b-tabs>
 
-                <div v-if="sub[0].task">
+                <div v-if="sub[0].task" class="pr-3 pl-3">
                     <sub-task-slide class="sub-slide"
                                     v-bind:sub_task="task"></sub-task-slide>
                 </div>
