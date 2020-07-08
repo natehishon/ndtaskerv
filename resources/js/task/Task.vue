@@ -5,9 +5,9 @@
 
         <b-row>
             <b-col sm="12">
-                <b-tabs v-if="sub" pills card vertical fill class="tabs-yo" v-model="taskIndex" nav-wrapper-class="col-sm-4 col-md-2" >
+                <b-tabs v-if="!sub[0].task" pills card vertical fill class="tabs-yo" v-model="taskIndex" nav-wrapper-class="col-sm-4 col-md-2" >
 
-                    <div v-if="!sub[0].task">
+                    <div>
 
                         <b-tab  v-for="(subTask, index) in sub" @click="tabClick(index)" :title="subTask.title" :key="subTask.id">
                             <sub-task-slide class="sub-slide" v-if="subTask"
@@ -15,15 +15,13 @@
                         </b-tab>
 
                     </div>
-
-                    <div v-if="sub[0].task">
-                        <sub-task-slide class="sub-slide"
-                                        v-bind:sub_task="task"></sub-task-slide>
-                    </div>
-
-
-
                 </b-tabs>
+
+                <div v-if="sub[0].task">
+                    <sub-task-slide class="sub-slide"
+                                    v-bind:sub_task="task"></sub-task-slide>
+                </div>
+
             </b-col>
 
 

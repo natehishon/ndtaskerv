@@ -7115,8 +7115,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -62032,7 +62030,7 @@ var render = function() {
             "b-col",
             { attrs: { sm: "12" } },
             [
-              _vm.sub
+              !_vm.sub[0].task
                 ? _c(
                     "b-tabs",
                     {
@@ -62053,49 +62051,47 @@ var render = function() {
                       }
                     },
                     [
-                      !_vm.sub[0].task
-                        ? _c(
-                            "div",
-                            _vm._l(_vm.sub, function(subTask, index) {
-                              return _c(
-                                "b-tab",
-                                {
-                                  key: subTask.id,
-                                  attrs: { title: subTask.title },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.tabClick(index)
-                                    }
-                                  }
-                                },
-                                [
-                                  subTask
-                                    ? _c("sub-task-slide", {
-                                        staticClass: "sub-slide",
-                                        attrs: { sub_task: subTask }
-                                      })
-                                    : _vm._e()
-                                ],
-                                1
-                              )
-                            }),
-                            1
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.sub[0].task
-                        ? _c(
-                            "div",
+                      _c(
+                        "div",
+                        _vm._l(_vm.sub, function(subTask, index) {
+                          return _c(
+                            "b-tab",
+                            {
+                              key: subTask.id,
+                              attrs: { title: subTask.title },
+                              on: {
+                                click: function($event) {
+                                  return _vm.tabClick(index)
+                                }
+                              }
+                            },
                             [
-                              _c("sub-task-slide", {
-                                staticClass: "sub-slide",
-                                attrs: { sub_task: _vm.task }
-                              })
+                              subTask
+                                ? _c("sub-task-slide", {
+                                    staticClass: "sub-slide",
+                                    attrs: { sub_task: subTask }
+                                  })
+                                : _vm._e()
                             ],
                             1
                           )
-                        : _vm._e()
+                        }),
+                        1
+                      )
                     ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.sub[0].task
+                ? _c(
+                    "div",
+                    [
+                      _c("sub-task-slide", {
+                        staticClass: "sub-slide",
+                        attrs: { sub_task: _vm.task }
+                      })
+                    ],
+                    1
                   )
                 : _vm._e()
             ],
