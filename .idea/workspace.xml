@@ -22,7 +22,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/folders/Folders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/folders/Folders.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/service-worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Nav.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/auth/SignIn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/SignIn.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/auth/SignUp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/SignUp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/jots/UserJots.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jots/UserJots.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +241,7 @@
       <workItem from="1592238578306" duration="1704000" />
       <workItem from="1592241851504" duration="9066000" />
       <workItem from="1592620720318" duration="15016000" />
-      <workItem from="1592958720211" duration="94988000" />
+      <workItem from="1592958720211" duration="97303000" />
     </task>
     <servers />
   </component>
@@ -315,14 +320,14 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1591585096105" />
-    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1594165639547">
+    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1594308974549">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1594165639547" />
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1594166886970">
+    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1594308974549" />
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1594308913256">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1594166886970" />
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1594308913256" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

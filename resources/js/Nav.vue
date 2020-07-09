@@ -120,6 +120,7 @@
                         this.infoText = "Manager user folders here: create a new folder for a user and assign tasks to that folder.";
                         return 'manage user folders'
                     case 'home':
+                        this.infoText = "wayfinder is an application designed to help you succeed at work! Click on folders to open them and click on tasks to launch them. You can also search for something you can't find.";
                         return 'wayfinder'
                     case 'jots':
                         this.infoText = "Jots(definition: to write or mark down quickly or briefly) are questions or comments about a task, task step, etc. You can click on options > check jots to ask further questions and see response.";

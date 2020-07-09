@@ -6,7 +6,7 @@
             <b-col sm="8" md="6" lg="4" offset-sm="2" offset-md="3" offset-lg="4" >
 
 
-                <b-card class="mt-5 "
+                <b-card class="mt-5 mb-5"
                         header="sign in"
                         header-tag="header"
                         header-class="login-header"

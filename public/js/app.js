@@ -2610,6 +2610,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return 'manage user folders';
 
         case 'home':
+          this.infoText = "wayfinder is an application designed to help you succeed at work! Click on folders to open them and click on tasks to launch them. You can also search for something you can't find.";
           return 'wayfinder';
 
         case 'jots':
@@ -6577,6 +6578,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var v_runtime_template__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! v-runtime-template */ "./node_modules/v-runtime-template/dist/v-runtime-template.es.js");
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -59235,7 +59243,7 @@ var render = function() {
               _c(
                 "b-card",
                 {
-                  staticClass: "mt-5 ",
+                  staticClass: "mt-5 mb-5",
                   attrs: {
                     header: "sign in",
                     "header-tag": "header",
@@ -59407,7 +59415,7 @@ var render = function() {
               _c(
                 "b-card",
                 {
-                  staticClass: "mt-5",
+                  staticClass: "mt-5 mb-5",
                   attrs: {
                     header: "sign up",
                     "header-tag": "header",
@@ -61339,6 +61347,12 @@ var render = function() {
                                   "#FBE571",
                                   "#FFFFFF"
                                 ],
+
+                                events: {
+                                  "froalaEditor.initialized": function() {
+                                    _vm.console.log("initialized")
+                                  }
+                                },
                                 quickInsertTags: [],
                                 toolbarButtons: ["emoticons"],
                                 paragraphFormatSelection: true,
@@ -61387,7 +61401,7 @@ var render = function() {
                       "\n                jot title: " + _vm._s(_vm.jot.title)
                     ),
                     _c("br"),
-                    _vm._v("\n                jot content: "),
+                    _vm._v("\n                jot content:\n                "),
                     _c("v-runtime-template", {
                       attrs: {
                         template: "<div>" + _vm.jot.content_html + "</div>"

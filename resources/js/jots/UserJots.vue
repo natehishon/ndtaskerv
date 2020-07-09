@@ -16,13 +16,21 @@
 
                         <b-col xs="10">
                             <div class="form-group">
-                                <froala :tag="'textarea'" :key="'nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2=='" :attribution="false" :config="{
+                                <froala :tag="'textarea'"
+                                        :key="'nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2=='"
+                                        :attribution="false" :config="{
 
                     colorsStep: 6,
                     colorsText: [
                         '#15E67F', '#E3DE8C', '#D8A076', '#D83762', '#76B6D8', 'REMOVE',
                         '#1C7A90', '#249CB8', '#4ABED9', '#FBD75B', '#FBE571', '#FFFFFF'
                     ],
+
+                    events: {
+                        'froalaEditor.initialized': function () {
+                            console.log('initialized')
+                        }
+                    },
                     quickInsertTags: [],
                     toolbarButtons: ['emoticons'],
                     paragraphFormatSelection: true,
@@ -52,7 +60,8 @@
                 <div class="jot-stats">
                     jot user: {{jot.user.name}}<br>
                     jot title: {{jot.title}}<br>
-                    jot content: <v-runtime-template :template="'<div>' + jot.content_html + '</div>'"/>
+                    jot content:
+                    <v-runtime-template :template="'<div>' + jot.content_html + '</div>'"/>
                 </div>
 
                 <div class="jotable" v-if="jot.jotable">
@@ -60,8 +69,6 @@
                 </div>
 
             </div>
-
-
 
 
             <div v-for="(response, index) in jot.jot_responses" class="content-class">
@@ -111,7 +118,6 @@
         methods: {
             comment() {
                 this.$bvModal.show("userJot");
-
             },
             addComment() {
                 if (this.jotComment) {
