@@ -5198,6 +5198,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -44855,7 +44878,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".search-list {\n  list-style-type: none;\n}\n.search-list li div {\n  display: inline-block;\n}\n.imageColumn {\n  width: 130px;\n}\n.imageHeader {\n  visibility: hidden;\n}\n.table-header {\n  text-transform: lowercase;\n}\n.folder-table {\n  font-size: 22px;\n}\n.folder-table tr {\n  cursor: pointer;\n  outline: none;\n}\n.folder-table td {\n  cursor: pointer !important;\n  outline: none;\n}\n.folder-table table thead th {\n  border-top: 0;\n}\n.breadcrumb-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  margin-bottom: 50px;\n}\n.breadcrumb-container .search-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.breadcrumb-container .search-container .search-button {\n  font-size: 22px;\n}\n.breadcrumb-container .breadcrumb-ul {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-pack: start;\n  justify-content: flex-start;\n  /*margin: 30px 0;*/\n  padding: 0;\n  font-size: 22px;\n  font-weight: 500;\n}\n.breadcrumb-container .breadcrumb-ul li {\n  -webkit-box-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: flex;\n}\n.breadcrumb-container .breadcrumb-ul li span {\n  padding: 0.75em;\n  font-weight: 900;\n  cursor: pointer;\n}\n.breadcrumb-container .breadcrumb-ul li:first-child {\n  padding-left: 0;\n}\n.breadcrumb-container .breadcrumb-ul li:first-child span:first-child {\n  padding-left: 12px;\n}\n.breadcrumb-container .breadcrumb-ul li + li:before {\n  /*color: #b5b5b5;*/\n  content: \"/\";\n}\n.search-form-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  flex-wrap: nowrap;\n  margin-bottom: 10px;\n}\n.search-form-container .search-button-container {\n  width: 105px;\n}\n.highlightText {\n  background: yellow;\n}\n.type-class {\n  max-width: 60px;\n}", ""]);
+exports.push([module.i, ".search-button {\n  font-size: 1.2rem;\n}\n.search-list {\n  list-style-type: none;\n}\n.search-list li div {\n  display: inline-block;\n}\n.imageColumn {\n  width: 130px;\n}\n.imageHeader {\n  visibility: hidden;\n}\n.table-header {\n  text-transform: lowercase;\n}\n.folder-table {\n  font-size: 22px;\n}\n.folder-table tr {\n  cursor: pointer;\n  outline: none;\n}\n.folder-table td {\n  cursor: pointer !important;\n  outline: none;\n}\n.folder-table table thead th {\n  border-top: 0;\n}\n.breadcrumb-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  margin-bottom: 50px;\n}\n.breadcrumb-container .search-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.breadcrumb-container .search-container .search-button {\n  font-size: 22px;\n}\n.breadcrumb-container .breadcrumb-ul {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-pack: start;\n  justify-content: flex-start;\n  /*margin: 30px 0;*/\n  padding: 0;\n  font-size: 22px;\n  font-weight: 500;\n}\n.breadcrumb-container .breadcrumb-ul li {\n  -webkit-box-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: flex;\n}\n.breadcrumb-container .breadcrumb-ul li span {\n  padding: 0.75em;\n  font-weight: 900;\n  cursor: pointer;\n}\n.breadcrumb-container .breadcrumb-ul li:first-child {\n  padding-left: 0;\n}\n.breadcrumb-container .breadcrumb-ul li:first-child span:first-child {\n  padding-left: 12px;\n}\n.breadcrumb-container .breadcrumb-ul li + li:before {\n  /*color: #b5b5b5;*/\n  content: \"/\";\n}\n.search-form-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  flex-wrap: nowrap;\n  margin-bottom: 10px;\n}\n.search-form-container .search-button-container {\n  width: 105px;\n}\n.highlightText {\n  background: #3490dc;\n  color: white;\n}\n.type-class {\n  max-width: 60px;\n}\n.search-list-item {\n  cursor: pointer;\n}\n.search-card-title {\n  font-weight: 700;\n}\n.search-card-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  flex-wrap: wrap;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.tasks-container {\n  margin-bottom: 10px;\n}", ""]);
 
 // exports
 
@@ -59647,7 +59670,7 @@ var render = function() {
                             }
                           },
                           [
-                            _vm._v("\n                            search "),
+                            _vm._v("\n                                search "),
                             _c("i", { staticClass: "fas fa-search" })
                           ]
                         )
@@ -59789,12 +59812,12 @@ var render = function() {
                   _c(
                     "b-button",
                     {
-                      staticClass: "large-button",
+                      staticClass: "search-button",
                       attrs: { size: "md", variant: "secondary" },
                       on: { click: _vm.close }
                     },
                     [
-                      _vm._v("\n                cancel  "),
+                      _vm._v("\n                    cancel  "),
                       _c("i", { staticClass: "fas fa-times " })
                     ]
                   )
@@ -59859,7 +59882,7 @@ var render = function() {
                         _c(
                           "b-button",
                           {
-                            staticClass: "large-button",
+                            staticClass: "search-button",
                             attrs: { size: "md", variant: "primary" },
                             on: {
                               click: function($event) {
@@ -59868,7 +59891,9 @@ var render = function() {
                             }
                           },
                           [
-                            _vm._v("\n                            search  "),
+                            _vm._v(
+                              "\n                                search  "
+                            ),
                             _c("i", { staticClass: "fas fa-search" })
                           ]
                         )
@@ -59887,41 +59912,45 @@ var render = function() {
                     _vm.searchResponse.folders.length > 0
                       ? _c("div", { staticClass: "tasks-container" }, [
                           _vm._v(
-                            "\n                        folders:\n                        "
+                            "\n                            folders:\n                            "
                           ),
                           _c(
-                            "ul",
-                            { staticClass: "search-list" },
+                            "div",
+                            { staticClass: "search-card-container" },
                             _vm._l(_vm.searchResponse.folders, function(
                               result,
                               index
                             ) {
                               return _c(
-                                "li",
+                                "b-card",
                                 {
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.searchFolderSelect(result)
-                                    }
+                                  key: index,
+                                  staticStyle: {
+                                    width: "18rem",
+                                    cursor: "pointer"
                                   }
                                 },
                                 [
-                                  _vm._v(
-                                    "\n                                title:\n                                "
-                                  ),
-                                  _c("v-runtime-template", {
-                                    attrs: {
-                                      template:
-                                        "<div>" +
-                                        result.highlightedTitle +
-                                        "</div>"
-                                    }
-                                  })
+                                  _c(
+                                    "b-card-text",
+                                    { staticClass: "search-card-title" },
+                                    [
+                                      _c("v-runtime-template", {
+                                        attrs: {
+                                          template:
+                                            "<div>" +
+                                            result.highlightedTitle +
+                                            "</div>"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
                                 ],
                                 1
                               )
                             }),
-                            0
+                            1
                           )
                         ])
                       : _vm._e(),
@@ -59930,54 +59959,62 @@ var render = function() {
                       _vm.searchResponse.tasks.length > 0
                         ? _c("div", { staticClass: "tasks-container" }, [
                             _vm._v(
-                              "\n                            tasks:\n                            "
+                              "\n                                tasks:\n                                "
                             ),
                             _c(
-                              "ul",
-                              { staticClass: "search-list" },
+                              "div",
+                              { staticClass: "search-card-container" },
                               _vm._l(_vm.searchResponse.tasks, function(
                                 result,
                                 index
                               ) {
                                 return _c(
-                                  "li",
+                                  "b-card",
                                   {
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.searchTaskSelect(result)
-                                      }
+                                    key: index,
+                                    staticStyle: {
+                                      "max-width": "18rem",
+                                      cursor: "pointer"
                                     }
                                   },
                                   [
-                                    _vm._v(
-                                      "\n\n                                    title:\n                                    "
+                                    _c(
+                                      "b-card-title",
+                                      { staticClass: "search-card-title" },
+                                      [
+                                        _c("v-runtime-template", {
+                                          attrs: {
+                                            template:
+                                              "<div>" +
+                                              result.highlightedTitle +
+                                              "</div>"
+                                          }
+                                        })
+                                      ],
+                                      1
                                     ),
-                                    _c("v-runtime-template", {
-                                      attrs: {
-                                        template:
-                                          "<div>" +
-                                          result.highlightedTitle +
-                                          "</div>"
-                                      }
-                                    }),
                                     _vm._v(" "),
-                                    _c("br"),
-                                    _vm._v(
-                                      "\n                                    content:\n                                    "
-                                    ),
-                                    _c("v-runtime-template", {
-                                      attrs: {
-                                        template:
-                                          "<div>" +
-                                          result.highlightedContent +
-                                          "</div>"
-                                      }
-                                    })
+                                    _c("hr"),
+                                    _vm._v(" "),
+                                    _c(
+                                      "b-card-text",
+                                      [
+                                        _c("v-runtime-template", {
+                                          attrs: {
+                                            template:
+                                              "<div>" +
+                                              result.highlightedContent +
+                                              "</div>"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
                                   ],
                                   1
                                 )
                               }),
-                              0
+                              1
                             )
                           ])
                         : _vm._e()
@@ -59986,54 +60023,62 @@ var render = function() {
                     _vm.searchResponse.subTasks.length > 0
                       ? _c("div", { staticClass: "tasks-container" }, [
                           _vm._v(
-                            "\n                        task steps:\n                        "
+                            "\n\n                            task steps:\n                            "
                           ),
                           _c(
-                            "ul",
-                            { staticClass: "search-list" },
+                            "div",
+                            { staticClass: "search-card-container" },
                             _vm._l(_vm.searchResponse.subTasks, function(
                               result,
                               index
                             ) {
                               return _c(
-                                "li",
+                                "b-card",
                                 {
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.searchSubSelect(result)
-                                    }
+                                  key: index,
+                                  staticStyle: {
+                                    width: "18rem",
+                                    cursor: "pointer"
                                   }
                                 },
                                 [
-                                  _vm._v(
-                                    "\n                                title:\n                                "
+                                  _c(
+                                    "b-card-title",
+                                    { staticClass: "search-card-title" },
+                                    [
+                                      _c("v-runtime-template", {
+                                        attrs: {
+                                          template:
+                                            "<div>" +
+                                            result.highlightedTitle +
+                                            "</div>"
+                                        }
+                                      })
+                                    ],
+                                    1
                                   ),
-                                  _c("v-runtime-template", {
-                                    attrs: {
-                                      template:
-                                        "<div>" +
-                                        result.highlightedTitle +
-                                        "</div>"
-                                    }
-                                  }),
                                   _vm._v(" "),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                                content:\n                                "
-                                  ),
-                                  _c("v-runtime-template", {
-                                    attrs: {
-                                      template:
-                                        "<div>" +
-                                        result.highlightedContent +
-                                        "</div>"
-                                    }
-                                  })
+                                  _c("hr"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "b-card-text",
+                                    [
+                                      _c("v-runtime-template", {
+                                        attrs: {
+                                          template:
+                                            "<div>" +
+                                            result.highlightedContent +
+                                            "</div>"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
                                 ],
                                 1
                               )
                             }),
-                            0
+                            1
                           )
                         ])
                       : _vm._e(),
@@ -60041,54 +60086,62 @@ var render = function() {
                     _vm.searchResponse.jots.length > 0
                       ? _c("div", { staticClass: "tasks-container" }, [
                           _vm._v(
-                            "\n                        jots:\n                        "
+                            "\n                            jots:\n                            "
                           ),
                           _c(
-                            "ul",
-                            { staticClass: "search-list" },
+                            "div",
+                            { staticClass: "search-card-container" },
                             _vm._l(_vm.searchResponse.jots, function(
                               result,
                               index
                             ) {
                               return _c(
-                                "li",
+                                "b-card",
                                 {
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.jotSelect(result)
-                                    }
+                                  key: index,
+                                  staticStyle: {
+                                    width: "18rem",
+                                    cursor: "pointer"
                                   }
                                 },
                                 [
-                                  _vm._v(
-                                    "\n                                title:\n                                "
+                                  _c(
+                                    "b-card-title",
+                                    { staticClass: "search-card-title" },
+                                    [
+                                      _c("v-runtime-template", {
+                                        attrs: {
+                                          template:
+                                            "<div>" +
+                                            result.highlightedTitle +
+                                            "</div>"
+                                        }
+                                      })
+                                    ],
+                                    1
                                   ),
-                                  _c("v-runtime-template", {
-                                    attrs: {
-                                      template:
-                                        "<div>" +
-                                        result.highlightedTitle +
-                                        "</div>"
-                                    }
-                                  }),
                                   _vm._v(" "),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                                content:\n                                "
-                                  ),
-                                  _c("v-runtime-template", {
-                                    attrs: {
-                                      template:
-                                        "<div>" +
-                                        result.highlightedContent +
-                                        "</div>"
-                                    }
-                                  })
+                                  _c("hr"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "b-card-text",
+                                    [
+                                      _c("v-runtime-template", {
+                                        attrs: {
+                                          template:
+                                            "<div>" +
+                                            result.highlightedContent +
+                                            "</div>"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
                                 ],
                                 1
                               )
                             }),
-                            0
+                            1
                           )
                         ])
                       : _vm._e(),
@@ -60096,41 +60149,62 @@ var render = function() {
                     _vm.searchResponse.jotConvo.length > 0
                       ? _c("div", { staticClass: "tasks-container" }, [
                           _vm._v(
-                            "\n                        jot conversation:\n                        "
+                            "\n                            jot conversation:\n                            "
                           ),
                           _c(
-                            "ul",
-                            { staticClass: "search-list" },
+                            "div",
+                            { staticClass: "search-card-container" },
                             _vm._l(_vm.searchResponse.jotConvo, function(
                               result,
                               index
                             ) {
                               return _c(
-                                "li",
+                                "b-card",
                                 {
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.jotConvoSelect(result)
-                                    }
+                                  key: index,
+                                  staticStyle: {
+                                    width: "18rem",
+                                    cursor: "pointer"
                                   }
                                 },
                                 [
-                                  _vm._v(
-                                    "\n                                content:\n                                "
+                                  _c(
+                                    "b-card-title",
+                                    { staticClass: "search-card-title" },
+                                    [
+                                      _c("v-runtime-template", {
+                                        attrs: {
+                                          template:
+                                            "<div>" +
+                                            result.highlightedTitle +
+                                            "</div>"
+                                        }
+                                      })
+                                    ],
+                                    1
                                   ),
-                                  _c("v-runtime-template", {
-                                    attrs: {
-                                      template:
-                                        "<div>" +
-                                        result.highlightedContent +
-                                        "</div>"
-                                    }
-                                  })
+                                  _vm._v(" "),
+                                  _c("hr"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "b-card-text",
+                                    [
+                                      _c("v-runtime-template", {
+                                        attrs: {
+                                          template:
+                                            "<div>" +
+                                            result.highlightedContent +
+                                            "</div>"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
                                 ],
                                 1
                               )
                             }),
-                            0
+                            1
                           )
                         ])
                       : _vm._e(),
@@ -60138,54 +60212,62 @@ var render = function() {
                     _vm.searchResponse.jargons.length > 0
                       ? _c("div", { staticClass: "tasks-container" }, [
                           _vm._v(
-                            "\n                        jargons:\n                        "
+                            "\n                            jargons:\n                            "
                           ),
                           _c(
-                            "ul",
-                            { staticClass: "search-list" },
+                            "div",
+                            { staticClass: "search-card-container" },
                             _vm._l(_vm.searchResponse.jargons, function(
                               result,
                               index
                             ) {
                               return _c(
-                                "li",
+                                "b-card",
                                 {
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.jargonSelect(result)
-                                    }
+                                  key: index,
+                                  staticStyle: {
+                                    width: "18rem",
+                                    cursor: "pointer"
                                   }
                                 },
                                 [
-                                  _vm._v(
-                                    "\n                                title:\n                                "
+                                  _c(
+                                    "b-card-title",
+                                    { staticClass: "search-card-title" },
+                                    [
+                                      _c("v-runtime-template", {
+                                        attrs: {
+                                          template:
+                                            "<div>" +
+                                            result.highlightedTitle +
+                                            "</div>"
+                                        }
+                                      })
+                                    ],
+                                    1
                                   ),
-                                  _c("v-runtime-template", {
-                                    attrs: {
-                                      template:
-                                        "<div>" +
-                                        result.highlightedTitle +
-                                        "</div>"
-                                    }
-                                  }),
                                   _vm._v(" "),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                                content:\n                                "
-                                  ),
-                                  _c("v-runtime-template", {
-                                    attrs: {
-                                      template:
-                                        "<div>" +
-                                        result.highlightedContent +
-                                        "</div>"
-                                    }
-                                  })
+                                  _c("hr"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "b-card-text",
+                                    [
+                                      _c("v-runtime-template", {
+                                        attrs: {
+                                          template:
+                                            "<div>" +
+                                            result.highlightedContent +
+                                            "</div>"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
                                 ],
                                 1
                               )
                             }),
-                            0
+                            1
                           )
                         ])
                       : _vm._e()

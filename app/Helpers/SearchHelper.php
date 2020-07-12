@@ -121,7 +121,7 @@ class SearchHelper
             ) > 0
 
             ORDER BY score DESC
-            LIMIT 25";
+            LIMIT 3";
 
         $results = DB::select(DB::raw($sql));
 
@@ -191,7 +191,7 @@ class SearchHelper
             ) > 0
 
             ORDER BY score DESC
-            LIMIT 25";
+            LIMIT 3";
 
         $results = DB::select(DB::raw($sql));
 
@@ -276,7 +276,7 @@ class SearchHelper
                 (" . implode(" + ", $contentSQL) . ")
             ) > 0
             ORDER BY score DESC
-            LIMIT 5";
+            LIMIT 3";
 
         //TODO
         //one known bug is to implement a set ON object properties
@@ -361,7 +361,7 @@ class SearchHelper
                 (" . implode(" + ", $contentSQL) . ")
             ) > 0
             ORDER BY score DESC
-            LIMIT 5";
+            LIMIT 3";
 
         //TODO
         //one known bug is to implement a set ON object properties
@@ -452,7 +452,7 @@ class SearchHelper
                 (" . implode(" + ", $contentSQL) . ")
             ) > 0
             ORDER BY score DESC
-            LIMIT 5";
+            LIMIT 3";
 
         //TODO
         //one known bug is to implement a set ON object properties
@@ -546,7 +546,7 @@ class SearchHelper
                 (" . implode(" + ", $contentSQL) . ")
             ) > 0
             ORDER BY score DESC
-            LIMIT 5";
+            LIMIT 3";
 
         //TODO
         //one known bug is to implement a set ON object properties
@@ -636,7 +636,7 @@ class SearchHelper
                 (" . implode(" + ", $contentSQL) . ")
             ) > 0
             ORDER BY score DESC
-            LIMIT 5";
+            LIMIT 3";
 
         //TODO
         //one known bug is to implement a set ON object properties

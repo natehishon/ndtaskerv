@@ -78,7 +78,7 @@ class Task extends Model
                 $newSubTask = new SubTask();
                 $newSubTask->title = $subTask['title'];
                 $newSubTask->content_html = $subTask['content_html'];
-                $newSubTask->content = strip_tags($subTask['content']);
+                $newSubTask->content = strip_tags($subTask['content_html']);
 
                 $newSubTask->media_type = "image";
 
@@ -98,7 +98,7 @@ class Task extends Model
 
                 $newSubTask->title = $subTask['title'];
                 $newSubTask->content_html = $subTask['content_html'];
-                $newSubTask->content = strip_tags($subTask['content']);
+                $newSubTask->content = strip_tags($subTask['content_html']);
                 $newSubTask->media_type = "image";
             }
 

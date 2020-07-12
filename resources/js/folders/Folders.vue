@@ -91,7 +91,7 @@
                     </b-col>
                     <b-col cols="2">
                         <div class="search-button-container">
-                            <b-button size="md" @click="search()" variant="primary" class="large-button">
+                            <b-button size="md" @click="search()" variant="primary" class="search-button">
                                 search&nbsp;&nbsp;<i class="fas fa-search"></i>
                             </b-button>
                         </div>
@@ -105,109 +105,132 @@
 
                         <div class="tasks-container" v-if="searchResponse.folders.length > 0">
                             folders:
-                            <ul class="search-list">
-                                <li v-for="(result, index) in searchResponse.folders"
-                                    @click="searchFolderSelect(result)">
-                                    title:
-                                    <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
-                                </li>
-                            </ul>
+                            <div class="search-card-container">
+                                <b-card v-for="(result, index) in searchResponse.folders" style="width: 18rem; cursor: pointer" :key="index" >
+
+                                    <b-card-text class="search-card-title">
+                                        <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
+                                    </b-card-text>
+
+                                </b-card>
+                            </div>
                         </div>
 
                         <div class="search-result-container">
                             <div class="tasks-container" v-if="searchResponse.tasks.length > 0">
                                 tasks:
-                                <ul class="search-list">
-                                    <li v-for="(result, index) in searchResponse.tasks"
-                                        @click="searchTaskSelect(result)">
+                                <div class="search-card-container">
+                                    <b-card v-for="(result, index) in searchResponse.tasks" style="max-width: 18rem; cursor: pointer" :key="index" >
 
-                                        title:
-                                        <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
-                                        <br>
-                                        content:
-                                        <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>
+                                        <b-card-title class="search-card-title">
+                                            <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
+                                        </b-card-title>
+                                        <hr>
 
-                                    </li>
-                                </ul>
+                                        <b-card-text>
+                                            <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>
+                                        </b-card-text>
+
+                                    </b-card>
+                                </div>
+
+<!--                                <ul class="search-list">-->
+<!--                                    <li v-for="(result, index) in searchResponse.tasks"-->
+<!--                                        class="search-list-item"-->
+<!--                                        @click="searchTaskSelect(result)">-->
+
+<!--                                        title:-->
+<!--                                        <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>-->
+<!--                                        <br>-->
+<!--                                        content:-->
+<!--                                        <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>-->
+
+<!--                                    </li>-->
+<!--                                </ul>-->
                             </div>
                         </div>
 
                         <div class="tasks-container" v-if="searchResponse.subTasks.length > 0">
+
                             task steps:
-                            <ul class="search-list">
-                                <li v-for="(result, index) in searchResponse.subTasks"
-                                    @click="searchSubSelect(result)">
-                                    title:
-                                    <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
-                                    <br>
-                                    content:
-                                    <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>
-                                </li>
-                            </ul>
+                            <div class="search-card-container">
+                                <b-card v-for="(result, index) in searchResponse.subTasks" style="width: 18rem; cursor: pointer" :key="index" >
+
+                                    <b-card-title class="search-card-title">
+                                        <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
+                                    </b-card-title>
+                                    <hr>
+
+                                    <b-card-text>
+                                        <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>
+                                    </b-card-text>
+
+                                </b-card>
+                            </div>
+
                         </div>
 
                         <div class="tasks-container" v-if="searchResponse.jots.length > 0">
                             jots:
-                            <ul class="search-list">
-                                <li v-for="(result, index) in searchResponse.jots"
-                                    @click="jotSelect(result)">
-                                    title:
-                                    <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
-                                    <br>
-                                    content:
-                                    <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>
-                                </li>
-                            </ul>
+                            <div class="search-card-container">
+                                <b-card v-for="(result, index) in searchResponse.jots" style="width: 18rem; cursor: pointer" :key="index" >
+
+                                    <b-card-title class="search-card-title">
+                                        <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
+                                    </b-card-title>
+                                    <hr>
+
+                                    <b-card-text>
+                                        <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>
+                                    </b-card-text>
+
+                                </b-card>
+                            </div>
                         </div>
 
                         <div class="tasks-container" v-if="searchResponse.jotConvo.length > 0">
                             jot conversation:
-                            <ul class="search-list">
-                                <li v-for="(result, index) in searchResponse.jotConvo"
-                                    @click="jotConvoSelect(result)">
-                                    content:
-                                    <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>
-                                </li>
-                            </ul>
+                            <div class="search-card-container">
+                                <b-card v-for="(result, index) in searchResponse.jotConvo" style="width: 18rem; cursor: pointer" :key="index" >
+
+                                    <b-card-title class="search-card-title">
+                                        <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
+                                    </b-card-title>
+                                    <hr>
+
+                                    <b-card-text>
+                                        <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>
+                                    </b-card-text>
+
+                                </b-card>
+                            </div>
                         </div>
 
                         <div class="tasks-container" v-if="searchResponse.jargons.length > 0">
                             jargons:
-                            <ul class="search-list">
-                                <li v-for="(result, index) in searchResponse.jargons"
-                                    @click="jargonSelect(result)">
-                                    title:
-                                    <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
-                                    <br>
-                                    content:
-                                    <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>
-                                </li>
-                            </ul>
+                            <div class="search-card-container">
+                                <b-card v-for="(result, index) in searchResponse.jargons" style="width: 18rem; cursor: pointer" :key="index" >
+
+                                    <b-card-title class="search-card-title">
+                                        <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
+                                    </b-card-title>
+                                    <hr>
+
+                                    <b-card-text>
+                                        <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>
+                                    </b-card-text>
+
+                                </b-card>
+                            </div>
                         </div>
 
                     </b-col>
                 </b-row>
 
-                <!--                <form enctype="multipart/form-data">-->
-                <!--                    <div class="row">-->
-                <!--                        <div class="col-xs-12">-->
-                <!--                            <div class="form-group">-->
-                <!--                                <label for="title">Title</label>-->
-                <!--                                <input type="text" class="form-control"-->
-                <!--                                       v-model="newFolder.title">-->
-                <!--                            </div>-->
-
-                <!--                            <div class="form-group">-->
-                <!--                                <label>folder image</label>-->
-                <!--                                <input type="file" ref="file" @change="selectFolderFiles"/>-->
-                <!--                            </div>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </form>-->
             </div>
 
             <template v-slot:modal-footer>
-                <b-button size="md" @click="close" variant="secondary" class="large-button">
+                <b-button size="md" @click="close" variant="secondary" class="search-button">
                     cancel&nbsp;&nbsp;<i class="fas fa-times "></i>
                 </b-button>
             </template>
@@ -563,6 +586,11 @@
 
 <style lang="scss">
 
+    .search-button{
+        font-size: 1.2rem
+    }
+
+
     .search-list {
         list-style-type: none;
 
@@ -676,11 +704,31 @@
     }
 
     .highlightText {
-        background: yellow;
+        background: #3490dc;
+        color: white;
     }
 
     .type-class {
         max-width: 60px;
+    }
+
+    .search-list-item{
+        cursor: pointer;
+    }
+
+    .search-card-title{
+        font-weight: 700;
+    }
+
+    .search-card-container{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .tasks-container{
+        margin-bottom: 10px;
     }
 
 </style>
