@@ -77,8 +77,19 @@
 
         <b-modal
             id="searchModal" size="xl"
-            title="search"
+
         >
+            <template v-slot:modal-title>
+                search
+                <i id="search-pop" class="fas fa-info-circle" style="font-size: 20px; cursor: pointer"></i>
+                <b-popover target="search-pop" triggers="hover blur" placement="top">
+                    <b-row>
+                        <b-col xs="12">
+                            <span>search for something, you can click on your section to open it.</span>
+                        </b-col>
+                    </b-row>
+                </b-popover>
+            </template>
             <div class="container-fluid search-component">
                 <b-row>
                     <b-col cols="9" offset-sm="1" class="search-form-container">
@@ -106,7 +117,7 @@
                         <div class="tasks-container" v-if="searchResponse.folders.length > 0">
                             folders:
                             <div class="search-card-container">
-                                <b-card v-for="(result, index) in searchResponse.folders" style="width: 18rem; cursor: pointer" :key="index" >
+                                <b-card v-for="(result, index) in searchResponse.folders" style="width: 18rem; cursor: pointer" :key="index" @click="searchFolderSelect(result)" >
 
                                     <b-card-text class="search-card-title">
                                         <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
@@ -120,7 +131,7 @@
                             <div class="tasks-container" v-if="searchResponse.tasks.length > 0">
                                 tasks:
                                 <div class="search-card-container">
-                                    <b-card v-for="(result, index) in searchResponse.tasks" style="max-width: 18rem; cursor: pointer" :key="index" >
+                                    <b-card v-for="(result, index) in searchResponse.tasks" style="max-width: 18rem; cursor: pointer" :key="index" @click="searchTaskSelect(result)">
 
                                         <b-card-title class="search-card-title">
                                             <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
@@ -154,7 +165,7 @@
 
                             task steps:
                             <div class="search-card-container">
-                                <b-card v-for="(result, index) in searchResponse.subTasks" style="width: 18rem; cursor: pointer" :key="index" >
+                                <b-card v-for="(result, index) in searchResponse.subTasks" style="width: 18rem; cursor: pointer" :key="index" @click="searchSubSelect(result)" >
 
                                     <b-card-title class="search-card-title">
                                         <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
@@ -173,7 +184,7 @@
                         <div class="tasks-container" v-if="searchResponse.jots.length > 0">
                             jots:
                             <div class="search-card-container">
-                                <b-card v-for="(result, index) in searchResponse.jots" style="width: 18rem; cursor: pointer" :key="index" >
+                                <b-card v-for="(result, index) in searchResponse.jots" style="width: 18rem; cursor: pointer" :key="index" @click="jotSelect(result)">
 
                                     <b-card-title class="search-card-title">
                                         <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
@@ -191,12 +202,7 @@
                         <div class="tasks-container" v-if="searchResponse.jotConvo.length > 0">
                             jot conversation:
                             <div class="search-card-container">
-                                <b-card v-for="(result, index) in searchResponse.jotConvo" style="width: 18rem; cursor: pointer" :key="index" >
-
-                                    <b-card-title class="search-card-title">
-                                        <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
-                                    </b-card-title>
-                                    <hr>
+                                <b-card v-for="(result, index) in searchResponse.jotConvo" style="width: 18rem; cursor: pointer" :key="index" @click="jotConvoSelect(result)">
 
                                     <b-card-text>
                                         <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>
@@ -209,7 +215,7 @@
                         <div class="tasks-container" v-if="searchResponse.jargons.length > 0">
                             jargons:
                             <div class="search-card-container">
-                                <b-card v-for="(result, index) in searchResponse.jargons" style="width: 18rem; cursor: pointer" :key="index" >
+                                <b-card v-for="(result, index) in searchResponse.jargons" style="width: 18rem; cursor: pointer" :key="index"  @click="jargonSelect(result)">
 
                                     <b-card-title class="search-card-title">
                                         <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
@@ -353,6 +359,15 @@
             },
 
             searchFolderSelect(result) {
+                console.log(result);
+                console.log(this.$router.currentRoute.path);
+
+                if("/"+result.fullSlug == this.$router.currentRoute.path){
+                    this.$bvModal.hide("searchModal");
+                    return;
+
+                }
+
                 if (this.$router.currentRoute.path === "/") {
                     this.$router.replace({path: `${result.fullSlug}`});
                     // this.$router.push({ path: `${result.fullSlug}`, params: {test: result.id}})

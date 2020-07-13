@@ -22,14 +22,14 @@
   <component name="ChangeListManager">
     <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/SearchHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/SearchHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Task.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/service-worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/FolderTree.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/FolderTree.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/ManageUserFolders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/ManageUserFolders.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/folders/Folders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/folders/Folders.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/jargons/Jargon.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jargons/Jargon.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/jots/UserJots.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jots/UserJots.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
@@ -246,7 +246,7 @@
       <workItem from="1592241851504" duration="9066000" />
       <workItem from="1592620720318" duration="15016000" />
       <workItem from="1592958720211" duration="99555000" />
-      <workItem from="1594507584876" duration="3596000" />
+      <workItem from="1594507584876" duration="12865000" />
     </task>
     <servers />
   </component>
@@ -305,10 +305,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="371" y="112" key="#phpunit.xml/0.23.1440.877@0.23.1440.877" timestamp="1590443758840" />
-    <state x="100" y="123" width="1240" height="677" key="DiffContextDialog" timestamp="1593989407765">
+    <state x="100" y="123" width="1240" height="677" key="DiffContextDialog" timestamp="1594569929598">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="100" y="123" width="1240" height="677" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1593989407765" />
+    <state x="100" y="123" width="1240" height="677" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1594569929598" />
     <state x="376" y="194" key="NewPhpClassDialog" timestamp="1592086685100">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -325,14 +325,14 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1591585096105" />
-    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1594509478509">
+    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1594598037838">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1594509478509" />
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1594510346187">
+    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1594598037838" />
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1594599388666">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1594510346187" />
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1594599388666" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

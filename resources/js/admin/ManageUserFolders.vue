@@ -103,6 +103,7 @@
                     //add to
                     this.userFolders = response.data.folders;
                     this.taskList = response.data.tasks;
+                    this.refreshFolders();
 
                     //show success and close
                     this.$bvModal.hide("parentFolderID");

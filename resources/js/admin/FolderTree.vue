@@ -205,6 +205,7 @@
                     // this.taskList = response.data.tasks;
 
 
+                    this.refreshFolders();
                     let obName = "successModal" + folder.id;
                     let ref = this.$refs[obName];
                     //:id="'childFolder' + folder.id

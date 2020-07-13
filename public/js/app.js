@@ -3804,6 +3804,8 @@ __webpack_require__.r(__webpack_exports__);
         //add to
         // this.currentFolders = response.data.folders;
         // this.taskList = response.data.tasks;
+        _this2.refreshFolders();
+
         var obName = "successModal" + folder.id;
         var ref = _this2.$refs[obName]; //:id="'childFolder' + folder.id
 
@@ -4291,7 +4293,10 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('folders/' + this.$route.params.id, formData).then(function (response) {
         //add to
         _this.userFolders = response.data.folders;
-        _this.taskList = response.data.tasks; //show success and close
+        _this.taskList = response.data.tasks;
+
+        _this.refreshFolders(); //show success and close
+
 
         _this.$bvModal.hide("parentFolderID"); // this.$bvModal.show("parent-folder-success-id");
 
@@ -5221,6 +5226,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5339,6 +5350,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     searchFolderSelect: function searchFolderSelect(result) {
       var _this = this;
+
+      console.log(result);
+      console.log(this.$router.currentRoute.path);
+
+      if ("/" + result.fullSlug == this.$router.currentRoute.path) {
+        this.$bvModal.hide("searchModal");
+        return;
+      }
 
       if (this.$router.currentRoute.path === "/") {
         this.$router.replace({
@@ -6601,6 +6620,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var v_runtime_template__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! v-runtime-template */ "./node_modules/v-runtime-template/dist/v-runtime-template.es.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -44897,7 +44943,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".jargon-image {\n  max-width: 100px;\n  max-height: 100px;\n}\n\n/*.jargon-button{*/\n/*    color: blue;*/\n/*    background-color: white;*/\n/*}*/\n/*.jargon-button{*/\n/*    color: blue;*/\n/*    background-color: white;*/\n/*}*/\n.jargon {\n  display: inline-block;\n}\n.jargon .slot-wrapper {\n  font-weight: 700;\n}", ""]);
+exports.push([module.i, ".jargon-image {\n  max-width: 100px;\n  max-height: 100px;\n}\n\n/*.jargon-button{*/\n/*    color: blue;*/\n/*    background-color: white;*/\n/*}*/\n/*.jargon-button{*/\n/*    color: blue;*/\n/*    background-color: white;*/\n/*}*/\n.jargon {\n  display: inline-block;\n}\n.jargon .slot-wrapper {\n  font-weight: 700;\n}\n.jargon p {\n  margin: 0;\n}", ""]);
 
 // exports
 
@@ -44954,7 +45000,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".content-class div {\n  display: inline-block;\n}", ""]);
+exports.push([module.i, ".jot-page {\n  font-size: 1.25rem;\n  font-weight: 600;\n}\n.jot-page .jot-top-container {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -webkit-box-pack: center;\n          justify-content: center;\n  margin-bottom: 30px;\n}\n.jot-page .jotable-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  flex-wrap: nowrap;\n  -webkit-box-pack: center;\n          justify-content: center;\n}\n.jot-page .jot-convo-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  flex-wrap: nowrap;\n  -webkit-box-pack: center;\n          justify-content: center;\n}\n.jot-page .jot-convo-container .jot-stats {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  flex-wrap: nowrap;\n  -webkit-box-pack: center;\n          justify-content: center;\n}\n.content-class {\n  display: -webkit-box;\n  display: flex;\n}\n.content-class div {\n  display: inline-block;\n}\n.manager-chat {\n  -webkit-box-pack: end;\n          justify-content: flex-end;\n}\n.user-response {\n  border: 4px solid #3490dc;\n}\n.manager-response {\n  border: 4px solid #38c172;\n}\n.jot-convo {\n  width: 300px;\n  /*margin: 5px auto;*/\n  margin-bottom: 10px;\n  padding: 5px;\n  text-align: left;\n  font-weight: 900;\n  position: relative;\n}\n.jot-convo p {\n  margin: 0;\n}\n.sb5:before {\n  content: \"\";\n  width: 0px;\n  height: 0px;\n  position: absolute;\n  border-left: 10px solid #38c172;\n  border-right: 10px solid transparent;\n  border-top: 10px solid #38c172;\n  border-bottom: 10px solid transparent;\n  right: -20px;\n  top: 6px;\n}\n.sb5:after {\n  content: \"\";\n  width: 0px;\n  height: 0px;\n  position: absolute;\n  border-left: 7px solid #fff;\n  border-right: 7px solid transparent;\n  border-top: 7px solid #fff;\n  border-bottom: 7px solid transparent;\n  right: -11px;\n  top: 10px;\n}\n.sb6:before {\n  content: \"\";\n  width: 0px;\n  height: 0px;\n  position: absolute;\n  border-left: 10px solid transparent;\n  border-right: 10px solid #3490dc;\n  border-top: 10px solid #3490dc;\n  border-bottom: 10px solid transparent;\n  left: -21px;\n  top: 6px;\n}\n.sb6:after {\n  content: \"\";\n  width: 0px;\n  height: 0px;\n  position: absolute;\n  border-left: 7px solid transparent;\n  border-right: 7px solid #fff;\n  border-top: 7px solid #fff;\n  border-bottom: 7px solid transparent;\n  left: -11px;\n  top: 10px;\n}\n.jot-content-container {\n  /*max-width: 200px;*/\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: nowrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n}\n.comment-button-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  -webkit-box-align: start;\n          align-items: flex-start;\n  margin-top: 20px;\n}", ""]);
 
 // exports
 
@@ -59803,8 +59849,49 @@ var render = function() {
       _c(
         "b-modal",
         {
-          attrs: { id: "searchModal", size: "xl", title: "search" },
+          attrs: { id: "searchModal", size: "xl" },
           scopedSlots: _vm._u([
+            {
+              key: "modal-title",
+              fn: function() {
+                return [
+                  _vm._v("\n                search\n                "),
+                  _c("i", {
+                    staticClass: "fas fa-info-circle",
+                    staticStyle: { "font-size": "20px", cursor: "pointer" },
+                    attrs: { id: "search-pop" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "b-popover",
+                    {
+                      attrs: {
+                        target: "search-pop",
+                        triggers: "hover blur",
+                        placement: "top"
+                      }
+                    },
+                    [
+                      _c(
+                        "b-row",
+                        [
+                          _c("b-col", { attrs: { xs: "12" } }, [
+                            _c("span", [
+                              _vm._v(
+                                "search for something, you can click on your section to open it."
+                              )
+                            ])
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]
+              },
+              proxy: true
+            },
             {
               key: "modal-footer",
               fn: function() {
@@ -59828,6 +59915,7 @@ var render = function() {
           ])
         },
         [
+          _vm._v(" "),
           _c(
             "div",
             { staticClass: "container-fluid search-component" },
@@ -59928,6 +60016,11 @@ var render = function() {
                                   staticStyle: {
                                     width: "18rem",
                                     cursor: "pointer"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.searchFolderSelect(result)
+                                    }
                                   }
                                 },
                                 [
@@ -59975,6 +60068,11 @@ var render = function() {
                                     staticStyle: {
                                       "max-width": "18rem",
                                       cursor: "pointer"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.searchTaskSelect(result)
+                                      }
                                     }
                                   },
                                   [
@@ -60039,6 +60137,11 @@ var render = function() {
                                   staticStyle: {
                                     width: "18rem",
                                     cursor: "pointer"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.searchSubSelect(result)
+                                    }
                                   }
                                 },
                                 [
@@ -60102,6 +60205,11 @@ var render = function() {
                                   staticStyle: {
                                     width: "18rem",
                                     cursor: "pointer"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.jotSelect(result)
+                                    }
                                   }
                                 },
                                 [
@@ -60165,27 +60273,14 @@ var render = function() {
                                   staticStyle: {
                                     width: "18rem",
                                     cursor: "pointer"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.jotConvoSelect(result)
+                                    }
                                   }
                                 },
                                 [
-                                  _c(
-                                    "b-card-title",
-                                    { staticClass: "search-card-title" },
-                                    [
-                                      _c("v-runtime-template", {
-                                        attrs: {
-                                          template:
-                                            "<div>" +
-                                            result.highlightedTitle +
-                                            "</div>"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c("hr"),
-                                  _vm._v(" "),
                                   _c(
                                     "b-card-text",
                                     [
@@ -60228,6 +60323,11 @@ var render = function() {
                                   staticStyle: {
                                     width: "18rem",
                                     cursor: "pointer"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.jargonSelect(result)
+                                    }
                                   }
                                 },
                                 [
@@ -61344,22 +61444,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {},
+    { staticClass: "jot-page" },
     [
-      _c(
-        "b-button",
-        {
-          staticClass: "mb-3 large-button",
-          attrs: { size: "lg", variant: "success" },
-          on: {
-            click: function($event) {
-              return _vm.comment()
-            }
-          }
-        },
-        [_c("i", { staticClass: "fas fa-plus " }), _vm._v(" comment\n    ")]
-      ),
-      _vm._v(" "),
       _c(
         "b-modal",
         {
@@ -61467,65 +61553,143 @@ var render = function() {
       ),
       _vm._v(" "),
       _vm.jot
-        ? _c(
-            "div",
-            [
-              _c("div", { staticClass: "jot-top-container" }, [
+        ? _c("div", { staticClass: "jot-top-container" }, [
+            _c(
+              "div",
+              { staticClass: "stat-container" },
+              [
                 _c(
-                  "div",
-                  { staticClass: "jot-stats" },
+                  "b-card",
+                  {
+                    staticStyle: { "min-width": "350px" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "header",
+                          fn: function() {
+                            return [
+                              _c("h5", { staticClass: "mb-0" }, [
+                                _vm._v(
+                                  "inital jot asked by " +
+                                    _vm._s(_vm.jot.user.name)
+                                )
+                              ])
+                            ]
+                          },
+                          proxy: true
+                        }
+                      ],
+                      null,
+                      false,
+                      929678616
+                    )
+                  },
                   [
-                    _vm._v(
-                      "\n                jot user: " + _vm._s(_vm.jot.user.name)
-                    ),
-                    _c("br"),
-                    _vm._v(
-                      "\n                jot title: " + _vm._s(_vm.jot.title)
-                    ),
-                    _c("br"),
-                    _vm._v("\n                jot content:\n                "),
-                    _c("v-runtime-template", {
-                      attrs: {
-                        template: "<div>" + _vm.jot.content_html + "</div>"
-                      }
-                    })
+                    _vm._v(" "),
+                    _c("b-card-title", [_vm._v(_vm._s(_vm.jot.title))]),
+                    _vm._v(" "),
+                    _c(
+                      "b-card-text",
+                      [
+                        _c("v-runtime-template", {
+                          staticStyle: { display: "inline-block" },
+                          attrs: {
+                            template: "<div>" + _vm.jot.content_html + "</div>"
+                          }
+                        })
+                      ],
+                      1
+                    )
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _vm.jot.jotable
-                  ? _c("div", { staticClass: "jotable" })
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.jot.jot_responses, function(response, index) {
-                return _c(
+                _c(
                   "div",
-                  { staticClass: "content-class" },
+                  { staticClass: "follow-up-container" },
                   [
-                    _vm._v(
-                      "\n            " +
-                        _vm._s(response.user.name) +
-                        ":\n            "
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c(
+                      "b-button",
+                      {
+                        staticClass: "mb-4 mt-2 large-button",
+                        attrs: { size: "lg", variant: "success" },
+                        on: {
+                          click: function($event) {
+                            return _vm.comment()
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-plus " }),
+                        _vm._v(" comment\n                ")
+                      ]
                     ),
-                    _c("v-runtime-template", {
-                      attrs: {
-                        template: "<div>" + response.content_html + "</div>"
-                      }
+                    _vm._v(" "),
+                    _vm._l(_vm.jot.jot_responses, function(response, index) {
+                      return _c(
+                        "div",
+                        {
+                          staticClass: "content-class",
+                          class: {
+                            "manager-chat": response.user_id != _vm.jot.user_id
+                          }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "jot-convo speech-bubble",
+                              class: {
+                                "user-response sb6":
+                                  response.user_id == _vm.jot.user_id,
+                                "manager-response sb5":
+                                  response.user_id != _vm.jot.user_id
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(response.user.name) +
+                                  ":\n                        "
+                              ),
+                              _c("v-runtime-template", {
+                                attrs: {
+                                  template:
+                                    "<div>" + response.content_html + "</div>"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ]
+                      )
                     })
                   ],
-                  1
+                  2
                 )
-              })
-            ],
-            2
-          )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "jot-convo-container" })
+          ])
         : _vm._e()
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "comment-button-container" }, [
+      _c("span", [_vm._v("jot question follow up:")])
+    ])
+  }
+]
 render._withStripped = true
 
 
