@@ -313,6 +313,7 @@
             },
             taskClose() {
                 this.subTaskCopy = this.task.sub_task
+                this.currentSlide = 0;
                 this.$router.push(this.$route.path)
             },
             choose(row) {

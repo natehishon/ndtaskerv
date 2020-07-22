@@ -17,7 +17,7 @@
 
                 <div class="image-container" v-if="sub_task.media_type === 'image'">
                     <b-img center v-bind:src="sub_task.image_url" @click="openNewTab(sub_task.image_url)" fluid
-                           style="cursor: pointer; max-height: 400px;"></b-img>
+                           style="cursor: pointer; max-height: 200px;"></b-img>
                 </div>
 
                 <div class="video-container" v-if="sub_task.media_type === 'video'">
