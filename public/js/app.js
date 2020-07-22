@@ -3541,7 +3541,8 @@ __webpack_require__.r(__webpack_exports__);
         content: "",
         content_html: "",
         fileKey: "",
-        file: ""
+        file: "",
+        active: true
       };
       this.$bvModal.hide("modalNewID");
     },
@@ -57528,7 +57529,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                            new sub task  "
+                            "\n                            new task step  "
                           ),
                           _c("i", { staticClass: "fas fa-plus " })
                         ]

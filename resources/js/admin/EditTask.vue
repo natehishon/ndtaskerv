@@ -149,7 +149,7 @@
                         </b-modal>
 
                         <b-button size="lg" @click="createSubTask()" class="" variant="primary">
-                            new sub task&nbsp;&nbsp;<i class="fas fa-plus "></i>
+                            new task step&nbsp;&nbsp;<i class="fas fa-plus "></i>
                         </b-button>
 
                     </div>
@@ -303,7 +303,8 @@
                     content: "",
                     content_html: "",
                     fileKey: "",
-                    file: ""
+                    file: "",
+                    active: true
                 }
                 this.$bvModal.hide("modalNewID");
             },
