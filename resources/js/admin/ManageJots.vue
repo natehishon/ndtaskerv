@@ -17,7 +17,7 @@
                     <span>{{getJotType(data.value)}}</span>
                 </template>
 
-                <template v-slot:cell(jotCount)="data">
+                <template v-slot:cell(jot_count)="data">
                     <b-badge variant="primary" class="mr-1">
                         {{data.value}}
                     </b-badge>
@@ -75,7 +75,7 @@
                         },
                     },
                     {
-                        jotCount: {
+                        jot_count: {
                             label: 'unread jots'
                         },
                     },

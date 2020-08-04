@@ -64,7 +64,7 @@ class JotController extends Controller
 
 //        $collected = array_merge($subTasks->toArray());
 
-        return $subTasks->get(['jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at', 'users.name as user', DB::raw('count(jot_audits.id) as jotCount')]);
+        return $subTasks->get(['jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at', 'users.name as user', DB::raw('count(jot_audits.id) as jot_count')]);
 
     }
 
