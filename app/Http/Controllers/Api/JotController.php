@@ -51,7 +51,7 @@ class JotController extends Controller
                 $q->on('jots.id', '=', 'jot_audits.jot_id')
                     ->where('jot_audits.read', '=', '0')
                     ->where('jot_audits.is_admin', '=', '0');
-            })->groupBy('jots.id');
+            })->groupBy('jots.id', 'users.name');
 
 //        $tasks = Jot::query()->orderBy('jots.created_at')
 //            ->leftJoin('users', function ($q) {
