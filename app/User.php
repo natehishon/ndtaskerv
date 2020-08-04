@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
@@ -81,6 +82,40 @@ class User extends Authenticatable implements JWTSubject
     public function searchHistory()
     {
         return $this->hasMany(SearchHistory::class, 'user_id');
+    }
+
+    public function jotAuditCount()
+    {
+        if ($this->isAdmin) {
+            return JotAudit::query()->where('read', '=', false)->where('is_admin', '=', 0)->count();
+        } else {
+
+            $userId = $this->id;
+
+//            return DB::table('jot_audits')
+//                ->select(
+//                    DB::raw(
+//                        'COUNT(jot_audits.id)'
+//                    )
+//                )->leftJoin(
+//                    'tab_medicos_as_areas_de_atuacao',
+//                    'tab_medicos_as_areas_de_atuacao.rel_area_atuacao_id',
+//                    '=',
+//                    'tab_areas_atuacoes.esp_id'
+//                )->whereNull('deleted_at')
+//                ->groupBy('tab_areas_atuacoes.esp_id'));
+
+            $query = JotAudit::query()
+                ->join('jots', function ($q) {
+                    $q->on('jots.id', '=', 'jot_audits.jot_id')
+                        ->where('jots.user_id', '=', $this->id);
+                        })
+                ->where('jot_audits.read', '=', 0)
+                ->where('jot_audits.is_admin', '=', 1)
+                ->count();
+
+            return $query;
+        }
     }
 
 

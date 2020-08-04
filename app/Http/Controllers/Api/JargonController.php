@@ -55,6 +55,7 @@ class JargonController extends Controller
             $path = $request->file('image')->store('images', 's3');
             $storageName = basename($path);
 //            $jargon->filename = $storageName;
+            $jargon->filename = $request->file('image')->getClientOriginalName();
             $jargon->image_url = Storage::disk('s3')->url($path);
         }
 
@@ -76,6 +77,7 @@ class JargonController extends Controller
             $path = $request->file('image')->store('images', 's3');
             $storageName = basename($path);
 //            $jargon->filename = $storageName;
+            $jargon->filename = $request->file('image')->getClientOriginalName();
             $jargon->image_url = Storage::disk('s3')->url($path);
         }
 

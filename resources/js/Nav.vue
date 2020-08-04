@@ -6,8 +6,8 @@
                 <i class="fas fa-home home-icon" :class="user.isAdmin ? 'home-admin' : 'home-user'"></i>
             </a>
 
-            <span href="/" class="nav-title">{{getRouteName}}
-                <i id="nav-pop" class="fas fa-info-circle" style="font-size: 20px; cursor: pointer"></i>
+            <span href="/" class="nav-title">
+                <i id="nav-pop" class="fas fa-info-circle" style="font-size: 20px; cursor: pointer"></i>&nbsp;{{getRouteName}}
                 <b-popover target="nav-pop" triggers="hover blur" placement="top">
 
             <b-row>
@@ -34,7 +34,11 @@
                         <b-dropdown-item href="/manage-tasks">manage tasks</b-dropdown-item>
                         <b-dropdown-item href="/manage-users">manage users</b-dropdown-item>
                         <!--                        <b-dropdown-item href="/prebuilt-folders">prebuilt folders</b-dropdown-item>-->
-                        <b-dropdown-item href="/manage-jots">manage jots</b-dropdown-item>
+                        <b-dropdown-item href="/manage-jots">manage jots
+                            <b-badge variant="primary" class="mr-1" v-if="user.isAdmin">
+                                {{user.jots}}
+                            </b-badge>
+                        </b-dropdown-item>
                         <b-dropdown-item href="/manage-jargons">manage jargons</b-dropdown-item>
                     </b-nav-item-dropdown>
 
@@ -44,8 +48,14 @@
                             <span>me</span>
                         </template>
                         <b-dropdown-item href="/profile">edit profile</b-dropdown-item>
-                        <b-dropdown-item href="/jots">check jots</b-dropdown-item>
-                        <b-dropdown-item href="/jargons">check jargons</b-dropdown-item>
+                        <b-dropdown-item href="/jots">
+                            check jots
+                            <b-badge variant="primary" class="mr-1">
+                                {{user.jots}}
+                            </b-badge>
+                        </b-dropdown-item>
+                        <b-dropdown-item href="/jargons">check jargons
+                        </b-dropdown-item>
                         <b-dropdown-item href="#" @click="signOut">sign out</b-dropdown-item>
                     </b-nav-item-dropdown>
                 </b-navbar-nav>
@@ -97,7 +107,12 @@
                         return 'create a new task'
                     case 'newJargon':
                         // code block
+                        this.infoText = "Create a new jargon here: use the content section to describe the jargon term. Add images for additional visual aid.";
                         return 'create a new jargon'
+                    case 'editJargon':
+                        // code block
+                        this.infoText = "Edit an existing jargon here: use the content section to describe the jargon term. Add images for additional visual aid.";
+                        return 'edit jargon'
                     case 'editTask':
                         // code block
                         this.infoText = "Edit an existing task here: the content section will serve as the main description of the task and will be displayed at the beginning of the task(along with the chosen task media). Create task steps to guide a user through this task.";
@@ -189,11 +204,11 @@
         }
     }
 
-    .home-admin{
+    .home-admin {
         width: 153px;
     }
 
-    .home-user{
+    .home-user {
         width: 24px;
         margin-left: 25px;
     }

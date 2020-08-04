@@ -10,7 +10,9 @@ class Jargon extends Model
 
     protected $appends = [
         'searchType',
-        'formattedDate'
+        'formattedDate',
+        'text',
+        'value'
     ];
 
     public function jots()
@@ -25,6 +27,14 @@ class Jargon extends Model
 
     public function getSearchTypeAttribute(){
         return 'App\Jargon';
+    }
+
+    public function getTextAttribute(){
+        return $this->title;
+    }
+
+    public function getValueAttribute(){
+        return $this->title;
     }
 
     public function getFormattedDateAttribute(){

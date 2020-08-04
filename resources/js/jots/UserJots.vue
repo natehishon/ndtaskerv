@@ -44,7 +44,7 @@
 
             <template v-slot:modal-footer>
                 <b-button size="md" @click="addComment()" variant="success">
-                    <i class="fas fa-plus "></i> save
+                    <i class="fas fa-plus "></i>&nbsp;save
                 </b-button>
             </template>
         </b-modal>
@@ -81,7 +81,7 @@
                         <span>jot question follow up:</span>
                     </div>
                     <b-button size="lg" @click="comment()" class="mb-4 mt-2 large-button" variant="success">
-                        <i class="fas fa-plus "></i> comment
+                        <i class="fas fa-plus "></i>&nbsp;comment
                     </b-button>
                     <div v-for="(response, index) in jot.jot_responses" class="content-class"
                          v-bind:class="{ 'manager-chat':response.user_id != jot.user_id }">
@@ -155,7 +155,6 @@
 
                         this.jot = response.data.data;
                         this.jotComment = null;
-                        console.log(this.jot);
                         this.$bvModal.hide("userJot");
 
                     }).catch(err => {
@@ -225,11 +224,11 @@
     }
 
     .user-response {
-        border: 4px solid #3490dc;
+        border: 4px solid #5e869f;
     }
 
     .manager-response {
-        border: 4px solid #38c172;
+        border: 4px solid #599492;
     }
 
     .jot-convo {
@@ -251,9 +250,9 @@
         width: 0px;
         height: 0px;
         position: absolute;
-        border-left: 10px solid #38c172;
+        border-left: 10px solid #599492;
         border-right: 10px solid transparent;
-        border-top: 10px solid #38c172;
+        border-top: 10px solid #599492;
         border-bottom: 10px solid transparent;
         right: -20px;
         top: 6px;
@@ -278,8 +277,8 @@
         height: 0px;
         position: absolute;
         border-left: 10px solid transparent;
-        border-right: 10px solid #3490dc;
-        border-top: 10px solid #3490dc;
+        border-right: 10px solid #5e869f;
+        border-top: 10px solid #5e869f;
         border-bottom: 10px solid transparent;
         left: -21px;
         top: 6px;

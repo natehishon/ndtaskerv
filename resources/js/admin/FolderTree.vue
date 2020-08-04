@@ -13,8 +13,9 @@
                     <span class="when-closed">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                     </span>
-                    <b-badge variant="primary" class="mr-1">folder&nbsp;&nbsp;<i
-                        class="fas fa-folder fa-fw"></i></b-badge>
+                    <b-badge variant="primary" class="mr-1">
+                        <i class="fas fa-folder fa-fw"></i>&nbsp;folder
+                    </b-badge>
                     {{folder.title}}
                 </span>
                 <b-dropdown no-caret variant="light">
@@ -22,11 +23,14 @@
                         <i class="fas fa-ellipsis-h" style="font-size: 18px;"></i>&nbsp;&nbsp;<span
                         style="font-size: 18px">edit</span>
                     </template>
-                    <b-dropdown-item @click="newChildFolderModal(folder)">add folder&nbsp;&nbsp;<i
-                        class="far fa-folder"></i></b-dropdown-item>
-                    <b-dropdown-item @click="newChildTask(folder)">add task&nbsp;&nbsp;<i class="fas fa-list"></i>
+                    <b-dropdown-item @click="newChildFolderModal(folder)">
+                        <i class="far fa-folder"></i>&nbsp;add folder
                     </b-dropdown-item>
-                    <b-dropdown-item @click="deleteFolder(folder)">delete&nbsp;&nbsp;<i class="fas fa-trash"></i>
+                    <b-dropdown-item @click="newChildTask(folder)">
+                        <i class="fas fa-list"></i>&nbsp;add task
+                    </b-dropdown-item>
+                    <b-dropdown-item @click="deleteFolder(folder)">
+                        <i class="fas fa-trash"></i>&nbsp;delete
                     </b-dropdown-item>
                 </b-dropdown>
                 <b-collapse :id="'folder'+folder.id" class="folder-tree-ul ">
@@ -34,7 +38,7 @@
                         <li v-for="taskTracking in folder.task_trackings">
                             <span class="task mb-2">
                                 <b-badge variant="info" class="mr-1">
-                                    task&nbsp;&nbsp;<i class="fas fa-list fa-fw"></i>
+                                    <i class="fas fa-list fa-fw"></i>&nbsp;task
                                 </b-badge>
                             {{taskTracking.tasks.title}}
                             </span>
@@ -43,8 +47,8 @@
                                     <i class="fas fa-ellipsis-h" style="font-size: 18px;"></i>&nbsp;&nbsp;<span
                                     style="font-size: 18px">edit</span>
                                 </template>
-                                <b-dropdown-item @click="deleteTracking(taskTracking)">delete&nbsp;&nbsp;<i
-                                    class="fas fa-trash"></i></b-dropdown-item>
+                                <b-dropdown-item @click="deleteTracking(taskTracking)"><i
+                                    class="fas fa-trash"></i>&nbsp;delete</b-dropdown-item>
                             </b-dropdown>
                         </li>
                     </ul>

@@ -92,7 +92,7 @@
 
                     <template v-slot:modal-footer>
                         <b-button size="md" @click="addNewTask()" variant="success">
-                            <i class="fas fa-plus "></i> save
+                            <i class="fas fa-plus "></i>&nbsp;save
                         </b-button>
                     </template>
                 </b-modal>

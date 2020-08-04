@@ -41,10 +41,12 @@
                         <froala :tag="'textarea'" :key="'nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2=='" :attribution="false" :config="config" v-model="content"></froala>
                     </div>
 
-                    <b-button class="float-right large-button "  size="xl" type="submit" variant="success">ask&nbsp;&nbsp;<i
-                        class="fas fa-comment"></i></b-button>
-                    <b-button class="float-right large-button mr-2 " @click="backJot" size="xl" variant="secondary">back&nbsp;&nbsp;<i
-                        class="fas fa-chevron-left"></i></b-button>
+                    <b-button class="float-right large-button "  size="xl" type="submit" variant="success">
+                        <i class="fas fa-comment"></i>&nbsp;ask
+                    </b-button>
+                    <b-button class="float-right large-button mr-2 " @click="backJot" size="xl" variant="secondary">
+                        <i class="fas fa-chevron-left"></i>&nbsp;back
+                    </b-button>
                 </b-form>
             </b-col>
         </b-row>
@@ -143,6 +145,8 @@
                 axios.post('jots', formData).then(response => {
 
                     this.$bvModal.hide("jotModal");
+
+                    console.log('1');
 
                     this.showSuccess()
                     // this.$refs.jotSuccessId.show();

@@ -7,10 +7,12 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Jargon;
 use App\Jot;
+use App\JotAudit;
 use App\JotResponse;
 use App\SubTask;
 use App\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class JotController extends Controller
@@ -19,7 +21,15 @@ class JotController extends Controller
     public function index()
     {
         $user = JWTAuth::user();
-        return Jot::query()->where("user_id", "=", $user->id)->orderBy('created_at')->get();
+        return Jot::query()
+            ->where("user_id", "=", $user->id)
+            ->orderBy('created_at')
+            ->leftJoin('jot_audits', function ($q) {
+                $q->on('jots.id', '=', 'jot_audits.jot_id')
+                    ->where('jot_audits.read', '=', '0')
+                    ->where('jot_audits.is_admin', '=', '1');})
+            ->groupBy('jots.id')
+            ->get(['jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at', DB::raw('count(jot_audits.id) as jotCount')]);
 
     }
 
@@ -31,13 +41,17 @@ class JotController extends Controller
             })
             ->leftJoin('sub_tasks', function ($q) {
                 $q->on('jots.jotable_id', '=', 'sub_tasks.id')
-                ->where('jots.jotable_type', '=', 'App\SubTask');
+                    ->where('jots.jotable_type', '=', 'App\SubTask');
             })
-
             ->leftJoin('tasks', function ($q) {
                 $q->on('jots.jotable_id', '=', 'tasks.id')
                     ->where('jots.jotable_type', '=', 'App\Task');
-            });
+            })
+            ->leftJoin('jot_audits', function ($q) {
+                $q->on('jots.id', '=', 'jot_audits.jot_id')
+                    ->where('jot_audits.read', '=', '0')
+                    ->where('jot_audits.is_admin', '=', '0');
+            })->groupBy('jots.id');
 
 //        $tasks = Jot::query()->orderBy('jots.created_at')
 //            ->leftJoin('users', function ($q) {
@@ -50,7 +64,7 @@ class JotController extends Controller
 
 //        $collected = array_merge($subTasks->toArray());
 
-        return $subTasks->get(['jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at', 'users.name as user']);
+        return $subTasks->get(['jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at', 'users.name as user', DB::raw('count(jot_audits.id) as jotCount')]);
 
     }
 
@@ -58,6 +72,23 @@ class JotController extends Controller
     {
 
         $jot = Jot::query()->with('jotResponses')->with('jotable')->with('user')->findOrFail($id);
+
+        $user = JWTAuth::user();
+
+        if($user->isAdmin){
+            //if admin mark all user audits for this jot as read
+            $jotAudits = JotAudit::query()->where('jot_id', '=', $jot->id)->where('is_admin', '=', 0)->get();
+        } else {
+            //if user mark all admin audits for this jot as read
+            $jotAudits = JotAudit::query()->where('jot_id', '=', $jot->id)->where('is_admin', '=', 1)->get();
+        }
+
+        foreach ($jotAudits as $jotAudit) {
+            $jotAudit->read = 1;
+            $jotAudit->save();
+        }
+
+
 
         return [
             "data" => $jot,
@@ -82,6 +113,14 @@ class JotController extends Controller
 
         $jot = Jot::query()->with('jotResponses')->with('user')->findOrFail($id);
 
+        $jotAudit = new JotAudit();
+        $jotAudit->author()->associate($user);
+        $jotAudit->jot()->associate($jot);
+        if ($user->isAdmin === 1) {
+            $jotAudit->is_admin = 1;
+        }
+        $jotAudit->save();
+
         return [
             "data" => $jot,
         ];
@@ -101,6 +140,7 @@ class JotController extends Controller
         $jot->content = $content;
 
 
+
         if ($request->input('jotable')) {
             switch ($request->input('jotable')['searchType']) {
                 case "App\SubTask":
@@ -118,8 +158,15 @@ class JotController extends Controller
             }
         }
 
-
         $jot->save();
+
+        $jotAudit = new JotAudit();
+        $jotAudit->author()->associate($user);
+        $jotAudit->jot()->associate($jot);
+        if ($user->isAdmin === 1) {
+            $jotAudit->is_admin = 1;
+        }
+        $jotAudit->save();
 
 
         return $jot;

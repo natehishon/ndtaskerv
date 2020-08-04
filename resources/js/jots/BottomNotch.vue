@@ -5,8 +5,8 @@
         <div v-if="currentSlide != null">
 
             <b-button variant="info" id="show-btn" @click="showModal" class="large-button">
-                question/comment
-                <i class="fas fa-comment fa-fw"></i></b-button>
+                <i class="fas fa-comment fa-fw"></i>&nbsp;question/comment
+            </b-button>
 
             <b-modal id="jotModal" ref="jotModal" hide-footer size="lg">
                 <template v-slot:modal-title>
@@ -63,6 +63,7 @@
                 this.$refs['jotModal'].show()
             },
             showSuccess(){
+                console.log("here");
                 this.$refs.jotSuccessId.show();
             },
             changeTitle(event) {

@@ -14,7 +14,9 @@
 
                     <div class="form-group">
                         <label>task content</label>
+                        {{task.content_html}}
                         <froala :tag="'textarea'" attribution="false"
+                                ref="editor"
                                 key="nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2=="
                                 :key="'nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2=='"
                                 :attribution="false" :config="{
@@ -25,19 +27,34 @@
                                                     '#1C7A90', '#249CB8', '#4ABED9', '#FBD75B', '#FBE571', '#FFFFFF'
                                                 ],
                                                 quickInsertTags: [],
-                                                toolbarButtons: ['paragraphFormat', 'bold', 'italic', 'strikeThrough', 'textColor', 'formatOL', 'formatUL', 'clearFormatting', 'link', 'unlink', 'myButton', 'image', 'blockquote', 'html'],
+                                                toolbarButtons: ['paragraphFormat', 'bold', 'italic', 'strikeThrough', 'textColor', 'formatOL', 'formatUL', 'clearFormatting', 'link', 'unlink', 'myButton', 'image', 'blockquote',],
                                                 paragraphFormatSelection: true,
                                                 refreshAfterCallback: true,
                                                 htmlUntouched: true,
                                                 htmlAllowedTags: ['.*', 'jargon'],
-                                                htmlRemoveTags: ['']
+                                                htmlRemoveTags: [''],
+
                                                  }" v-model="task.content_html"></froala>
 
                     </div>
 
+                    <div class="form-group">
+                        <b-form-select v-model="selectedJargon" :options="jargons">
+                            <template v-slot:first>
+                                <b-form-select-option :value="null" disabled>select a jargon
+                                </b-form-select-option>
+                            </template>
+                        </b-form-select>
+                        <!--                        <b-form-select v-model="selectedJargon" :options="jargons"></b-form-select>-->
+                    </div>
+
 
                     <b-button size="lg" @click="submitTask($event)" class="mb-3" variant="success">
-                        save&nbsp;&nbsp;<i class="fas fa-save "></i>
+                        <i class="fas fa-save "></i>&nbsp;&nbsp;save
+                    </b-button>
+
+                    <b-button size="lg" @click="addJargon()" class="mb-3" variant="success">
+                        <i class="fas fa-save "></i>&nbsp;&nbsp;add jargon
                     </b-button>
 
                 </b-col>
@@ -80,7 +97,7 @@
                                                     '#1C7A90', '#249CB8', '#4ABED9', '#FBD75B', '#FBE571', '#FFFFFF'
                                                 ],
                                                 quickInsertTags: [],
-                                                toolbarButtons: ['paragraphFormat', 'bold', 'italic', 'strikeThrough', 'textColor', 'formatOL', 'formatUL', 'clearFormatting', 'link', 'unlink', 'myButton', 'image', 'blockquote', 'html'],
+                                                toolbarButtons: ['paragraphFormat', 'bold', 'italic', 'strikeThrough', 'textColor', 'formatOL', 'formatUL', 'clearFormatting', 'link', 'unlink', 'myButton', 'image', 'blockquote',],
                                                 paragraphFormatSelection: true,
                                                 refreshAfterCallback: true,
                                                 htmlUntouched: true,
@@ -102,7 +119,7 @@
 
                             <template v-slot:modal-footer>
                                 <b-button size="md" @click="newSubTaskAdded()" variant="success" class="large-button">
-                                    <i class="fas fa-plus "></i> add
+                                    <i class="fas fa-plus "></i>&nbsp;add
                                 </b-button>
                             </template>
                         </b-modal>
@@ -134,7 +151,7 @@
                                                     '#1C7A90', '#249CB8', '#4ABED9', '#FBD75B', '#FBE571', '#FFFFFF'
                                                 ],
                                                 quickInsertTags: [],
-                                                toolbarButtons: ['paragraphFormat', 'bold', 'italic', 'strikeThrough', 'textColor', 'formatOL', 'formatUL', 'clearFormatting', 'link', 'unlink', 'myButton', 'image', 'blockquote', 'html'],
+                                                toolbarButtons: ['paragraphFormat', 'bold', 'italic', 'strikeThrough', 'textColor', 'formatOL', 'formatUL', 'clearFormatting', 'link', 'unlink', 'myButton', 'image', 'blockquote',],
                                                 paragraphFormatSelection: true,
                                                 refreshAfterCallback: true,
                                                 htmlUntouched: true,
@@ -163,11 +180,8 @@
                         </b-modal>
 
                         <b-button size="lg" @click="createSubTask()" class="" variant="primary">
-                            new task step&nbsp;&nbsp;<i class="fas fa-plus "></i>
+                            <i class="fas fa-plus "></i>&nbsp;new task
                         </b-button>
-
-
-
 
 
                     </div>
@@ -190,16 +204,20 @@
                             {{ element.title }}
 
                             <div>
-                                <span class="handle" style="cursor: pointer">sort&nbsp;<i class="fas fa-arrows-alt"></i></span>
+                                <span class="handle" style="cursor: pointer">
+                                    <i class="fas fa-arrows-alt"></i>&nbsp;sort
+                                </span>
                                 <b-dropdown no-caret variant="white" right>
                                     <template v-slot:button-content>
-                                        <span style="font-size: 18px">options</span>
-                                        &nbsp;<i class="fas fa-ellipsis-h" style="font-size: 18px;"></i>
+                                        <i class="fas fa-ellipsis-h" style="font-size: 18px;"></i>
+                                        &nbsp;<span style="font-size: 18px">options</span>
                                     </template>
-                                    <b-dropdown-item @click="editSubTasker(index)">edit task step&nbsp;&nbsp;<i
-                                        class="fas fa-edit"></i></b-dropdown-item>
-                                    <b-dropdown-item @click="deleteSubTask(index)">delete task step&nbsp;&nbsp;<i
-                                        class="fas fa-trash"></i></b-dropdown-item>
+                                    <b-dropdown-item @click="editSubTasker(index)">
+                                        <i class="fas fa-edit"></i>&nbsp;edit task step
+                                    </b-dropdown-item>
+                                    <b-dropdown-item @click="deleteSubTask(index)">
+                                        <i class="fas fa-trash"></i>&nbsp;delete task step
+                                    </b-dropdown-item>
                                 </b-dropdown>
                             </div>
 
@@ -243,8 +261,13 @@
         },
         data() {
             return {
+                selectedJargon: null,
+                jargons: [
+                    {value: 'placeholder', text: 'placeholder'},
+                ],
                 task: {
-                    sub_task: []
+                    sub_task: [],
+                    content_html: ""
                 },
                 newSubTask: {
                     title: null,
@@ -273,7 +296,7 @@
                         '#1C7A90', '#249CB8', '#4ABED9', '#FBD75B', '#FBE571', '#FFFFFF'
                     ],
                     quickInsertTags: [],
-                    toolbarButtons: ['paragraphFormat', 'bold', 'italic', 'strikeThrough', 'textColor', 'formatOL', 'formatUL', 'clearFormatting', 'link', 'unlink', 'myButton', 'image', 'blockquote', 'html'],
+                    toolbarButtons: ['paragraphFormat', 'bold', 'italic', 'strikeThrough', 'textColor', 'formatOL', 'formatUL', 'clearFormatting', 'link', 'unlink', 'myButton', 'image', 'blockquote',],
                     paragraphFormatSelection: true,
                     refreshAfterCallback: true,
                     htmlUntouched: true,
@@ -282,7 +305,18 @@
                 }
             }
         },
-        // props: ['id'],
+
+        created() {
+
+            axios.get('/jargons').then(response => {
+                this.jargons = response.data.data;
+            }).catch(err => {
+
+                },
+            )
+
+        },
+
         methods: {
             subTaskEdited() {
                 if (this.editSubTask.file) {
@@ -318,7 +352,7 @@
                 this.newSubTask = {
                     title: null,
                     content: "",
-                    content_html: "",
+                    content_html: " ",
                     fileKey: "",
                     file: "",
                     active: true
@@ -344,9 +378,13 @@
             deleteSubTask(index) {
                 this.task.sub_task[index].active = false;
             },
+            addJargon() {
+                if(this.selectedJargon){
+                    // editor.html.insert(this.task.content_html + '<jargon>' + this.selectedJargon + '</jargon> ', false);
+                    this.task.content_html = this.task.content_html + '<jargon>' + this.selectedJargon + '</jargon>&nbsp;';
+                }
+            },
             submitTask(event) {
-
-                console.log(this.task)
 
                 event.preventDefault();
                 const formData = new FormData();
@@ -358,9 +396,6 @@
                         formData.append(value.fileKey, value.file);
                     })
                 }
-
-                console.log(this.task);
-                // this.task.content = this.strippedContent(this.task.content_html)
 
                 formData.append('task', JSON.stringify(this.task));
 

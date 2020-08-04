@@ -20,6 +20,7 @@ class CreateJargonsTable extends Migration
             $table->text('content_html');
             $table->string('color');
             $table->string('image_url')->nullable();
+            $table->string('filename')->nullable();
             $table->timestamps();
         });
     }

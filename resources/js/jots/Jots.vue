@@ -14,6 +14,12 @@
                     <span>{{getJotType(data.value)}}</span>
                 </template>
 
+                <template v-slot:cell(jotCount)="data">
+                    <b-badge variant="primary" class="mr-1">
+                        {{data.value}}
+                    </b-badge>
+                </template>
+
                 <template v-slot:cell(content)="data">
                     <v-runtime-template :template="'<div>' + data.item.content + '</div>'"/>
                 </template>
@@ -62,6 +68,11 @@
                     {
                         jotable_type: {
                             label: 'jot type'
+                        },
+                    },
+                    {
+                        jotCount: {
+                            label: 'unread jots'
                         },
                     },
                     {

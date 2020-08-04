@@ -16,11 +16,13 @@ class MeController extends Controller
     public function __invoke(Request $request)
     {
         $user = $request->user();
+        $jotCount = $user->jotAuditCount();
 
         return response()->json([
             'email' => $user->email,
             'name' => $user->name,
-            'isAdmin' => $user->isAdmin
+            'isAdmin' => $user->isAdmin,
+            'jots' => $jotCount
         ]);
     }
 }

@@ -20355,36 +20355,111 @@ body {
 }
 
 .bg-warning {
-  background-color: #ffc107 !important;
+  background-color: #cdab52 !important;
+}
+
+.dropdown-item:active {
+  background-color: #5e869f;
+}
+
+.list-group-item-action:hover {
+  background-color: #5e869f;
+  border-color: #5e869f;
+}
+
+.bg-primary {
+  background-color: #5e869f !important;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #5e869f;
+  border-color: #5e869f;
+}
+
+.badge-primary {
+  color: white;
+  background-color: #5e869f;
+  border-color: #5e869f;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #476E8F;
+  border-color: #476E8F;
+}
+
+.btn-primary.focus,
+.btn-primary:focus,
+.btn-primary:hover {
+  color: #fff;
+  background-color: #476E8F;
+  border-color: #476E8F;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #5e869f;
+}
+
+a {
+  color: #5e869f;
 }
 
 .bg-info {
-  background-color: #17a2b8 !important;
+  background-color: #599492 !important;
 }
 
 .btn-info {
   color: white;
-  background-color: #17a2b8;
-  border-color: #17a2b8;
+  background-color: #599492;
+  border-color: #599492;
 }
 
 .badge-info {
   color: white;
-  background-color: #17a2b8;
-  border-color: #17a2b8;
+  background-color: #599492;
+  border-color: #599492;
 }
 
 .btn-info:not(:disabled):not(.disabled):active {
-  background-color: #117a8b;
-  border-color: #10707f;
+  background-color: #497A78;
+  border-color: #497A78;
 }
 
 .btn-info.focus,
 .btn-info:focus,
 .btn-info:hover {
   color: #fff;
-  background-color: #138496;
-  border-color: #117a8b;
+  background-color: #497A78;
+  border-color: #497A78;
+}
+
+.bg-success {
+  background-color: #8b9a71 !important;
+}
+
+.btn-success {
+  color: white;
+  background-color: #8b9a71;
+  border-color: #8b9a71;
+}
+
+.badge-success {
+  color: white;
+  background-color: #8b9a71;
+  border-color: #8b9a71;
+}
+
+.btn-success:not(:disabled):not(.disabled):active {
+  background-color: #6F7A5A;
+  border-color: #6F7A5A;
+}
+
+.btn-success.focus,
+.btn-success:focus,
+.btn-success:hover {
+  color: #fff;
+  background-color: #6F7A5A;
+  border-color: #6F7A5A;
 }
 
 .btn.focus,

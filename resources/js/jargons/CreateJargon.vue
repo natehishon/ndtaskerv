@@ -1,53 +1,43 @@
 <template>
 
-    <b-row>
-        <b-col cols="12">
+    <div class="container-fluid">
+        <form enctype="multipart/form-data" class="way-form">
 
-            <form enctype="multipart/form-data">
+            <b-row>
+                <b-col xs="12" sm="6">
 
-                <!--                <h1>create a task</h1>-->
+                    <div class="form-group">
+                        <label for="title">jargon title</label>
+                        <input type="text" class="form-control"
+                               v-model="newJargon.title">
+                    </div>
 
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" class="form-control"
-                           v-model="newJargon.title">
-                </div>
+                    <div class="form-group">
+                        <label>jargon content</label>
+                        <froala :tag="'textarea'"
+                                :key="'nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2=='"
+                                :attribution="false" :config="config" v-model="newJargon.content_html"></froala>
+                    </div>
 
 
-                <div class="form-group">
-                    <label>Content</label>
-                    <froala :tag="'textarea'" :key="'nQE2uD1C2F2B1A1C1lfedB1bwnC-16ptF-11yoB2F-7ewD-13C3B2E2G2E3B1A1C7E2E2=='" :attribution="false" :config="config" v-model="newJargon.content_html"></froala>
-                </div>
+                    <b-button size="lg" @click="check($event)" class="mb-3" variant="success">
+                        <i class="fas fa-save "></i>&nbsp;&nbsp;save
+                    </b-button>
+                </b-col>
+                <b-col xs="12" sm="6">
+                    <div class="form-group">
+                        <label>jargon media</label><br>
+                        <b-form-file
+                            ref="file-input"
+                            @change="onSelect"
+                        ></b-form-file>
+                    </div>
 
-                <div class="form-group">
-                    <label>Task Image</label>
-                    <input type="file" ref="file" @change="onSelect"/>
-                </div>
-
-                <button class="btn btn-secondary btn-block" @click="check($event)">Save</button>
-
-                <br>
-                <!--                <div class="form-group">-->
-                <!--                    <label>edit sub tasks</label>-->
-                <!--                </div>-->
-
-                <!--                <draggable-->
-                <!--                    :list="myArray"-->
-                <!--                    class="list-group"-->
-                <!--                    ghost-class="ghost"-->
-                <!--                >-->
-                <!--                    <div-->
-                <!--                        class="list-group-item"-->
-                <!--                        v-for="element in myArray"-->
-                <!--                        :key="element.name"-->
-                <!--                    >-->
-                <!--                        {{ element.name }}-->
-                <!--                    </div>-->
-                <!--                </draggable>-->
-
-            </form>
-        </b-col>
-    </b-row>
+                </b-col>
+            </b-row>
+        </form>
+        <success-modal :id="'successID'" :uniqueId="'successModalID'" :ref="'successModal'"></success-modal>
+    </div>
 
 
 </template>
@@ -58,6 +48,7 @@
     import Jargon from '../jargons/Jargon';
     import VRuntimeTemplate from "v-runtime-template";
     import draggable from 'vuedraggable'
+    import SuccessModal from "../miscellaneous/SuccessModal";
 
 
     export default {
@@ -65,7 +56,8 @@
         components: {
             Jargon,
             VRuntimeTemplate,
-            draggable
+            draggable,
+            SuccessModal
         },
 
         data() {
@@ -85,7 +77,7 @@
                         '#1C7A90', '#249CB8', '#4ABED9', '#FBD75B', '#FBE571', '#FFFFFF'
                     ],
                     quickInsertTags: [],
-                    toolbarButtons: ['paragraphFormat', 'bold', 'italic', 'strikeThrough', 'textColor', 'formatOL', 'formatUL', 'clearFormatting', 'link', 'unlink', 'myButton', 'image', 'blockquote', 'html'],
+                    toolbarButtons: ['paragraphFormat', 'bold', 'italic', 'strikeThrough', 'textColor', 'formatOL', 'formatUL', 'clearFormatting', 'link', 'unlink', 'myButton', 'image', 'blockquote',],
                     paragraphFormatSelection: true,
                     refreshAfterCallback: true,
                     htmlUntouched: true,
@@ -109,9 +101,8 @@
             created() {
             },
 
-            onSelect() {
-                const file = this.$refs.file.files[0];;
-                this.file = file;
+            onSelect(event) {
+                this.file = event.target.files[0];
             },
 
             addJargon($event) {
@@ -127,15 +118,14 @@
                 const formData = new FormData();
                 formData.append('image', this.file);
                 for (let property in this.newJargon) {
-                    console.log(property);
-                    console.log(this.newJargon[property]);
                     formData.append(property, this.newJargon[property]);
                 }
 
-                console.log(formData);
+
 
                 axios.post('jargons', formData).then(response => {
-                    console.log(response)
+
+                    this.$refs['successModal'].show()
                 }).catch(err => {
                     console.log(err);
                 });

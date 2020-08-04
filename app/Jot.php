@@ -41,9 +41,4 @@ class Jot extends Model
     }
 
 
-//    public function subTasks()
-//    {
-//        return $this->morphedByMany('App\SubTask', 'jotable');
-//    }
-
 }

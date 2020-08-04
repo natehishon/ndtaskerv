@@ -17,17 +17,23 @@
                     <span>{{getJotType(data.value)}}</span>
                 </template>
 
+                <template v-slot:cell(jotCount)="data">
+                    <b-badge variant="primary" class="mr-1">
+                        {{data.value}}
+                    </b-badge>
+                </template>
+
                 <template v-slot:cell(actions)="data">
                     <b-dropdown no-caret variant="white" class="manage-dropdown">
                         <template v-slot:button-content>
-                            <span style="font-size: 14px">options</span>&nbsp;&nbsp;<i class="fas fa-ellipsis-h"
-                                                                                       style="font-size: 14px;"></i>
+                            <i class="fas fa-ellipsis-h" style="font-size: 14px;"></i>&nbsp;<span style="font-size: 14px">options</span>
                         </template>
-                        <b-dropdown-item @click="checkJot(data.item.id)">check jot&nbsp;&nbsp;<i
-                            class="fas fa-comment"></i>
+                        <b-dropdown-item @click="checkJot(data.item.id)">
+                            <i class="fas fa-comment"></i>&nbsp;check jot
                         </b-dropdown-item>
-                        <b-dropdown-item @click="editJot(data.item.id)">delete jot&nbsp;&nbsp;<i
-                            class="fas fa-trash"></i></b-dropdown-item>
+                        <b-dropdown-item @click="editJot(data.item.id)">
+                            <i class="fas fa-trash"></i>&nbsp;delete jot
+                        </b-dropdown-item>
                     </b-dropdown>
                 </template>
 
@@ -66,6 +72,11 @@
                     {
                         jotable_type: {
                             label: 'jot type'
+                        },
+                    },
+                    {
+                        jotCount: {
+                            label: 'unread jots'
                         },
                     },
                     {

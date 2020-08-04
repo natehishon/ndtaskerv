@@ -8,7 +8,7 @@
                     <v-runtime-template :template="'<div>' + jargon.content_html + '</div>'"/>
                 </div>
                 <b-img v-bind:src="jargon.image_url" @click="openNewTab(jargon.image_url)" fluid
-                       style="cursor: pointer; margin: 0 40px"></b-img>
+                       style="cursor: pointer; margin: 0 40px; max-height: 300px"></b-img>
             </div>
 
 
@@ -18,9 +18,10 @@
 
         </div>
 
-        <div class="mt-10 jargon-jot-container">
+        <div class="mt-5 jargon-jot-container">
             <BottomNotch v-if="jargon" :jargon="jargon"></BottomNotch>
         </div>
+
     </div>
 </template>
 
@@ -45,7 +46,7 @@
         },
         components: {
             VRuntimeTemplate,
-            BottomNotch
+            BottomNotch,
         },
         methods: {},
         created() {
@@ -73,6 +74,8 @@
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
+            width: 100%;
+            justify-content: space-evenly;
         }
     }
 
@@ -81,6 +84,7 @@
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: center;
+
     }
 
 </style>

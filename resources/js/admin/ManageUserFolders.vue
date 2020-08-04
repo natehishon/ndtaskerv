@@ -6,7 +6,7 @@
         <b-col cols="12" class="flex-container">
             <div style="display: inherit">
                 <b-button class="new-folder mb-3" size="lg" @click="newFolderModal()" variant="success">
-                    new parent folder&nbsp;&nbsp;<i class="fas fa-plus "></i>
+                    <i class="fas fa-plus "></i>&nbsp;new parent folder
                 </b-button>
             </div>
             <b-modal
@@ -34,7 +34,7 @@
 
                 <template v-slot:modal-footer >
                     <b-button size="md" @click="addNewFolder()" variant="success" class="large-button">
-                        save&nbsp;&nbsp;<i class="fas fa-plus "></i>
+                        <i class="fas fa-plus "></i>&nbsp;save
                     </b-button>
                 </template>
             </b-modal>

@@ -19,7 +19,7 @@
 
                         <div class="search-container">
                             <b-button size="sm" @click="openSearchModal()" variant="light" class="search-button">
-                                search&nbsp;<i class="fas fa-search"></i>
+                                <i class="fas fa-search"></i>&nbsp;search
                             </b-button>
                         </div>
 
@@ -42,11 +42,11 @@
 
                         <template v-slot:cell(type)="data">
                             <div>
-                                <b-badge variant="info" v-if="data.item.type === 'task'">task&nbsp;&nbsp;<i
-                                    class="fas fa-list fa-fw"></i>
+                                <b-badge variant="info" v-if="data.item.type === 'task'"><i
+                                    class="fas fa-list fa-fw"></i>&nbsp;task
                                 </b-badge>
-                                <b-badge variant="primary" v-if="data.item.type === 'folder'">folder&nbsp;&nbsp;<i
-                                    class="fas fa-folder fa-fw"></i>
+                                <b-badge variant="primary" v-if="data.item.type === 'folder'"><i
+                                    class="fas fa-folder fa-fw"></i>&nbsp;folder
                                 </b-badge>
                                 <!--                                <i v-bind:class="{ 'fas fa-list-alt': data.item.type === 'task', 'fas fa-folder': data.item.type === 'folder' }"></i>-->
                                 <!--                                <span>{{data.item.type}}-->
@@ -92,22 +92,23 @@
             </template>
             <div class="container-fluid search-component">
                 <b-row>
-                    <b-col cols="9" offset-sm="1" class="search-form-container">
+                    <b-col cols="10" offset-sm="1" class="search-form-container">
                         <b-input
                             v-model="searchQuery"
                             class="mb-2 mr-sm-2 mb-sm-0"
                             placeholder="search for something"
                             v-on:keyup.enter="search()"
                         ></b-input>
+                        <b-button style="width: 130px;" size="md" @click="search()" variant="primary" class="search-button">
+                            <i class="fas fa-search"></i>&nbsp;search
+                        </b-button>
                     </b-col>
-                    <b-col cols="2">
-                        <div class="search-button-container">
-                            <b-button size="md" @click="search()" variant="primary" class="search-button">
-                                search&nbsp;&nbsp;<i class="fas fa-search"></i>
-                            </b-button>
-                        </div>
+<!--                    <b-col cols="2">-->
+<!--                        <div class="search-button-container">-->
+<!--                            -->
+<!--                        </div>-->
 
-                    </b-col>
+<!--                    </b-col>-->
                 </b-row>
 
                 <b-row>
@@ -237,7 +238,7 @@
 
             <template v-slot:modal-footer>
                 <b-button size="md" @click="close" variant="secondary" class="search-button">
-                    cancel&nbsp;&nbsp;<i class="fas fa-times "></i>
+                    <i class="fas fa-times"></i>&nbsp;cancel
                 </b-button>
             </template>
         </b-modal>
@@ -720,7 +721,7 @@
     }
 
     .highlightText {
-        background: #3490dc;
+        background: #5e869f;
         color: white;
     }
 

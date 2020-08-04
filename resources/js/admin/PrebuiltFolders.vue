@@ -2,7 +2,7 @@
 
     <div class="">
         <b-button size="lg" @click="prebuiltFolder()" class="mb-3" variant="success">
-            new prebuilt folder&nbsp;&nbsp;<i class="fas fa-plus"></i>
+            <i class="fas fa-plus"></i>&nbsp;new prebuilt folder
         </b-button>
 
         <b-table hover :items="prebuiltFolders" :fields="fields">
