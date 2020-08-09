@@ -84,38 +84,26 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(SearchHistory::class, 'user_id');
     }
 
-    public function jotAuditCount()
+    public function jotAdminCount()
     {
+
         if ($this->isAdmin) {
             return JotAudit::query()->where('read', '=', false)->where('is_admin', '=', false)->count();
-        } else {
-
-            $userId = $this->id;
-
-//            return DB::table('jot_audits')
-//                ->select(
-//                    DB::raw(
-//                        'COUNT(jot_audits.id)'
-//                    )
-//                )->leftJoin(
-//                    'tab_medicos_as_areas_de_atuacao',
-//                    'tab_medicos_as_areas_de_atuacao.rel_area_atuacao_id',
-//                    '=',
-//                    'tab_areas_atuacoes.esp_id'
-//                )->whereNull('deleted_at')
-//                ->groupBy('tab_areas_atuacoes.esp_id'));
-
-            $query = JotAudit::query()
-                ->join('jots', function ($q) {
-                    $q->on('jots.id', '=', 'jot_audits.jot_id')
-                        ->where('jots.user_id', '=', $this->id);
-                        })
-                ->where('jot_audits.read', '=', false)
-                ->where('jot_audits.is_admin', '=', true)
-                ->count();
-
-            return $query;
         }
+
+        return null;
+    }
+
+    public function jotAuditCount()
+    {
+        return JotAudit::query()
+            ->join('jots', function ($q) {
+                $q->on('jots.id', '=', 'jot_audits.jot_id')
+                    ->where('jots.user_id', '=', $this->id);
+            })
+            ->where('jot_audits.read', '=', false)
+            ->where('jot_audits.is_admin', '=', true)
+            ->count();
     }
 
 

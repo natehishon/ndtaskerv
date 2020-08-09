@@ -53,16 +53,6 @@ class JotController extends Controller
                     ->where('jot_audits.is_admin', '=', '0');
             })->groupBy('jots.id', 'users.name');
 
-//        $tasks = Jot::query()->orderBy('jots.created_at')
-//            ->leftJoin('users', function ($q) {
-//                $q->on('users.id', '=', 'jots.user_id');
-//            })
-//            ->leftJoin('tasks', function ($q) {
-//                $q->on('jots.jotable_id', '=', 'tasks.id');
-//            })->where('jots.jotable_type', '=', 'App\Task')
-//            ->get(['jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at', 'users.name as user']);
-
-//        $collected = array_merge($subTasks->toArray());
 
         return $subTasks->get(['jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at', 'users.name as user', DB::raw('count(jot_audits.id) as jot_count')]);
 

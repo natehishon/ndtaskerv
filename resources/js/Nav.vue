@@ -36,7 +36,7 @@
                         <!--                        <b-dropdown-item href="/prebuilt-folders">prebuilt folders</b-dropdown-item>-->
                         <b-dropdown-item href="/manage-jots">manage jots
                             <b-badge variant="primary" class="mr-1" v-if="user.isAdmin">
-                                {{user.jots}}
+                                {{user.adminCount}}
                             </b-badge>
                         </b-dropdown-item>
                         <b-dropdown-item href="/manage-jargons">manage jargons</b-dropdown-item>
