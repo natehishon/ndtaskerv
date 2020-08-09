@@ -15,8 +15,8 @@
 
     <script src="{{ ('js/app.js') }}" defer></script>
 
-    <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
-{{--    <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
+{{--    <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="manifest" href="./manifest.json"/>
     <link href="https://vjs.zencdn.net/7.7.6/video-js.css" rel="stylesheet"/>
 

@@ -360,12 +360,21 @@ body {
             font-size: 1.25rem;
         }
 
+        select{
+            font-size: 1.25rem;
+        }
+
         .input-file{
             padding: 0;
         }
 
         .fr-box.fr-basic .fr-element {
             font-size: 1.25rem;
+        }
+
+        .jargon-select-container{
+            display:flex;
+            flex-direction: row;
         }
 
     }

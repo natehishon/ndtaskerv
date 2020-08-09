@@ -80,8 +80,8 @@
 
         >
             <template v-slot:modal-title>
-                search
                 <i id="search-pop" class="fas fa-info-circle" style="font-size: 20px; cursor: pointer"></i>
+                search
                 <b-popover target="search-pop" triggers="hover blur" placement="top">
                     <b-row>
                         <b-col xs="12">

@@ -20586,12 +20586,24 @@ body {
   font-size: 1.25rem;
 }
 
+.way-form .form-group select {
+  font-size: 1.25rem;
+}
+
 .way-form .form-group .input-file {
   padding: 0;
 }
 
 .way-form .form-group .fr-box.fr-basic .fr-element {
   font-size: 1.25rem;
+}
+
+.way-form .form-group .jargon-select-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
 }
 
 .collapsed > .when-opened,

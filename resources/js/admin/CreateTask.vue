@@ -39,22 +39,23 @@
                     </div>
 
                     <div class="form-group">
-                        <b-form-select v-model="selectedJargon" :options="jargons">
-                            <template v-slot:first>
-                                <b-form-select-option :value="null" disabled>select a jargon
-                                </b-form-select-option>
-                            </template>
-                        </b-form-select>
+                        <div class="jargon-select-container">
+                            <b-form-select v-model="selectedJargon" :options="jargons">
+                                <template v-slot:first>
+                                    <b-form-select-option :value="null" disabled>select a jargon
+                                    </b-form-select-option>
+                                </template>
+                            </b-form-select>
+                            <b-button size="lg" @click="addJargon()" style="min-width: 150px; margin-left:10px" variant="info">
+                                <i class="fas fa-briefcase "></i>&nbsp;&nbsp;add jargon
+                            </b-button>
+                        </div>
                         <!--                        <b-form-select v-model="selectedJargon" :options="jargons"></b-form-select>-->
                     </div>
 
 
                     <b-button size="lg" @click="submitTask($event)" class="mb-3" variant="success">
                         <i class="fas fa-save "></i>&nbsp;&nbsp;save
-                    </b-button>
-
-                    <b-button size="lg" @click="addJargon()" class="mb-3" variant="success">
-                        <i class="fas fa-save "></i>&nbsp;&nbsp;add jargon
                     </b-button>
 
                 </b-col>
@@ -105,6 +106,21 @@
                                                 htmlRemoveTags: ['']
                                                  }"
                                                         v-model="newSubTask.content_html"></froala>
+                                            </div>
+
+<!--                                            1-->
+                                            <div class="form-group">
+                                                <div class="jargon-select-container">
+                                                    <b-form-select v-model="newSubJargon" :options="jargons">
+                                                        <template v-slot:first>
+                                                            <b-form-select-option :value="null" disabled>select a jargon
+                                                            </b-form-select-option>
+                                                        </template>
+                                                    </b-form-select>
+                                                    <b-button size="lg" @click="addNewSubJargon()" style="min-width: 150px; margin-left:10px" variant="info">
+                                                        <i class="fas fa-briefcase "></i>&nbsp;&nbsp;add jargon
+                                                    </b-button>
+                                                </div>
                                             </div>
 
                                             <div class="form-group">
@@ -160,6 +176,20 @@
                                                  }"
                                                         v-model="editSubTask.content_html"></froala>
 
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="jargon-select-container">
+                                                    <b-form-select v-model="editSubJargon" :options="jargons">
+                                                        <template v-slot:first>
+                                                            <b-form-select-option :value="null" disabled>select a jargon
+                                                            </b-form-select-option>
+                                                        </template>
+                                                    </b-form-select>
+                                                    <b-button size="lg" @click="addEditSubJargon()" style="min-width: 150px; margin-left:10px" variant="info">
+                                                        <i class="fas fa-briefcase "></i>&nbsp;&nbsp;add jargon
+                                                    </b-button>
+                                                </div>
                                             </div>
 
                                             <div class="form-group">
@@ -262,6 +292,8 @@
         data() {
             return {
                 selectedJargon: null,
+                newSubJargon: null,
+                editSubJargon: null,
                 jargons: [
                     {value: 'placeholder', text: 'placeholder'},
                 ],
@@ -378,9 +410,18 @@
             deleteSubTask(index) {
                 this.task.sub_task[index].active = false;
             },
+            addEditSubJargon() {
+                if(this.editSubJargon){
+                    this.editSubTask.content_html = this.editSubTask.content_html + '<jargon>' + this.editSubJargon + '</jargon>&nbsp;';
+                }
+            },
+            addNewSubJargon() {
+                if(this.newSubJargon){
+                    this.newSubTask.content_html = this.newSubTask.content_html + '<jargon>' + this.newSubJargon + '</jargon>&nbsp;';
+                }
+            },
             addJargon() {
                 if(this.selectedJargon){
-                    // editor.html.insert(this.task.content_html + '<jargon>' + this.selectedJargon + '</jargon> ', false);
                     this.task.content_html = this.task.content_html + '<jargon>' + this.selectedJargon + '</jargon>&nbsp;';
                 }
             },

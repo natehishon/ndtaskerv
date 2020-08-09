@@ -87,7 +87,7 @@ class User extends Authenticatable implements JWTSubject
     public function jotAuditCount()
     {
         if ($this->isAdmin) {
-            return JotAudit::query()->where('read', '=', false)->where('is_admin', '=', 0)->count();
+            return JotAudit::query()->where('read', '=', false)->where('is_admin', '=', false)->count();
         } else {
 
             $userId = $this->id;
@@ -110,8 +110,8 @@ class User extends Authenticatable implements JWTSubject
                     $q->on('jots.id', '=', 'jot_audits.jot_id')
                         ->where('jots.user_id', '=', $this->id);
                         })
-                ->where('jot_audits.read', '=', 0)
-                ->where('jot_audits.is_admin', '=', 1)
+                ->where('jot_audits.read', '=', false)
+                ->where('jot_audits.is_admin', '=', true)
                 ->count();
 
             return $query;
