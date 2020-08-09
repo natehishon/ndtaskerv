@@ -17,7 +17,7 @@ class MeController extends Controller
     {
         $user = $request->user();
         $jotCount = $user->jotAuditCount();
-        $adminCount = $user->jotAuditCount();
+        $adminCount = $user->jotAdminCount();
 
         return response()->json([
             'adminCount' => $adminCount,
