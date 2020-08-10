@@ -26,8 +26,8 @@ class JotController extends Controller
             ->orderBy('created_at')
             ->leftJoin('jot_audits', function ($q) {
                 $q->on('jots.id', '=', 'jot_audits.jot_id')
-                    ->where('jot_audits.read', '=', '0')
-                    ->where('jot_audits.is_admin', '=', '1');})
+                    ->where('jot_audits.read', '=', false)
+                    ->where('jot_audits.is_admin', '=', true);})
             ->groupBy('jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at')
             ->get(['jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at', DB::raw('count(jot_audits.id) as jotCount')]);
 
