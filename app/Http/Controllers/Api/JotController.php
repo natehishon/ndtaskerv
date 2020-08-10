@@ -28,7 +28,7 @@ class JotController extends Controller
                 $q->on('jots.id', '=', 'jot_audits.jot_id')
                     ->where('jot_audits.read', '=', '0')
                     ->where('jot_audits.is_admin', '=', '1');})
-            ->groupBy('jots.id')
+            ->groupBy('jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at')
             ->get(['jots.id', 'jots.title', 'jots.jotable_type', 'jots.created_at', DB::raw('count(jot_audits.id) as jotCount')]);
 
     }
