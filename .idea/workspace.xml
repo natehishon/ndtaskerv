@@ -21,7 +21,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/MeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/MeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/JotController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/JotController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +243,7 @@
       <workItem from="1595965732846" duration="17570000" />
       <workItem from="1596244312031" duration="6676000" />
       <workItem from="1596438112121" duration="4925000" />
-      <workItem from="1596853089208" duration="3956000" />
+      <workItem from="1596853089208" duration="4830000" />
     </task>
     <servers />
   </component>
@@ -325,10 +326,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1596994840438" />
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1596999517378">
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1597017633529">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1596999517378" />
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1597017633529" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
