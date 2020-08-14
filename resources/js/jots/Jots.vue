@@ -71,7 +71,7 @@
                         },
                     },
                     {
-                        jotCount: {
+                        jot_count: {
                             label: 'unread jots'
                         },
                     },
