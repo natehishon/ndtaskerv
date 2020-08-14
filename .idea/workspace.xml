@@ -22,7 +22,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/JotController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/JotController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/jots/Jots.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jots/Jots.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +244,7 @@
       <workItem from="1596244312031" duration="6676000" />
       <workItem from="1596438112121" duration="4925000" />
       <workItem from="1596853089208" duration="7410000" />
-      <workItem from="1597281361694" duration="1095000" />
+      <workItem from="1597281361694" duration="1455000" />
     </task>
     <servers />
   </component>
@@ -327,10 +327,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1597364349886" />
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1597363924661">
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1597364704742">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1597363924661" />
+    <state x="385" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1597364704742" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
