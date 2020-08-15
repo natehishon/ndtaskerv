@@ -6773,7 +6773,7 @@ __webpack_require__.r(__webpack_exports__);
           label: 'jot type'
         }
       }, {
-        jotCount: {
+        jot_count: {
           label: 'unread jots'
         }
       }, {
@@ -61836,9 +61836,6 @@ var render = function() {
                         key: "modal-title",
                         fn: function() {
                           return [
-                            _vm._v(
-                              "\n                make a jot\n                "
-                            ),
                             _c("i", {
                               staticClass: "fas fa-info-circle",
                               staticStyle: {
@@ -61847,7 +61844,9 @@ var render = function() {
                               },
                               attrs: { id: "jot-pop" }
                             }),
-                            _vm._v(" "),
+                            _vm._v(
+                              "\n                make a jot\n                "
+                            ),
                             _c(
                               "b-popover",
                               {
@@ -61881,7 +61880,7 @@ var render = function() {
                     ],
                     null,
                     false,
-                    3390040069
+                    547294625
                   )
                 },
                 [
@@ -62285,7 +62284,7 @@ var render = function() {
                 }
               },
               {
-                key: "cell(jotCount)",
+                key: "cell(jot_count)",
                 fn: function(data) {
                   return [
                     _c(

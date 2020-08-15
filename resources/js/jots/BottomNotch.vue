@@ -10,8 +10,8 @@
 
             <b-modal id="jotModal" ref="jotModal" hide-footer size="lg">
                 <template v-slot:modal-title>
-                    make a jot
                     <i id="jot-pop" class="fas fa-info-circle" style="font-size: 20px; cursor: pointer"></i>
+                    make a jot
                     <b-popover target="jot-pop" triggers="hover blur" placement="top">
                         <b-row>
                             <b-col xs="12">
