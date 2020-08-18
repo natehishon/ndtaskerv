@@ -47,7 +47,7 @@
                         <template v-slot:button-content>
                             <span>me</span>
                         </template>
-                        <b-dropdown-item href="/profile">edit profile</b-dropdown-item>
+<!--                        <b-dropdown-item href="/profile">edit profile</b-dropdown-item>-->
                         <b-dropdown-item href="/jots">
                             check jots
                             <b-badge variant="primary" class="mr-1">
