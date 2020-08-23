@@ -200,7 +200,7 @@
                         </b-modal>
 
                         <b-button size="lg" @click="createSubTask()" class="" variant="primary">
-                            <i class="fas fa-plus "></i>&nbsp;new task
+                            <i class="fas fa-plus "></i>&nbsp;new task step
                         </b-button>
 
                     </div>

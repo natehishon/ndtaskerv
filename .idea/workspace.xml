@@ -22,7 +22,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Nav.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/CreateTask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/CreateTask.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +246,9 @@
       <workItem from="1596853089208" duration="7410000" />
       <workItem from="1597281361694" duration="1778000" />
       <workItem from="1597473528727" duration="1304000" />
-      <workItem from="1597721547469" duration="575000" />
+      <workItem from="1597721547469" duration="925000" />
+      <workItem from="1597778385715" duration="328000" />
+      <workItem from="1598077291856" duration="636000" />
     </task>
     <servers />
   </component>
@@ -321,10 +323,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1591585096105" />
-    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1597777905406">
+    <state x="421" y="94" width="598" height="735" key="find.popup" timestamp="1598203933782">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1597777905406" />
+    <state x="421" y="94" width="598" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1598203933782" />
     <state x="385" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1597528361696">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
