@@ -130,7 +130,7 @@
 
                             <template v-slot:modal-footer>
                                 <b-button size="md" @click="newSubTaskAdded()" variant="success" class="large-button">
-                                    <i class="fas fa-plus "></i>&nbsp;add
+                                    <i class="fas fa-plus "></i>&nbsp;done
                                 </b-button>
                             </template>
                         </b-modal>
@@ -194,7 +194,7 @@
 
                             <template v-slot:modal-footer>
                                 <b-button size="md" @click="subTaskEdited()" variant="success">
-                                    <i class="fas fa-plus "></i>&nbsp;add
+                                    <i class="fas fa-edit "></i>&nbsp;done
                                 </b-button>
                             </template>
                         </b-modal>

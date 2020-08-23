@@ -454,13 +454,6 @@ class SearchHelper
             ORDER BY score DESC
             LIMIT 3";
 
-        //TODO
-        //one known bug is to implement a set ON object properties
-        //important, should make these models implement a searchable interface
-        //user scope these
-
-        //running the actual query
-
         $results = DB::select(DB::raw($sql));
 
         $models = SubTask::hydrate($results);

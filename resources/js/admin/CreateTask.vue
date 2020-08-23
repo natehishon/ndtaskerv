@@ -135,7 +135,7 @@
 
                             <template v-slot:modal-footer>
                                 <b-button size="md" @click="newSubTaskAdded()" variant="success" class="large-button">
-                                    <i class="fas fa-plus "></i>&nbsp;add
+                                    <i class="fas fa-plus "></i>&nbsp;done
                                 </b-button>
                             </template>
                         </b-modal>
@@ -204,7 +204,7 @@
 
                             <template v-slot:modal-footer>
                                 <b-button size="md" @click="subTaskEdited()" variant="success" class="large-button">
-                                    <i class="fas fa-edit "></i> edit
+                                    <i class="fas fa-edit "></i> done
                                 </b-button>
                             </template>
                         </b-modal>
@@ -441,7 +441,7 @@
                 formData.append('task', JSON.stringify(this.task));
 
                 if (this.task.id) {
-                    axios.post('tasks' + this.task.id, formData).then(response => {
+                    axios.post('tasks/' + this.task.id, formData).then(response => {
 
                         this.task = response.data;
 

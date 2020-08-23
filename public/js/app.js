@@ -3296,7 +3296,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('task', JSON.stringify(this.task));
 
       if (this.task.id) {
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('tasks' + this.task.id, formData).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('tasks/' + this.task.id, formData).then(function (response) {
           _this2.task = response.data;
         })["catch"](function (err) {
           console.log(err);
@@ -56127,7 +56127,7 @@ var render = function() {
                 staticStyle: { "font-size": "20px", cursor: "pointer" },
                 attrs: { id: "nav-pop" }
               }),
-              _vm._v(" " + _vm._s(_vm.getRouteName) + "\n            "),
+              _vm._v(" " + _vm._s(_vm.getRouteName) + "\n                "),
               _c(
                 "b-popover",
                 {
@@ -56206,7 +56206,7 @@ var render = function() {
                                 { attrs: { href: "/manage-jots" } },
                                 [
                                   _vm._v(
-                                    "manage jots\n                        "
+                                    "manage jots\n                            "
                                   ),
                                   _vm.user.isAdmin
                                     ? _c(
@@ -56217,9 +56217,9 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                            " +
+                                            "\n                                " +
                                               _vm._s(_vm.user.adminCount) +
-                                              "\n                        "
+                                              "\n                            "
                                           )
                                         ]
                                       )
@@ -56261,16 +56261,10 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "b-dropdown-item",
-                            { attrs: { href: "/profile" } },
-                            [_vm._v("edit profile")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "b-dropdown-item",
                             { attrs: { href: "/jots" } },
                             [
                               _vm._v(
-                                "\n                        check jots\n                        "
+                                "\n                            check jots\n                            "
                               ),
                               _c(
                                 "b-badge",
@@ -56280,9 +56274,9 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                            " +
+                                    "\n                                " +
                                       _vm._s(_vm.user.jots) +
-                                      "\n                        "
+                                      "\n                            "
                                   )
                                 ]
                               )
@@ -56293,7 +56287,7 @@ var render = function() {
                           _c(
                             "b-dropdown-item",
                             { attrs: { href: "/jargons" } },
-                            [_vm._v("check jargons\n                    ")]
+                            [_vm._v("check jargons\n                        ")]
                           ),
                           _vm._v(" "),
                           _c(
@@ -56781,7 +56775,7 @@ var render = function() {
                                     [
                                       _c("i", { staticClass: "fas fa-plus " }),
                                       _vm._v(
-                                        " add\n                                "
+                                        " done\n                                "
                                       )
                                     ]
                                   )
@@ -57062,7 +57056,7 @@ var render = function() {
                                     [
                                       _c("i", { staticClass: "fas fa-edit " }),
                                       _vm._v(
-                                        " edit\n                                "
+                                        " done\n                                "
                                       )
                                     ]
                                   )
@@ -57333,7 +57327,7 @@ var render = function() {
                         },
                         [
                           _c("i", { staticClass: "fas fa-plus " }),
-                          _vm._v(" new task\n                        ")
+                          _vm._v(" new task step\n                        ")
                         ]
                       )
                     ],
@@ -57768,7 +57762,7 @@ var render = function() {
                                     [
                                       _c("i", { staticClass: "fas fa-plus " }),
                                       _vm._v(
-                                        " add\n                            "
+                                        " done\n                            "
                                       )
                                     ]
                                   )
@@ -58046,9 +58040,9 @@ var render = function() {
                                       }
                                     },
                                     [
-                                      _c("i", { staticClass: "fas fa-plus " }),
+                                      _c("i", { staticClass: "fas fa-edit " }),
                                       _vm._v(
-                                        " add\n                            "
+                                        " done\n                            "
                                       )
                                     ]
                                   )
@@ -58316,7 +58310,7 @@ var render = function() {
                         },
                         [
                           _c("i", { staticClass: "fas fa-plus " }),
-                          _vm._v(" new task\n                    ")
+                          _vm._v(" new task step\n                    ")
                         ]
                       )
                     ],
