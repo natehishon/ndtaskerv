@@ -118,7 +118,7 @@
                         <div class="tasks-container" v-if="searchResponse.folders.length > 0">
                             folders:
                             <div class="search-card-container">
-                                <b-card v-for="(result, index) in searchResponse.folders" style="width: 18rem; cursor: pointer" :key="index" @click="searchFolderSelect(result)" >
+                                <b-card v-for="(result, index) in searchResponse.folders" style="width: 17rem; cursor: pointer" :key="index" @click="searchFolderSelect(result)" >
 
                                     <b-card-text class="search-card-title">
                                         <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
@@ -741,7 +741,10 @@
         display:flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: flex-start;
+        .card{
+            margin-right: 10px;
+        }
     }
 
     .tasks-container{
