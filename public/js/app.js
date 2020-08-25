@@ -60930,7 +60930,7 @@ var render = function() {
                                 {
                                   key: index,
                                   staticStyle: {
-                                    width: "18rem",
+                                    width: "17rem",
                                     cursor: "pointer"
                                   },
                                   on: {
@@ -60998,7 +60998,7 @@ var render = function() {
                                 {
                                   key: index,
                                   staticStyle: {
-                                    width: "18rem",
+                                    width: "17rem",
                                     cursor: "pointer"
                                   },
                                   on: {
@@ -61066,7 +61066,7 @@ var render = function() {
                                 {
                                   key: index,
                                   staticStyle: {
-                                    width: "18rem",
+                                    width: "17rem",
                                     cursor: "pointer"
                                   },
                                   on: {
@@ -61116,7 +61116,7 @@ var render = function() {
                                 {
                                   key: index,
                                   staticStyle: {
-                                    width: "18rem",
+                                    width: "17rem",
                                     cursor: "pointer"
                                   },
                                   on: {

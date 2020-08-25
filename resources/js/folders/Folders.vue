@@ -166,7 +166,7 @@
 
                             task steps:
                             <div class="search-card-container">
-                                <b-card v-for="(result, index) in searchResponse.subTasks" style="width: 18rem; cursor: pointer" :key="index" @click="searchSubSelect(result)" >
+                                <b-card v-for="(result, index) in searchResponse.subTasks" style="width: 17rem; cursor: pointer" :key="index" @click="searchSubSelect(result)" >
 
                                     <b-card-title class="search-card-title">
                                         <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
@@ -185,7 +185,7 @@
                         <div class="tasks-container" v-if="searchResponse.jots.length > 0">
                             jots:
                             <div class="search-card-container">
-                                <b-card v-for="(result, index) in searchResponse.jots" style="width: 18rem; cursor: pointer" :key="index" @click="jotSelect(result)">
+                                <b-card v-for="(result, index) in searchResponse.jots" style="width: 17rem; cursor: pointer" :key="index" @click="jotSelect(result)">
 
                                     <b-card-title class="search-card-title">
                                         <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
@@ -203,7 +203,7 @@
                         <div class="tasks-container" v-if="searchResponse.jotConvo.length > 0">
                             jot conversation:
                             <div class="search-card-container">
-                                <b-card v-for="(result, index) in searchResponse.jotConvo" style="width: 18rem; cursor: pointer" :key="index" @click="jotConvoSelect(result)">
+                                <b-card v-for="(result, index) in searchResponse.jotConvo" style="width: 17rem; cursor: pointer" :key="index" @click="jotConvoSelect(result)">
 
                                     <b-card-text>
                                         <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>
@@ -216,7 +216,7 @@
                         <div class="tasks-container" v-if="searchResponse.jargons.length > 0">
                             jargons:
                             <div class="search-card-container">
-                                <b-card v-for="(result, index) in searchResponse.jargons" style="width: 18rem; cursor: pointer" :key="index"  @click="jargonSelect(result)">
+                                <b-card v-for="(result, index) in searchResponse.jargons" style="width: 17rem; cursor: pointer" :key="index"  @click="jargonSelect(result)">
 
                                     <b-card-title class="search-card-title">
                                         <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
