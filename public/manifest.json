@@ -3,12 +3,12 @@
   "name": "wayfinder",
   "icons": [
     {
-      "src": "/images/pika192.png",
+      "src": "/images/noun_Compass_58312.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/images/pika512.png",
+      "src": "/images/noun_Compass_58312.png",
       "type": "image/png",
       "sizes": "512x512"
     }
