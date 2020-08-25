@@ -60861,7 +60861,7 @@ var render = function() {
                                   {
                                     key: index,
                                     staticStyle: {
-                                      "max-width": "18rem",
+                                      "max-width": "17rem",
                                       cursor: "pointer"
                                     },
                                     on: {

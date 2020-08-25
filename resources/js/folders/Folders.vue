@@ -132,7 +132,7 @@
                             <div class="tasks-container" v-if="searchResponse.tasks.length > 0">
                                 tasks:
                                 <div class="search-card-container">
-                                    <b-card v-for="(result, index) in searchResponse.tasks" style="max-width: 18rem; cursor: pointer" :key="index" @click="searchTaskSelect(result)">
+                                    <b-card v-for="(result, index) in searchResponse.tasks" style="max-width: 17rem; cursor: pointer" :key="index" @click="searchTaskSelect(result)">
 
                                         <b-card-title class="search-card-title">
                                             <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>
