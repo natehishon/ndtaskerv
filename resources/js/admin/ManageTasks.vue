@@ -7,7 +7,7 @@
             <b-button size="lg" @click="newTask()" class="mb-3" variant="success">
                 <i class="fas fa-plus "></i>&nbsp;new task
             </b-button>
-            <b-table hover :items="tasks" :fields="fields">
+            <b-table hover :items="tasks" :fields="fields" :sort-by.sync="sortBy">
                 <template v-slot:cell(actions)="data">
 
                     <b-dropdown no-caret variant="white" class="manage-dropdown">
@@ -52,22 +52,27 @@
         name: 'tasks',
         data() {
             return {
+                sortBy: 'formattedDate',
                 tasks: null,
                 //fields: ['id', 'title', 'content_html', 'created_at', 'actions'],
                 fields: [
                     {
                         title: {
-                            label: 'title'
+                            label: 'title',
+                            sortable: true
+
                         },
                     },
                     {
                         content_html: {
-                            label: 'content'
+                            label: 'content',
+                            sortable: true
                         },
                     },
                     {
                         formattedDate: {
-                            label: 'created date'
+                            label: 'created date',
+                            sortable: true
                         },
                     },
                     {

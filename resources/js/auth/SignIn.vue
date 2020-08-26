@@ -37,10 +37,10 @@
 
                         <div class="sign-in-buttons">
                             <b-button size="lg" type="submit" class="mb-3 mr-2" variant="success">
-                                sign in&nbsp;&nbsp;<i class="fas fa-door-open"></i>
+                                <i class="fas fa-door-open"></i>&nbsp;sign in
                             </b-button>
                             <b-button size="lg" @click="signUp" class="mb-3" variant="info">
-                                sign up&nbsp;&nbsp;<i class="fas fa-user-plus"></i>
+                                <i class="fas fa-user-plus"></i>&nbsp;sign up
                             </b-button>
                         </div>
 
