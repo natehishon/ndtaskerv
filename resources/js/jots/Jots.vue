@@ -62,22 +62,26 @@
                 fields: [
                     {
                         title: {
-                            label: 'jot title'
+                            label: 'jot title',
+                            sortable: true
                         },
                     },
                     {
                         jotable_type: {
-                            label: 'jot type'
+                            label: 'jot type',
+                            sortable: true
                         },
                     },
                     {
                         jot_count: {
-                            label: 'unread jots'
+                            label: 'unread jots',
+                            sortable: true
                         },
                     },
                     {
                         formattedDate: {
-                            label: 'created date'
+                            label: 'created date',
+                            sortable: true
                         },
                     },
                     {
