@@ -7,7 +7,7 @@
             <!--            <b-button size="lg" @click="newTask()" class="mb-3" variant="success">-->
             <!--                <i class="fas fa-plus "></i> new task-->
             <!--            </b-button>-->
-            <b-table hover :items="jots" :fields="fields">
+            <b-table hover :items="jots" :fields="fields" :sort-by.sync="sortBy">
 
                 <template v-slot:cell(content)="data">
                     <v-runtime-template :template="'<div>' + data.item.content_html + '</div>'"/>
@@ -56,32 +56,38 @@
         name: 'manageJots',
         data() {
             return {
+                sortBy: 'formattedDate',
                 jots: null,
                 // fields: ['user', 'title', "Jot Type", 'created_at', 'actions'],
                 fields: [
                     {
                         user: {
-                            label: 'user name'
+                            label: 'user name',
+                            sortable: true
                         },
                     },
                     {
                         title: {
-                            label: 'jot title'
+                            label: 'jot title',
+                            sortable: true
                         },
                     },
                     {
                         jotable_type: {
-                            label: 'jot type'
+                            label: 'jot type',
+                            sortable: true
                         },
                     },
                     {
                         jot_count: {
-                            label: 'unread jots'
+                            label: 'unread jots',
+                            sortable: true
                         },
                     },
                     {
                         formattedDate: {
-                            label: 'created date'
+                            label: 'created date',
+                            sortable: true
                         },
                     },
                     {

@@ -4190,27 +4190,33 @@ __webpack_require__.r(__webpack_exports__);
   name: 'manageJots',
   data: function data() {
     return {
+      sortBy: 'formattedDate',
       jots: null,
       // fields: ['user', 'title', "Jot Type", 'created_at', 'actions'],
       fields: [{
         user: {
-          label: 'user name'
+          label: 'user name',
+          sortable: true
         }
       }, {
         title: {
-          label: 'jot title'
+          label: 'jot title',
+          sortable: true
         }
       }, {
         jotable_type: {
-          label: 'jot type'
+          label: 'jot type',
+          sortable: true
         }
       }, {
         jot_count: {
-          label: 'unread jots'
+          label: 'unread jots',
+          sortable: true
         }
       }, {
         formattedDate: {
-          label: 'created date'
+          label: 'created date',
+          sortable: true
         }
       }, {
         actions: {
@@ -59129,7 +59135,20 @@ var render = function() {
         { attrs: { cols: "12" } },
         [
           _c("b-table", {
-            attrs: { hover: "", items: _vm.jots, fields: _vm.fields },
+            attrs: {
+              hover: "",
+              items: _vm.jots,
+              fields: _vm.fields,
+              "sort-by": _vm.sortBy
+            },
+            on: {
+              "update:sortBy": function($event) {
+                _vm.sortBy = $event
+              },
+              "update:sort-by": function($event) {
+                _vm.sortBy = $event
+              }
+            },
             scopedSlots: _vm._u([
               {
                 key: "cell(content)",
