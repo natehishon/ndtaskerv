@@ -63,6 +63,7 @@
         data() {
             return {
                 // file: "",
+                jargon: {},
                 newJargon: {
                     title: "",
                     // content: "",
@@ -122,15 +123,26 @@
                 }
 
 
+                if (this.jargon.id) {
+                    axios.post('jargons/' + this.jargon.id, formData).then(response => {
 
-                axios.post('jargons', formData).then(response => {
+                        this.jargon = response.data;
+                        this.$refs['successModal'].show()
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                } else {
 
-                    this.$refs['successModal'].show()
-                }).catch(err => {
-                    console.log(err);
-                });
+                    axios.post('jargons', formData).then(response => {
+
+                        this.jargon = response.data;
+                        this.$refs['successModal'].show()
+                    }).catch(err => {
+                        console.log(err);
+                    });
 
 
+                }
             }
         }
 

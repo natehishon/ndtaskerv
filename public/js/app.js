@@ -6005,6 +6005,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       // file: "",
+      jargon: {},
       newJargon: {
         title: "",
         // content: "",
@@ -6054,11 +6055,23 @@ __webpack_require__.r(__webpack_exports__);
         formData.append(property, this.newJargon[property]);
       }
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('jargons', formData).then(function (response) {
-        _this.$refs['successModal'].show();
-      })["catch"](function (err) {
-        console.log(err);
-      });
+      if (this.jargon.id) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('jargons/' + this.jargon.id, formData).then(function (response) {
+          _this.jargon = response.data;
+
+          _this.$refs['successModal'].show();
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      } else {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('jargons', formData).then(function (response) {
+          _this.jargon = response.data;
+
+          _this.$refs['successModal'].show();
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
     }
   }
 });
