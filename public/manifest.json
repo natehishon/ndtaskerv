@@ -3,12 +3,12 @@
   "name": "wayfinder",
   "icons": [
     {
-      "src": "/images/noun_compass.png",
+      "src": "/images/noun_sailing.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/images/noun_compass.png",
+      "src": "/images/noun_sailing.png",
       "type": "image/png",
       "sizes": "512x512"
     }
