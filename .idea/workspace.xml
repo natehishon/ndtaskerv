@@ -20,7 +20,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="" />
+    <list default="true" id="f81dc444-0d99-4589-b288-f1d77f90073f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/jots/Jots.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jots/Jots.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -245,7 +248,7 @@
       <workItem from="1597473528727" duration="1304000" />
       <workItem from="1597721547469" duration="925000" />
       <workItem from="1597778385715" duration="328000" />
-      <workItem from="1598077291856" duration="8998000" />
+      <workItem from="1598077291856" duration="9396000" />
     </task>
     <servers />
   </component>

@@ -6768,6 +6768,7 @@ __webpack_require__.r(__webpack_exports__);
   name: 'jots',
   data: function data() {
     return {
+      sortBy: 'formattedDate',
       jots: null,
       // fields: ['id', 'title', "jotable_type", 'created_at', 'actions'],
       fields: [{
@@ -62219,7 +62220,20 @@ var render = function() {
         { attrs: { cols: "12" } },
         [
           _c("b-table", {
-            attrs: { hover: "", items: _vm.jots, fields: _vm.fields },
+            attrs: {
+              hover: "",
+              items: _vm.jots,
+              fields: _vm.fields,
+              "sort-by": _vm.sortBy
+            },
+            on: {
+              "update:sortBy": function($event) {
+                _vm.sortBy = $event
+              },
+              "update:sort-by": function($event) {
+                _vm.sortBy = $event
+              }
+            },
             scopedSlots: _vm._u([
               {
                 key: "cell(actions)",

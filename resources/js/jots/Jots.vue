@@ -3,7 +3,7 @@
     <b-row>
 
         <b-col cols="12">
-            <b-table  hover :items="jots" :fields="fields">
+            <b-table  hover :items="jots" :fields="fields" :sort-by.sync="sortBy">
                 <template v-slot:cell(actions)="data">
                     <b-button size="sm" >
                         edit
@@ -57,6 +57,7 @@
         name: 'jots',
         data() {
             return {
+                sortBy: 'formattedDate',
                 jots: null,
                 // fields: ['id', 'title', "jotable_type", 'created_at', 'actions'],
                 fields: [
