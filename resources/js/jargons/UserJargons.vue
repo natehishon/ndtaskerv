@@ -3,7 +3,7 @@
     <b-row>
 
         <b-col cols="12">
-            <b-table hover :items="jargons" :fields="fields">
+            <b-table hover :items="jargons" :fields="fields" :sort-by.sync="sortBy">
 
                 <template v-slot:cell(content_html)="data">
                     <v-runtime-template :template="'<div>' + data.item.content_html + '</div>'"/>
@@ -41,17 +41,20 @@
         name: 'userJargons',
         data() {
             return {
+                sortBy: 'formattedDate',
                 jargons: null,
                 // fields: ['title', 'formattedDate', 'actions'],
                 fields: [
                     {
                         title: {
-                            label: 'title'
+                            label: 'title',
+                            sortable: true
                         },
                     },
                     {
                         formattedDate: {
-                            label: 'created date'
+                            label: 'created date',
+                            sortable: true
                         },
                     },
                     {
