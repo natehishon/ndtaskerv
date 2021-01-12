@@ -1,16 +1,8 @@
 <template>
-
-    <div class="">
-
-
+    <div>
         <div class="folder-table mt-4">
             <b-row>
                 <b-col cols="10" offset-sm="1">
-
-                    <!--                    <b-alert show dismissible>-->
-                    <!--                        welcome to wayfinder-->
-                    <!--                    </b-alert>-->
-
                     <div class="breadcrumb-container">
                         <ul class="breadcrumb-ul">
                             <li v-for="(crumb, index) in breadCrumbs" v-if="crumb" @click="crumbClick(index)"><span>{{crumb}}</span>
@@ -48,8 +40,6 @@
                                 <b-badge variant="primary" v-if="data.item.type === 'folder'"><i
                                     class="fas fa-folder fa-fw"></i>&nbsp;folder
                                 </b-badge>
-                                <!--                                <i v-bind:class="{ 'fas fa-list-alt': data.item.type === 'task', 'fas fa-folder': data.item.type === 'folder' }"></i>-->
-                                <!--                                <span>{{data.item.type}}-->
                             </div>
                         </template>
 
@@ -76,9 +66,7 @@
 
 
         <b-modal
-            id="searchModal" size="xl"
-
-        >
+            id="searchModal" size="xl">
             <template v-slot:modal-title>
                 <i id="search-pop" class="fas fa-info-circle" style="font-size: 20px; cursor: pointer"></i>
                 search
@@ -103,12 +91,6 @@
                             <i class="fas fa-search"></i>&nbsp;search
                         </b-button>
                     </b-col>
-<!--                    <b-col cols="2">-->
-<!--                        <div class="search-button-container">-->
-<!--                            -->
-<!--                        </div>-->
-
-<!--                    </b-col>-->
                 </b-row>
 
                 <b-row>
@@ -146,19 +128,6 @@
                                     </b-card>
                                 </div>
 
-<!--                                <ul class="search-list">-->
-<!--                                    <li v-for="(result, index) in searchResponse.tasks"-->
-<!--                                        class="search-list-item"-->
-<!--                                        @click="searchTaskSelect(result)">-->
-
-<!--                                        title:-->
-<!--                                        <v-runtime-template :template="'<div>' + result.highlightedTitle + '</div>'"/>-->
-<!--                                        <br>-->
-<!--                                        content:-->
-<!--                                        <v-runtime-template :template="'<div>' + result.highlightedContent + '</div>'"/>-->
-
-<!--                                    </li>-->
-<!--                                </ul>-->
                             </div>
                         </div>
 

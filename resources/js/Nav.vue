@@ -138,7 +138,7 @@
                         this.infoText = "wayfinder is an application designed to help you succeed at work! Click on folders to open them and click on tasks to launch them. You can also search for something you can't find.";
                         return 'wayfinder'
                     case 'jots':
-                        this.infoText = "Jots(definition: to write or mark down quickly or briefly) are questions or comments about a task, task step, etc. You can click on options > check jots to ask further questions and see response.";
+                        this.infoText = "Jots are questions or comments about a task, task step, etc. You can click on options -> check jots to ask further questions and see response.";
                         return 'jots'
                     case 'userJots':
                         this.infoText = "Here you can see responses to your jots and ask follow up questions.";

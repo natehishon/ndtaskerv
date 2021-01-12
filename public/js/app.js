@@ -2630,7 +2630,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return 'wayfinder';
 
         case 'jots':
-          this.infoText = "Jots(definition: to write or mark down quickly or briefly) are questions or comments about a task, task step, etc. You can click on options > check jots to ask further questions and see response.";
+          this.infoText = "Jots are questions or comments about a task, task step, etc. You can click on options -> check jots to ask further questions and see response.";
           return 'jots';
 
         case 'userJots':
@@ -4078,14 +4078,17 @@ __webpack_require__.r(__webpack_exports__);
   name: 'manageJargons',
   data: function data() {
     return {
+      sortBy: 'formattedDate',
       jargons: null,
       fields: [{
         title: {
-          label: 'title'
+          label: 'title',
+          sortable: true
         }
       }, {
         formattedDate: {
-          label: 'created date'
+          label: 'created date',
+          sortable: true
         }
       }, {
         actions: {
@@ -4324,19 +4327,23 @@ __webpack_require__.r(__webpack_exports__);
   name: 'tasks',
   data: function data() {
     return {
+      sortBy: 'formattedDate',
       tasks: null,
       //fields: ['id', 'title', 'content_html', 'created_at', 'actions'],
       fields: [{
         title: {
-          label: 'title'
+          label: 'title',
+          sortable: true
         }
       }, {
         content_html: {
-          label: 'content'
+          label: 'content',
+          sortable: true
         }
       }, {
         formattedDate: {
-          label: 'created date'
+          label: 'created date',
+          sortable: true
         }
       }, {
         actions: {
@@ -5180,37 +5187,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _task_Task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../task/Task */ "./resources/js/task/Task.vue");
 /* harmony import */ var _jots_BottomNotch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../jots/BottomNotch */ "./resources/js/jots/BottomNotch.vue");
 /* harmony import */ var v_runtime_template__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! v-runtime-template */ "./node_modules/v-runtime-template/dist/v-runtime-template.es.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -6422,15 +6398,18 @@ __webpack_require__.r(__webpack_exports__);
   name: 'userJargons',
   data: function data() {
     return {
+      sortBy: 'formattedDate',
       jargons: null,
       // fields: ['title', 'formattedDate', 'actions'],
       fields: [{
         title: {
-          label: 'title'
+          label: 'title',
+          sortable: true
         }
       }, {
         formattedDate: {
-          label: 'created date'
+          label: 'created date',
+          sortable: true
         }
       }, {
         actions: {
@@ -59032,7 +59011,20 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("b-table", {
-        attrs: { hover: "", items: _vm.jargons, fields: _vm.fields },
+        attrs: {
+          hover: "",
+          items: _vm.jargons,
+          fields: _vm.fields,
+          "sort-by": _vm.sortBy
+        },
+        on: {
+          "update:sortBy": function($event) {
+            _vm.sortBy = $event
+          },
+          "update:sort-by": function($event) {
+            _vm.sortBy = $event
+          }
+        },
         scopedSlots: _vm._u([
           {
             key: "cell(content_html)",
@@ -59333,7 +59325,20 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("b-table", {
-            attrs: { hover: "", items: _vm.tasks, fields: _vm.fields },
+            attrs: {
+              hover: "",
+              items: _vm.tasks,
+              fields: _vm.fields,
+              "sort-by": _vm.sortBy
+            },
+            on: {
+              "update:sortBy": function($event) {
+                _vm.sortBy = $event
+              },
+              "update:sort-by": function($event) {
+                _vm.sortBy = $event
+              }
+            },
             scopedSlots: _vm._u([
               {
                 key: "cell(actions)",
@@ -60238,12 +60243,12 @@ var render = function() {
                               attrs: {
                                 size: "lg",
                                 type: "submit",
-                                variant: "success"
+                                variant: "info"
                               }
                             },
                             [
-                              _vm._v("\n                            sign in  "),
-                              _c("i", { staticClass: "fas fa-door-open" })
+                              _c("i", { staticClass: "fas fa-door-open" }),
+                              _vm._v(" sign in\n                        ")
                             ]
                           ),
                           _vm._v(" "),
@@ -60251,12 +60256,12 @@ var render = function() {
                             "b-button",
                             {
                               staticClass: "mb-3",
-                              attrs: { size: "lg", variant: "info" },
+                              attrs: { size: "lg", variant: "success" },
                               on: { click: _vm.signUp }
                             },
                             [
-                              _vm._v("\n                            sign up  "),
-                              _c("i", { staticClass: "fas fa-user-plus" })
+                              _c("i", { staticClass: "fas fa-user-plus" }),
+                              _vm._v(" sign up\n                        ")
                             ]
                           )
                         ],
@@ -60440,12 +60445,12 @@ var render = function() {
                               attrs: {
                                 size: "lg",
                                 type: "submit",
-                                variant: "success"
+                                variant: "info"
                               }
                             },
                             [
-                              _vm._v("\n                            submit  "),
-                              _c("i", { staticClass: "fas fa-user-plus" })
+                              _c("i", { staticClass: "fas fa-user-plus" }),
+                              _vm._v(" submit\n                        ")
                             ]
                           ),
                           _vm._v(" "),
@@ -60453,12 +60458,12 @@ var render = function() {
                             "b-button",
                             {
                               staticClass: "mb-3",
-                              attrs: { size: "lg", variant: "info" },
+                              attrs: { size: "lg", variant: "success" },
                               on: { click: _vm.signInButton }
                             },
                             [
-                              _vm._v("\n                            sign in  "),
-                              _c("i", { staticClass: "fas fa-door-open" })
+                              _c("i", { staticClass: "fas fa-door-open" }),
+                              _vm._v(" sign in\n                        ")
                             ]
                           )
                         ],
@@ -60504,7 +60509,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {},
     [
       _c(
         "div",
@@ -60556,7 +60560,7 @@ var render = function() {
                           },
                           [
                             _c("i", { staticClass: "fas fa-search" }),
-                            _vm._v(" search\n                            ")
+                            _vm._v(" search\n                        ")
                           ]
                         )
                       ],
@@ -60603,7 +60607,7 @@ var render = function() {
                                           staticClass: "fas fa-list fa-fw"
                                         }),
                                         _vm._v(
-                                          " task\n                                "
+                                          " task\n                            "
                                         )
                                       ]
                                     )
@@ -60618,7 +60622,7 @@ var render = function() {
                                           staticClass: "fas fa-folder fa-fw"
                                         }),
                                         _vm._v(
-                                          " folder\n                                "
+                                          " folder\n                            "
                                         )
                                       ]
                                     )
@@ -60703,7 +60707,7 @@ var render = function() {
                     staticStyle: { "font-size": "20px", cursor: "pointer" },
                     attrs: { id: "search-pop" }
                   }),
-                  _vm._v("\n                search\n                "),
+                  _vm._v("\n            search\n            "),
                   _c(
                     "b-popover",
                     {
@@ -60747,7 +60751,7 @@ var render = function() {
                     },
                     [
                       _c("i", { staticClass: "fas fa-times" }),
-                      _vm._v(" cancel\n                ")
+                      _vm._v(" cancel\n            ")
                     ]
                   )
                 ]
@@ -60815,7 +60819,7 @@ var render = function() {
                         },
                         [
                           _c("i", { staticClass: "fas fa-search" }),
-                          _vm._v(" search\n                        ")
+                          _vm._v(" search\n                    ")
                         ]
                       )
                     ],
@@ -60832,7 +60836,7 @@ var render = function() {
                     _vm.searchResponse.folders.length > 0
                       ? _c("div", { staticClass: "tasks-container" }, [
                           _vm._v(
-                            "\n                            folders:\n                            "
+                            "\n                        folders:\n                        "
                           ),
                           _c(
                             "div",
@@ -60884,7 +60888,7 @@ var render = function() {
                       _vm.searchResponse.tasks.length > 0
                         ? _c("div", { staticClass: "tasks-container" }, [
                             _vm._v(
-                              "\n                                tasks:\n                                "
+                              "\n                            tasks:\n                            "
                             ),
                             _c(
                               "div",
@@ -60953,7 +60957,7 @@ var render = function() {
                     _vm.searchResponse.subTasks.length > 0
                       ? _c("div", { staticClass: "tasks-container" }, [
                           _vm._v(
-                            "\n\n                            task steps:\n                            "
+                            "\n\n                        task steps:\n                        "
                           ),
                           _c(
                             "div",
@@ -61021,7 +61025,7 @@ var render = function() {
                     _vm.searchResponse.jots.length > 0
                       ? _c("div", { staticClass: "tasks-container" }, [
                           _vm._v(
-                            "\n                            jots:\n                            "
+                            "\n                        jots:\n                        "
                           ),
                           _c(
                             "div",
@@ -61089,7 +61093,7 @@ var render = function() {
                     _vm.searchResponse.jotConvo.length > 0
                       ? _c("div", { staticClass: "tasks-container" }, [
                           _vm._v(
-                            "\n                            jot conversation:\n                            "
+                            "\n                        jot conversation:\n                        "
                           ),
                           _c(
                             "div",
@@ -61139,7 +61143,7 @@ var render = function() {
                     _vm.searchResponse.jargons.length > 0
                       ? _c("div", { staticClass: "tasks-container" }, [
                           _vm._v(
-                            "\n                            jargons:\n                            "
+                            "\n                        jargons:\n                        "
                           ),
                           _c(
                             "div",
@@ -61735,7 +61739,20 @@ var render = function() {
         { attrs: { cols: "12" } },
         [
           _c("b-table", {
-            attrs: { hover: "", items: _vm.jargons, fields: _vm.fields },
+            attrs: {
+              hover: "",
+              items: _vm.jargons,
+              fields: _vm.fields,
+              "sort-by": _vm.sortBy
+            },
+            on: {
+              "update:sortBy": function($event) {
+                _vm.sortBy = $event
+              },
+              "update:sort-by": function($event) {
+                _vm.sortBy = $event
+              }
+            },
             scopedSlots: _vm._u([
               {
                 key: "cell(content_html)",
@@ -91782,20 +91799,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var routes = [// {
-//     path: "/",
-//     component: Tasks,
-//     name: "home",
-//     beforeEnter: (to, from, next) => {
-//         if (!store.getters['auth/authenticated']) {
-//             return next({
-//                 name: 'signin'
-//             })
-//         }
-//         next()
-//     }
-// },
-{
+var routes = [{
   path: "/my-tasks",
   component: _taskTrackings_TaskTrackings__WEBPACK_IMPORTED_MODULE_12__["default"],
   name: "mytasks",
@@ -92105,7 +92109,6 @@ var routes = [// {
 }, {
   path: '/*',
   component: _folders_Folders__WEBPACK_IMPORTED_MODULE_18__["default"],
-  // props: (route) => ({ name: route.query.q }),
   props: true,
   name: "home",
   beforeEnter: function beforeEnter(to, from, next) {
