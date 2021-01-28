@@ -48,10 +48,11 @@
                         </b-form-group>
 
                         <div class="sign-in-buttons">
-                            <b-button size="lg" @click="signInButton" class="mb-3" variant="success">
+
+                            <b-button size="lg" @click="signInButton" class="mb-3 mr-2 " variant="success">
                                 <i class="fas fa-door-open"></i>&nbsp;sign in
                             </b-button>
-                            <b-button size="lg" type="submit" class="mb-3 mr-2  " variant="info">
+                            <b-button size="lg" type="submit" class="mb-3  " variant="info">
                                 <i class="fas fa-user-plus"></i>&nbsp;submit
                             </b-button>
                         </div>
