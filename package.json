@@ -9,7 +9,7 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
         "watch-poll": "npm run watch -- --watch-poll",
-        "postinstall": "npm run prod"
+        "postinstall": "npm rebuild node-sass && npm install --unsafe-perm -f node-sass && npm run prod"
     },
     "dependencies": {
         "@babel/core": "^7.12.10",
