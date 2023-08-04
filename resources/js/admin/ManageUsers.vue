@@ -70,6 +70,7 @@
         mounted() {
             const request = axios.get("users").then(response => {
                 this.users = response.data.data;
+                //test
                 // this.loading = false;
             })
         }
